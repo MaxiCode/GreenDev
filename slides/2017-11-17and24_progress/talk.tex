@@ -1,0 +1,150 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{GreenDev}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Eclipse Plugins}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Plugin Development - Java Model}
+  \begin{itemize}
+    \item tutorial about parsing Java Model: 
+    \item is representation of project inside Eclipse
+    \item http://www.vogella.com/tutorials/EclipseJDT/article.html
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Plugin Development - Marker}
+  \begin{itemize}
+    \item tutorial about Markers: 
+    \item http://cubussapiens.hu/tag/markers/
+    \begin{figure}[ht]
+      \includegraphics[width=0.3\textwidth]{marker_example.png}
+      \caption{https://i2.wp.com/cubussapiens.hu/wp-content/uploads/2011/05/eclemma.png}
+      \label{fig3}
+    \end{figure}
+    \item is a new marker type for marking text
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Plugin Development - Marker}
+  \begin{itemize}
+    \item tutorial for predefined marker: \newline http://cubussapiens.hu/2010/11/markers-and-annotations-in-eclipse-for-error-feedback/
+    \item tutorial for marker development: \newline http://www.vogella.com/tutorials/EclipsePlugin/article.html\#exercise-create-markers-for-resources
+    \item eclipse tutorial for markers: \newline https://www.eclipse.org/articles/Article-Mark My Words/mark-my-words.html
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Plugin Development - Marker}
+  \begin{itemize}
+    \item is of type "org.eclipse.core.resources.textmarker"
+    \item has all properties of markers (e.g. $CHAR\_START and CHAR\_END$)
+    \item so start and end of marked area are integers
+    \item Java Model?
+  \end{itemize}
+  \begin{lstlisting}[language=XML]
+<extension
+    id="org.eclipse.slicemarker"
+    name="Slicemarker"
+    point="org.eclipse.core.resources.markers">
+    <super
+        type="org.eclipse.core.resources.textmarker">
+    </super>
+</extension>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}{Plugin Development - AST}
+  \begin{itemize}
+    \item Abstract Syntax Tree
+    \item detailed tree representation of the Java source code
+    \item from there we get $CHAR\_START and CHAR\_END$ of functions
+    \begin{figure}[ht]
+      \includegraphics[width=0.3\textwidth]{java_color}
+      \caption{https://i2.wp.com/cubussapiens.hu/wp-content/uploads/2011/05/eclemma.png}
+      \label{fig3}
+    \end{figure}
+  \end{itemize}
+\end{frame}
+
+
+% ---------------------------------------------------------------------
+\section{Slurm Management}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Slurm Commands}
+  \begin{itemize}
+    \item try out slurm
+  \end{itemize}
+  \lstinputlisting{slurm_commands}
+\end{frame}
+
+\begin{frame}{Hello World Script}
+  \begin{itemize}
+    \item executed hallo world script
+  \end{itemize}
+  \lstinputlisting{helloWorld.sh}
+\end{frame}
+
+
+\begin{frame}{Questions}
+  \begin{itemize}
+    \item how to upload files/folders through ssh
+    \item how to download
+    \item 'rsync' or 'sftp' ?
+    \item get energy report
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Next Steps}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Start Performance Analysis}
+  \begin{itemize}
+    \item find Algorithms
+    \item test them
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}

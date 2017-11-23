@@ -1,0 +1,11 @@
+ssh webermax@snickers.fim.uni-passau.de
+ssh webermax@mozart.fim.uni-passau.de
+
+srun -A anywhere -p anywhere --pty bash -i
+srun -A zmiy -p zmiy --pty bash -i
+-> /scratch/webermax/halloWorld.sh
+
+sbatch -A anywhere -p anywhere --exclusive -J HelloWorld --mail-type=ALL --mail-user=max.weber@uni-weimar.de -o /scratch/webermax/slurmOutput.log /scratch/webermax/helloWorld.sh
+
+squeue -u webermax
+squeue -p zmiy
