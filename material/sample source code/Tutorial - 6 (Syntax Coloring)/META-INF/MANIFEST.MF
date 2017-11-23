@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: VGL Plug-in
+Bundle-SymbolicName: ram.tutorial.editor.VGLPlugin;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: ram.tutorial.editor.vgl.plugin.VGLPlugin
+Bundle-Vendor: Ram Kulkarni
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.views;bundle-version="3.3.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

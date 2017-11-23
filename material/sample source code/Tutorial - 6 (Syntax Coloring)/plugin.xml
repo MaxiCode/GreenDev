@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="ram.tutorial.editor.VGLEditor"
+            default="true"
+            extensions="vgl"
+            icon="icons/sample.gif"
+            id="ram.tutorial.editor.vgl"
+            name="VGL Editor">
+      </editor>
+   </extension>
+
+</plugin>

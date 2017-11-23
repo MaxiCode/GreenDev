@@ -1,0 +1,33 @@
+ /**
+ * JJTree template file created by SF JavaCC plugin 1.5.17+ wizard for JavaCC 1.5.0+
+ */options{  MULTI = true;  STATIC = false;  IGNORE_CASE = true;  COMMON_TOKEN_ACTION = true; //calls commonTokenAction after creating token
+  TOKEN_MANAGER_USES_PARSER = true;  USER_TOKEN_MANAGER = false;  USER_CHAR_STREAM = false;  BUILD_PARSER = true;  BUILD_TOKEN_MANAGER = true;  TRACK_TOKENS = true; //sets first and last token of the node
+  NODE_USES_PARSER = true;  NODE_SCOPE_HOOK = true;  BUILD_NODE_FILES = true;}PARSER_BEGIN(VGLParser)package ram.tutorial.editor.parser;public class VGLParser extends VGLParserBase{}PARSER_END(VGLParser)//  =================================================================
+//  Define the token manager.
+//  =================================================================
+TOKEN_MGR_DECLS :{  void CommonTokenAction(Token t)  {}}SKIP :{  " "| "\t"  //| "\n"  //| "\r"| < "//" (~[ "\n", "\r" ])*    (      "\n"    | "\r"    | "\r\n"    ) >| < "/*" (~[ "*" ])* "*"    (      ~[ "/" ] (~[ "*" ])* "*"    )*    "/" >}TOKEN : /* LITERALS */{  < INTEGER_LITERAL : < DECIMAL_LITERAL > >| < #DECIMAL_LITERAL : [ "1"-"9" ] ([ "0"-"9" ])* >| < #HEX_LITERAL : "0" [ "x", "X" ] ([ "0"-"9", "a"-"f", "A"-"F" ])+ >| < #OCTAL_LITERAL : "0" ([ "0"-"7" ])* >}TOKEN : /* Commands *///This declaration must be before identifier, else thse tokens will
+//be recognized as identifiers
+{  < CANVAS : "CANVAS" >| < POINT : "POINT" >| < LINE : "LINE" >| < CIRCLE : "CIRCLE" >| < BUTTON : "BUTTON" >| < ROTATE : "ROTATE" >| < MESSAGE : "MESSAGE" >| < FUNCTION : "FUNCTION" >}TOKEN : /* IDENTIFIERS */{  < IDENTIFIER :    < LETTER >    (      < LETTER >    | < DIGIT >    )* >| < STR_LITERAL : "\"" ~[ "\n", "\r" ] "\"" >| < #LETTER : [ "_", "a"-"z", "A"-"Z" ] >| < #DIGIT : [ "0"-"9" ] >}TOKEN :{  < EOL :    "\r\n"  | "\r"  | "\n" >}SimpleNode Start() :{}{  (    CommandStatement()  | FunctionDef()  )*  < EOF >  {    return jjtThis;  }}void CommandStatement() #void :{}{    try    {        Command() ((< EOL >) +    |   < EOF >)    }    catch (ParseException pe)    {        skipToLineEnd(pe);    }}void Command() #void :{}{  Canvas()| Point()| Line()| Circle()| FunctionCall()}void Point() :{
+    Token tk = null;
+}{  try  {    < POINT > < INTEGER_LITERAL > < INTEGER_LITERAL >
+
+    tk = < IDENTIFIER >
+    {        jjtThis.setPointName(tk.image);
+    }  }  catch (ParseException pe)  {    skipToLineEnd(pe);  }}void Canvas() :{}{  try  {    < CANVAS > < INTEGER_LITERAL > < INTEGER_LITERAL >  }  catch (ParseException pe)  {    skipToLineEnd(pe);  }}void Circle() :{}{  try  {    < CIRCLE > Numeric()  < IDENTIFIER >  }  catch (ParseException pe)  {    skipToLineEnd(pe);  }}void Line() :{
+    Token tk = null;
+}{  try  {    < LINE > (LOOKAHEAD(3)     < IDENTIFIER >  < IDENTIFIER >
+     tk = < IDENTIFIER >
+     {		         jjtThis.setLineName(tk.image);
+     }  | ( < IDENTIFIER >  < IDENTIFIER >))  }  catch (ParseException pe)  {    skipToLineEnd(pe);  }}void Button() :{}{  try  {    < BUTTON > < INTEGER_LITERAL > < INTEGER_LITERAL > < STR_LITERAL >
+     < IDENTIFIER >  }  catch (ParseException pe)  {    skipToLineEnd(pe);  }}void FunctionCall() :{}{  try  {     < IDENTIFIER > "()"  }  catch (ParseException pe)  {    skipToLineEnd(pe);  }}void FunctionDef() :{
+    Token tk = null;
+}{  try  {    < FUNCTION >
+    tk =  < IDENTIFIER >
+    {	       jjtThis.setFunctionName(tk.image);
+    }
+    (< EOL >) + "{" (< EOL >) + (Command() (< EOL >) +) * "}" (< EOL >) *  }  catch (ParseException pe)  {    skipToLineEnd(pe);  }}ASTIdentifier Identifier() :{}{    try    {        < IDENTIFIER >    }    catch (ParseException pe)    {        jjtThis.setException(pe);
+        throw pe;    }
+
+	    {        return jjtThis;
+    }}void FloatNumeric() #void :{}{  [ < INTEGER_LITERAL > ] "." < INTEGER_LITERAL >}void Numeric() #void :{}{  LOOKAHEAD(2)  < INTEGER_LITERAL >| FloatNumeric()}JAVACODE void skipToLineEnd(Exception e) #void{  SimpleNode currNode = getCurrentNode();
+  if (currNode != null)     currNode.setException(e);			  Token t = null;										  	do  {      t = getToken(1);      if (t != null && (t.kind == EOL || t.kind == EOF)) break;      t = getNextToken();      if (currNode != null)          currNode.addSkippedToken(t);  }while (t != null);}
