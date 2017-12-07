@@ -1,0 +1,31 @@
+<!--
+  Application's settings definition file.
+
+  Author: Sebastien Vauclair
+  Version: $Revision: 1.3 $ $Date: 2003/06/11 17:13:30 $
+  -->
+
+<!ELEMENT settings
+  (default-filters*, filter-customization*, run-program-dialog?, filter-customization*)>
+
+<!ELEMENT default-filters EMPTY>
+<!ATTLIST default-filters
+  full-names CDATA #REQUIRED
+  >
+  
+<!ELEMENT run-program-dialog EMPTY>
+<!ATTLIST run-program-dialog
+  source-paths CDATA #IMPLIED
+  command-template CDATA #IMPLIED
+  >
+
+<!ELEMENT filter-customization (parameter+)>
+<!ATTLIST filter-customization
+  full-name ID #REQUIRED
+  >
+
+<!ELEMENT parameter EMPTY>
+<!ATTLIST parameter
+  name CDATA #REQUIRED
+  value CDATA #REQUIRED
+  >

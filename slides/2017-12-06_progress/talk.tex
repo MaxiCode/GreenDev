@@ -1,0 +1,123 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{GreenDev}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Profiling Tools Overview}
+% ---------------------------------------------------------------------
+
+\begin{frame}{}
+  \begin{itemize}
+    \item 16 Tool found so far
+    \item all of them provide performance information
+    \item not only cpu usage or mem infos
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Properties of Profiling Tools}
+  \begin{itemize}
+    \item Name
+    \item Last Release
+    \item Last supportet Java Version
+  \end{itemize}
+\end{frame}
+
+% % ---------------------------------------------------------------------
+% \section{Profiling Tools}
+% % ---------------------------------------------------------------------
+
+% \begin{frame}{Tools}
+%   \begin{itemize}
+%     \item EJP - ExtensibleJavaProfiler
+%     \item * jProfiler
+%     \item patty Java Performance Analysis
+%     \item * JIP - JavaInteractiveProfiler
+%     \item * jRAT - Java Runtime Analysis Toolkit
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{jProfiler}
+%   \begin{itemize}
+%     \item not free to use (10 days trial)
+%     \item includes nice a visualisations
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{JRat - Java Runtime Analysis Toolkit}
+%   \begin{itemize}
+%     \item low overhead, easy to use, open source performance profiler for the Java platform
+%     \item there are guidelines up to Java 5
+%     \item does not collect performance values for actual Java versions
+%   \end{itemize}
+%   \lstinputlisting{jRatRunConfiguration}
+% \end{frame}
+
+% \begin{frame}{JIP - Java Interactive Profiler}
+%   \begin{itemize}
+%     \item starts when your program starts and ends when the JVM exits
+%     \item no native code (pure JAVA)
+%     \item tracks the amount of time used to gather performance data and factors that time out
+%     \item profile.properties file enables filtering of packages and classes
+%   \end{itemize}
+%   %\lstinputlisting{jipRunConfiguration}
+%   \lstinputlisting{profiling_output_jip}
+% \end{frame}
+
+% % ---------------------------------------------------------------------
+% \section{Next Steps}
+% % ---------------------------------------------------------------------
+
+% \begin{frame}{Monitoring}
+%   \begin{itemize}
+%     \item extend JIP project or write parser
+%     \item color functions according to JIP measurements
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Unit Test}
+%   \begin{itemize}
+%     \item intensity of parameters
+%     \item comparison between performance of functions called from different unit test cases
+%   \end{itemize}
+% \end{frame}
+
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}

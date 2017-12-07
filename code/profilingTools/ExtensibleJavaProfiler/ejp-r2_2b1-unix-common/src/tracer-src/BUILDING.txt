@@ -1,0 +1,33 @@
+$Id: BUILDING.txt,v 1.12 2005/03/23 12:39:36 vauclair Exp $
+
+
+This file contains instructions for building EJP-Tracer.
+
+The following environments are supported and tested:
+- ppc-darwin
+- sparc-solaris
+- x86-linux
+- x86-solaris
+- x86-win32-cygwin
+- x86-win32-mingw
+
+Porting to other platforms should be easy if GCC version 3.x (or more) is 
+available.
+
+Note that building on Win32 is in most cases not necessary, as EJP-Tracer
+comes with a pre-built DLL in the lib/ directory.
+
+
+Building
+--------
+
+* Ensure you have a correctly set JAVA_HOME variable. It should point to a
+  directory containing an include/ subdirectory containing a jvmpi.h file.
+
+* Change to the gen/ directory.
+
+* For Darwin (MacOSX 2) only: edit ppc-darwin.mk to set your Java includes
+  directory.
+
+* Run make -f <environment>.mk 
+  where <environment> is one of the supported environments listed above.

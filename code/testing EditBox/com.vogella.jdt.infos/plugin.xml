@@ -9,7 +9,7 @@
             id="com.vogella.jdt.infos.commands.category">
       </category>
       <command
-            name="Sample Command"
+            name="Java Infos of Class"
             categoryId="com.vogella.jdt.infos.commands.category"
             id="com.vogella.jdt.infos.commands.sampleCommand">
       </command>

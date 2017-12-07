@@ -96,7 +96,7 @@
     \item from there we get $CHAR\_START and CHAR\_END$ of functions
     \begin{figure}[ht]
       \includegraphics[width=0.3\textwidth]{java_color}
-      \caption{https://i2.wp.com/cubussapiens.hu/wp-content/uploads/2011/05/eclemma.png}
+      \caption{hello world colored}
       \label{fig3}
     \end{figure}
   \end{itemize}
@@ -139,6 +139,25 @@
   \begin{itemize}
     \item find Algorithms
     \item test them
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Using Code Coverage Tool}
+  \begin{itemize}
+    \item many runs of benchmarks 
+    \item ? standardize between 0 and 1
+    \item overlay on the function level
+    \item color the code
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Naive Approach}
+  \begin{itemize}
+    \item representation of the software execution as a tree 
+    \item root node represents the whole execution time
+    \item each function call is represented by a new node
+    \item normalize leafes to the highest execution time
+    \item average parents by leaves
   \end{itemize}
 \end{frame}
 

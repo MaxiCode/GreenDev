@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<!--
+  Copyright (C) 2002, 2003 Sebastien Vauclair
+
+  This file is part of Extensible Java Profiler.
+
+  Extensible Java Profiler is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  Extensible Java Profiler is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with Extensible Java Profiler; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  -->
+
+<!--
+  Ant build file for EJP Presenter.
+
+  Author: Sebastien Vauclair
+  Version: $Revision: 1.12 $ $Date: 2005/02/18 15:34:21 $
+  -->
+
+<project default="all" basedir=".">
+
+  <!--
+    ===========================================================================
+    Initialize some properties (constants)
+    ===========================================================================
+    -->
+  <target name="init">
+    <property name="Name" value="Extensible Java Profiler - Presenter"/>
+
+  	<!-- "-g" argument of javac -->
+    <property name="debug" value="true"/>
+
+    <property name="src.dir" value="${basedir}\src"/>
+    <property name="lib.dir" value="${basedir}\lib"/>
+    <property name="docs.dir" value="${basedir}\docs"/>
+
+    <property name="packages" value="ejp.*"/>
+
+    <property name="build.dir" value="${basedir}"/>
+    <property name="build.dest" value="${build.dir}\classes"/>
+    <property name="build.lib" value="${build.dir}\lib"/>
+    <property name="build.javadocs" value="${build.dir}\javadocs"/>
+  </target>
+  
+  <!--
+    ===========================================================================
+    Compile the source directory
+    ===========================================================================
+    -->
+  <target name="compile" depends="init">
+    <mkdir dir="${build.dest}"/>
+    <javac srcdir="${src.dir}"
+           destdir="${build.dest}"
+           debug="${debug}"/>
+  </target>
+
+  <!--
+    ===========================================================================
+    Jar the application
+    ===========================================================================
+    -->
+  <target name="jar" depends="compile">
+    <mkdir dir="${build.lib}"/>
+    <jar jarfile="${build.lib}/presenter.jar"
+         basedir="${build.dest}">
+      <manifest>
+        <attribute name="Main-Class" value="ejp.presenter.gui.MainFrame"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <!--
+    ===========================================================================
+    Create the Javadoc documentation
+    ===========================================================================
+    -->
+  <target name="javadocs" depends="init">
+    <mkdir dir="${build.javadocs}"/>
+    <javadoc packagenames="${packages}"
+             sourcepath="${src.dir}"
+             destdir="${build.javadocs}"
+             author="true"
+             version="true"
+             use="true"
+             windowtitle="${Name} Classes"
+             doctitle="${Name}"
+             />
+  </target>
+
+  <!--
+    ===========================================================================
+    Default target
+    ===========================================================================
+    -->
+  <target name="all"
+          depends="jar, javadocs"
+          />
+
+</project>

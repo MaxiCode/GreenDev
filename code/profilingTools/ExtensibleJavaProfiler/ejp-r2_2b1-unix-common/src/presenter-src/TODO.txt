@@ -1,0 +1,5 @@
+DONE reuse file chooser component to keep user's view
+---- fix bug with wrong profile times on big-endian architectures
+---- cache class loader
+---- install instructions
+---- handle unknwon nodes better (should be >= total children time)
