@@ -1,8 +1,5 @@
 package parser;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PerformanceDataset {
 
 	/**
@@ -24,11 +21,6 @@ public class PerformanceDataset {
 	 * percent of the total time for the given thread.
 	 */
 	private float pct;
-	
-	/**
-	 * Location path of called function.
-	 */
-	private List<String> location = new ArrayList<String>();
 	
 	
 	
@@ -55,23 +47,4 @@ public class PerformanceDataset {
 	public void setPct(float pct) {
 		this.pct = pct;
 	}
-	
-	public List<String> getLocation(){
-		return location;
-	}
-	
-	// TODO: Divide locations into parts
-	public void addLocations(String locations) {
-//		List<String> tmpLocations = new ArrayList<String>();
-		String[] tmp = locations.split(".");
-		for (String t : tmp) {
-			System.out.println(t);
-		}
-	}
-	
-	// TODO: Divide locations into parts
-	public void addLocation(String l) {
-		location.add(l);
-	}
-	
 }
