@@ -1,0 +1,6 @@
+[submodule "code/subjectSystems/h2database"]
+	path = code/subjectSystems/h2database
+	url = https://github.com/h2database/h2database.git
+[submodule "code/subjectSystems/gs-core"]
+	path = code/subjectSystems/gs-core
+	url = https://github.com/graphstream/gs-core.git

@@ -1,5 +1,0 @@
-DONE land in macosx support (requires endian change in solaris + darwin)
-DONE fix JVM crash on Ctrl-C
-DONE fix bug with wrong profile times on big-endian architectures
-DONE avoid stdio errors when renaming files from .ejp.! to .ejp (when the file already exists)
-DONE link with ShutdownGuard only in Tracer.cpp
