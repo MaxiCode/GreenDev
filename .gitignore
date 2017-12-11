@@ -23,3 +23,6 @@ hs_err_pid*
 
 */profile.txt
 */subjectSystems/*
+
+# eclipse stuff
+code/.recommenders/*
