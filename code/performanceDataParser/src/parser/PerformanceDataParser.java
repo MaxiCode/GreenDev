@@ -1,6 +1,12 @@
 package parser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
+import fileHandler.PerformanceFileHandler;
+import model.PerformanceDataModel;
 
 public class PerformanceDataParser {
 
@@ -15,6 +21,9 @@ public class PerformanceDataParser {
 	private static String profileFileExtension =
 			".txt";
 	
+	private static String outputDir =
+			"/home/max/uni/GreenDev/code/profilingOutput/";
+	
 //	private Map<Integer, PerformanceDataModel> models = new HashMap<Integer, PerformanceDataModel>();
 	
 	
@@ -22,6 +31,21 @@ public class PerformanceDataParser {
 	
 	
 	public static void main (String[] args) {
+		
+		PerformanceFileHandler r = new PerformanceFileHandler();
+		
+//		r.printHere();
+		
+		File outputFolder = new File(outputDir);
+		if (outputFolder.exists() && outputFolder.isDirectory()) {
+			File[] listOfFiles = outputFolder.listFiles();
+			
+			testParser("test"+(listOfFiles.length+1)+".txt");
+		}
+		
+	}
+	
+	private static void testParser(String oFileName) {
 		System.out.println("Start parsing performance data.");
 		
 		
@@ -38,7 +62,7 @@ public class PerformanceDataParser {
 					System.out.println(file.getName());
 					PerformanceDataModel model = new PerformanceDataModel();
 					model.parseFile(file.getAbsolutePath());
-					model.printPerformanceFractionPerFunction();
+//					model.printPerformanceFractionPerFunction();
 				}
 			}
 			
@@ -50,8 +74,24 @@ public class PerformanceDataParser {
 			PerformanceDataModel model = new PerformanceDataModel();
 			model.parseFile(pathToProfile);
 			
+			PrintWriter writer = null;
+			try {
+				writer = new PrintWriter(outputDir+oFileName, "UTF-8");
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 //			model.printData();
-			model.printPerformanceFractionPerFunction();
+			if (writer != null) {
+				model.printPerformanceFractionPerFunction(writer);
+			}
+			writer.close();
+			
 		}
 		
 		System.out.println("Finished parsing performance data.");

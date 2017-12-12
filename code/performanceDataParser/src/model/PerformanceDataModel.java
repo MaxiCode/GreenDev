@@ -1,12 +1,15 @@
-package parser;
+package model;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import parser.FileParser;
 
 public class PerformanceDataModel {
 	
@@ -106,7 +109,7 @@ public class PerformanceDataModel {
 		}
 	}
 	
-	public void printPerformanceFractionPerFunction () {
+	public void printPerformanceFractionPerFunction (PrintWriter writer) {
 		float check = 0;
 		float currentFraction = 0;
 		String nameOfHighestClass = ""; 
@@ -128,9 +131,10 @@ public class PerformanceDataModel {
 				
 				
 				// ----- Checking Area
-				
-				System.out.println("Current: " + data.getTime() + "\t Anz: " + data.getCount() + "  \t Fraction: " + 
+				writer.println("Current: " + data.getTime() + "\t Anz: " + data.getCount() + "  \t Fraction: " + 
 						fraction + "\t fkt: " + e.getKey());
+//				System.out.println("Current: " + data.getTime() + "\t Anz: " + data.getCount() + "  \t Fraction: " + 
+//						fraction + "\t fkt: " + e.getKey());
 			}
 		}
 		System.out.println("Check: " + check);
