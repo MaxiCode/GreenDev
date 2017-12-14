@@ -1,0 +1,7 @@
+| Most expensive methods summarized |
+               Net
+          ------------
+ Count     Time    Pct  Location
+ =====     ====    ===  ========
+     1     62,2    6,5  org.postgresql.core.Logger:<init>
+     1     55,4    5,8  org.h2.Driver:load

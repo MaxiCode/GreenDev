@@ -1,0 +1,133 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{GreenDev}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}{Outline}
+%\tableofcontents
+%\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Profiling Report}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Generating Progfiling Report}
+  \begin{itemize}
+    \item fixing exceptions (ClassNotFound, IOException, ...)
+    \item watchdog Canceles Threads after 5 minutes of waiting (7 times)
+    \item disabling performance measurement of TestAll.java
+    \item resulting Tests:
+    \begin{itemize}
+      \item 200+ tests classes
+      \item 25 minutes test time
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Processing profiling report}
+  \begin{itemize}
+    \item Read in Line by line
+    \item extracting function with highest Net-runtime
+    \item calculating relative performance of all functions (scale: 0-100)
+    \item $performance = (netTime/calls)*100/(highestTime/calls)$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Processing profiling report - Filtering}
+  \begin{itemize}
+    \item functions with nettime = 0
+    \item highest time of one function
+    \item Still open questions:
+    \begin{itemize}
+      \item proxy which wrappes whole test class (should evaluate all exceptions)
+      \item prossible solution: compare runtime of tests with time of longest function
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Plugin interaction}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Performance Plugin}
+  \begin{itemize}
+    \item Current state:
+      \begin{itemize}
+        \item get packages and classname of a function
+        \item can compare them to the classname of the performance data report
+        \item can color specific functions
+      \end{itemize}  
+    \item Still TODO:
+      \begin{itemize}
+        \item read in relative performance values
+        \item later: link both projects and get data direct
+        \item set color of marker relative to performance
+      \end{itemize}  
+  \end{itemize}
+\end{frame}
+
+
+% \begin{frame}{JIP - Java Interactive Profiler}
+%   \begin{itemize}
+%     \item starts when your program starts and ends when the JVM exits
+%     \item no native code (pure JAVA)
+%     \item tracks the amount of time used to gather performance data and factors that time out
+%     \item profile.properties file enables filtering of packages and classes
+%   \end{itemize}
+%   %\lstinputlisting{jipRunConfiguration}
+%   \lstinputlisting{profiling_output_jip}
+% \end{frame}
+
+% % ---------------------------------------------------------------------
+% \section{Next Steps}
+% % ---------------------------------------------------------------------
+
+% \begin{frame}{Monitoring}
+%   \begin{itemize}
+%     \item extend JIP project or write parser
+%     \item color functions according to JIP measurements
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Unit Test}
+%   \begin{itemize}
+%     \item intensity of parameters
+%     \item comparison between performance of functions called from different unit test cases
+%   \end{itemize}
+% \end{frame}
+
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}
