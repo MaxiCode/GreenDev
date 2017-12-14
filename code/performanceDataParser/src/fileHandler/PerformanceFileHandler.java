@@ -38,7 +38,6 @@ public class PerformanceFileHandler {
 	public boolean initOutputWriter() {
 		File outputDir = new File(pathToProfileOutput);
 		int numFiles = 0;
-		System.out.println("Test");
 		if (outputDir.isDirectory()) {
 			File[] filesInOutputDir = outputDir.listFiles();
 			numFiles = filesInOutputDir.length;
@@ -56,6 +55,10 @@ public class PerformanceFileHandler {
 	
 	public void writeOutput(String line) {
 		outputWriter.println(line);
+	}
+	
+	public PrintWriter getOutputWriter() {
+		return outputWriter;
 	}
 	
 	public void closeWriter() {

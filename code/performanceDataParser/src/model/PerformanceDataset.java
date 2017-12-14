@@ -1,50 +1,35 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class PerformanceDataset {
 
-	/**
-	 * The number of times that the given method 
-	 * called by the enclosing method.
-	 */
-	private int count;
-	
-	/**
-	 * Net Time. The amount of time that was actually 
-	 * spent executing this method if you factor out 
-	 * the total time taken by calling other (listed) 
-	 * methods.
-	 */
-	private float time;
-	
-	/**
-	 * The net time for this method expressed as a 
-	 * percent of the total time for the given thread.
-	 */
-	private float pct;
-	
-	
-	
-	public int getCount() {
-		return count;
-	}
 
-	public void setCount(int count) {
-		this.count = count;
+	private Map<Configuration, List<PerformanceData>> dataPerConfig = new HashMap<Configuration, List<PerformanceData>>();
+	
+	public void add(Configuration c, PerformanceData d) {
+		if (dataPerConfig.containsKey(c)) {
+			List<PerformanceData> tmpData = dataPerConfig.get(c);
+			tmpData.add(d);
+		} else {
+			List<PerformanceData> dataList = new ArrayList<PerformanceData>();
+			dataList.add(d);
+			dataPerConfig.put(c, dataList);
+		}
 	}
-
-	public float getTime() {
-		return time;
+	
+	public Map<Configuration, List<PerformanceData>> getAll() {
+		return dataPerConfig;
 	}
-
-	public void setTime(float time) {
-		this.time = time;
+	
+	public int getSize() {
+		return dataPerConfig.size();
 	}
-
-	public float getPct() {
-		return pct;
-	}
-
-	public void setPct(float pct) {
-		this.pct = pct;
+	
+	public List<PerformanceData> get(Configuration c) {
+		return dataPerConfig.get(c);
 	}
 }
