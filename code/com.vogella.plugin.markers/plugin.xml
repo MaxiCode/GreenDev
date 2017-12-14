@@ -66,9 +66,10 @@
 	</extension>
    
 	<!-- Coloured Text marker -->
+	<!-- Defines code highlighting marker -->
 	<extension
-    	id="org.eclipse.viatra2.slicemarker"
-    	name="GTASM Slice"
+    	id="org.eclipse.max.slicemarker.red"
+    	name="Performance Marker Red"
     	point="org.eclipse.core.resources.markers">
   		<super
     		type="org.eclipse.core.resources.textmarker">
@@ -76,31 +77,111 @@
 	</extension>
 	
 	<extension
+    	id="org.eclipse.max.slicemarker.yellow"
+    	name="Performance Marker Yellow"
+    	point="org.eclipse.core.resources.markers">
+  		<super
+    		type="org.eclipse.core.resources.textmarker">
+  		</super>
+	</extension>
+	
+	<extension
+    	id="org.eclipse.max.slicemarker.green"
+    	name="Performance Marker Green"
+    	point="org.eclipse.core.resources.markers">
+  		<super
+    		type="org.eclipse.core.resources.textmarker">
+  		</super>
+	</extension>
+	
+	<!-- Links the annotation spec (color) to the marker -->
+	<extension
 		point="org.eclipse.ui.editors.annotationTypes">
 		<type
-			markerType="org.eclipse.viatra2.slicemarker"
-			name="org.eclipse.viatra2.slicemarker">
+			markerType="org.eclipse.max.slicemarker.red"
+			name="org.eclipse.max.slicemarker.red">
 		</type>
+	</extension>
+	
+	<extension
+		point="org.eclipse.ui.editors.annotationTypes">
+		<type
+			markerType="org.eclipse.max.slicemarker.green"
+			name="org.eclipse.max.slicemarker.green">
+		</type>
+	</extension>
+	
+	<extension
+		point="org.eclipse.ui.editors.annotationTypes">
+		<type
+			markerType="org.eclipse.max.slicemarker.yellow"
+			name="org.eclipse.max.slicemarker.yellow">
+		</type>
+	</extension>
+	
+	<!-- Annotation specification: define different colors for code highlighting -->
+	<extension
+		point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification
+			annotationType="org.eclipse.max.slicemarker.red"
+			colorPreferenceKey="org.eclipse.max.slice.color.red"
+			colorPreferenceValue="255,153,153"
+			contributesToHeader="false"
+			highlightPreferenceKey="org.eclipse.max.slice.highlight"
+			highlightPreferenceValue="true"
+			includeOnPreferencePage="true"
+			label="Performance Marker Preferences"
+			overviewRulerPreferenceKey="org.eclipse.viatra2.slice.overview"
+			overviewRulerPreferenceValue="true"
+			presentationLayer="0"
+			textPreferenceKey="org.eclipse.max.slice.text"
+			textPreferenceValue="true"
+			textStylePreferenceValue="BOX"
+			verticalRulerPreferenceKey="org.eclipse.max.slice.ruler"
+			verticalRulerPreferenceValue="true">
+		</specification>
 	</extension>
 	
 	<extension
 		point="org.eclipse.ui.editors.markerAnnotationSpecification">
 		<specification
-			annotationType="org.eclipse.viatra2.slicemarker"
-			colorPreferenceKey="org.eclipse.viatra2.slice.color"
-			colorPreferenceValue="192,255,192"
+			annotationType="org.eclipse.max.slicemarker.yellow"
+			colorPreferenceKey="org.eclipse.max.slice.color.yellow"
+			colorPreferenceValue="255,255,153"
 			contributesToHeader="false"
-			highlightPreferenceKey="org.eclipse.viatra2.slice.highlight"
+			highlightPreferenceKey="org.eclipse.max.slice.highlight"
 			highlightPreferenceValue="true"
 			includeOnPreferencePage="true"
-			label="GTASM Slice Marker"
-			overviewRulerPreferenceKey="org.eclipse.viatra2.slice.overview"
+			label="Performance Marker Preferences"
+			overviewRulerPreferenceKey="org.eclipse.max.slice.overview"
 			overviewRulerPreferenceValue="true"
 			presentationLayer="0"
-			textPreferenceKey="org.eclipse.viatra2.slice.text"
+			textPreferenceKey="org.eclipse.max.slice.text"
 			textPreferenceValue="true"
 			textStylePreferenceValue="BOX"
-			verticalRulerPreferenceKey="org.eclipse.viatra2.slice.ruler"
+			verticalRulerPreferenceKey="org.eclipse.max.slice.ruler"
+			verticalRulerPreferenceValue="true">
+		</specification>
+	</extension>
+	
+	<extension
+		point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification
+			annotationType="org.eclipse.max.slicemarker.green"
+			colorPreferenceKey="org.eclipse.max.slice.color.green"
+			colorPreferenceValue="153,204,153"
+			contributesToHeader="false"
+			highlightPreferenceKey="org.eclipse.max.slice.highlight"
+			highlightPreferenceValue="true"
+			includeOnPreferencePage="true"
+			label="Performance Marker Preferences"
+			overviewRulerPreferenceKey="org.eclipse.max.slice.overview"
+			overviewRulerPreferenceValue="true"
+			presentationLayer="0"
+			textPreferenceKey="org.eclipse.max.slice.text"
+			textPreferenceValue="true"
+			textStylePreferenceValue="BOX"
+			verticalRulerPreferenceKey="org.eclipse.max.slice.ruler"
 			verticalRulerPreferenceValue="true">
 		</specification>
 	</extension>
