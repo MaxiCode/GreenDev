@@ -5,8 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PerformanceDataset {
+import model.config.Configuration;
 
+public class PerformanceDataset {
 
 	private Map<Configuration, List<PerformanceData>> dataPerConfig = new HashMap<Configuration, List<PerformanceData>>();
 	
@@ -19,6 +20,16 @@ public class PerformanceDataset {
 			dataList.add(d);
 			dataPerConfig.put(c, dataList);
 		}
+	}
+	
+	public void remove(Configuration c) {
+		if (dataPerConfig.containsKey(c)) {
+			dataPerConfig.remove(c);
+		}
+	}
+	
+	public void clearAll() {
+		dataPerConfig = new HashMap<Configuration, List<PerformanceData>>();
 	}
 	
 	public Map<Configuration, List<PerformanceData>> getAll() {

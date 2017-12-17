@@ -27,12 +27,17 @@ public class PerformanceFileHandler {
 	private String oFN = "test";
 	private String oFE = ".txt";
 	
-	private List<File> performanceFiles = new ArrayList<File>();
+	private List<File> performanceFilesH2 = new ArrayList<File>();
+	private List<File> performanceFilesGs = new ArrayList<File>();
+	private List<File> performanceFilesCa = new ArrayList<File>();
 	
 	private PrintWriter outputWriter;
 
+	
+	//TODO Add output writer for different projects
+	
 	/**
-	 * Initializes output File Writer
+	 * Initializes default output File Writer
 	 * @return true if Print Writer is initialized successfully
 	 */
 	public boolean initOutputWriter() {
@@ -66,12 +71,12 @@ public class PerformanceFileHandler {
 	}
 	
 	public void readFiles() {
-		readAllFiles(pathToH2Profile);
-		readAllFiles(pathToGsProfile);
-		readAllFiles(pathToCaProfile);
+		readAllFiles(performanceFilesH2, pathToH2Profile);
+		readAllFiles(performanceFilesGs, pathToGsProfile);
+		readAllFiles(performanceFilesCa, pathToCaProfile);
 	}
 	
-	private void readAllFiles(String path) {
+	private void readAllFiles(List<File> pf, String path) {
 		File file = new File(path);
 		if (file.exists() && file.isDirectory()) {
 			File[] files = file.listFiles();
@@ -79,13 +84,33 @@ public class PerformanceFileHandler {
 			for (File f : files) {
 				if (f.getName().contains(profileFileExtension) && 
 						f.getName().contains(profileFileName)) {
-					performanceFiles.add(f);
+					pf.add(f);
 				}
 			}
 		}
 	}
 	
-	public List<File> getFiles() {
-		return performanceFiles;
+	/**
+	 * List of Performance Files of the H2 Database 
+	 * @return	List of Files
+	 */
+	public List<File> getFilesH2() {
+		return performanceFilesH2;
+	}
+	
+	/**
+	 * List of Performance Files of the Java Graph Library 
+	 * @return	List of Files
+	 */
+	public List<File> getFilesGs() {
+		return performanceFilesGs;
+	}
+	
+	/**
+	 * List of Performance Files of the Catena Password Hashing Framework 
+	 * @return	List of Files
+	 */
+	public List<File> getFilesCa() {
+		return performanceFilesCa;
 	}
 }

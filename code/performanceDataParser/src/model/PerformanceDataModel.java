@@ -2,15 +2,14 @@ package model;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import model.config.Configuration;
 import parser.FileParser;
 
 public class PerformanceDataModel {
@@ -20,13 +19,14 @@ public class PerformanceDataModel {
 	private String DATE_TIME_IDENTIFIER = "|  Date: ";
 	
 	
-	private Date dataIdentifier = new Date();
+//	private Date dataIdentifier = new Date();
+	// Contains the identifier for functions as String and the corresponding Performance Dataset
 	private Map<String, PerformanceDataset> dataSet = new HashMap<String, PerformanceDataset>();
-	private double highestTimeinDataset = 0.0d;
-	private String idOfHighestDataset = "";
+//	private double highestTimeinDataset = 0.0d;
+//	private String idOfHighestDataset = "";
 
 	
-	public void createModel (File path) {
+	public void extractData (File path, Configuration config) {
 		FileParser parser = new FileParser();
 		parser.readFile(path);
 		
@@ -36,13 +36,13 @@ public class PerformanceDataModel {
 		System.out.println("Inside creating model.");
 		int count = 0;
 		try {
-			while ((strLine = parser.getNextLine()) != null){
+			while ((strLine = parser.getNextLine()) != null) {
 				
 				if (strLine.contains(MOST_EXPENSIVE_METHODES_END_IDENTIFIER)) {
 					mostExpensiveMethodesArea = false;
 				} else if (mostExpensiveMethodesArea) {
 					count++;
-					extractRelevantData(strLine.trim());
+					extractRelevantData(strLine.trim(), config);
 
 				} else if (strLine.contains(MOST_EXPENSIVE_METHODES_IDENTIFIER)) {
 					System.out.println("Found Most expensive methodes id.");
@@ -51,7 +51,7 @@ public class PerformanceDataModel {
 				} else if (strLine.contains(DATE_TIME_IDENTIFIER)) {
 					Date dataDate = extractDateTime(strLine);
 					if (dataDate != null) {
-						dataIdentifier = dataDate;
+						config.setDate(dataDate);
 					}
 				}
 			}
@@ -67,26 +67,22 @@ public class PerformanceDataModel {
 		return dataSet;
 	}
 	
-	public Date getID () {
-		return dataIdentifier;
-	}
-	
-	public void printData () {
-		System.out.println("Printing Dataset from: " + dataIdentifier);
-		for ( Map.Entry<String, PerformanceDataset> e : dataSet.entrySet() ) {
-			PerformanceDataset data = e.getValue();
+//	public void printData () {
+//		System.out.println("Printing Dataset from: " + dataIdentifier);
+//		for ( Map.Entry<String, PerformanceDataset> e : dataSet.entrySet() ) {
+//			PerformanceDataset data = e.getValue();
 //			System.out.println(data.getCount() + " " + 
 //					data.getTime() + " " + 
 //					data.getPct() + " " + 
 //					e.getKey());
-		}
-	}
+//		}
+//	}
 	
-	public void printPerformanceFractionPerFunction (PrintWriter writer) {
-		
-		for ( Map.Entry<String, PerformanceDataset> e : dataSet.entrySet() ) {
-			PerformanceDataset data = e.getValue();
-			
+//	public void printPerformanceFractionPerFunction (PrintWriter writer) {
+//		
+//		for ( Map.Entry<String, PerformanceDataset> e : dataSet.entrySet() ) {
+//			PerformanceDataset data = e.getValue();
+//			
 //			if (data.getTime() > 0) {
 //				double fraction = (data.getTime()/data.getCount())*100/highestTimeinDataset;
 //				
@@ -96,64 +92,50 @@ public class PerformanceDataModel {
 //			} else {
 //				System.out.println("What happened here");
 //			}
-		}
-	}
-	
-	public double getHighest() {
-		return highestTimeinDataset;
-	}
-	
-	public String getIdHighestElement() {
-		return idOfHighestDataset;
-	}
+//		}
+//	}
 	
 	public int getDatasetSize() {
 		return dataSet.size();
 	}
 	
 	
-	private void extractRelevantData (String line) {
+	private void extractRelevantData (String line, Configuration config) {
 		if (line.length() > 0) {
-			if (Character.isDigit(line.charAt(0))) {
-				String[] parts = line.split("\\s+");
-				if (parts.length != 4) {
-					return;
-				}
-				PerformanceDataset data = new PerformanceDataset();
-				
-				int  tmpCount = Integer.parseInt(parts[0]);
-				float tmpTime = Float.parseFloat(parts[1].replace(',', '.'));
-				if (tmpTime < 0.001) {
-					return;
-					
-				}
-//				data.setCount(tmpCount);
-//				data.setTime(tmpTime);
-//				data.setPct(Float.parseFloat(parts[2].replace(',', '.')));
-				
-				// TODO : Remove Hack
-				if (parts[3].contains("org.h2.test.mvcc.TestMvccMultiThreaded2:testSelectForUpdateConcurrency") ||
-						parts[3].contains("org.h2.test.TestBase$4:invoke") || 
-						parts[3].contains("org.h2.test.utils.SelfDestructor$1:run")) {
-					return;
-				}
-				
-				// id and time of highest function
-				if (tmpTime/tmpCount>highestTimeinDataset) {
-					highestTimeinDataset = tmpTime/tmpCount;
-					idOfHighestDataset = parts[3];
-				}
-				
-				// don't overwrite bigger hashmap values
-//				if (dataSet.containsKey(parts[3])) {
-//					PerformanceDataset tmpData = dataSet.get(parts[3]);
-//					double ratio = tmpData.getTime()/tmpData.getCount();
-//					if (ratio < tmpTime/tmpCount) {
-//						dataSet.put(parts[3].trim(), data);
-//					}
-//				} else {
-//					dataSet.put(parts[3].trim(), data);
-//				}
+			if (!Character.isDigit(line.charAt(0))) {
+				return;
+			}
+			
+			String[] parts = line.split("\\s+");
+			if (parts.length != 4) {
+				return;
+			}
+			
+			// TODO : Remove Hack
+			if (parts[3].contains("org.h2.test.mvcc.TestMvccMultiThreaded2:testSelectForUpdateConcurrency") ||
+					parts[3].contains("org.h2.test.TestBase$4:invoke") || 
+					parts[3].contains("org.h2.test.utils.SelfDestructor$1:run")) {
+				return;
+			}
+			
+			int  tmpCount = Integer.parseInt(parts[0]);
+			float tmpPct  = Float.parseFloat(parts[2].replace(',', '.'));
+			float tmpTime = Float.parseFloat(parts[1].replace(',', '.'));
+			
+			PerformanceData data = new PerformanceData();
+			data.setCount(tmpCount);
+			data.setPct(tmpPct);
+			data.setTime(tmpTime);
+			
+			if (dataSet.containsKey(parts[3])) {
+				// if currently read function was read before - append values
+				PerformanceDataset tmpData = dataSet.get(parts[3]);
+				tmpData.add(config, data);
+			} else {
+				// else create new data set
+				PerformanceDataset tmpData = new PerformanceDataset();
+				tmpData.add(config, data);
+				dataSet.put(parts[3], tmpData);
 			} 
 		}
 	}
