@@ -1,0 +1,97 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{GreenDev}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}{Outline}
+%\tableofcontents
+%\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Performance Data}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Data Representation}
+  \begin{itemize}
+    \item as CSV
+    \item as SQLite database
+    \item ordered by: function, configuration, list of performance values
+    \item 14,956 different functions (in h2database project)
+    \item 8,027,360 values
+    \item $\sim$500 function calls per function (average)
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Marker}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Coloring of Marker}
+  \begin{itemize}
+    \item different colors are applied through different marker
+    \item like in FeatureIDE project
+    \item current state: red, yellow and green marker
+    \item mapping of relative performance to number of different marker
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Next Steps}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Later}
+  \begin{itemize}
+    \item config of JIP (more precise measurement)
+    \item marker handling and manipulation
+    \item menu structure (pde)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Input Senibility}
+  \begin{itemize}
+    \item get abs() of performance values with different input
+    \item defining different inputs for functions:
+    \begin{itemize}
+      \item defining sample set
+      \item what to learn
+      \item input vector?
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}
