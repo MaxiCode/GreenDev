@@ -1,12 +1,6 @@
 package model;
 
 public class PerformanceData {
-
-	/**
-	 * The number of times that the given method 
-	 * called by the enclosing method.
-	 */
-	private int count;
 	
 	/**
 	 * Net Time. The amount of time that was actually 
@@ -14,37 +8,27 @@ public class PerformanceData {
 	 * the total time taken by calling other (listed) 
 	 * methods.
 	 */
-	private double time;
+	private float time;
 	
 	/**
 	 * The net time for this method expressed as a 
 	 * percent of the total time for the given thread.
 	 */
-	private double pct;
+	private float pct;
 	
-	
-	
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-
-	public double getTime() {
+	public float getTime() {
 		return time;
 	}
 
-	public void setTime(double time) {
+	public void setTime(float time) {
 		this.time = time;
 	}
 
-	public double getPct() {
+	public float getPct() {
 		return pct;
 	}
 
-	public void setPct(double pct) {
+	public void setPct(float pct) {
 		this.pct = pct;
 	}
 }

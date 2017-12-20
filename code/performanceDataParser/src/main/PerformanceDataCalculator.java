@@ -3,13 +3,15 @@ package main;
 import java.io.File;
 import java.util.List;
 
+import db.Database;
 import fileHandler.PerformanceFileHandler;
 import model.PerformanceDataModel;
 import model.config.Configuration;
 
 public class PerformanceDataCalculator {
 	
-	private static PerformanceFileHandler handler; 
+	private static PerformanceFileHandler handler;
+	private static Database db;
 
 	public static void main(String[] args) {
 		System.out.println("Start parsing performance files.");
@@ -19,6 +21,8 @@ public class PerformanceDataCalculator {
 		handler = new PerformanceFileHandler();
 		handler.readFiles();
 		handler.initOutputWriter();
+		
+		db = new Database(handler.getOutputDir());
 		
 		// pFiles contain all performance files of the H2 project
 		List<File> pFiles = handler.getFilesH2();
@@ -30,18 +34,17 @@ public class PerformanceDataCalculator {
 			Configuration config = new Configuration();
 			config.setPerformanceFile(f);
 			config.setName("Default Configuration");
-			
+						
 			model.extractData(f, config);
-//			
-//			System.out.println("Highest Value: " + model.getHighest());
-//			System.out.println("Highest Element: " + model.getIdHighestElement());
-//			System.out.println("Dataset Size: " + model.getDatasetSize());
-//
-//			System.out.println("Start writing output.");
-//			model.printPerformanceFractionPerFunction(handler.getOutputWriter());
-			handler.closeWriter();
+
+			System.out.println("Start writing output.");
+//			model.writeToFile(handler.getOutputWriter());
+			model.writeToDb(db);
+			System.out.println("Done writing output.");
+			
 		}
-		
+		handler.closeWriter();
+		db.closeDbConnection();
 	}
 
 }

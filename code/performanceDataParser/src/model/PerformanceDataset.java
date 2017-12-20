@@ -36,7 +36,7 @@ public class PerformanceDataset {
 		return dataPerConfig;
 	}
 	
-	public int getSize() {
+	public int getMapSize() {
 		return dataPerConfig.size();
 	}
 	

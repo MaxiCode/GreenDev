@@ -8,6 +8,16 @@ public class Configuration {
 	private String configName;
 	private Date date;
 	private File performanceFile;
+	private float highestValueOfConfig;
+	
+	
+	public void setHighestValue(float value) {
+		highestValueOfConfig = value;
+	}
+	
+	public float getHighestValue() {
+		return highestValueOfConfig;
+	}
 	
 	public void setPerformanceFile(File f) {
 		performanceFile = f;

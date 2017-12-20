@@ -48,6 +48,7 @@ public class PerformanceFileHandler {
 			numFiles = filesInOutputDir.length;
 			try {
 				outputWriter = new PrintWriter(pathToProfileOutput+oFN+(numFiles+1)+oFE, "UTF-8");
+				System.out.println("Output Writer Done.");
 				return true;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -112,5 +113,9 @@ public class PerformanceFileHandler {
 	 */
 	public List<File> getFilesCa() {
 		return performanceFilesCa;
+	}
+	
+	public String getOutputDir() {
+		return pathToProfileOutput;
 	}
 }
