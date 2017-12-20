@@ -17,8 +17,9 @@ public class PerformanceValues {
 	
 	private String performanceValueSource = "./../profilingOutput/";
 	private List<File> performanceFiles = new ArrayList<File>();
+	private String txtFileIdentifier = ".txt";
 	
-	private Map<String, Double> dataSet = new HashMap<String, Double>();
+	private Map<String, Float> dataSet = new HashMap<String, Float>();
 	
 	public void readPerformanceFiles() {
 		File folder = new File(performanceValueSource);
@@ -28,7 +29,9 @@ public class PerformanceValues {
 				return;
 			}
 			for (File f : files) {
-				performanceFiles.add(f);
+				if (f.getName().contains(txtFileIdentifier)) {
+					performanceFiles.add(f);
+				}
 			}
 		}
 		
@@ -49,12 +52,21 @@ public class PerformanceValues {
 			try {
 				while((strLine = br.readLine()) != null) {
 //					System.out.println(strLine);
-					String[] parts = strLine.split("\\s+");
+					// read from 2 different file formats
 					// 1 - Time | 3 - Count | 5 - Fraction | 7 - Key
-					if (parts.length != 8) {
+					String[] parts = strLine.split("\\s+");
+					// 0- Key | 1 - config | 2 - highest Value | 3 - current Value
+					String[] parts2 = strLine.split(",");
+					
+					if (parts.length == 8) {
+						dataSet.put(parts[7], Float.valueOf(parts[5]));
+					} else if (parts2.length == 4) {
+						dataSet.put(parts2[0], (Float.valueOf(parts2[3]) * 
+								100 / Float.valueOf(parts2[2])));
+					} else {
 						continue;
 					}
-					dataSet.put(parts[7], Double.valueOf(parts[5]));
+					
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -62,7 +74,7 @@ public class PerformanceValues {
 		}
 	}
 	
-	public Map<String, Double> getData(){
+	public Map<String, Float> getData(){
 		return dataSet;
 	}
 }
