@@ -16,13 +16,16 @@ import java.util.Map;
 public class PerformanceValues {
 	
 	private String performanceValueSource = "./../profilingOutput/";
+	private String performanceValueSource2 = "./uni/GreenDev/code/profilingOutput/";
 	private List<File> performanceFiles = new ArrayList<File>();
 	private String txtFileIdentifier = ".txt";
 	
 	private Map<String, Float> dataSet = new HashMap<String, Float>();
 	
 	public void readPerformanceFiles() {
-		File folder = new File(performanceValueSource);
+//		System.out.println("Here: " + new File(".").getAbsolutePath());
+		File folder = new File(performanceValueSource2);
+		System.out.println("Folder: " + folder.getAbsolutePath());
 		if (folder.isDirectory()) {
 			File[] files = folder.listFiles();
 			if (files.length == 0) {

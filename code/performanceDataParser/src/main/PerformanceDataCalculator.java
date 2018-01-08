@@ -25,7 +25,10 @@ public class PerformanceDataCalculator {
 		db = new Database(handler.getOutputDir());
 		
 		// pFiles contain all performance files of the H2 project
-		List<File> pFiles = handler.getFilesH2();
+//		List<File> pFiles = handler.getFilesH2();
+		
+		// pFiles contain all performance files of the Catena project
+		List<File> pFiles = handler.getFilesCa();
 		
 		for (File f : pFiles) {
 			System.out.println();

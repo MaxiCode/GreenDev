@@ -128,6 +128,7 @@ public class Database {
 		}
 		
 		if (!primaryKeyOfConfigs.containsKey(cName)) {
+			System.out.println("Added config: " + cName);
 			try {
 				
 				insertStmt.addBatch("INSERT INTO CONFIG (NAME) VALUES ('"+cName+"')");

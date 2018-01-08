@@ -45,7 +45,7 @@ public class AddMarkerHandler {
 		initMarkerMap();
 		readPerformanceFile();
 		
-//		System.out.println("Values Size: " + performanceValues.size());
+		System.out.println("Size of read performance values: " + performanceValues.size());
 		colorWithAST(resource);
     }
 	
@@ -103,9 +103,10 @@ public class AddMarkerHandler {
             }
             
         	String classString = extractFileIdentifier(unit.getHandleIdentifier());
+        	System.out.println("Extracted class string: " + classString);
         	String fullPathOfRecource = resource.getFullPath().toString();
         	fullPathOfRecource = fullPathOfRecource.replace('/', '.');
-        	
+        	System.out.println("Full path of current file: " + fullPathOfRecource);
         	// filter wrong resources if class names in projects are the same
         	if (!fullPathOfRecource.contains(classString)) {
             	continue;
@@ -116,14 +117,15 @@ public class AddMarkerHandler {
             	// Color function
             	String functionIdentifier = classString+":"+method.getName();
             	Float pValue = performanceValues.get(functionIdentifier);
-            	
+            	System.out.println("Method level name: " + functionIdentifier);
+            	System.out.println("Method level value: " + pValue);
             	if (pValue == null) {
             		continue;
             	}
             	
         		int start = method.getStartPosition();
             	int end = start + method.getLength();
-            	
+            	System.out.println("Start: " + start + " End: " + end);
                 writeMarkerUnderline(resource, start, end, pValue);
             }
         }
@@ -162,9 +164,12 @@ public class AddMarkerHandler {
     }
     
     private String extractFileIdentifier(String input) {
+    	System.out.println("extract File Identifier: " + input);
+//    	=catena/src<main.java.components.graph.algorithms{DoubleButterflyGraph.java
+//    	=h2/src\/main<org.h2.engine{Database.java
     	String startOfPackage = input.substring(
-    			input.indexOf("org."), 
-    			input.length()-5);
+    			(input.indexOf("<")+1),	// find start of package path 
+    			input.length()-5);		// removing '.java'
     	return startOfPackage.replace('{', '.');
     }
     

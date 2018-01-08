@@ -1,0 +1,397 @@
++----------------------------------------------------------------------
+|  File: profile.txt
+|  Date: 2018.01.03 19:46:07 PM
++----------------------------------------------------------------------
+
++------------------------------
+| Thread depth limit: Unlimited
++------------------------------
++------------------------------
+| Thread: 1
++------------------------------
+              Time            Percent    
+       ----------------- ---------------
+ Count    Total      Net   Total     Net  Location
+ =====    =====      ===   =====     ===  =========
+     1 3899204,9      5,3   100,0          +--CatenaProfiler:main	(profiling)
+     1      9,6      9,4     0,0          | +--CatenaProfiler:<init>	(profiling)
+     1      0,2      0,2     0,0          | | +--Helper:<init>	(main.java)
+     1 3899190,1     11,3   100,0          | +--CatenaProfiler:testPerformanceButterflyFull	(profiling)
+     1      0,3      0,1     0,0          | | +--DefaultInstances:<init>	(main.java)
+     1      0,2      0,1     0,0          | | | +--Catena:<init>	(main.java)
+     1      0,1      0,1     0,0          | | | | +--Helper:<init>	(main.java)
+     1     21,4     14,6     0,0          | | +--DefaultInstances:initButterflyFull	(main.java)
+     1      0,1      0,0     0,0          | | | +--Catena:<init>	(main.java)
+     1      0,1      0,1     0,0          | | | | +--Helper:<init>	(main.java)
+     2      0,2      0,1     0,0          | | | +--Blake2b:<init>	(main.java.components.hash.algorithms)
+     2      0,1      0,1     0,0          | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     1      0,1      0,1     0,0          | | | +--SaltMix:<init>	(main.java.components.gamma.algorithms)
+     1      0,0      0,0     0,0          | | | | +--Helper:<init>	(main.java)
+     1      0,2      0,1     0,0          | | | +--DoubleButterflyGraph:<init>	(main.java.components.graph.algorithms)
+     1      0,1      0,1     0,0          | | | | +--Helper:<init>	(main.java)
+     1      0,1      0,1     0,0          | | | +--Helper:<init>	(main.java)
+     1      5,7      5,7     0,0          | | | +--IndexDBG:<init>	(main.java.components.graph.algorithms.index)
+     1      0,0      0,0     0,0          | | | +--IdentityPhi:<init>	(main.java.components.phi.algorithms)
+     1      0,5      0,2     0,0          | | | +--Catena:init	(main.java)
+     1      0,0      0,0     0,0          | | | | +--SaltMix:setH	(main.java.components.gamma.algorithms)
+     1      0,0      0,0     0,0          | | | | +--SaltMix:setHPrime	(main.java.components.gamma.algorithms)
+     1      0,0      0,0     0,0          | | | | +--DoubleButterflyGraph:setH	(main.java.components.graph.algorithms)
+     1      0,0      0,0     0,0          | | | | +--DoubleButterflyGraph:setHPrime	(main.java.components.graph.algorithms)
+     1      0,0      0,0     0,0          | | | | +--DoubleButterflyGraph:setIndexing	(main.java.components.graph.algorithms)
+     1      0,0      0,0     0,0          | | | | +--IdentityPhi:setH	(main.java.components.phi.algorithms)
+     1      0,0      0,0     0,0          | | | | +--IdentityPhi:setHPrime	(main.java.components.phi.algorithms)
+     2      0,0      0,0     0,0          | | | | +--Blake2b:getOutputSize	(main.java.components.hash.algorithms)
+     4      0,2      0,2     0,0          | | +--Helper:hex2bytes	(main.java)
+     1 3899156,9      0,1   100,0          | | +--Catena:catena	(main.java)
+     1     17,0      0,2     0,0          | | | +--Catena:compTweak	(main.java)
+     2      0,1      0,1     0,0          | | | | +--Helper:intToByteArrayLittleEndian	(main.java)
+     1      0,1      0,1     0,0          | | | | +--Helper:string2Bytes	(main.java)
+     2      0,1      0,1     0,0          | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+     2      0,1      0,1     0,0          | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+     2     16,1      0,3     0,0          | | | | +--Blake2b:doFinal	(main.java.components.hash.algorithms)
+     2     15,5      3,3     0,0          | | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+     2      0,1      0,1     0,0          | | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+    32      0,1      0,1     0,0          | | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+   192     12,0     10,9     0,0          | | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+   768      1,1      1,1     0,0          | | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+    16      0,1      0,1     0,0          | | | | | +--Blake2b:long2bytes	(main.java.components.hash.algorithms)
+     2      0,2      0,2     0,0          | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     2      0,1      0,1     0,0          | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     2      0,1      0,1     0,0          | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     2      0,0      0,0     0,0          | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     1      0,3      0,3     0,0          | | | | +--Helper:concateByteArrays	(main.java)
+     2      0,1      0,1     0,0          | | | +--Helper:concateByteArrays	(main.java)
+     3      4,2      0,0     0,0          | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+     3      4,2      0,0     0,0          | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+     1      4,1      0,8     0,0          | | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+     1      0,0      0,0     0,0          | | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+    16      0,0      0,0     0,0          | | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+    96      3,2      3,0     0,0          | | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+   384      0,2      0,2     0,0          | | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+     3      3,9      0,1     0,0          | | | +--Blake2b:doFinal	(main.java.components.hash.algorithms)
+     3      3,7      0,8     0,0          | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+     3      0,0      0,0     0,0          | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+    48      0,1      0,1     0,0          | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+   288      2,8      2,5     0,0          | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+  1152      0,3      0,3     0,0          | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+    24      0,0      0,0     0,0          | | | | +--Blake2b:long2bytes	(main.java.components.hash.algorithms)
+     3      0,1      0,0     0,0          | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     3      0,0      0,0     0,0          | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     1      0,0      0,0     0,0          | | | +--Catena:erasePwd	(main.java)
+     2 3899131,6    245,6   100,0          | | | +--Catena:flap	(main.java)
+     8      0,1      0,0     0,0          | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     8      0,0      0,0     0,0          | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     2      4,9      0,1     0,0          | | | | +--Catena:hInit	(main.java)
+     4      0,2      0,2     0,0          | | | | | +--Helper:concateByteArrays	(main.java)
+     4      0,0      0,0     0,0          | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+     4      0,0      0,0     0,0          | | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+     4      4,4      0,1     0,0          | | | | | +--Blake2b:doFinal	(main.java.components.hash.algorithms)
+     4      4,2      1,0     0,0          | | | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+     4      0,0      0,0     0,0          | | | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+    64      0,0      0,0     0,0          | | | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+   384      3,2      2,9     0,0          | | | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+  1536      0,3      0,3     0,0          | | | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+    32      0,0      0,0     0,0          | | | | | | +--Blake2b:long2bytes	(main.java.components.hash.algorithms)
+     4      0,1      0,0     0,0          | | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     4      0,0      0,0     0,0          | | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     4      0,1      0,0     0,0          | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     4      0,0      0,0     0,0          | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     2      0,0      0,0     0,0          | | | | | +--Helper:twoDimByteArrayToOne	(main.java)
+131584     34,7     34,7     0,0          | | | | +--Helper:concateByteArrays	(main.java)
+131584     77,7     66,1     0,0          | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+131584     11,6     11,6     0,0          | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+131584  32361,3    607,9     0,8          | | | | +--Blake2b:doFinal	(main.java.components.hash.algorithms)
+131584  31583,8   6302,0     0,8     0,2  | | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+131584     13,7     13,7     0,0          | | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+2105344    147,9    147,9     0,0          | | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+12632064  25120,1  21700,8     0,6     0,6  | | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+50528256   3419,4   3419,4     0,1          | | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+1052672     78,5     78,5     0,0          | | | | | +--Blake2b:long2bytes	(main.java.components.hash.algorithms)
+131584     91,1     78,6     0,0          | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+131584     12,5     12,5     0,0          | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     2   2112,1      0,1     0,1          | | | | +--Catena:gamma	(main.java)
+     2   2111,9     28,0     0,1          | | | | | +--SaltMix:gamma	(main.java.components.gamma.algorithms)
+  8324      4,9      4,1     0,0          | | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+  8324      0,8      0,8     0,0          | | | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+  8324   2073,0     38,4     0,1          | | | | | | +--Blake2b:doFinal	(main.java.components.hash.algorithms)
+  8324   2023,3    402,0     0,1          | | | | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+  8324      1,0      1,0     0,0          | | | | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+133184      9,5      9,5     0,0          | | | | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+799104   1610,8   1384,9     0,0          | | | | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+3196416    225,9    225,9     0,0          | | | | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+ 66592      5,0      5,0     0,0          | | | | | | | +--Blake2b:long2bytes	(main.java.components.hash.algorithms)
+  8324      6,2      5,4     0,0          | | | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+  8324      0,8      0,8     0,0          | | | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     6      0,0      0,0     0,0          | | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     6      0,0      0,0     0,0          | | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     2      0,1      0,1     0,0          | | | | | | +--SaltMix:transformBytesToLong	(main.java.components.gamma.algorithms)
+    32      0,0      0,0     0,0          | | | | | | | +--SaltMix:bytes2long	(main.java.components.gamma.algorithms)
+ 16640      1,5      1,5     0,0          | | | | | | +--SaltMix:xorshift1024star	(main.java.components.gamma.algorithms)
+  8320      4,4      4,4     0,0          | | | | | | +--Helper:concateByteArrays	(main.java)
+     2 3864295,4      0,1    99,1          | | | | +--Catena:f	(main.java)
+     2 3864295,3  36664,1    99,1     0,9  | | | | | +--DoubleButterflyGraph:graph	(main.java.components.graph.algorithms)
+     2      0,0      0,0     0,0          | | | | | | +--Blake2b:getOutputSize	(main.java.components.hash.algorithms)
+     2      0,0      0,0     0,0          | | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+     2      0,0      0,0     0,0          | | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+17336320   2522,2   2522,2     0,1          | | | | | | +--Helper:xor	(main.java)
+17336320   1128,3   1128,3     0,0          | | | | | | +--IndexDBG:getIndex	(main.java.components.graph.algorithms.index)
+17336320   3401,2   3401,2     0,1          | | | | | | +--Helper:concateByteArrays	(main.java)
+   200     50,6      3,7     0,0          | | | | | | +--DoubleButterflyGraph:hFirst	(main.java.components.graph.algorithms)
+   400      0,1      0,1     0,0          | | | | | | | +--Blake2b:getOutputSize	(main.java.components.hash.algorithms)
+   200      0,2      0,1     0,0          | | | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+   200      0,0      0,0     0,0          | | | | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+   200     44,9      0,9     0,0          | | | | | | | +--Blake2b:doFinal	(main.java.components.hash.algorithms)
+   200     43,7      8,8     0,0          | | | | | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+   200      0,1      0,1     0,0          | | | | | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+  3200      0,2      0,2     0,0          | | | | | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+ 19200     34,6     29,7     0,0          | | | | | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+ 76800      4,9      4,9     0,0          | | | | | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+  1600      0,1      0,1     0,0          | | | | | | | | +--Blake2b:long2bytes	(main.java.components.hash.algorithms)
+   200      0,2      0,1     0,0          | | | | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+   200      0,0      0,0     0,0          | | | | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+   200      0,6      0,5     0,0          | | | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+   200      0,1      0,1     0,0          | | | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+   200      1,2      1,2     0,0          | | | | | | | +--Helper:twoDimByteArrayToOne	(main.java)
+17336120   8967,2   7711,1     0,2     0,2  | | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+17336120   1256,2   1256,2     0,0          | | | | | | | +--Blake2b:update	(main.java.components.hash.algorithms)
+17336120 3811561,7  71399,7    97,8     1,8  | | | | | | +--Blake2b:doFinal	(main.java.components.hash.algorithms)
+17336120 3720131,9 738843,1    95,4    18,9  | | | | | | | +--Blake2b:compress	(main.java.components.hash.algorithms)
+17336120   1422,2   1422,2     0,0          | | | | | | | | +--Blake2b:initializeInternalState	(main.java.components.hash.algorithms)
+277377920  17424,5  17424,5     0,4     0,4  | | | | | | | | +--Blake2b:bytes2long	(main.java.components.hash.algorithms)
+1664267520 2962442,0 2558172,1    76,0    65,6  | | | | | | | | +--Blake2b:G	(main.java.components.hash.algorithms)
+6657070080 404270,0 404270,0    10,4    10,4  | | | | | | | | | +--Blake2b:rotr64	(main.java.components.hash.algorithms)
+138688960   9433,5   9433,5     0,2     0,2  | | | | | | | +--Blake2b:long2bytes	(main.java.components.hash.algorithms)
+17336120  10596,7   9262,3     0,3     0,2  | | | | | | | +--Blake2b:reset	(main.java.components.hash.algorithms)
+17336120   1334,4   1334,4     0,0          | | | | | | | | +--Blake2b:init	(main.java.components.hash.algorithms)
+     2      0,0      0,0     0,0          | | | | +--Catena:phi	(main.java)
+     2      0,0      0,0     0,0          | | | | | +--IdentityPhi:phi	(main.java.components.phi.algorithms)
+     1      0,0      0,0     0,0          | | | +--Helper:truncate	(main.java)
+     1      0,0      0,0     0,0          | | +--Helper:bytes2hex	(main.java)
+
++--------------------------------------
+| Most expensive methods (by net time)
+| Frame Count Limit: Unlimited
++--------------------------------------
+
+               Net
+          ------------
+ Count     Time    Pct  Location
+ =====     ====    ===  ========
+1664267520 2558172,1   65,6  main.java.components.hash.algorithms.Blake2b:G
+17336120 738843,1   18,9  main.java.components.hash.algorithms.Blake2b:compress
+6657070080 404270,0   10,4  main.java.components.hash.algorithms.Blake2b:rotr64
+17336120  71399,7    1,8  main.java.components.hash.algorithms.Blake2b:doFinal
+     2  36664,1    0,9  main.java.components.graph.algorithms.DoubleButterflyGraph:graph
+12632064  21700,8    0,6  main.java.components.hash.algorithms.Blake2b:G
+277377920  17424,5    0,4  main.java.components.hash.algorithms.Blake2b:bytes2long
+138688960   9433,5    0,2  main.java.components.hash.algorithms.Blake2b:long2bytes
+17336120   9262,3    0,2  main.java.components.hash.algorithms.Blake2b:reset
+17336120   7711,1    0,2  main.java.components.hash.algorithms.Blake2b:update
+131584   6302,0    0,2  main.java.components.hash.algorithms.Blake2b:compress
+50528256   3419,4    0,1  main.java.components.hash.algorithms.Blake2b:rotr64
+17336320   3401,2    0,1  main.java.Helper:concateByteArrays
+17336320   2522,2    0,1  main.java.Helper:xor
+17336120   1422,2    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+799104   1384,9    0,0  main.java.components.hash.algorithms.Blake2b:G
+17336120   1334,4    0,0  main.java.components.hash.algorithms.Blake2b:init
+17336120   1256,2    0,0  main.java.components.hash.algorithms.Blake2b:update
+17336320   1128,3    0,0  main.java.components.graph.algorithms.index.IndexDBG:getIndex
+131584    607,9    0,0  main.java.components.hash.algorithms.Blake2b:doFinal
+  8324    402,0    0,0  main.java.components.hash.algorithms.Blake2b:compress
+     2    245,6    0,0  main.java.Catena:flap
+3196416    225,9    0,0  main.java.components.hash.algorithms.Blake2b:rotr64
+2105344    147,9    0,0  main.java.components.hash.algorithms.Blake2b:bytes2long
+131584     78,6    0,0  main.java.components.hash.algorithms.Blake2b:reset
+1052672     78,5    0,0  main.java.components.hash.algorithms.Blake2b:long2bytes
+131584     66,1    0,0  main.java.components.hash.algorithms.Blake2b:update
+  8324     38,4    0,0  main.java.components.hash.algorithms.Blake2b:doFinal
+131584     34,7    0,0  main.java.Helper:concateByteArrays
+ 19200     29,7    0,0  main.java.components.hash.algorithms.Blake2b:G
+     2     28,0    0,0  main.java.components.gamma.algorithms.SaltMix:gamma
+     1     14,6    0,0  main.java.DefaultInstances:initButterflyFull
+131584     13,7    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+131584     12,5    0,0  main.java.components.hash.algorithms.Blake2b:init
+131584     11,6    0,0  main.java.components.hash.algorithms.Blake2b:update
+     1     11,3    0,0  profiling.CatenaProfiler:testPerformanceButterflyFull
+   192     10,9    0,0  main.java.components.hash.algorithms.Blake2b:G
+133184      9,5    0,0  main.java.components.hash.algorithms.Blake2b:bytes2long
+     1      9,4    0,0  profiling.CatenaProfiler:<init>
+   200      8,8    0,0  main.java.components.hash.algorithms.Blake2b:compress
+     1      5,7    0,0  main.java.components.graph.algorithms.index.IndexDBG:<init>
+  8324      5,4    0,0  main.java.components.hash.algorithms.Blake2b:reset
+     1      5,3    0,0  profiling.CatenaProfiler:main
+ 66592      5,0    0,0  main.java.components.hash.algorithms.Blake2b:long2bytes
+ 76800      4,9    0,0  main.java.components.hash.algorithms.Blake2b:rotr64
+  8320      4,4    0,0  main.java.Helper:concateByteArrays
+  8324      4,1    0,0  main.java.components.hash.algorithms.Blake2b:update
+   200      3,7    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:hFirst
+     2      3,3    0,0  main.java.components.hash.algorithms.Blake2b:compress
+    96      3,0    0,0  main.java.components.hash.algorithms.Blake2b:G
+   384      2,9    0,0  main.java.components.hash.algorithms.Blake2b:G
+   288      2,5    0,0  main.java.components.hash.algorithms.Blake2b:G
+ 16640      1,5    0,0  main.java.components.gamma.algorithms.SaltMix:xorshift1024star
+   200      1,2    0,0  main.java.Helper:twoDimByteArrayToOne
+   768      1,1    0,0  main.java.components.hash.algorithms.Blake2b:rotr64
+  8324      1,0    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+     4      1,0    0,0  main.java.components.hash.algorithms.Blake2b:compress
+   200      0,9    0,0  main.java.components.hash.algorithms.Blake2b:doFinal
+     1      0,8    0,0  main.java.components.hash.algorithms.Blake2b:compress
+     3      0,8    0,0  main.java.components.hash.algorithms.Blake2b:compress
+  8324      0,8    0,0  main.java.components.hash.algorithms.Blake2b:init
+  8324      0,8    0,0  main.java.components.hash.algorithms.Blake2b:update
+   200      0,5    0,0  main.java.components.hash.algorithms.Blake2b:reset
+  1536      0,3    0,0  main.java.components.hash.algorithms.Blake2b:rotr64
+     2      0,3    0,0  main.java.components.hash.algorithms.Blake2b:doFinal
+     1      0,3    0,0  main.java.Helper:concateByteArrays
+  1152      0,3    0,0  main.java.components.hash.algorithms.Blake2b:rotr64
+  3200      0,2    0,0  main.java.components.hash.algorithms.Blake2b:bytes2long
+   384      0,2    0,0  main.java.components.hash.algorithms.Blake2b:rotr64
+     4      0,2    0,0  main.java.Helper:concateByteArrays
+     1      0,2    0,0  main.java.Catena:compTweak
+     1      0,2    0,0  main.java.Helper:<init>
+     1      0,2    0,0  main.java.Catena:init
+     2      0,2    0,0  main.java.components.hash.algorithms.Blake2b:reset
+     4      0,2    0,0  main.java.Helper:hex2bytes
+   200      0,1    0,0  main.java.components.hash.algorithms.Blake2b:update
+     2      0,1    0,0  main.java.Catena:gamma
+   200      0,1    0,0  main.java.components.hash.algorithms.Blake2b:reset
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:<init>
+     1      0,1    0,0  main.java.Catena:catena
+   200      0,1    0,0  main.java.components.hash.algorithms.Blake2b:init
+    16      0,1    0,0  main.java.components.hash.algorithms.Blake2b:long2bytes
+  1600      0,1    0,0  main.java.components.hash.algorithms.Blake2b:long2bytes
+    32      0,1    0,0  main.java.components.hash.algorithms.Blake2b:bytes2long
+     1      0,1    0,0  main.java.Helper:string2Bytes
+     1      0,1    0,0  main.java.DefaultInstances:<init>
+     1      0,1    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:<init>
+   400      0,1    0,0  main.java.components.hash.algorithms.Blake2b:getOutputSize
+     2      0,1    0,0  main.java.Catena:hInit
+     1      0,1    0,0  main.java.Catena:<init>
+     4      0,1    0,0  main.java.components.hash.algorithms.Blake2b:doFinal
+     3      0,1    0,0  main.java.components.hash.algorithms.Blake2b:doFinal
+     1      0,1    0,0  main.java.components.gamma.algorithms.SaltMix:<init>
+     2      0,1    0,0  main.java.Catena:f
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:init
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:reset
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:update
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:init
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:update
+     2      0,1    0,0  main.java.Helper:intToByteArrayLittleEndian
+     2      0,1    0,0  main.java.Helper:concateByteArrays
+    48      0,1    0,0  main.java.components.hash.algorithms.Blake2b:bytes2long
+     2      0,1    0,0  main.java.components.gamma.algorithms.SaltMix:transformBytesToLong
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+     1      0,1    0,0  main.java.Helper:<init>
+     1      0,1    0,0  main.java.Helper:<init>
+   200      0,1    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+     1      0,1    0,0  main.java.Helper:<init>
+     1      0,1    0,0  main.java.Helper:<init>
+     1      0,0    0,0  main.java.Helper:bytes2hex
+     1      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:<init>
+     1      0,0    0,0  main.java.Helper:<init>
+     1      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:setHPrime
+     1      0,0    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:setIndexing
+     8      0,0    0,0  main.java.components.hash.algorithms.Blake2b:reset
+    64      0,0    0,0  main.java.components.hash.algorithms.Blake2b:bytes2long
+     3      0,0    0,0  main.java.components.hash.algorithms.Blake2b:update
+   200      0,0    0,0  main.java.components.hash.algorithms.Blake2b:update
+     1      0,0    0,0  main.java.Catena:erasePwd
+     2      0,0    0,0  main.java.components.hash.algorithms.Blake2b:getOutputSize
+     1      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:setH
+     1      0,0    0,0  main.java.Catena:<init>
+    16      0,0    0,0  main.java.components.hash.algorithms.Blake2b:bytes2long
+     1      0,0    0,0  main.java.components.gamma.algorithms.SaltMix:setH
+     4      0,0    0,0  main.java.components.hash.algorithms.Blake2b:reset
+    32      0,0    0,0  main.java.components.hash.algorithms.Blake2b:long2bytes
+     2      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+     3      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+     1      0,0    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:setH
+     4      0,0    0,0  main.java.components.hash.algorithms.Blake2b:reset
+    32      0,0    0,0  main.java.components.gamma.algorithms.SaltMix:bytes2long
+     3      0,0    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+     4      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+     4      0,0    0,0  main.java.components.hash.algorithms.Blake2b:update
+    24      0,0    0,0  main.java.components.hash.algorithms.Blake2b:long2bytes
+     1      0,0    0,0  main.java.components.gamma.algorithms.SaltMix:setHPrime
+     2      0,0    0,0  main.java.Helper:twoDimByteArrayToOne
+     1      0,0    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:setHPrime
+     8      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+     1      0,0    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+     3      0,0    0,0  main.java.components.hash.algorithms.Blake2b:reset
+   200      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+     4      0,0    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+     4      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+     3      0,0    0,0  main.java.components.hash.algorithms.Blake2b:update
+     4      0,0    0,0  main.java.components.hash.algorithms.Blake2b:update
+     1      0,0    0,0  main.java.Helper:truncate
+     2      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:phi
+     2      0,0    0,0  main.java.Catena:phi
+     6      0,0    0,0  main.java.components.hash.algorithms.Blake2b:reset
+     6      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+     2      0,0    0,0  main.java.components.hash.algorithms.Blake2b:getOutputSize
+     2      0,0    0,0  main.java.components.hash.algorithms.Blake2b:reset
+     2      0,0    0,0  main.java.components.hash.algorithms.Blake2b:init
+
++--------------------------------------+
+| Most expensive methods summarized    |
++--------------------------------------+
+
+               Net
+          ------------
+ Count     Time    Pct  Location
+ =====     ====    ===  ========
+1677718848 2581306,6   66,2  main.java.components.hash.algorithms.Blake2b:G
+17476238 745561,9   19,1  main.java.components.hash.algorithms.Blake2b:compress
+6710875392 407922,1   10,5  main.java.components.hash.algorithms.Blake2b:rotr64
+17476237  72047,4    1,8  main.java.components.hash.algorithms.Blake2b:doFinal
+     2  36664,1    0,9  main.java.components.graph.algorithms.DoubleButterflyGraph:graph
+279619808  17582,4    0,5  main.java.components.hash.algorithms.Blake2b:bytes2long
+139809896   9517,3    0,2  main.java.components.hash.algorithms.Blake2b:long2bytes
+17476459   9347,3    0,2  main.java.components.hash.algorithms.Blake2b:reset
+34952474   9050,2    0,2  main.java.components.hash.algorithms.Blake2b:update
+17476231   3440,9    0,1  main.java.Helper:concateByteArrays
+17336320   2522,2    0,1  main.java.Helper:xor
+17476238   1437,2    0,0  main.java.components.hash.algorithms.Blake2b:initializeInternalState
+17476461   1348,1    0,0  main.java.components.hash.algorithms.Blake2b:init
+17336320   1128,3    0,0  main.java.components.graph.algorithms.index.IndexDBG:getIndex
+     2    245,6    0,0  main.java.Catena:flap
+     2     28,0    0,0  main.java.components.gamma.algorithms.SaltMix:gamma
+     1     14,6    0,0  main.java.DefaultInstances:initButterflyFull
+     1     11,3    0,0  profiling.CatenaProfiler:testPerformanceButterflyFull
+     1      9,4    0,0  profiling.CatenaProfiler:<init>
+     1      5,7    0,0  main.java.components.graph.algorithms.index.IndexDBG:<init>
+     1      5,3    0,0  profiling.CatenaProfiler:main
+   200      3,7    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:hFirst
+ 16640      1,5    0,0  main.java.components.gamma.algorithms.SaltMix:xorshift1024star
+   202      1,2    0,0  main.java.Helper:twoDimByteArrayToOne
+     6      0,5    0,0  main.java.Helper:<init>
+     1      0,2    0,0  main.java.Catena:compTweak
+     1      0,2    0,0  main.java.Catena:init
+     4      0,2    0,0  main.java.Helper:hex2bytes
+   404      0,1    0,0  main.java.components.hash.algorithms.Blake2b:getOutputSize
+     2      0,1    0,0  main.java.Catena:gamma
+     2      0,1    0,0  main.java.components.hash.algorithms.Blake2b:<init>
+     2      0,1    0,0  main.java.Catena:<init>
+     1      0,1    0,0  main.java.Catena:catena
+     1      0,1    0,0  main.java.Helper:string2Bytes
+     1      0,1    0,0  main.java.DefaultInstances:<init>
+     1      0,1    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:<init>
+     2      0,1    0,0  main.java.Catena:hInit
+     1      0,1    0,0  main.java.components.gamma.algorithms.SaltMix:<init>
+     2      0,1    0,0  main.java.Catena:f
+     2      0,1    0,0  main.java.Helper:intToByteArrayLittleEndian
+     2      0,1    0,0  main.java.components.gamma.algorithms.SaltMix:transformBytesToLong
+     1      0,0    0,0  main.java.Helper:bytes2hex
+     1      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:<init>
+     1      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:setHPrime
+     1      0,0    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:setIndexing
+     1      0,0    0,0  main.java.Catena:erasePwd
+     1      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:setH
+     1      0,0    0,0  main.java.components.gamma.algorithms.SaltMix:setH
+     1      0,0    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:setH
+    32      0,0    0,0  main.java.components.gamma.algorithms.SaltMix:bytes2long
+     1      0,0    0,0  main.java.components.gamma.algorithms.SaltMix:setHPrime
+     1      0,0    0,0  main.java.components.graph.algorithms.DoubleButterflyGraph:setHPrime
+     1      0,0    0,0  main.java.Helper:truncate
+     2      0,0    0,0  main.java.components.phi.algorithms.IdentityPhi:phi
+     2      0,0    0,0  main.java.Catena:phi

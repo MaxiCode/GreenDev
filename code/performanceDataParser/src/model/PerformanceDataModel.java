@@ -122,13 +122,14 @@ public class PerformanceDataModel {
 				return 0;
 			}
 			
-			int  tmpCount = Integer.parseInt(parts[0]);
+//			int  tmpCount = Integer.parseInt(parts[0]);
+			long tmpCountLong = Long.parseLong(parts[0]);
 			float tmpPct  = Float.parseFloat(parts[2].replace(',', '.'));
 			float tmpTime = Float.parseFloat(parts[1].replace(',', '.'));
 			
 			PerformanceData data = new PerformanceData();
 			data.setPct(tmpPct);
-			data.setTime(tmpTime/tmpCount);
+			data.setTime(tmpTime/tmpCountLong);
 			
 			if (dataSet.containsKey(parts[3])) {
 				// if currently read function was read before - append values
@@ -140,7 +141,7 @@ public class PerformanceDataModel {
 				tmpData.add(config, data);
 				dataSet.put(parts[3], tmpData);
 			}
-			return (tmpTime/tmpCount);
+			return (tmpTime/tmpCountLong);
 		}
 		return 0;
 	}
@@ -185,7 +186,7 @@ public class PerformanceDataModel {
 		String configName;
 		float  time;
 		float  fraction;
-		float highestInConfig;
+		float  highestInConfig;
 		
 		db.initBatch();
 		
