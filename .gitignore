@@ -25,4 +25,4 @@ hs_err_pid*
 code/.recommenders/*
 
 # eclipse runtime
-code/runtime-EclipseApplication/*
+#code/runtime-EclipseApplication/*
