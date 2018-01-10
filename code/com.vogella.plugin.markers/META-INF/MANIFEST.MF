@@ -17,3 +17,4 @@ Require-Bundle: javax.inject,
  org.eclipse.jdt.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.2.0"
+Bundle-Classpath: .,external:/home/max/uni/GreenDev/code/jars/sqlite-jdbc-3.21.0.jar

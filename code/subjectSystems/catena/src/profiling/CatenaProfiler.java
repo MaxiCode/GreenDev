@@ -17,9 +17,6 @@ public class CatenaProfiler {
 		cp.testPerformanceButterflyFull();
 //		cp.testPerformanceDragonfly();
 		
-		// Exception in thread "main" java.lang.OutOfMemoryError: GC overhead limit exceeded
-//		cp.testPerformanceDragonflyFull();
-		
 		System.out.println("Time used: " + (System.currentTimeMillis()-startTime));
 	}
 	

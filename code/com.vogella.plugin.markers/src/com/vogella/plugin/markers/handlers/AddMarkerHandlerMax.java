@@ -1,13 +1,10 @@
 package com.vogella.plugin.markers.handlers;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Named;
 
-import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
@@ -29,12 +26,11 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
 @SuppressWarnings("restriction")
-public class AddMarkerHandler {
+public class AddMarkerHandlerMax {
 	
 	private static final String JDT_NATURE = "org.eclipse.jdt.core.javanature";
-	private static final List<String> predefinedMarker = new ArrayList<String>();
-	
-	private Map<String, Float> performanceValues = new HashMap<String, Float>();
+	private DatabaseConnection conn;
+	private Map<String, Integer> functionNames;
 	
 	@Execute
     public void execute(@Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection, Adapter adapter) {
@@ -42,24 +38,14 @@ public class AddMarkerHandler {
 		Object firstElement = selection.getFirstElement();
 		IResource resource = adapter.adapt(firstElement, IResource.class);
 		
-		initMarkerMap();
-		readPerformanceFile();
+		conn = null;
+		functionNames = null;
 		
-		System.out.println("Size of read performance values: " + performanceValues.size());
+//		readPerformanceFile();
+		initFunctionNames();
+		
 		colorWithAST(resource);
     }
-	
-	
-	/**
-	 * initialize list of colors
-	 * care sequence: add colors from green to red
-	 */
-	private void initMarkerMap() {
-		predefinedMarker.add("org.eclipse.max.slicemarker.green");
-		predefinedMarker.add("org.eclipse.max.slicemarker.yellow");
-		predefinedMarker.add("org.eclipse.max.slicemarker.red");
-	}
-	
 	
 	private void colorWithAST(IResource resource) {
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
@@ -103,10 +89,8 @@ public class AddMarkerHandler {
             }
             
         	String classString = extractFileIdentifier(unit.getHandleIdentifier());
-        	System.out.println("Extracted class string: " + classString);
         	String fullPathOfRecource = resource.getFullPath().toString();
         	fullPathOfRecource = fullPathOfRecource.replace('/', '.');
-        	System.out.println("Full path of current file: " + fullPathOfRecource);
         	// filter wrong resources if class names in projects are the same
         	if (!fullPathOfRecource.contains(classString)) {
             	continue;
@@ -116,36 +100,25 @@ public class AddMarkerHandler {
             for (MethodDeclaration method : visitor.getMethods()) {
             	// Color function
             	String functionIdentifier = classString+":"+method.getName();
-            	Float pValue = performanceValues.get(functionIdentifier);
-            	System.out.println("Method level name: " + functionIdentifier);
-            	System.out.println("Method level value: " + pValue);
-            	if (pValue == null) {
+            	Integer functionsPrimaryKey = functionNames.get(functionIdentifier);
+            	
+            	if (functionsPrimaryKey == null) {
             		continue;
+            	}
+            	
+            	List<Float> fractions = conn.getFraction(functionsPrimaryKey);
+            	float highest = 0;
+            	for (float el : fractions) {
+            		System.out.println("El: " + el);
+            		if (highest<el) highest = el;
             	}
             	
         		int start = method.getStartPosition();
             	int end = start + method.getLength();
-            	System.out.println("Start: " + start + " End: " + end);
-                writeMarkerUnderline(resource, start, end, pValue);
+                MarkerUtils.writeMarkerUnderline(resource, start, end, highest);
             }
         }
     }
-	
-	private void writeMarkerUnderline(IResource resource, int st, int end, float performance) {
-		// performance is a value from 0 to 100
-		// map it to nearest values in hash map predefinedMarker
-		int availableColors = predefinedMarker.size();
-		int targetColor = Math.round(performance*(availableColors-1)/100);
-		
-		try {
-			IMarker marker = resource.createMarker(predefinedMarker.get(targetColor));
-			marker.setAttribute(IMarker.CHAR_START, st);
-			marker.setAttribute(IMarker.CHAR_END, end);
-			System.out.println("Done Coloring " + resource.getName() + " with " + predefinedMarker.get(targetColor) + " start: " + st + " end: " + end);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
 	/**
      * Reads a ICompilationUnit and creates the AST DOM for manipulating the
@@ -164,7 +137,6 @@ public class AddMarkerHandler {
     }
     
     private String extractFileIdentifier(String input) {
-    	System.out.println("extract File Identifier: " + input);
 //    	=catena/src<main.java.components.graph.algorithms{DoubleButterflyGraph.java
 //    	=h2/src\/main<org.h2.engine{Database.java
     	String startOfPackage = input.substring(
@@ -173,10 +145,9 @@ public class AddMarkerHandler {
     	return startOfPackage.replace('{', '.');
     }
     
-    private void readPerformanceFile() {
-    	PerformanceValues pV = new PerformanceValues();
-    	pV.readPerformanceFiles();
-    	performanceValues = pV.getData();
+    private void initFunctionNames() {
+    	conn = new DatabaseConnection();
+    	functionNames = conn.getFunctionNames();
     }
     
 }

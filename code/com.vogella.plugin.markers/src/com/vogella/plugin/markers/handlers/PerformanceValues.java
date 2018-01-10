@@ -15,8 +15,8 @@ import java.util.Map;
 
 public class PerformanceValues {
 	
-	private String performanceValueSource = "./../profilingOutput/";
-	private String performanceValueSource2 = "./uni/GreenDev/code/profilingOutput/";
+	private String performanceValueSource = "/home/max/uni/GreenDev/code/profilingOutput/";
+//	private String performanceValueSource2 = "./uni/GreenDev/code/profilingOutput/";
 	private List<File> performanceFiles = new ArrayList<File>();
 	private String txtFileIdentifier = ".txt";
 	
@@ -24,8 +24,8 @@ public class PerformanceValues {
 	
 	public void readPerformanceFiles() {
 //		System.out.println("Here: " + new File(".").getAbsolutePath());
-		File folder = new File(performanceValueSource2);
-		System.out.println("Folder: " + folder.getAbsolutePath());
+		File folder = new File(performanceValueSource);
+//		System.out.println("Folder: " + folder.getAbsolutePath());
 		if (folder.isDirectory()) {
 			File[] files = folder.listFiles();
 			if (files.length == 0) {
@@ -69,7 +69,6 @@ public class PerformanceValues {
 					} else {
 						continue;
 					}
-					
 				}
 			} catch (IOException e) {
 				e.printStackTrace();

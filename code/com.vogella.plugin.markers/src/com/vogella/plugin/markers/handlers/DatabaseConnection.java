@@ -2,16 +2,21 @@ package com.vogella.plugin.markers.handlers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class DatabaseConnection {
 
-	private String dbPath = "./../profilingOutput/";
+	private String dbPath = "/home/max/uni/GreenDev/code/profilingOutput/";
 	private String dbName = "performance.db";
 	
 	private Connection c = null;
-	private Statement stmt = null;
+	private Statement stm = null;
 	
 	public DatabaseConnection() {
 		initConnection();
@@ -59,7 +64,7 @@ public class DatabaseConnection {
 	
 	public void initBatchStmt() {
 		try {
-			stmt = c.createStatement();
+			stm = c.createStatement();
 		} catch (SQLException e) {
 			System.out.println("SQL Exception while initialize batch statement");
 			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -68,8 +73,8 @@ public class DatabaseConnection {
 	
 	public void executeBatch() {
 		try {
-			stmt.executeBatch();
-			stmt.close();
+			stm.executeBatch();
+			stm.close();
 			c.commit();
 			
 		} catch (SQLException e) {
@@ -77,6 +82,85 @@ public class DatabaseConnection {
 			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 		}
 	}
+
+	public HashMap<String, Integer> getFunctionNames() {
+		HashMap<String, Integer> functionNames = new HashMap<String, Integer>();
+		try {
+			Statement stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM FUNCTION_NAME");
+			while(rs.next()) {
+				functionNames.put(rs.getString("NAME"), rs.getInt("ID"));
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return functionNames;
+	}
+
+	/**
+	 * TODO: Rework greedy parameter filter
+	 * 
+	 * @param fID
+	 * @return
+	 */
+	public List<Float> getTimeValues(int fID){
+		List<Float> l = new ArrayList<>();
+		String sql = "SELECT * FROM PERFORMANCE WHERE F_ID = ?";
+		List<Integer> configs = new ArrayList<>();
+		try {
+			PreparedStatement pStmt = c.prepareStatement(sql);
+			// set the value
+			pStmt.setInt(1, fID);
+//			pStmt.setInt(2, cID);
+			ResultSet rs = pStmt.executeQuery();
+			
+			float tmpTime;
+			int tmpCID; 
+			while(rs.next()) {
+				tmpTime = rs.getFloat("TIME_VALUE");
+				tmpCID = rs.getInt("C_ID");
+				if (!configs.contains(tmpCID)) {
+					configs.add(tmpCID);
+					l.add(tmpTime);
+//					System.out.println("\t Values: " + tmpTime);
+//					System.out.println("\t Config: " + tmpCID);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return l;
+	}
 	
-	
+	public List<Float> getFraction(int fID){
+		List<Float> l = new ArrayList<>();
+		String sql = "SELECT * FROM PERFORMANCE WHERE F_ID = ?";
+		List<Integer> configs = new ArrayList<>();
+		try {
+			PreparedStatement pStmt = c.prepareStatement(sql);
+			// set the value
+			pStmt.setInt(1, fID);
+//			pStmt.setInt(2, cID);
+			ResultSet rs = pStmt.executeQuery();
+			
+			float tmpTime;
+			int tmpCID; 
+			while(rs.next()) {
+				tmpTime = rs.getFloat("FRACTION_VALUE");
+				tmpCID = rs.getInt("C_ID");
+				if (!configs.contains(tmpCID)) {
+					configs.add(tmpCID);
+					l.add(tmpTime);
+//					System.out.println("\t Values: " + tmpTime);
+//					System.out.println("\t Config: " + tmpCID);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return l;
+	}
 }
