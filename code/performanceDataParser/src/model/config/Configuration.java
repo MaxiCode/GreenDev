@@ -1,15 +1,23 @@
 package model.config;
 
 import java.io.File;
-import java.util.Date;
 
 public class Configuration {
 
 	private String configName;
-	private Date date;
+	private String date;
 	private File performanceFile;
 	private float highestValueOfConfig;
+	private String parameter;
 	
+	
+	public void setParameters(String parameter) {
+		this.parameter = parameter;
+	}
+	
+	public String getParameter() {
+		return this.parameter;
+	}
 	
 	public void setHighestValue(float value) {
 		highestValueOfConfig = value;
@@ -35,11 +43,11 @@ public class Configuration {
 		return configName;
 	}
 	
-	public void setDate(Date d) {
+	public void setDate(String d) {
 		date = d;
 	}
 	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 }

@@ -19,34 +19,41 @@ public class PerformanceDataCalculator {
 		PerformanceDataModel model = new PerformanceDataModel();
 		
 		handler = new PerformanceFileHandler();
-		handler.readFiles();
-		handler.initOutputWriter();
-		
+		handler.readProfilerOutputCa();
+		List<File> catenaProfilingSubDirs = handler.getProfileSubdirsCa();
+
 		db = new Database(handler.getOutputDir());
-		
-		// pFiles contain all performance files of the H2 project
-//		List<File> pFiles = handler.getFilesH2();
-		
-		// pFiles contain all performance files of the Catena project
-		List<File> pFiles = handler.getFilesCa();
-		
-		for (File f : pFiles) {
-			System.out.println();
-			System.out.println("Processing File: " + f.getAbsolutePath());
+		for (File dir : catenaProfilingSubDirs) {
+			String configName =  dir.getName();
+			String configDate = "";
+			String configParameter = "";
+			
+			// There are 2 files now: 
+			// One parameter file and one profiling file
+			File[] files = dir.listFiles();
+			File proFile = null;
+			for(File f : files) {
+				if (f.getName().equals("parameter.txt")) {
+					configParameter = model.extractParameter(f);
+				} else {
+					configDate = f.getName().substring(0, 15);
+					proFile = f;
+				}
+			}
+			
+			if (proFile == null) {
+				continue;
+			}
 			
 			Configuration config = new Configuration();
-			config.setPerformanceFile(f);
-			config.setName("Default Configuration");
-						
-			model.extractData(f, config);
-
-			System.out.println("Start writing output.");
-//			model.writeToFile(handler.getOutputWriter());
-			model.writeToDb(db);
-			System.out.println("Done writing output.");
+			config.setDate(configDate);
+			config.setName(configName);
+			config.setParameters(configParameter);
+			config.setPerformanceFile(dir);
 			
+			model.extractData(proFile, config);
+			model.writeToDb(db);
 		}
-		handler.closeWriter();
 		db.closeDbConnection();
 	}
 

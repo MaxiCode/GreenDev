@@ -3,11 +3,7 @@ package model;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +17,6 @@ public class PerformanceDataModel {
 	
 	private String MOST_EXPENSIVE_METHODES_IDENTIFIER = "Most expensive methods (by net time)";
 	private String MOST_EXPENSIVE_METHODES_END_IDENTIFIER = "Most expensive methods summarized";
-	private String DATE_TIME_IDENTIFIER = "|  Date: ";
 	
 	
 	// Contains the identifier for functions as String and the corresponding Performance Dataset
@@ -50,11 +45,6 @@ public class PerformanceDataModel {
 				} else if (strLine.contains(MOST_EXPENSIVE_METHODES_IDENTIFIER)) {
 						mostExpensiveMethodesArea = true;
 				
-				} else if (strLine.contains(DATE_TIME_IDENTIFIER)) {
-					Date dataDate = extractDateTime(strLine);
-					if (dataDate != null) {
-						config.setDate(dataDate);
-					}
 				}
 			}
 			parser.closeInStream();
@@ -146,21 +136,6 @@ public class PerformanceDataModel {
 		return 0;
 	}
 	
-	private Date extractDateTime (String line) {
-		// 2017.11.30 14:37:38 PM
-		int index = line.indexOf(DATE_TIME_IDENTIFIER);		
-		String dateString = line.substring(DATE_TIME_IDENTIFIER.length() + index);
-		
-		DateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd hh:mm:ss" );
-		Date date = null;
-		try {
-			date = formatter.parse(dateString);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date;
-	}
-	
 	/**
 	 * Saves performance values to sqlite database
 	 */
@@ -180,13 +155,13 @@ public class PerformanceDataModel {
 		}
 	}
 	public void writeToDb(Database db) {
-		System.out.println("Start writing to db.");
-		
 		String functionName;
 		String configName;
 		float  time;
 		float  fraction;
 		float  highestInConfig;
+		String cDate;
+		String cParameter;
 		
 		db.initBatch();
 		
@@ -196,17 +171,36 @@ public class PerformanceDataModel {
 			PerformanceDataset data = e.getValue();
 			Map<Configuration, List<PerformanceData>> printData = data.getAll();
 			for (Entry<Configuration, List<PerformanceData>> d : printData.entrySet()) {
-				configName = d.getKey().getPerformanceFile().getAbsolutePath();
+				configName 		= d.getKey().getName();
 				highestInConfig = d.getKey().getHighestValue();
+				cDate 			= d.getKey().getDate();
+				cParameter 		= d.getKey().getParameter();
+				
 				for (PerformanceData element : d.getValue()) {
 					time = element.getTime();
 					fraction = time*100/highestInConfig;
-					db.insertData(functionName, configName, time, fraction);
+					db.insertData(functionName, configName, cDate, cParameter, time, fraction);
 				}
 			}
 		}
 		
 		db.executeBatch();
+	}
+	
+	public String extractParameter(File f) {
+		FileParser fp = new FileParser();
+		fp.readFile(f);
+		String str;
+		String parameter = "";
+		try {
+			while ((str = fp.getNextLine()) != null) {
+				parameter += str;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return parameter;
 	}
 }
  

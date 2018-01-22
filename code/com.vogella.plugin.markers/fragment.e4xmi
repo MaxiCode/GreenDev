@@ -9,7 +9,7 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_fW12kIrOEeW7h_qdP9N9fw" featurename="handlers" parentElementId="xpath:/">
     <elements xsi:type="commands:Handler" xmi:id="_k2L0IIrOEeW7h_qdP9N9fw" elementId="org.eclipse.pde.ui.templates.handler.0" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerMax" command="_X85DEPVjEeem45_k6zw87g"/>
     <elements xsi:type="commands:Handler" xmi:id="_FTGOsPVpEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.0" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerMean" command="_eg0DEPVjEeem45_k6zw87g"/>
-    <elements xsi:type="commands:Handler" xmi:id="_UMtm8PVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.1" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.ClearMarker" command="_PUKjoPVsEeem45_k6zw87g"/>
+    <elements xsi:type="commands:Handler" xmi:id="_UMtm8PVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.1" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.ClearMarkerHandler" command="_PUKjoPVsEeem45_k6zw87g"/>
     <elements xsi:type="commands:Handler" xmi:id="_Ti4OEPXgEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.2" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerStandardDeviation" command="_F1YjUPXgEeem45_k6zw87g"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pVgfIIrOEeW7h_qdP9N9fw" featurename="menuContributions" parentElementId="xpath:/">

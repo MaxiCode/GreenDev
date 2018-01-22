@@ -33,7 +33,6 @@ public class Database {
 			Class.forName("org.sqlite.JDBC");
 			c = DriverManager.getConnection("jdbc:sqlite:" + dbPath + dbName);
 			c.setAutoCommit(false);
-			
 		} catch (SQLException e) {
 			System.out.println("SQL Exception while creating database");
 			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -59,17 +58,19 @@ public class Database {
 			stmt.addBatch(sqlTableFunctionName);
 			
 			String sqlTableConfig = "CREATE TABLE IF NOT EXISTS CONFIG "
-			+ "(ID INTEGER PRIMARY KEY NOT NULL,"
-			+ " NAME TEXT NOT NULL)";
+					+ "(ID INTEGER PRIMARY KEY NOT NULL,"
+					+ " NAME TEXT NOT NULL,"
+					+ " DATE TEXT NOT NULL,"
+					+ " PARAMETER TEXT NOT NULL)";
 			
 			stmt.addBatch(sqlTableConfig);
 			
 			String sqlTablePerformance = "CREATE TABLE IF NOT EXISTS PERFORMANCE "
-			+ "(ID INTEGER PRIMARY KEY NOT NULL,"
-			+ " TIME_VALUE 		REAL 	NOT NULL,"
-			+ " FRACTION_VALUE 	REAL 	NOT NULL,"
-			+ " C_ID 			INTEGER NOT NULL,"
-			+ " F_ID 			INTEGER NOT NULL)";
+					+ "(ID INTEGER PRIMARY KEY NOT NULL,"
+					+ " TIME_VALUE 		REAL 	NOT NULL,"
+					+ " FRACTION_VALUE 	REAL 	NOT NULL,"
+					+ " C_ID 			INTEGER NOT NULL,"
+					+ " F_ID 			INTEGER NOT NULL)";
 			
 			stmt.addBatch(sqlTablePerformance);
 			
@@ -113,8 +114,7 @@ public class Database {
 		}
 	}
 	
-	
-	public void insertData(String fName, String cName, float time, float fraction) {
+	public void insertData(String fName, String cName, String cDate, String cParameter, float time, float fraction) {
 		if (!primaryKeyOfFunctions.containsKey(fName)) {
 			try {
 				insertStmt.addBatch("INSERT INTO FUNCTION_NAME (NAME) "
@@ -128,10 +128,11 @@ public class Database {
 		}
 		
 		if (!primaryKeyOfConfigs.containsKey(cName)) {
-			System.out.println("Added config: " + cName);
 			try {
 				
-				insertStmt.addBatch("INSERT INTO CONFIG (NAME) VALUES ('"+cName+"')");
+				insertStmt.addBatch("INSERT INTO CONFIG "
+						+ "(NAME, DATE, PARAMETER) VALUES "
+						+ "('"+cName+"', '"+cDate+"', '"+cParameter+"')");
 
 				primaryKeyOfConfigs.put(cName, primaryKeyOfConfigs.size()+1);
 			} catch (SQLException e) {

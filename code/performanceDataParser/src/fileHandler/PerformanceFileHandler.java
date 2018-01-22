@@ -16,11 +16,12 @@ public class PerformanceFileHandler {
 	private String pathToH2Profile = "./../subjectSystems/h2database/h2/";
 	private String pathToGsProfile = "./../subjectSystems/gs-core/";
 	private String pathToCaProfile = "./../subjectSystems/catena/";
+	private String pathToCaProfiles = "/home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/";
 
 	private String profileFileName = "profile";
 	private String profileFileExtension = ".txt";
 	
-	private String pathToProfileOutput = "./../profilingOutput/";
+	private String pathToProfileOutput = "/home/max/uni/GreenDev/code/profilingOutput/";
 	
 	// oFN - output file name
 	// oFE - output file extension
@@ -31,8 +32,25 @@ public class PerformanceFileHandler {
 	private List<File> performanceFilesGs = new ArrayList<File>();
 	private List<File> performanceFilesCa = new ArrayList<File>();
 	
+	private List<File> profilerOutputCa = new ArrayList<File>();
+	
 	private PrintWriter outputWriter;
 
+	
+	/**
+	 * Read sub-directories of profiling output 
+	 */
+	public void readProfilerOutputCa() {
+		File dir = new File(pathToCaProfiles);
+		if (dir.isDirectory()) {
+			File[] dirsOfProfiles = dir.listFiles();
+			for(File f : dirsOfProfiles) {
+				if (f.isDirectory()) {
+					profilerOutputCa.add(f);
+				}
+			}
+		}
+	}
 	
 	//TODO Add output writer for different projects
 	
@@ -48,7 +66,6 @@ public class PerformanceFileHandler {
 			numFiles = filesInOutputDir.length;
 			try {
 				outputWriter = new PrintWriter(pathToProfileOutput+oFN+(numFiles+1)+oFE, "UTF-8");
-				System.out.println("Output Writer Done.");
 				return true;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -117,5 +134,9 @@ public class PerformanceFileHandler {
 	
 	public String getOutputDir() {
 		return pathToProfileOutput;
+	}
+	
+	public List<File> getProfileSubdirsCa(){
+		return profilerOutputCa;
 	}
 }

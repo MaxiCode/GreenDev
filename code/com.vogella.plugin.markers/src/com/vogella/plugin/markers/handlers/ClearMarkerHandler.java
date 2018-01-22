@@ -7,7 +7,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.e4.core.di.annotations.Execute;
 
-public class ClearMarker {
+public class ClearMarkerHandler {
 	
 	@Execute
     public void execute() {
