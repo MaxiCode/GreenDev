@@ -1,4 +1,4 @@
-package com.vogella.plugin.markers.handlers;
+package com.vogella.plugin.markers.performance;
 
 public class Statistics {
 	 

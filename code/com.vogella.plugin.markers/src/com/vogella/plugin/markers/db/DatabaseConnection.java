@@ -1,4 +1,4 @@
-package com.vogella.plugin.markers.handlers;
+package com.vogella.plugin.markers.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

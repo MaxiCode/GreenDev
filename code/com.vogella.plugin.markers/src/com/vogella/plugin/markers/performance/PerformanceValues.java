@@ -1,4 +1,4 @@
-package com.vogella.plugin.markers.handlers;
+package com.vogella.plugin.markers.performance;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -23,9 +23,7 @@ public class PerformanceValues {
 	private Map<String, Float> dataSet = new HashMap<String, Float>();
 	
 	public void readPerformanceFiles() {
-//		System.out.println("Here: " + new File(".").getAbsolutePath());
 		File folder = new File(performanceValueSource);
-//		System.out.println("Folder: " + folder.getAbsolutePath());
 		if (folder.isDirectory()) {
 			File[] files = folder.listFiles();
 			if (files.length == 0) {
@@ -54,7 +52,6 @@ public class PerformanceValues {
 			String strLine = "";
 			try {
 				while((strLine = br.readLine()) != null) {
-//					System.out.println(strLine);
 					// read from 2 different file formats
 					// 1 - Time | 3 - Count | 5 - Fraction | 7 - Key
 					String[] parts = strLine.split("\\s+");

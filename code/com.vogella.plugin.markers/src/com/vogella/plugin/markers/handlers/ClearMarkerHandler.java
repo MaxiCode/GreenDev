@@ -7,6 +7,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.e4.core.di.annotations.Execute;
 
+import com.vogella.plugin.markers.performance.MarkerUtils;
+
 public class ClearMarkerHandler {
 	
 	@Execute

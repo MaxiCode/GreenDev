@@ -25,6 +25,11 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
+import com.vogella.plugin.markers.db.DatabaseConnection;
+import com.vogella.plugin.markers.performance.MarkerUtils;
+import com.vogella.plugin.markers.performance.MethodVisitor;
+import com.vogella.plugin.markers.performance.Statistics;
+
 @SuppressWarnings("restriction")
 public class AddMarkerHandlerStandardDeviation {
 	
