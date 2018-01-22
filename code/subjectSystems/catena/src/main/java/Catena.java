@@ -99,13 +99,13 @@ public class Catena {
 		System.arraycopy(xHinit, _k, v[1], 0, _k);
 		
 		for (int i=2; i<iterations+2; ++i){
-			if (i%10000 == 0) {
-				System.out.println("Flap iterations " + i + " / " + iterations);
-			}
+//			if (i%10000 == 0) {
+//				System.out.println("Flap iterations " + i + " / " + iterations);
+//			}
 			_hPrime.update(helper.concateByteArrays(v[i-1], v[i-2]));
 			v[i] = _hPrime.doFinal();
 		}
-		System.out.println("Now out.");
+//		System.out.println("Now out.");
 		
 		byte[][] v2 = new byte[iterations][_k];
 		System.arraycopy( v, 2, v2, 0, v2.length );
@@ -114,18 +114,18 @@ public class Catena {
 		
 		v2 = gamma(g, v2, gamma);
 		
-		System.out.println("Now out gamma.");
+//		System.out.println("Now out gamma.");
 		
 		_hPrime.reset();
 		
 		v2 = f(g, v2, _lambda);
 		
-		System.out.println("Now out f.");
+//		System.out.println("Now out f.");
 		
 		_hPrime.reset();
 		v2 = phi(g, v2, v2[v2.length-1]);
 		
-		System.out.println("Now out phi.");
+//		System.out.println("Now out phi.");
 		return v2[v2.length-1];
 	}
 	

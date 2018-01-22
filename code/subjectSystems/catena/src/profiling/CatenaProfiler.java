@@ -3,21 +3,138 @@ package profiling;
 import main.java.Catena;
 import main.java.DefaultInstances;
 import main.java.Helper;
+import main.java.components.gamma.GammaInterface;
+import main.java.components.gamma.algorithms.IdentityGamma;
+import main.java.components.gamma.algorithms.SaltMix;
+import main.java.components.graph.GraphInterface;
+import main.java.components.graph.algorithms.DoubleButterflyGraph;
+import main.java.components.graph.algorithms.GenericGraph;
+import main.java.components.graph.algorithms.IdxInterface;
+import main.java.components.graph.algorithms.index.IndexBRG;
+import main.java.components.graph.algorithms.index.IndexDBG;
+import main.java.components.graph.algorithms.index.IndexGRG;
+import main.java.components.hash.HashInterface;
+import main.java.components.hash.algorithms.Blake2b;
+import main.java.components.hash.algorithms.Blake2b_1;
+import main.java.components.phi.PhiInterface;
+import main.java.components.phi.algorithms.CatenaPhi;
+import main.java.components.phi.algorithms.IdentityPhi;
+import main.java.components.phi.algorithms.IdxStateInterface;
+import main.java.components.phi.algorithms.index.LSBIndex;
 
 public class CatenaProfiler {
 
 	Helper helper = new Helper();
 	
 	public static void main(String[] args) {
+		
 		CatenaProfiler cp = new CatenaProfiler();
+		
+		if (args.length != (7+5)) {
+			System.out.println("Need to initialize Catena with 7 parameters and run it with 5. You transfered " + args.length);
+		}
+		// TODO parameter exception
+		boolean useFullHash = Boolean.parseBoolean(args[0]);
+		boolean useGamma 	= Boolean.parseBoolean(args[1]);
+		int useGraph 		= Integer.parseInt(args[2]);
+		boolean usePhi 		= Boolean.parseBoolean(args[3]);
+		int gInp 			= Integer.parseInt(args[4]);
+		int lambdaInp		= Integer.parseInt(args[5]);
+		String vIDInp		= args[6];
+		
+		String pwd 			= args[7];
+		String salt 		= args[8];
+		String gamma 		= args[9];
+		String aData 		= args[10];
+		int outputLength 	= Integer.parseInt(args[11]);
 		
 		long startTime = System.currentTimeMillis();
 		
-//		cp.testPerformanceButterfly();
-		cp.testPerformanceButterflyFull();
-//		cp.testPerformanceDragonfly();
+		Catena c = cp.initCatenaByConfig(useFullHash, useGamma, 
+				useGraph, usePhi, gInp, lambdaInp, vIDInp);
+		cp.testPerformanceByConfig(c, pwd, salt, gamma, aData, outputLength);
 		
-		System.out.println("Time used: " + (System.currentTimeMillis()-startTime));
+		System.out.println("Time used: " + (System.currentTimeMillis()-
+				startTime));
+	}
+	
+	private Catena initCatenaByConfig(boolean useFullHash, 
+			boolean useGamma, int useGraph, boolean usePhi, int gInp, 
+			int lambdaInp, String vIDInp) {
+		Catena c = new Catena();
+		
+		HashInterface h = new Blake2b();
+		
+		HashInterface hPrime;
+		if(useFullHash) {
+			hPrime = new Blake2b();
+		} else {
+			hPrime = new Blake2b_1();
+		}
+		
+		GammaInterface gamma;
+		if (useGamma) {
+			gamma = new SaltMix();
+		} else {
+			gamma = new IdentityGamma();
+		}
+		
+		GraphInterface f;
+		IdxInterface idx;
+		
+		// 1-DBG, 2-BRG, 3-GRG, 4-SBRG
+		if (useGraph == 1) {
+			f = new DoubleButterflyGraph();
+			idx = new IndexDBG();
+		} else if (useGraph == 2) {
+			f = new GenericGraph();
+			idx = new IndexBRG();
+		} else if (useGraph == 3) {
+			f = new GenericGraph();
+			int l = 3;
+			idx = new IndexGRG(l);
+		} else if (useGraph == 4) {
+			f = new GenericGraph();
+			int l = 0;
+			idx = new IndexGRG(l);
+		} else {
+			System.out.println("There are 4 different Graphs in Catena. "
+					+ "You choose none of them. So BRG is used by default.");
+			f = new GenericGraph();
+			idx = new IndexBRG();
+		}
+		
+		IdxStateInterface idxState;
+		PhiInterface phi;
+		if (usePhi) {
+			idxState = new LSBIndex();
+			phi = new CatenaPhi(idxState);
+		} else {
+			phi = new IdentityPhi();
+		}
+		
+		int gLow = gInp;
+		int gHigh = gInp;
+		
+		int lambda = lambdaInp;
+		
+		String vID = vIDInp;
+		
+		c.init(h, hPrime, gamma, f, idx, phi, gLow, gHigh, lambda, vID);
+		
+		return c;
+	}
+	
+	private void testPerformanceByConfig(Catena instance, String pwdStr, 
+			String saltStr, String gammaStr, String aDataStr, int outLen) {
+		byte[] pwd = helper.hex2bytes(pwdStr);
+		byte[] salt = helper.hex2bytes(saltStr);
+		byte[] gamma = helper.hex2bytes(gammaStr);
+		byte[] aData = helper.hex2bytes(aDataStr);
+		int outputLength = outLen;
+		
+		// Here maybe catch output
+		instance.catena(pwd, salt, aData, gamma, outputLength);
 	}
 	
 	public void testPerformanceButterfly() {
