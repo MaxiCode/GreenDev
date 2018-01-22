@@ -26,3 +26,6 @@ code/.recommenders/*
 
 # eclipse runtime
 code/runtime-EclipseApplication/*
+
+# to large to upload
+*performance.db
