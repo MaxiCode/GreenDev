@@ -1,0 +1,281 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{GreenDev}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}{Outline}
+%\tableofcontents
+%\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Catena}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Catena General}
+  \begin{itemize}
+    \item password hashing framework
+    \item also possible: proof of work, server relief, key derivation, keyed password hashing, client independent update
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Catena Structure}
+  \begin{minipage}[H]{0.55\linewidth}
+    \begin{itemize}
+      \item BLAKE2b is a fast and secure cryptographic hash function
+      \item default of H is BLAKE2b
+      \item default of H' is BLAKE2b-1
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[H]{0.4\linewidth}
+    \includegraphics[height=0.85\textheight]{./images/overview.pdf}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Catena Parameter}
+  \begin{minipage}[H]{0.55\linewidth}
+    parameter to start Catena
+    \begin{itemize}
+      \item pwd: password
+      \item t: tweak, additional salt
+      \item s: salt
+      \item $g_{low}=g_{high}$: garlic, cost parameter (time)
+      \item m: output length
+      \item $\gamma$: gamma, cost parameter (memory)
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[H]{0.4\linewidth}
+    \pscatena
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Catena Parameter}
+  \begin{minipage}[H]{0.55\linewidth}
+    tweak:
+    \begin{itemize}
+      \item allows to differentiate between different versions of Catena
+      \item $V$: unique version identifier
+      \item $d$: mode of \pw (i.e. $d=0$ for password scrambler)
+      \item $\lambda$: defines with $g$ dimensions of graph
+      \item $m$: output length
+      \item $|s|$: salt length
+      \item $AD$: optional associated data
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[H]{0.4\linewidth}
+    \[
+      t \gets H(V) \sep d\sep\lambda \sep m \sep |s| \sep H(\mbox{AD})
+    \]
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Configuration}
+  user inputs:
+  \begin{itemize}
+    \item pwd: password
+    \item s: salt
+    \item m: output length
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Configuration}
+  Catena parameter:
+  \begin{itemize}
+    \item (256!) $g_{low}=g_{high}$: garlic (defined by default)
+    \item (256!) $\lambda$: lambda (defined by default)
+    
+    \item (byte[]) $V$: unique version identifier (defined by default)
+    \item (256) $d$: mode of Catena (defined by default)
+    \item (byte[]) $AD$: optional associated data
+
+    \item (byte[]) $\gamma$: gamma (only required if GAMMA)
+    \item (2) HASH: (defined by default)
+    \item (2) GAMMA: (defined by default)
+    \item (4) GRAPH: (defined by default)
+    \item (2) PHI: (defined by default)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Configuration}
+  Catena parameter:
+  \begin{itemize}
+    \item $(256!)^3 * 2^5 * byte[] ^ 3 = 536,870,912 * byte[] ^ 3$
+  \end{itemize}
+  h2 parameter:
+  \begin{itemize}
+    \item $2^{15} = 32,768$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$BRG^g_\lambda$}
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{images/brg_3-eps-converted-to.pdf}\\
+        \caption{$BRG^3_1$}
+    \end{figure}
+  \end{minipage}
+  \hfill%
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{itemize}
+      \item g denotes the logarithm of the memory required per level
+      \item $\lambda$ the number of levels, i.e.\ the depth
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{$DBG^g_\lambda$}
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{images/superconcentrator-nl-eps-converted-to.pdf}
+      \caption{$DBG^3_1$}
+    \end{figure}
+  \end{minipage}
+  \hfill%
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{itemize}
+      \item g denotes the logarithm of the memory required per level
+      \item $\lambda$ the number of levels, i.e.\ the depth
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Profile Script}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Profile Script}
+  \begin{itemize}
+    \item python script for executing tests while profiling
+    \item generates project parameter
+    \item generates program and vm parameter
+    \item saves all results structured
+    \item defines maximum amount of configurations
+    \item need to be reworked ...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Other Profiler}
+  \begin{itemize}
+    \item To Try:
+    \begin{itemize}
+      \item Java Mission Control \url{http://www.adam-bien.com/roller/abien/entry/java_mission_control_development_pricing}
+      \item honest profiler \url{https://github.com/jvm-profiling-tools/honest-profiler/wiki/How-to-build}
+      \item patty \url{http://patty.sourceforge.net/}
+      \item statsd-jvm-profiler \url{https://github.com/etsy/statsd-jvm-profiler}
+      \item Simple java profiler \url{https://github.com/mitallast/simple-java-profiler}
+    \end{itemize}
+    \item Others:
+    \begin{itemize}
+      \item YourKit (License necessary to extract data (15 Days trial))
+      \item JProfiler (License necessary to run it)
+      \item VisualVM (only GUI)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Performance Visualisation}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Different Modes}
+  \begin{itemize}
+    \item max of one cfg
+    \item use absolute time values for comparison of all configuration
+    \item mean of all cfg's
+    \item max of all cfg's
+    \item input sensitivity (abs(mean,median))
+    \item standard deviation (measure of how far the sample spreads on average by the arithmetic mean)
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Related Work}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Spectrum-based Energy Leak Localization}
+  \begin{itemize}
+    \item from October 2014
+    \item "Universidade do Minho"
+    \item relation of energy consumption to source code
+    \item identify and mark "abnormal energy consumption"
+    \item spectrum is a "set of run-time execution data of a program"
+    \item they used SFL (Spectrum-based Fault Localization) to identify those parts which are more likely to being faulty
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Spectrum-based Energy Leak Localization}
+  Similarities to my thesis:
+  \begin{itemize}
+    \item analyses on function level
+    \item heavy processes
+    \item many tests 
+    \item different configurations and different inputs
+    \item also coloring of source code (only red)
+  \end{itemize}
+  Differences:
+  \begin{itemize}
+    \item AST manipulation to append logging functionality
+    \item pause the program execution to force vm to lower the CPU impact on next functions
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Related Paper}
+  \begin{itemize}
+    \item On the Accuracy of Software-Based Energy Estimation Techniques
+
+    \item Proactive Energy-Aware System Software Design with SEEP
+
+    \item Unit Testing of Energy Consumption of Software Libraries
+
+    \item Powermanagement architecture of the intel microarchitecture code-named sandy bridge
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Next Steps}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Later}
+  \begin{itemize}
+    \item abstract
+    \item feature model of projects
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}
