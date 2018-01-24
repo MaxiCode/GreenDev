@@ -25,6 +25,7 @@ public class PerformanceDataCalculator {
 		db = new Database(handler.getOutputDir());
 		for (File dir : catenaProfilingSubDirs) {
 			String configName =  dir.getName();
+			System.out.println("Config: " + configName);
 			String configDate = "";
 			String configParameter = "";
 			
@@ -53,6 +54,7 @@ public class PerformanceDataCalculator {
 			
 			model.extractData(proFile, config);
 			model.writeToDb(db);
+			model.clearData();
 		}
 		db.closeDbConnection();
 	}

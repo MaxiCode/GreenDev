@@ -94,6 +94,10 @@ public class PerformanceDataModel {
 		return dataSet.size();
 	}
 	
+	public void clearData() {
+		dataSet.clear();
+	}
+	
 	private float extractRelevantData (String line, Configuration config) {
 		if (line.length() > 0) {
 			if (!Character.isDigit(line.charAt(0))) {
