@@ -15,7 +15,7 @@ public class Catena {
 	
 	/**
 	 * versionID decodes the version of catena
-	 * ossible: "Dragonfly", "Dragonfly-Full", Butterfly", Butterfly-Full"
+	 * possible: "Dragonfly", "Dragonfly-Full", Butterfly", Butterfly-Full"
 	 */
 	private String _vId;
 	
@@ -386,7 +386,7 @@ public class Catena {
 		gHighBytes[0] = (byte)_gHigh;
 		
 		_h.update(helper.concateByteArrays(key, userID, gHighBytes,  key));
-		byte[] z = helper.truncate(_h.doFinal(), out_len);		
+		byte[] z = helper.truncate(_h.doFinal(), out_len);
 		byte[] hash = catena(pwd, salt, a_data, gamma, out_len);
 		
 		return helper.xor(z, hash);

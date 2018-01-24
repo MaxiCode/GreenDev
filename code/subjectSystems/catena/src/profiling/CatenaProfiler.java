@@ -30,37 +30,45 @@ public class CatenaProfiler {
 		
 		CatenaProfiler cp = new CatenaProfiler();
 		
-		if (args.length != (7+5)) {
-			System.out.println("Need to initialize Catena with 7 parameters and run it with 5. You transfered " + args.length);
+		if (args.length != (10+3)) {
+			System.out.println("Need to initialize Catena with 10 parameters "
+					+ "and run it with 3. You transfered " + args.length);
 		}
-		// TODO parameter exception
-		boolean useFullHash = Boolean.parseBoolean(args[0]);
-		boolean useGamma 	= Boolean.parseBoolean(args[1]);
+
+		boolean useFullHash = cp.convertToBoolean(args[0]);
+		boolean useGamma 	= cp.convertToBoolean(args[1]);
 		int useGraph 		= Integer.parseInt(args[2]);
-		boolean usePhi 		= Boolean.parseBoolean(args[3]);
+		boolean usePhi 		= cp.convertToBoolean(args[3]);
 		int gInp 			= Integer.parseInt(args[4]);
 		int lambdaInp		= Integer.parseInt(args[5]);
 		String vIDInp		= args[6];
+		String gamma 		= args[9];
+		String aData 		= args[10];
+		int d				= Integer.parseInt(args[12]);
 		
 		String pwd 			= args[7];
 		String salt 		= args[8];
-		String gamma 		= args[9];
-		String aData 		= args[10];
 		int outputLength 	= Integer.parseInt(args[11]);
 		
 		long startTime = System.currentTimeMillis();
 		
 		Catena c = cp.initCatenaByConfig(useFullHash, useGamma, 
-				useGraph, usePhi, gInp, lambdaInp, vIDInp);
+				useGraph, usePhi, gInp, lambdaInp, vIDInp, d);
+		
 		cp.testPerformanceByConfig(c, pwd, salt, gamma, aData, outputLength);
 		
 		System.out.println("Time used: " + (System.currentTimeMillis()-
 				startTime));
 	}
 	
+	private boolean convertToBoolean(String value) {
+	    return ("1".equalsIgnoreCase(value) || "yes".equalsIgnoreCase(value) || 
+		        "true".equalsIgnoreCase(value) || "on".equalsIgnoreCase(value));
+	}
+	
 	private Catena initCatenaByConfig(boolean useFullHash, 
 			boolean useGamma, int useGraph, boolean usePhi, int gInp, 
-			int lambdaInp, String vIDInp) {
+			int lambdaInp, String vIDInp, int d) {
 		Catena c = new Catena();
 		
 		HashInterface h = new Blake2b();
@@ -121,6 +129,7 @@ public class CatenaProfiler {
 		String vID = vIDInp;
 		
 		c.init(h, hPrime, gamma, f, idx, phi, gLow, gHigh, lambda, vID);
+		c.setD(d);
 		
 		return c;
 	}
