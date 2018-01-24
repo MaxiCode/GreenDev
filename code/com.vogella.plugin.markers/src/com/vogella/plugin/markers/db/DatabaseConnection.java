@@ -97,6 +97,21 @@ public class DatabaseConnection {
 		}
 		return functionNames;
 	}
+	
+	public HashMap<String, Integer> getConfigs(){
+		HashMap<String, Integer> configs = new HashMap<String, Integer>();
+		try {
+			Statement stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM CONFIG");
+			while(rs.next()) {
+				configs.put(rs.getString("NAME"), rs.getInt("ID"));
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return configs;
+	}
 
 	/**
 	 * TODO: Rework greedy parameter filter
@@ -134,30 +149,48 @@ public class DatabaseConnection {
 		return l;
 	}
 	
-	public List<Float> getFraction(int fID){
+	public List<Float> getFraction(int fID, int cID){
 		List<Float> l = new ArrayList<>();
-		String sql = "SELECT * FROM PERFORMANCE WHERE F_ID = ?";
-		List<Integer> configs = new ArrayList<>();
+		String sql = "SELECT * FROM PERFORMANCE WHERE F_ID = ? AND C_ID = ?";
 		try {
 			PreparedStatement pStmt = c.prepareStatement(sql);
 			// set the value
 			pStmt.setInt(1, fID);
-//			pStmt.setInt(2, cID);
+			pStmt.setInt(2, cID);
 			ResultSet rs = pStmt.executeQuery();
 			
 			float tmpTime;
-			int tmpCID; 
 			while(rs.next()) {
+				
 				tmpTime = rs.getFloat("FRACTION_VALUE");
-				tmpCID = rs.getInt("C_ID");
-				if (!configs.contains(tmpCID)) {
-					configs.add(tmpCID);
-					l.add(tmpTime);
-//					System.out.println("\t Values: " + tmpTime);
-//					System.out.println("\t Config: " + tmpCID);
-				}
+				l.add(tmpTime);
+				
+//				System.out.println("\t Values: " + tmpTime);
 			}
 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return l;
+	}
+	
+	public List<Float> getFraction(int fID){
+		List<Float> l = new ArrayList<>();
+		String sql = "SELECT * FROM PERFORMANCE WHERE F_ID = ?";
+		try {
+			PreparedStatement pStmt = c.prepareStatement(sql);
+			// set the value
+			pStmt.setInt(1, fID);
+			ResultSet rs = pStmt.executeQuery();
+			
+			float tmpTime;
+			while(rs.next()) {
+				
+				tmpTime = rs.getFloat("FRACTION_VALUE");
+				l.add(tmpTime);
+				
+//				System.out.println("\t Values: " + tmpTime);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

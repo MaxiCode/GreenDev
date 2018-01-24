@@ -10,12 +10,11 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import com.vogella.plugin.markers.performance.PerformanceHandlerUtils;
 
 @SuppressWarnings("restriction")
-public class AddMarkerHandlerMax {
-	
+public class AddMarkerHandlerSensitivity {
 	@Execute
     public void execute(@Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection, Adapter adapter) {
 
-		int mode = 2;
+		int mode = 5;
 		PerformanceHandlerUtils pHandler = new PerformanceHandlerUtils(mode);
 		pHandler.analyzeSourceCode(selection, adapter);
     }

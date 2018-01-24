@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QqSikIrOEeW7h_qdP9N9fw" featurename="commands" parentElementId="xpath:/">
-    <elements xsi:type="commands:Command" xmi:id="_X85DEPVjEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.max" commandName="Max"/>
-    <elements xsi:type="commands:Command" xmi:id="_eg0DEPVjEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.mean" commandName="Mean"/>
+    <elements xsi:type="commands:Command" xmi:id="_X85DEPVjEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.max" commandName="Max One Config (3)"/>
+    <elements xsi:type="commands:Command" xmi:id="_eg0DEPVjEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.mean" commandName="Mean of all Configs"/>
+    <elements xsi:type="commands:Command" xmi:id="_-2xX8P-OEeeq5r6q6wg62A" elementId="com.vogella.plugin.markers.command.maxofallconfigs" commandName="Max of all Configs"/>
+    <elements xsi:type="commands:Command" xmi:id="_F1YjUPXgEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.standarddeviation" commandName="Standard Deviation of all Configs"/>
+    <elements xsi:type="commands:Command" xmi:id="_RSUcEAAlEeidQ7QihtgmPQ" elementId="com.vogella.plugin.markers.command.inputsensitivity" commandName="Input Sensitivity"/>
     <elements xsi:type="commands:Command" xmi:id="_PUKjoPVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.clean" commandName="Clean"/>
-    <elements xsi:type="commands:Command" xmi:id="_F1YjUPXgEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.standarddeviation" commandName="Standard Deviation"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_fW12kIrOEeW7h_qdP9N9fw" featurename="handlers" parentElementId="xpath:/">
-    <elements xsi:type="commands:Handler" xmi:id="_k2L0IIrOEeW7h_qdP9N9fw" elementId="org.eclipse.pde.ui.templates.handler.0" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerMax" command="_X85DEPVjEeem45_k6zw87g"/>
+    <elements xsi:type="commands:Handler" xmi:id="_k2L0IIrOEeW7h_qdP9N9fw" elementId="org.eclipse.pde.ui.templates.handler.0" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerOneCfgMax" command="_X85DEPVjEeem45_k6zw87g"/>
     <elements xsi:type="commands:Handler" xmi:id="_FTGOsPVpEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.0" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerMean" command="_eg0DEPVjEeem45_k6zw87g"/>
-    <elements xsi:type="commands:Handler" xmi:id="_UMtm8PVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.1" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.ClearMarkerHandler" command="_PUKjoPVsEeem45_k6zw87g"/>
+    <elements xsi:type="commands:Handler" xmi:id="_6wpy8P-VEeeq5r6q6wg62A" elementId="com.vogella.plugin.markers.handler.3" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerMax" command="_-2xX8P-OEeeq5r6q6wg62A"/>
     <elements xsi:type="commands:Handler" xmi:id="_Ti4OEPXgEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.2" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerStandardDeviation" command="_F1YjUPXgEeem45_k6zw87g"/>
+    <elements xsi:type="commands:Handler" xmi:id="_ZRaZkAAlEeidQ7QihtgmPQ" elementId="com.vogella.plugin.markers.handler.4" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.AddMarkerHandlerSensitivity" command="_RSUcEAAlEeidQ7QihtgmPQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_UMtm8PVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handler.1" contributionURI="bundleclass://com.vogella.plugin.markers/com.vogella.plugin.markers.handlers.ClearMarkerHandler" command="_PUKjoPVsEeem45_k6zw87g"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pVgfIIrOEeW7h_qdP9N9fw" featurename="menuContributions" parentElementId="xpath:/">
     <elements xsi:type="menu:MenuContribution" xmi:id="_tSwX0IrOEeW7h_qdP9N9fw" elementId="org.eclipse.pde.ui.templates.menucontribution.0" positionInParent="after=additions" parentId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_wg9ZMIrOEeW7h_qdP9N9fw" elementId="org.eclipse.pde.ui.templates.menu.e4handlers" label="Performance View" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_2LM_MIrOEeW7h_qdP9N9fw" elementId="org.eclipse.pde.ui.templates.handledmenuitem." label="" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_X85DEPVjEeem45_k6zw87g"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_1oB2QPVjEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handledmenuitem.0" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_eg0DEPVjEeem45_k6zw87g"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_RI20YPVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handledmenuitem.1" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_PUKjoPVsEeem45_k6zw87g"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_L6kY4PXgEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handledmenuitem.2" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_F1YjUPXgEeem45_k6zw87g"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_L6kY4PXgEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handledmenuitem.2" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_-2xX8P-OEeeq5r6q6wg62A"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_RI20YPVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.handledmenuitem.1" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_F1YjUPXgEeem45_k6zw87g"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_VTfygAAlEeidQ7QihtgmPQ" elementId="com.vogella.plugin.markers.handledmenuitem.4" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_RSUcEAAlEeidQ7QihtgmPQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_8FL88P-VEeeq5r6q6wg62A" elementId="com.vogella.plugin.markers.handledmenuitem.3" iconURI="platform:/plugin/com.vogella.plugin.markers/icons/Sample.png" command="_PUKjoPVsEeem45_k6zw87g"/>
       </children>
     </elements>
     <elements xsi:type="menu:MenuContribution" xmi:id="_BducUIrPEeW7h_qdP9N9fw" elementId="org.eclipse.pde.ui.templates.menucontribution.1" positionInParent="after=additions" parentId="popup">
