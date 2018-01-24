@@ -1,0 +1,336 @@
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-1_graph-2_phi-1_garlic-12_lambda-3_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-48/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+####### Used true for Hashing stuff.
+Time used: 2440
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-1_phi-0_garlic-15_lambda-3_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-61/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-3_phi-1_garlic-18_lambda-2_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-212/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-0_gamma-0_graph-3_phi-1_garlic-20_lambda-2_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-103/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-4_phi-1_garlic-3_lambda-1_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-104/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 21
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-0_gamma-0_graph-4_phi-0_garlic-13_lambda-3_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-16/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 628
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-3_phi-0_garlic-7_lambda-1_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-73/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 70
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-3_phi-0_garlic-15_lambda-1_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-235/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 7196
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-1_graph-4_phi-0_garlic-22_lambda-2_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-98/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-1_graph-1_phi-1_garlic-7_lambda-3_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-87/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 671
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-0_gamma-0_graph-2_phi-1_garlic-15_lambda-4_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-77/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 3323
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-3_phi-1_garlic-10_lambda-3_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-239/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 643
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-0_gamma-1_graph-1_phi-1_garlic-15_lambda-4_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-197/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-0_gamma-0_graph-1_phi-1_garlic-2_lambda-4_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-160/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 23
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-0_gamma-1_graph-2_phi-0_garlic-21_lambda-2_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-149/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 101839
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-2_phi-0_garlic-14_lambda-4_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-72/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 8876
+profiler: on
+remote: off
+port: 15599
+thread-depth: -1
+thread.compact.threshold.ms: 10
+max-method-count: -1
+method.compact.threshold.ms: 10
+file: /home/max/uni/GreenDev/code/rawProfilingOutput/catenaExtract.jar/hash-1_gamma-0_graph-2_phi-1_garlic-5_lambda-3_vID-Butterfly-Full-adapted_gammaSalt-6789ab_ad-000000_d-74/
+track.object.alloc: off
+output: text
+debug: off
+profiler-class: com.mentorgen.tools.profile.runtime.Profile
+output-method-signatures: no
+clock-resolution: ms
+output-summary-only: no
+exclude:null
+Accept ClassLoader: sun.misc.Launcher$AppClassLoader
+ClassLoaderFilter.1: com.mentorgen.tools.profile.instrument.clfilter.StandardClassLoaderFilter
+------------------
+Time used: 54
