@@ -31,12 +31,12 @@ class Config_Catena:
             self.c[5], self.c[6], self.c[7], self.c[8], self.c[9])
 
     def initialize(self):
-        # configuration space:
+        # configuration space (9,830,400):
         self.c.append(random.randrange(0,2))
         self.c.append(random.randrange(0,2))
         self.c.append(random.randrange(1,5))
         self.c.append(random.randrange(0,2))
-        self.c.append(random.randrange(1,23))
+        self.c.append(random.randrange(1,20))
         self.c.append(random.randrange(1,121))
         self.c.append(random.randrange(0,256))
         # static part:
@@ -52,7 +52,7 @@ class Config_Catena:
             elif dim == 2:
                 self.c[dim] = random.randrange(1,5)
             elif dim == 4:
-                self.c[dim] = random.randrange(1,23)
+                self.c[dim] = random.randrange(1,20)
             elif dim == 5:
                 self.c[dim] = random.randrange(1,121)
             elif dim == 6:
@@ -77,7 +77,7 @@ class Config_Catena:
         GAMMA   = abs(self.c[1]-c2.c[1])
         GRAPH   = abs(self.c[2]-c2.c[2])/3
         PHI     = abs(self.c[3]-c2.c[3])
-        GARLIC  = abs(self.c[4]-c2.c[4])/23
+        GARLIC  = abs(self.c[4]-c2.c[4])/18
         LAMBDA  = abs(self.c[5]-c2.c[5])/119
         D       = abs(self.c[6]-c2.c[6])/255
         return HASH+GAMMA+GRAPH+PHI+GARLIC+LAMBDA+D
@@ -183,7 +183,12 @@ def profile(config):
     # filally call java jar:
     javaagent = "-javaagent:"+PROFILER_PATH
     Dprofile  = "-Dprofile.properties="+profpropadapted
+    
+    subprocess.call(['java', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
+    subprocess.call(['java', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
+    
     subprocess.call(['java', javaagent, Dprofile, '-noverify', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
+
     print("Done: " + PROFILING_OUTPUT_FOLDER_NAME)
         
 

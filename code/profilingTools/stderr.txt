@@ -1,8 +1,2780 @@
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdownController -- shuttingdown
+
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" Controller -- shuttingdownJava Interactive Profiler: starting
+
+java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdownController -- shuttingdown
+
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+java.lang.ArrayIndexOutOfBoundsException: -649681798	at main.java.Catena.gamma(Unknown Source)
+
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)	at profiling.CatenaProfiler.main(Unknown Source)
+
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" Controller -- shuttingdown
+java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+Controller -- shuttingdown	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
 Java Interactive Profiler: starting
 Controller -- shuttingdown
 Java Interactive Profiler: starting
 Java Interactive Profiler: starting
 Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdownController -- shuttingdown
+
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" Controller -- shuttingdown
+java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" Controller -- shuttingdown
+java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" Controller -- shuttingdown
+java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" Controller -- shuttingdown
+java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdownException in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdownController -- shuttingdown
+
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(LSBIndex.java:19)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(CatenaPhi.java:20)
+	at main.java.Catena.phi(Catena.java:197)
+	at main.java.Catena.flap(Catena.java:126)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 64
+	at main.java.components.phi.algorithms.index.LSBIndex.getLsbIndex(Unknown Source)
+	at main.java.components.phi.algorithms.CatenaPhi.phi(Unknown Source)
+	at main.java.Catena.phi(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+Java Interactive Profiler: starting
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(SaltMix.java:57)
+	at main.java.Catena.gamma(Catena.java:177)
+	at main.java.Catena.flap(Catena.java:115)
+	at main.java.Catena.catena(Catena.java:56)
+	at profiling.CatenaProfiler.testPerformanceByConfig(CatenaProfiler.java:146)
+	at profiling.CatenaProfiler.main(CatenaProfiler.java:58)
+Controller -- shuttingdown
+Controller -- shuttingdownJava Interactive Profiler: starting
+
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -649681798
+	at main.java.components.gamma.algorithms.SaltMix.gamma(Unknown Source)
+	at main.java.Catena.gamma(Unknown Source)
+	at main.java.Catena.flap(Unknown Source)
+	at main.java.Catena.catena(Unknown Source)
+	at profiling.CatenaProfiler.testPerformanceByConfig(Unknown Source)
+	at profiling.CatenaProfiler.main(Unknown Source)
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Java Interactive Profiler: starting
+Controller -- shuttingdown
+Controller -- shuttingdown
+Java Interactive Profiler: starting
 Java Interactive Profiler: starting
 Controller -- shuttingdown
 Java Interactive Profiler: starting
@@ -12,18 +2784,10 @@ Controller -- shuttingdown
 Java Interactive Profiler: starting
 Controller -- shuttingdown
 Java Interactive Profiler: starting
-Java Interactive Profiler: starting
-Controller -- shuttingdown
-Java Interactive Profiler: starting
-Controller -- shuttingdown
-Java Interactive Profiler: starting
 Controller -- shuttingdown
 Java Interactive Profiler: starting
 Java Interactive Profiler: starting
 Controller -- shuttingdown
 Java Interactive Profiler: starting
-Controller -- shuttingdown
 Java Interactive Profiler: starting
-Controller -- shuttingdown
 Java Interactive Profiler: starting
-Controller -- shuttingdown

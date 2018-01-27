@@ -29,3 +29,6 @@ code/runtime-EclipseApplication/*
 
 # to large to upload
 *performance.db
+
+# generated properties files
+code/profilingTools/JavaInteractiveProfiler/jip-src-1.2/profile/p/*
