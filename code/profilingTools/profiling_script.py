@@ -1,5 +1,6 @@
 #!python3
 import os
+import time
 import hashlib
 import argparse
 import random
@@ -31,18 +32,18 @@ class Config_Catena:
             self.c[5], self.c[6], self.c[7], self.c[8], self.c[9])
 
     def initialize(self):
-        # configuration space (9,830,400):
+        # configuration space (3,774,873,600):
         self.c.append(random.randrange(0,2))
         self.c.append(random.randrange(0,2))
         self.c.append(random.randrange(1,5))
         self.c.append(random.randrange(0,2))
-        self.c.append(random.randrange(1,20))
-        self.c.append(random.randrange(1,121))
+        self.c.append(random.randrange(1,18))
+        self.c.append(random.randrange(1,101))
         self.c.append(random.randrange(0,256))
         # static part:
         self.c.append("Butterfly-Full-adapted")
         self.c.append("6789ab")
-        self.c.append("000000")
+        self.c.append(random.randrange(0,256))
 
     def mutate(self, n):
         for i in range(n):
@@ -52,18 +53,20 @@ class Config_Catena:
             elif dim == 2:
                 self.c[dim] = random.randrange(1,5)
             elif dim == 4:
-                self.c[dim] = random.randrange(1,20)
+                self.c[dim] = random.randrange(1,18)
             elif dim == 5:
-                self.c[dim] = random.randrange(1,121)
+                self.c[dim] = random.randrange(1,101)
             elif dim == 6:
                 self.c[dim] = random.randrange(0,256)
+            elif dim == 7:  # real dim is 9 not 7 ...
+                self.c[9] = random.randrange(0,256)
         self.h = self.hash()
 
     def hash(self):
         tmp = str(self.c[0]) + str(self.c[1]) \
             + str(self.c[2]) + str(self.c[3]) \
             + str(self.c[4]) + str(self.c[5]) \
-            + str(self.c[6])
+            + str(self.c[6]) + str(self.c[9])
         return hashlib.sha224(tmp.encode('utf-8')).hexdigest()
 
     def distance_to_list(self, c_list):
@@ -77,10 +80,11 @@ class Config_Catena:
         GAMMA   = abs(self.c[1]-c2.c[1])
         GRAPH   = abs(self.c[2]-c2.c[2])/3
         PHI     = abs(self.c[3]-c2.c[3])
-        GARLIC  = abs(self.c[4]-c2.c[4])/18
-        LAMBDA  = abs(self.c[5]-c2.c[5])/119
-        D       = abs(self.c[6]-c2.c[6])/255
-        return HASH+GAMMA+GRAPH+PHI+GARLIC+LAMBDA+D
+        GARLIC  = abs(self.c[4]-c2.c[4])/16
+        LAMBDA  = abs(self.c[5]-c2.c[5])/99
+        V_ID    = abs(self.c[6]-c2.c[6])/255
+        D       = abs(self.c[9]-c2.c[9])/255
+        return HASH+GAMMA+GRAPH+PHI+GARLIC+LAMBDA+V_ID+D
 
 def random_search(n):
     configurations = []
@@ -103,12 +107,22 @@ def random_search(n):
             print("Num iterations: " + str(iterations))
             print("Conf len: " + str(len(configurations)))
 
-    print("Configurations: " + str(len(configurations)))
     print("Fin lerning parameter: " + str(lerning_parameter))
     print()
     return configurations
 
-def init_parameter_catena():
+def init_parameter_catena0():
+    # 3 parameter for hashing
+    #   11 str (password to be hashed)      <- hex representation   PWD
+    #   12 str (salt of user)               <- hex representation   SALT
+    #   13 int(0-64) (output length)                                OUTPUT_LENGTH
+
+    PWD = ""
+    SALT = ""
+    OUTPUT_LENGTH = 1
+    return PWD, SALT, OUTPUT_LENGTH
+
+def init_parameter_catena1():
     # 3 parameter for hashing
     #   11 str (password to be hashed)      <- hex representation   PWD
     #   12 str (salt of user)               <- hex representation   SALT
@@ -116,6 +130,17 @@ def init_parameter_catena():
 
     PWD = "012345"
     SALT = "6789ab"
+    OUTPUT_LENGTH = 30
+    return PWD, SALT, OUTPUT_LENGTH
+
+def init_parameter_catena2():
+    # 3 parameter for hashing
+    #   11 str (password to be hashed)      <- hex representation   PWD
+    #   12 str (salt of user)               <- hex representation   SALT
+    #   13 int(0-64) (output length)                                OUTPUT_LENGTH
+
+    PWD = "012345012345012345012345012345012345012345012345012345012345012345012345012345012345012345012345012345012345"
+    SALT = "6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab6789ab"
     OUTPUT_LENGTH = 64
     return PWD, SALT, OUTPUT_LENGTH
 
@@ -128,8 +153,8 @@ def profile_catena(iterations):
     # generate configurations:
     configurations = random_search(iterations)
 
-    print("Anz configs: " + str(len(configurations)))
-    print(configurations[0])
+    print("Number configs: " + str(len(configurations)))
+    
     
     pool = Pool(7)
     pool.map(profile, configurations)
@@ -168,26 +193,37 @@ def profile(config):
     with open(profpropadapted, "w") as text_file:
         text_file.write(output)
 
-    PWD, SALT, OUTPUT_LENGTH = init_parameter_catena()
-    HASHING_PARAMETER = PWD + " " + SALT + " " + str(OUTPUT_LENGTH)
-    #print(HASHING_PARAMETER)
+    for i in range(3):
+        time.sleep(2)
+        if debug:
+            print(i)
 
-    #print(PATH_FOR_PROFILING_PROPERTIES+PROGRAM_PARAMETERS_FILE)
-    with open(PATH_FOR_PROFILING_PROPERTIES+PROGRAM_PARAMETERS_FILE, "a") as f:
-        f.write(HASHING_PARAMETER)
+        if i == 0:
+            PWD, SALT, OUTPUT_LENGTH = init_parameter_catena0()
+        elif i == 1:
+            PWD, SALT, OUTPUT_LENGTH = init_parameter_catena1()
+        elif i == 2:
+            PWD, SALT, OUTPUT_LENGTH = init_parameter_catena2()
 
-    # output files
-    stdout = open("stdout.txt","ab")
-    stderr = open("stderr.txt","ab")
+        HASHING_PARAMETER = PWD + " " + SALT + " " + str(OUTPUT_LENGTH) + "\n"
+        #print(HASHING_PARAMETER)
 
-    # filally call java jar:
-    javaagent = "-javaagent:"+PROFILER_PATH
-    Dprofile  = "-Dprofile.properties="+profpropadapted
-    
-    subprocess.call(['java', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
-    subprocess.call(['java', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
-    
-    subprocess.call(['java', javaagent, Dprofile, '-noverify', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
+        #print(PATH_FOR_PROFILING_PROPERTIES+PROGRAM_PARAMETERS_FILE)
+        with open(PATH_FOR_PROFILING_PROPERTIES+PROGRAM_PARAMETERS_FILE, "a") as f:
+            f.write(HASHING_PARAMETER)
+
+        # output files
+        stdout = open("stdout.txt","ab")
+        stderr = open("stderr.txt","ab")
+
+        # filally call java jar:
+        javaagent = "-javaagent:"+PROFILER_PATH
+        Dprofile  = "-Dprofile.properties="+profpropadapted
+        
+        subprocess.call(['java', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
+        subprocess.call(['java', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
+        
+        subprocess.call(['java', javaagent, Dprofile, '-noverify', '-jar', PROJECT_PATH, str(HASH), str(GAMMA), str(GRAPH), str(PHI), str(GARLIC), str(LAMBDA), str(V_ID), PWD, SALT, str(GAMMA_SALT), str(ADDITIONAL_DATA), str(OUTPUT_LENGTH), str(D)], stdout=stdout, stderr=stderr)
 
     print("Done: " + PROFILING_OUTPUT_FOLDER_NAME)
         
