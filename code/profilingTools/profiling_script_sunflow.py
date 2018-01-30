@@ -98,15 +98,15 @@ def random_search(n):
 
 def init_parameter_sunflow0():
     # 1 parameter for image resolution
-    return 8
+    return 32
 
 def init_parameter_sunflow1():
     # 1 parameter for image resolution
-    return 16
+    return 128
 
 def init_parameter_sunflow2():
     # 1 parameter for image resolution
-    return 32
+    return 512
 
 def profile_sunflow(iterations):
 
