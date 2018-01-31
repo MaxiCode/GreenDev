@@ -98,7 +98,7 @@ def random_search(n):
 
 def init_parameter_sunflow0():
     # 1 parameter for image resolution
-    return 32
+    return 64
 
 def init_parameter_sunflow1():
     # 1 parameter for image resolution
@@ -106,7 +106,7 @@ def init_parameter_sunflow1():
 
 def init_parameter_sunflow2():
     # 1 parameter for image resolution
-    return 512
+    return 256
 
 def profile_sunflow(iterations):
 
@@ -116,7 +116,7 @@ def profile_sunflow(iterations):
     print("Number configs: " + str(len(configurations)))
     
     
-    pool = Pool(7)
+    pool = Pool(4)
     pool.map(profile, configurations)
     pool.close() 
     pool.join()
