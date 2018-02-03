@@ -5,7 +5,7 @@
     <elements xsi:type="commands:Command" xmi:id="_eg0DEPVjEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.mean" commandName="Mean of all Configs"/>
     <elements xsi:type="commands:Command" xmi:id="_-2xX8P-OEeeq5r6q6wg62A" elementId="com.vogella.plugin.markers.command.maxofallconfigs" commandName="Max of all Configs"/>
     <elements xsi:type="commands:Command" xmi:id="_F1YjUPXgEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.standarddeviation" commandName="Standard Deviation of all Configs"/>
-    <elements xsi:type="commands:Command" xmi:id="_RSUcEAAlEeidQ7QihtgmPQ" elementId="com.vogella.plugin.markers.command.inputsensitivity" commandName="Input Sensitivity"/>
+    <elements xsi:type="commands:Command" xmi:id="_RSUcEAAlEeidQ7QihtgmPQ" elementId="com.vogella.plugin.markers.command.inputsensitivity" commandName="Configuration Sensitivity Mean/Median"/>
     <elements xsi:type="commands:Command" xmi:id="_PUKjoPVsEeem45_k6zw87g" elementId="com.vogella.plugin.markers.command.clean" commandName="Clean"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_fW12kIrOEeW7h_qdP9N9fw" featurename="handlers" parentElementId="xpath:/">

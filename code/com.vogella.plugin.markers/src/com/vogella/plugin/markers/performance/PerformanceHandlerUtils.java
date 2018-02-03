@@ -183,7 +183,7 @@ public class PerformanceHandlerUtils {
                     MarkerUtils.writeMarkerUnderline(resource, start, end, (float)s.getStandardDeviation());
                     
             	} else if (mode == 5) {
-            		System.out.println("Do sensitivity of all confs");
+            		System.out.println("Do sensitivity of input");
             		List<Float> fractions = conn.getFraction(functionsPrimaryKey);
             		
             		float value = calcAbsMeanMedian(fractions);
