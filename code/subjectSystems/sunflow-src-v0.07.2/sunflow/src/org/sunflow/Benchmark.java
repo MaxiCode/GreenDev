@@ -1,7 +1,9 @@
 package org.sunflow;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -45,6 +47,8 @@ public class Benchmark implements BenchmarkTest, UserInterface, Display {
     private int bucketSize;
     private int samples;
     
+    private String pathToImage;
+    
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -52,8 +56,10 @@ public class Benchmark implements BenchmarkTest, UserInterface, Display {
             System.out.println("  -regen                        Regenerate reference images for a variety of sizes");
             System.out.println("  -bench [threads] [resolution] Run a single iteration of the benchmark using the specified thread count and image resolution");
             System.out.println("                                Default: threads=0 (auto-detect cpus), resolution=256");
-        } else if (args.length == 7) {
+        } else if (args.length == 8) {
         	System.out.println("Mode profiling with: " + args.length + " args");
+        	
+        	System.out.println(new File(".").getAbsolutePath());
         	
         	int s = Integer.parseInt(args[0]);
         	int thr = Integer.parseInt(args[1]);
@@ -62,14 +68,24 @@ public class Benchmark implements BenchmarkTest, UserInterface, Display {
         	int refr = Integer.parseInt(args[4]);
         	int bSize = Integer.parseInt(args[5]);
         	int samples = Integer.parseInt(args[6]);
+        	
+        	String path = args[7];
+        	
+//        	System.out.println("s: " + s);
         			
-        	Benchmark b = new Benchmark(s, true, false, true, thr);
+        	Benchmark b = new Benchmark(s, true, false, false, thr);
+//        	System.out.println("Res: " + (b.resolution));
         	b.diffuseDepth = diff;
         	b.reflectionDepth = refl;
         	b.refractionDepth = refr;
         	b.bucketSize = bSize;
         	b.samples = samples;
+        	b.kernelBegin();
         	b.kernelMain();
+        	b.pathToImage = path;
+        	b.kernelEnd();
+        	
+        	
         	
         } else if (args[0].equals("-regen")) {
 //            int[] sizes = { 32, 64, 96, 128, 256, 384, 512, 1024};
@@ -101,7 +117,8 @@ public class Benchmark implements BenchmarkTest, UserInterface, Display {
     }
 
     public Benchmark(int resolution, boolean showOutput, boolean showBenchmarkOutput, boolean saveOutput, int threads) {
-        UI.set(this);
+    	UI.set(this);
+    	
         this.resolution = resolution;
         this.showOutput = showOutput;
         this.showBenchmarkOutput = showBenchmarkOutput;
@@ -111,8 +128,15 @@ public class Benchmark implements BenchmarkTest, UserInterface, Display {
         // fetch reference image from resources (jar file or classpath)
         if (saveOutput)
             return;
-        
+        System.out.println("Dead Area");
         URL imageURL = Benchmark.class.getResource(String.format("/resources/golden_%04X.png", resolution));
+        File bla = new File(String.format("/home/max/uni/GreenDev/code/subjectSystems/sunflow-src-v0.07.2/sunflow/resources/golden_%04X.png",resolution));
+        try {
+			imageURL = bla.toURI().toURL();
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+        
         if (imageURL == null)
             UI.printError(Module.BENCH, "Unable to find reference frame!");
         UI.printInfo(Module.BENCH, "Loading reference image from: %s", imageURL);
@@ -260,21 +284,49 @@ public class Benchmark implements BenchmarkTest, UserInterface, Display {
         // this builds and renders the scene
         new BenchmarkScene();
     }
-
+    
     public void kernelEnd() {
         // make sure the rendered image was correct
         int diff = 0;
+        System.out.println("Try to write to: " + pathToImage);
         if (referenceImage != null && validationImage.length == referenceImage.length) {
+//        	int rows = validationImage.length/resolution;
             for (int i = 0; i < validationImage.length; i++) {
                 // count absolute RGB differences
                 diff += Math.abs((validationImage[i] & 0xFF) - (referenceImage[i] & 0xFF));
                 diff += Math.abs(((validationImage[i] >> 8) & 0xFF) - ((referenceImage[i] >> 8) & 0xFF));
                 diff += Math.abs(((validationImage[i] >> 16) & 0xFF) - ((referenceImage[i] >> 16) & 0xFF));
+                
             }
-            if (diff > errorThreshold)
-                UI.printError(Module.BENCH, "Image check failed! - #errors: %d", diff);
-            else
-                UI.printInfo(Module.BENCH, "Image check passed!");
+            if (pathToImage != "") {
+	            File outputImage = new File(pathToImage);
+	        	BufferedImage image = new BufferedImage(resolution, resolution, BufferedImage.TYPE_INT_RGB);
+	            UI.printInfo(Module.BENCH, "Image check passed!");
+	            int rows = validationImage.length/resolution;
+	            for (int i = 0; i < rows; ++i) {
+	            	for (int j = 0; j < rows; ++j) {
+	            		int rgb = validationImage[i*rows+j];
+	            		image.setRGB(j, resolution-1-i, rgb);
+	            	}
+	            }
+	            try {
+					ImageIO.write(image, "png", outputImage);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+	            System.out.println("Done writing image.");
+            }
+            if (diff > errorThreshold) {
+            	System.out.println("ImageQuality: " + diff + " with threshold: " + errorThreshold);
+//            	UI.printError(Module.BENCH, "Image check failed! - #errors: %d", diff);
+                
+            }
+            else {
+            	System.out.println("ImageQuality: " + diff + " with threshold: " + errorThreshold);
+            	
+            }
+           
+            	
         } else
             UI.printError(Module.BENCH, "Image check failed! - reference is not comparable");
 
