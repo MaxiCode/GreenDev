@@ -180,9 +180,6 @@ def profile(config):
         javaagent = "-javaagent:"+PROFILER_PATH
         Dprofile  = "-Dprofile.properties="+profpropadapted
 
-        subprocess.call(['java', '-jar', PROJECT_PATH, str(res), str(thr), str(diff), str(refl), str(refr), str(bSize), str(samples)], stdout=stdout, stderr=stderr)
-        subprocess.call(['java', '-jar', PROJECT_PATH, str(res), str(thr), str(diff), str(refl), str(refr), str(bSize), str(samples)], stdout=stdout, stderr=stderr)
-        
         subprocess.call(['java', javaagent, Dprofile, '-noverify', '-jar', PROJECT_PATH, str(res), str(thr), str(diff), str(refl), str(refr), str(bSize), str(samples)], stdout=stdout, stderr=stderr)
 
     print("Done: " + PROFILING_OUTPUT_FOLDER_NAME)
