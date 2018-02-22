@@ -1,12 +1,9 @@
 package model.config;
 
-import java.io.File;
-
 public class Configuration {
 
 	private String configName;
 	private String date;
-	private File performanceFile;
 	private float highestValueOfConfig;
 	private String parameter;
 	
@@ -25,14 +22,6 @@ public class Configuration {
 	
 	public float getHighestValue() {
 		return highestValueOfConfig;
-	}
-	
-	public void setPerformanceFile(File f) {
-		performanceFile = f;
-	}
-	
-	public File getPerformanceFile() {
-		return performanceFile;
 	}
 	
 	public void setName(String config) {

@@ -58,6 +58,17 @@ public class PerformanceHandlerUtils {
 	
 	public PerformanceHandlerUtils(int mode) {
 		workspace = ResourcesPlugin.getWorkspace();
+		String projectName = "";
+		IProject[] projects = workspace.getRoot().getProjects();
+		for (IProject p : projects) {
+			if (p.getName().contains("catena")) {
+				projectName = "catena";
+			} else if (p.getName().contains("h2")) {
+				projectName = "h2";
+			} else {
+				projectName = "sunflow";
+			}
+		}
 		this.mode = mode;
 		this.modelArray = new ArrayList<>();
 		
@@ -65,21 +76,28 @@ public class PerformanceHandlerUtils {
 		
 		conn = null;
 		functionNames = null;
-		initDatabase();
+		System.out.println("Init by " + projectName);
+		initDatabase(projectName);
 	}
 	
-	private void getResources(String project) {
+	private void getResources() {
         IWorkspaceRoot root = workspace.getRoot();
         IProject[] projects = root.getProjects();
         for (IProject p : projects) {
+        	System.out.println("Project: " + p.getName());
         	try {
-				if (!p.isNatureEnabled(JDT_NATURE)) return;
+				if (!p.isNatureEnabled(JDT_NATURE)) {
+					System.out.println("OUT: JDT_NATURE");
+					return;
+				}
 					
 				IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
+				System.out.println("Number Packages: " + packages.length);
 		        for (IPackageFragment mypackage : packages) {
-		        	if (!mypackage.getPath().toString().contains(project)) return;
-		        	
-	        		if (mypackage.getKind() != IPackageFragmentRoot.K_SOURCE) return;
+	        		if (mypackage.getKind() != IPackageFragmentRoot.K_SOURCE) {
+//	        			System.out.println("OUT K_SOURCE");
+//	        			return;
+	        		}
 	                
 	        		for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
 	        			System.out.println("Unit: " + unit.getElementName().toString());
@@ -95,9 +113,10 @@ public class PerformanceHandlerUtils {
 	}
 	
 	public void analyze() {
-		getResources(projectID);
+		getResources();
 		if (units.isEmpty()) return;
 		
+		System.out.println("Number Resources: " + resources.size());
 		for (IResource resource : resources) {
 			analyze(resource);
 		}
@@ -229,9 +248,9 @@ public class PerformanceHandlerUtils {
         }
     }
     
-    private void initDatabase() {
+    private void initDatabase(String dbName) {
     	System.out.println("Init Database and read all functions");
-    	conn = new DatabaseConnection();
+    	conn = new DatabaseConnection(dbName);
     	functionNames = conn.getFunctionNames();
     }
 	

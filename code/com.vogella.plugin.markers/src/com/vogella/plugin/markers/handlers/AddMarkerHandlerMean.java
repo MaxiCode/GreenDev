@@ -17,6 +17,6 @@ public class AddMarkerHandlerMean {
 
 		int mode = 3;
 		PerformanceHandlerUtils pHandler = new PerformanceHandlerUtils(mode);
-//		pHandler.analyzeSourceCode(selection, adapter);
+		pHandler.analyze();
     }
 }

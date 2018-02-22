@@ -10,9 +10,14 @@ import java.util.Map;
 public class Database {
 	
 	private String dbPath;
-	private String dbName = "performance.db";
+	private String dbNameCa = "performanceCatena.db";
+	private String dbNameh2 = "performanceh2.db";
+	private String dbNameSunflow = "performanceSunflow.db";
 	
-	private Connection c = null;
+	private Connection cCa = null;
+	private Connection cH2 = null;
+	private Connection cSun = null;
+	
 	private Statement insertStmt = null;
 	
 	private Map<String, Integer> primaryKeyOfFunctions = new HashMap<String, Integer>();
@@ -20,19 +25,23 @@ public class Database {
 
 	public Database(String path) {
 		this.dbPath = path;
-		createDatabaseConnection();
+		createDatabaseConnections();
 		initTables();
 	}
 	
 	/**
 	 * Opens existing database or creates one
 	 */
-	private void createDatabaseConnection() {
+	private void createDatabaseConnections() {
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:" + dbPath + dbName);
-			c.setAutoCommit(false);
+			cCa = DriverManager.getConnection("jdbc:sqlite:" + dbPath + dbNameCa);
+			cCa.setAutoCommit(false);
+			cH2 = DriverManager.getConnection("jdbc:sqlite:" + dbPath + dbNameh2);
+			cH2.setAutoCommit(false);
+			cSun = DriverManager.getConnection("jdbc:sqlite:" + dbPath + dbNameSunflow);
+			cSun.setAutoCommit(false);
 		} catch (SQLException e) {
 			System.out.println("SQL Exception while creating database");
 			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -46,16 +55,22 @@ public class Database {
 	 * Creates 3 Tables (FUNCTION_NAME, CONFIG, PERFORMANCE)
 	 */
 	private void initTables() {
-		Statement stmt = null;
+		Statement stmtCa = null;
+		Statement stmtH2 = null;
+		Statement stmtSun = null;
 		
 		try {
-			stmt = c.createStatement();
+			stmtCa = cCa.createStatement();
+			stmtH2 = cH2.createStatement();
+			stmtSun = cSun.createStatement();
 		
 			String sqlTableFunctionName = "CREATE TABLE IF NOT EXISTS FUNCTION_NAME "
 					+ "(ID INTEGER PRIMARY KEY NOT NULL,"
 					+ " NAME TEXT NOT NULL)";
 			
-			stmt.addBatch(sqlTableFunctionName);
+			stmtCa.addBatch(sqlTableFunctionName);
+			stmtH2.addBatch(sqlTableFunctionName);
+			stmtSun.addBatch(sqlTableFunctionName);
 			
 			String sqlTableConfig = "CREATE TABLE IF NOT EXISTS CONFIG "
 					+ "(ID INTEGER PRIMARY KEY NOT NULL,"
@@ -63,7 +78,9 @@ public class Database {
 					+ " DATE TEXT NOT NULL,"
 					+ " PARAMETER TEXT NOT NULL)";
 			
-			stmt.addBatch(sqlTableConfig);
+			stmtCa.addBatch(sqlTableConfig);
+			stmtH2.addBatch(sqlTableConfig);
+			stmtSun.addBatch(sqlTableConfig);
 			
 			String sqlTablePerformance = "CREATE TABLE IF NOT EXISTS PERFORMANCE "
 					+ "(ID INTEGER PRIMARY KEY NOT NULL,"
@@ -72,31 +89,57 @@ public class Database {
 					+ " C_ID 			INTEGER NOT NULL,"
 					+ " F_ID 			INTEGER NOT NULL)";
 			
-			stmt.addBatch(sqlTablePerformance);
-			
+			stmtCa.addBatch(sqlTablePerformance);
+			stmtH2.addBatch(sqlTablePerformance);
+			stmtSun.addBatch(sqlTablePerformance);
 			
 			String sqlDeleteContentFunction = "delete from FUNCTION_NAME";
-			stmt.addBatch(sqlDeleteContentFunction);
+			stmtCa.addBatch(sqlDeleteContentFunction);
+			stmtH2.addBatch(sqlDeleteContentFunction);
+			stmtSun.addBatch(sqlDeleteContentFunction);
 			String sqlDeleteContentConfig = "delete from CONFIG";
-			stmt.addBatch(sqlDeleteContentConfig);
+			stmtCa.addBatch(sqlDeleteContentConfig);
+			stmtH2.addBatch(sqlDeleteContentConfig);
+			stmtSun.addBatch(sqlDeleteContentConfig);
 			String sqlDeleteContentPerformance = "delete from PERFORMANCE";
-			stmt.addBatch(sqlDeleteContentPerformance);
+			stmtCa.addBatch(sqlDeleteContentPerformance);
+			stmtH2.addBatch(sqlDeleteContentPerformance);
+			stmtSun.addBatch(sqlDeleteContentPerformance);
 			
-			stmt.executeBatch();
-			stmt.close();
-			c.commit();
+			stmtCa.executeBatch();
+			stmtH2.executeBatch();
+			stmtSun.executeBatch();
+			stmtCa.close();
+			stmtH2.close();
+			stmtSun.close();
+			cCa.commit();
+			cH2.commit();
+			cSun.commit();
 		} catch (SQLException e) {
 			System.out.println("SQL Exception while executing init statement");
 			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 		}
 	}
 
+	public Connection getConnectionCa() {
+		return cCa;
+	}
+	
+	public Connection getConnectionH2() {
+		return cH2;
+	}
+	
+	public Connection getConnectionSun() {
+		return cSun;
+	}
+	
+	
+	
 	/**
 	 * Closes existing database connection if exist
 	 */
-	public void closeDbConnection() {
+	public void closeDbConnection(Connection c) {
 		if (c==null)return;
-		
 		try {
 			c.close();
 		} catch (SQLException e) {
@@ -105,7 +148,7 @@ public class Database {
 		}
 	}
 	
-	public void initBatch() {
+	public void initBatch(Connection c) {
 		try {
 			insertStmt = c.createStatement();
 		} catch (SQLException e) {
@@ -156,7 +199,7 @@ public class Database {
 		}
 	}
 	
-	public void executeBatch() {
+	public void executeBatch(Connection c) {
 		try {
 			insertStmt.executeBatch();
 			insertStmt.close();

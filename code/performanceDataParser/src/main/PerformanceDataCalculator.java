@@ -1,6 +1,7 @@
 package main;
 
 import java.io.File;
+import java.sql.Connection;
 import java.util.List;
 
 import db.Database;
@@ -12,51 +13,75 @@ public class PerformanceDataCalculator {
 	
 	private static PerformanceFileHandler handler;
 	private static Database db;
+	
 
 	public static void main(String[] args) {
 		System.out.println("Start parsing performance files.");
 		
-		PerformanceDataModel model = new PerformanceDataModel();
+		
 		
 		handler = new PerformanceFileHandler();
-		handler.readProfilerOutputCa();
+		handler.readProfilerOutput();
+		
 		List<File> catenaProfilingSubDirs = handler.getProfileSubdirsCa();
+		List<File> h2ProfilingSubDirs = handler.getProfileSubdirsH2();
+		List<File> sunflowProfilingSubDirs = handler.getProfileSubdirsSun();
+		String outputDir = handler.getOutputDir();
 
-		db = new Database(handler.getOutputDir());
-		for (File dir : catenaProfilingSubDirs) {
+		PerformanceDataCalculator dataCalc = new PerformanceDataCalculator();
+		db = new Database(outputDir);
+		Connection cCa = db.getConnectionCa();
+		Connection cH2 = db.getConnectionH2();
+		Connection cSun = db.getConnectionSun();
+		
+		
+		dataCalc.parse(catenaProfilingSubDirs, db, cCa);
+		dataCalc.parse(h2ProfilingSubDirs, db, cH2);
+		dataCalc.parse(sunflowProfilingSubDirs, db, cSun);
+	}
+	
+	private void parse(List<File> pfileSubDirs, Database db, Connection c) {
+		PerformanceDataModel model = new PerformanceDataModel(c);
+		for (File dir : pfileSubDirs) {
 			String configName =  dir.getName();
 			System.out.println("Config: " + configName);
 			String configDate = "";
-			String configParameter = "";
+			String[] configParameter = null;
 			
-			// There are 2 files now: 
-			// One parameter file and one profiling file
+			// There are many files now: 
+			// One parameter file and several other files (profiling files with date 
+			// and possibly images for quality measurement)
+			
 			File[] files = dir.listFiles();
-			File proFile = null;
+			File[] proFiles = new File[3];
+			int i = 0;
 			for(File f : files) {
 				if (f.getName().equals("parameter.txt")) {
 					configParameter = model.extractParameter(f);
+				} else if (f.getName().endsWith(".png")) {
 				} else {
-					configDate = f.getName().substring(0, 15);
-					proFile = f;
+					proFiles[i] = f;
+					i++;
 				}
 			}
 			
-			if (proFile == null) {
+			if (proFiles.length!=3) {
+				System.out.println("Number files does not match");
 				continue;
 			}
-			
-			Configuration config = new Configuration();
-			config.setDate(configDate);
-			config.setName(configName);
-			config.setParameters(configParameter);
-			config.setPerformanceFile(dir);
-			
-			model.extractData(proFile, config);
-			model.writeToDb(db);
-			model.clearData();
+			for(i=0; i < proFiles.length; ++i) {
+				configDate = proFiles[i].getName().substring(0, 15);
+				Configuration config = new Configuration();
+				config.setDate(configDate);
+				config.setName(configName+"__"+configParameter[i]);
+				config.setParameters(configParameter[i]);
+
+				model.extractData(proFiles[i], config);
+				model.writeToDb(db);
+				model.clearData();
+			}
 		}
-		db.closeDbConnection();
+		db.closeDbConnection(c);
 	}
 
 }

@@ -13,29 +13,39 @@ import java.util.List;
 public class DatabaseConnection {
 
 	private String dbPath = "/home/max/uni/GreenDev/code/profilingOutput/";
-	private String dbName = "performance.db";
+	private String dbName = "";
+	private String dbNameCa = "performanceCatena.db";
+	private String dbNameH2 = "performanceh2.db";
+	private String dbNameSun = "performanceSunflow.db";
 	
 	private Connection c = null;
 	private Statement stm = null;
 	
 	public DatabaseConnection() {
+		// default Catena
+		dbName = dbNameCa;
 		initConnection();
 	}
 	
 	public DatabaseConnection(String file) {
-		this.dbName = file;
-		initConnection();
-	}
-	
-	public DatabaseConnection(String file, String path) {
-		this.dbPath = path;
-		this.dbName = file;
+		if (file.equals("catena")) {
+			System.out.println("Adding catena connection");
+			dbName = dbNameCa;
+		} else if(file.equals("h2")) {
+			System.out.println("Adding h2 connection");
+			dbName = dbNameH2;
+		} else {
+			System.out.println("Adding sunflow connection");
+			dbName = dbNameSun;
+		}
+//		this.dbName = file;
 		initConnection();
 	}
 	
 	private void initConnection() {
 		try {
 			Class.forName("org.sqlite.JDBC");
+			System.out.println("Connection to db: " + dbPath + dbName);
 			c = DriverManager.getConnection("jdbc:sqlite:" + dbPath + dbName);
 			c.setAutoCommit(false);
 			
