@@ -13,7 +13,7 @@
 % Title
 % ---------------------------------------------------------------------
 
-\title[Green Development]{Supporting the Discovery of Energy Hot-Spots via Performance Alignment}
+\title[Green Development]{Supporting the Discovery of Energy Hot-Spots via Performance Alignment and Method-Level Visualizations}
 %\subtitle{Subtitle (project name)}
 \author[M. Weber]{Max Weber}
 \institute[Bauhaus-Universität Weimar]{}
@@ -37,7 +37,7 @@
 %\end{frame}
 
 % ---------------------------------------------------------------------
-%\section{Subject of this Thesis}
+%\section{Motivation}
 % ---------------------------------------------------------------------
 
 \begin{frame}{Subject of this Thesis}
@@ -95,7 +95,7 @@
     \item SQL database
     \item pure Java
     \item open-source
-    \item configuration space: 65,536,000
+    \item configuration space: 655,360,000,000
     \item workload is number of database entries to perform queries on
   \end{itemize}
 \end{frame}
@@ -120,6 +120,7 @@
     \item pure Java
     \item open source
     \item light-weight
+    \item allows filtering of classes and packages
     \item measures net time: removes overhead of gathering performance data
     \item wraps each method with profiling code
   \end{itemize}
@@ -127,6 +128,7 @@
 
 \begin{frame}{Profiling}
   \begin{itemize}
+    \item random sampling strategie
     \item 400 different configurations
     \item 3 different workloads
     \item n times to average performance (reduce external measurement impact)
@@ -166,9 +168,8 @@
     \item allow user to input config of interest
     \item predict performance of function:
     \begin{itemize}
-      \item single-objective optimization
+      \item perceptron learning
       \item multi-objective optimization (sunflow: performance, image quality)
-      \item perceptron learning      
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -182,10 +183,11 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Questions}
+\begin{frame}{Open Tasks}
   \begin{itemize}
     \item influence of test environment on performance measurement (hardware, os, ...)
     \item configuration sampling strategy
+    \item performance prediction on function level
     \item correlation of performance and energy consumption
   \end{itemize}
 \end{frame}
@@ -211,13 +213,59 @@
   Overall configuration space: 3,565,158,400
 \end{frame}
 
+\begin{frame}{Catena Structure}  
+  \begin{minipage}[H]{0.55\linewidth}
+    \begin{itemize}
+      \item BLAKE2b is a fast and secure cryptographic hash function
+      \item default of H is BLAKE2b
+      \item default of H' is BLAKE2b-1
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[H]{0.4\linewidth}
+    \includegraphics[height=0.85\textheight]{./images/overview.pdf}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{$BRG^g_\lambda$}
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{images/brg_3-eps-converted-to.pdf}\\
+        \caption{$BRG^3_1$}
+    \end{figure}
+  \end{minipage}
+  \hfill%
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{itemize}
+      \item g denotes the logarithm of the memory required per level
+      \item $\lambda$ the number of levels, i.e.\ the depth
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{$DBG^g_\lambda$}
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{images/superconcentrator-nl-eps-converted-to.pdf}
+      \caption{$DBG^3_1$}
+    \end{figure}
+  \end{minipage}
+  \hfill%
+  \begin{minipage}[H]{0.48\linewidth}
+    \begin{itemize}
+      \item g denotes the logarithm of the memory required per level
+      \item $\lambda$ the number of levels, i.e.\ the depth
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
 \begin{frame}{H2 Configuration Space}
   \begin{itemize}
-    \item (40) ANALYZE AUTO
-    \item (100) ANALYZE SAMPLE
+    \item (4000) ANALYZE AUTO
+    \item (10000) ANALYZE SAMPLE
     \item (2)*14 COMPRESS, EARLY FILTER, MULTI THREADED, MV STORE, OPTIMIZE EVALUATABLE SUBQUERIES, OPTIMIZE IN LIST, OPTIMIZE IN SELECT, OPTIMIZE INSERT FROM SELECT, OPTIMIZE IS NULL, OPTIMIZE OR, OPTIMIZE TWO EQUALS, PAGE STORE INTERNAL COUNT, RECOMPILE ALWAYS, ROWID
   \end{itemize}
-  Overall configuration space: 65,536,000
+  Overall configuration space: 655,360,000,000
 \end{frame}
 
 \begin{frame}{Sunflow Configuration Space}
