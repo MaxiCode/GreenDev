@@ -1,0 +1,239 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{Supporting the Discovery of Energy Hot-Spots via Performance Alignment}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}{Outline}
+%\tableofcontents
+%\end{frame}
+
+% ---------------------------------------------------------------------
+%\section{Subject of this Thesis}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Subject of this Thesis}
+  \begin{itemize}
+    \item support developers as early as possible by finding energy hotspots in their source code
+    \item enables:
+    \begin{itemize}
+      \item reduction of overall energy consumption for future software
+      \item detection of possible energy hotspots in existing software
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+%\section{Overview/Process/Progress/Current State}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Overview}
+  \begin{center}
+    \includegraphics[height=0.83\textheight]{./images/Workflow_Green_DEV_0.pdf}
+  \end{center}
+\end{frame}
+
+% ---------------------------------------------------------------------
+%\section{Projects}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Data Sets}
+  \begin{itemize}
+    \item requirements:
+    \begin{itemize}
+      \item analyzable
+      \item configurable
+      \item scalable (workload)
+    \end{itemize}
+    \item restriction to Java projects because: widespread, popular, many different projects to choose from
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Catena - Password Hashing}
+  \begin{itemize}
+    \item password hashing framework
+    \item use of BLAKE2b as a fast and secure cryptographic hash function
+    \item developed at Bauhaus Universität Weimar (Chair of Media Security)
+    \pause
+    \item available in Java, Rust, Python, C++, JavaScript
+    \item heavily tested over all implementations
+    \item configuartion space: 3,565,158,400
+    \item workload is length of password to be hashed
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{H2 - Database}
+  \begin{itemize}
+    \item SQL database
+    \item pure Java
+    \item open-source
+    \item configuration space: 65,536,000
+    \item workload is number of database entries to perform queries on
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Sunflow - Ray Tracing}
+  \begin{itemize}
+    \item image generation through ray tracing
+    \item pure Java
+    \item open-source
+    \item one default scene
+    \item configuration space: 6,400,000
+    \item workload is size of images to be generated (64x64, 128x128, 256x256)
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+%\section{Performance Extraction}
+% ---------------------------------------------------------------------
+
+\begin{frame}{JIP - Java Interactive Profiler}
+  \begin{itemize}
+    \item pure Java
+    \item open source
+    \item light-weight
+    \item measures net time: removes overhead of gathering performance data
+    \item wraps each method with profiling code
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Profiling}
+  \begin{itemize}
+    \item 400 different configurations
+    \item 3 different workloads
+    \item n times to average performance (reduce external measurement impact)
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+%\section{Relative Performance}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Relative Execution Time per Function}
+  \begin{itemize}
+    \item profiler output per configuration and workload
+    \item $performance(a) = (time(a)/calls_a)*100/(time(x)/calls_x)$
+    \item $x$ = execution time of function with highest execution time per sample
+    \item $a$ = execution time of current function
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+%\section{Eclipse Marker Plugin}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Plugin - Current State}
+  \begin{center}
+    \includegraphics[height=0.83\textheight]{./images/catena_max_all_cfgs}
+  \end{center}
+\end{frame}
+
+% ---------------------------------------------------------------------
+%\section{Next Steps}
+% ---------------------------------------------------------------------
+
+\begin{frame}{ToDo - Predict Performance}
+  \begin{itemize}
+    \item performance of unknown configurations
+    \item allow user to input config of interest
+    \item predict performance of function:
+    \begin{itemize}
+      \item single-objective optimization
+      \item multi-objective optimization (sunflow: performance, image quality)
+      \item perceptron learning      
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ToDo - Align Performance and Energy Consumption}
+  \begin{itemize}
+    \item correlation between performance and energy consumption 
+    \item for each project and each configuration
+    \item (Pearson Correlation Coefficient?)
+    \item (SPL conqueror?)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Questions}
+  \begin{itemize}
+    \item influence of test environment on performance measurement (hardware, os, ...)
+    \item configuration sampling strategy
+    \item correlation of performance and energy consumption
+  \end{itemize}
+\end{frame}
+
+%\section{Appendix}
+
+\begin{frame}{Catena Configuration Space}
+  \begin{itemize}
+    \item (2) HASH
+    \item (2) GAMMA
+    \item (4) GRAPH
+    \item (2) PHI
+
+    \item (17) $g_{low}=g_{high}$: garlic
+    \item (100) $\lambda$: lambda
+    \item (256) $v\_id$: version id
+    \item (256) $d$: mode of Catena
+  
+    \item (byte[]) $\gamma$: gamma (only required if GAMMA)
+    \item (byte[]) $AD$: optional associated data
+    \item (byte[]) $V$: unique version identifier (defined by default)
+  \end{itemize}
+  Overall configuration space: 3,565,158,400
+\end{frame}
+
+\begin{frame}{H2 Configuration Space}
+  \begin{itemize}
+    \item (40) ANALYZE AUTO
+    \item (100) ANALYZE SAMPLE
+    \item (2)*14 COMPRESS, EARLY FILTER, MULTI THREADED, MV STORE, OPTIMIZE EVALUATABLE SUBQUERIES, OPTIMIZE IN LIST, OPTIMIZE IN SELECT, OPTIMIZE INSERT FROM SELECT, OPTIMIZE IS NULL, OPTIMIZE OR, OPTIMIZE TWO EQUALS, PAGE STORE INTERNAL COUNT, RECOMPILE ALWAYS, ROWID
+  \end{itemize}
+  Overall configuration space: 65,536,000
+\end{frame}
+
+\begin{frame}{Sunflow Configuration Space}
+  \begin{itemize}
+    \item (10) threads
+    \item (10) diffuseDepth
+    \item (10) reflectionDepth
+    \item (10) refractionDepth
+    \item (54) bucketSize
+    \item (10) samples
+  \end{itemize}
+  Overall configuration space: 6,400,000
+\end{frame}
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}

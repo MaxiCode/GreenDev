@@ -1,0 +1,16 @@
+--2018-02-06 11:38:27--  https://discordapp.com/api/download?platform=linux
+Resolving discordapp.com (discordapp.com)... 104.16.58.5, 104.16.59.5
+Connecting to discordapp.com (discordapp.com)|104.16.58.5|:443... connected.
+HTTP request sent, awaiting response... 302 FOUND
+Location: https://dl.discordapp.net/apps/linux/0.0.4/discord-0.0.4.deb [following]
+--2018-02-06 11:38:27--  https://dl.discordapp.net/apps/linux/0.0.4/discord-0.0.4.deb
+Resolving dl.discordapp.net (dl.discordapp.net)... 104.16.250.144, 104.16.247.144, 104.16.251.144, ...
+Connecting to dl.discordapp.net (dl.discordapp.net)|104.16.250.144|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 47617856 (45M) [application/x-debian-package]
+Saving to: ‘discord.deb’
+
+discord.deb          0%[                 ]       0  --.-KB/s               discord.deb          6%[>                ]   3,08M  15,4MB/s               discord.deb         27%[===>             ]  12,61M  31,5MB/s               discord.deb         74%[===========>     ]  33,96M  56,6MB/s               discord.deb        100%[================>]  45,41M  64,7MB/s    in 0,7s    
+
+2018-02-06 11:38:28 (64,7 MB/s) - ‘discord.deb’ saved [47617856/47617856]
+
