@@ -1,3 +1,0 @@
-Run Configurations:
--javaagent:"/home/max/uni/GreenDev/code/profiling_tools/jRAT/shiftone-jrat.jar"
--noverify
