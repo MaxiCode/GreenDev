@@ -16,6 +16,6 @@ public class AddMarkerHandlerSensitivity {
 
 		int mode = 5;
 		PerformanceHandlerUtils pHandler = new PerformanceHandlerUtils(mode);
-		pHandler.analyzeSourceCode(selection, adapter);
+		pHandler.analyze();
     }
 }

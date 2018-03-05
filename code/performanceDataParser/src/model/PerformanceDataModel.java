@@ -2,7 +2,7 @@ package model;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -18,9 +18,13 @@ public class PerformanceDataModel {
 	private String MOST_EXPENSIVE_METHODES_IDENTIFIER = "Most expensive methods (by net time)";
 	private String MOST_EXPENSIVE_METHODES_END_IDENTIFIER = "Most expensive methods summarized";
 	
-	
+	Connection c = null;
 	// Contains the identifier for functions as String and the corresponding Performance Dataset
 	private Map<String, PerformanceDataset> dataSet = new HashMap<String, PerformanceDataset>();
+	
+	public PerformanceDataModel(Connection c) {
+		this.c = c;
+	}
 	
 	public void extractData (File path, Configuration config) {
 		FileParser parser = new FileParser();
@@ -140,24 +144,6 @@ public class PerformanceDataModel {
 		return 0;
 	}
 	
-	/**
-	 * Saves performance values to sqlite database
-	 */
-	public void writeToFile (PrintWriter writer) {
-		for ( Map.Entry<String, PerformanceDataset> e : dataSet.entrySet() ) {
-			String functionName = e.getKey();
-			
-			PerformanceDataset data = e.getValue();
-			Map<Configuration, List<PerformanceData>> printData = data.getAll();
-			for (Entry<Configuration, List<PerformanceData>> d : printData.entrySet()) {
-				String configName = d.getKey().getPerformanceFile().getAbsolutePath();
-				float highestInConfig = d.getKey().getHighestValue();
-				for (PerformanceData element : d.getValue()) {
-					writer.println(functionName + "," + configName + "," + highestInConfig + "," + element.getTime());
-				}
-			}
-		}
-	}
 	public void writeToDb(Database db) {
 		String functionName;
 		String configName;
@@ -167,7 +153,7 @@ public class PerformanceDataModel {
 		String cDate;
 		String cParameter;
 		
-		db.initBatch();
+		db.initBatch(c);
 		
 		for ( Map.Entry<String, PerformanceDataset> e : dataSet.entrySet() ) {
 			functionName = e.getKey();
@@ -188,20 +174,25 @@ public class PerformanceDataModel {
 			}
 		}
 		
-		db.executeBatch();
+		db.executeBatch(c);
 	}
 	
-	public String extractParameter(File f) {
+	public String[] extractParameter(File f) {
 		FileParser fp = new FileParser();
 		fp.readFile(f);
+		
 		String str;
-		String parameter = "";
+		String[] parameter = new String[3];
+		int i = 0;
 		try {
 			while ((str = fp.getNextLine()) != null) {
-				parameter += str;
+				parameter[i] = str;
+				i++;
+				if (i == 3) {
+					break;
+				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return parameter;

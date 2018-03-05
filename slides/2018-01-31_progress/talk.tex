@@ -1,0 +1,153 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{GreenDev}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}{Outline}
+%\tableofcontents
+%\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Catena}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Workload}
+  1: 
+  \begin{itemize}
+    \item pwd: ''
+    \item salt: ''
+    \item outLen: 1
+  \end{itemize}
+  2:
+  \begin{itemize}
+    \item pwd: '012345'
+    \item salt: '6789ab'
+    \item outLen: 30
+  \end{itemize}
+  3:
+  \begin{itemize}
+    \item pwd: '012345' * 18
+    \item salt: '012345' * 18
+    \item outLen: 30
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Configuration}
+  Catena parameter:
+  \begin{itemize}
+    \item (2) HASH
+    \item (2) GAMMA
+    \item (4) GRAPH
+    \item (2) PHI
+
+    \item (17) $g_{low}=g_{high}$: garlic
+    \item (100) $\lambda$: lambda
+    \item (256) $v\_id$: version id
+    \item (256) $d$: mode of Catena
+  
+    \item (byte[]) $\gamma$: gamma (only required if GAMMA)
+    \item (byte[]) $AD$: optional associated data
+    \item (byte[]) $V$: unique version identifier (defined by default)
+  \end{itemize}
+  results in: 3,565,158,400
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Sunflow}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Workload}
+  \begin{itemize}
+    \item open source rendering system
+    \item generates photo-realistic images
+    \item ray tracing core
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Configuration}
+  Catena parameter:
+  \begin{itemize}
+    \item (10) threads
+    \item (10) diffuseDepth
+    \item (10) reflectionDepth
+    \item (10) refractionDepth
+    \item (54) bucketSize
+    \item (10) samples
+  \end{itemize}
+  results in: 6,400,000
+\end{frame}
+
+\begin{frame}{Workload}
+  1: 
+  \begin{itemize}
+    \item resolution: 32x32
+  \end{itemize}
+  2: 
+  \begin{itemize}
+    \item resolution: 128x128
+  \end{itemize}
+  3: 
+  \begin{itemize}
+    \item resolution: 512x512
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Profile Script}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Profile Script}
+  \begin{itemize}
+    \item execute with 400 diff configurations (random search)
+    \item execute with 3 diff workloads
+    \item exectue 2 times before profiling
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Next Steps}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Later}
+  \begin{itemize}
+    \item calc and visualize input sensitivity 
+    \item profile 3rd project
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}

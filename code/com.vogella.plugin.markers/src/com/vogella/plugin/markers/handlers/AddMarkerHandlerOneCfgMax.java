@@ -17,6 +17,6 @@ public class AddMarkerHandlerOneCfgMax {
 
 		int mode = 1;
 		PerformanceHandlerUtils pHandler = new PerformanceHandlerUtils(mode);
-		pHandler.analyzeSourceCode(selection, adapter);
+		pHandler.analyze();
     }
 }

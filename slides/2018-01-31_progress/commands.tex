@@ -1,0 +1,216 @@
+% ---------------------------------------------------------------------
+% Commands
+% ---------------------------------------------------------------------
+
+\newcommand{\eg}{\textit{e.g.,}\xspace}
+\newcommand{\shortsep}{||}
+\newcommand{\sep}{\ ||\ }
+
+\newcommand{\hf}{\ensuremath{H}\xspace}
+\newcommand{\pwd}{\mbox{\textit{pwd}}\xspace}
+\newcommand{\pw}{\textsc{Catena}\xspace}
+%\newcommand{\pwl}{\ensuremath{\textsc{Catena}_{\FL,\hf}}\xspace}
+\newcommand{\pwl}{\ensuremath{\textsc{Catena}}\xspace}
+%\newcommand{\pwlk}{\ensuremath{\textsc{Catena}^K_{\FL,\hf}}\xspace}
+\newcommand{\pwlk}{\ensuremath{\textsc{Catena}^K}\xspace}
+\newcommand{\pwbrg}{\textsc{\pw-BRG}\xspace}
+\newcommand{\pwdbg}{\textsc{\pw-DBG}\xspace}
+\newcommand{\pwhead}{{\large \textsc{Catena}}\xspace}
+\newcommand{\pwtitle}{{\LARGE \textsc{Catena}}\xspace}
+\newcommand{\pwkg}{\textsc{Catena-KG}\xspace}
+\newcommand{\pwax}{\textsc{Catena-Axungia}\xspace}
+\newcommand{\pwvar}{\textsc{Catena-Variants}\xspace}
+\newcommand{\pwkghead}{{\large \textsc{Catena-KG}}\xspace}
+
+\newcommand{\lmaa}{\pw}
+\newcommand{\lmaashort}{\ensuremath{\pw\text{-}\lambda}\xspace}
+\newcommand{\lmaatic}{\ensuremath{\pw'\text{-}\lambda}\xspace}
+\newcommand{\lamfunc}{\ensuremath{\mbrhfa(\cdot,\cdot)}\xspace}
+\newcommand{\FL}{\ensuremath{F}\xspace}
+\newcommand{\RL}{\ensuremath{\Gamma}\xspace}
+\newcommand{\MHF}{\ensuremath{flap}\xspace}
+\newcommand{\seedrand}{\ensuremath{seed\_rand}\xspace}
+\newcommand{\updaterand}{\ensuremath{update\_rand}\xspace}
+
+
+% additional stuff to include pseudocode
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Catena
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\catena}{\ensuremath{\mbox{\textsc{Catena-}}\lambda}\xspace}
+%\newcommand{\catenabrg}{\textsc{Catena-BRG}\xspace}
+%\newcommand{\catenadbg}{\textsc{Catena-DBG}\xspace}
+\newcommand{\catenaant}{\textsc{Catena-Dragonfly}\xspace}
+\newcommand{\catenaantfull}{\textsc{Catena-Dragonfly-Full}\xspace}
+\newcommand{\catenabut}{\textsc{Catena-Butterfly}\xspace}
+\newcommand{\catenabutfull}{\textsc{Catena-Butterfly-Full}\xspace}
+\newcommand{\catenawl}{\textsc{Catena}\xspace}
+\newcommand{\catenakg}{\ensuremath{\mbox{\texttt{Catena-KG}}}\xspace}
+\newcommand{\lbrg}{\ensuremath{\lambda\mbox{\texttt{-BRG}}}\xspace}
+\newcommand{\lbrh}{\ensuremath{\lambda\mbox{\texttt{-BRH}}}\xspace}
+
+\newcommand{\romix}{\texttt{ROMix}\xspace}
+\newcommand{\romixmc}{\texttt{ROMixMC}\xspace}
+\newcommand{\scrypt}{\texttt{scrypt}\xspace}
+
+\newcommand{\header}{\ensuremath{H}\xspace}
+\newcommand{\Garlic}{\ensuremath{G}\xspace}
+\newcommand{\garlic}{\ensuremath{g}\xspace}
+\newcommand{\inp}{\ensuremath{x}\xspace}
+\newcommand{\salt}{\ensuremath{s}\xspace}
+\newcommand{\tweak}{\ensuremath{U}\xspace}
+\newcommand{\node}[1]{\ensuremath{v_{#1}}\xspace}
+\newcommand{\nodes}{\ensuremath{\mathfrak{V}}\xspace}
+\newcommand{\graph}{\ensuremath{\Pi(\nodes,\edges)}\xspace}
+\newcommand{\ggraph}{\ensuremath{\Pi_\garlic^\lambda(\nodes,\edges)}\xspace}
+
+\renewcommand{\H}{\ensuremath{\mathcal{H}}\xspace}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\newcommand{\mbrgfax}{\ensuremath{\lambda\text{-BRG}}\xspace}
+\newcommand{\mbrhfax}{\ensuremath{\lambda\text{-BRH}}\xspace}
+\newcommand{\mbrhfaxm}{\ensuremath{\lambda\text{-}BRH}\xspace}
+\newcommand{\mbrhfa}{\ensuremath{BRH_\lambda^g}\xspace}
+
+
+\newcommand{\testentry}[3]{\textbf{#1} & \texttt{#2} & (#3 octets)\\}
+
+\newcommand{\blake}{BLAKE2b\xspace}
+\newcommand{\blakefast}{BLAKE2b-1\xspace}
+
+\newcommand{\length}[1]{\ensuremath{|#1|}\xspace}
+
+\newcommand{\glow}{\ensuremath{\garlic_{\text{low}}}\xspace}
+\newcommand{\ghigh}{\ensuremath{\garlic_{\text{high}}}\xspace}
+
+
+\newcommand{\catenabrg}{\textsc{Catena-BRG}\xspace}
+\newcommand{\catenadbg}{\textsc{Catena-DBG}\xspace}
+\newcommand{\hfinit}{\ensuremath{H_{\text{init}}}\xspace}
+\newcommand{\hffirst}{\ensuremath{H_{\text{first}}}\xspace}
+
+\newcommand{\overviewPDF}{\includegraphics[height=0.85\textheight]{Overview.eps}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pseudo code
+
+\newcommand{\pscatena}{\
+    \begin{algorithm}[H] \caption*{\pw}
+      \begin{algorithmic}[1]
+        \REQUIRE $pwd$, $t$, $s$, \glow, \ghigh, $m$, $\gamma$
+        \ENSURE $x$
+        \STATE $x \gets \hf(t \sep pwd \sep s)$
+        \STATE $x \gets \MHF(\lceil \glow/2\rceil,x,\gamma)$
+        \label{line:mhf}
+        \FOR{$g=\glow,\ldots,\ghigh$}
+          \STATE $x \gets \MHF(g,x \sep 0^*,\gamma)$
+          \label{line:tabula-catena}
+          \STATE $x \gets \hf(g \sep x)$
+          \STATE $x \gets truncate(x,m)$
+        \ENDFOR
+        \RETURN $x$
+      \end{algorithmic}
+      \label{alg:catena}
+    \end{algorithm}}
+
+\newcommand{\psflap}{\
+    \begin{algorithm}[H]
+    \caption*{\MHF}
+      \begin{algorithmic}[1]
+        \REQUIRE $g$, $x$, $\gamma$
+        \ENSURE $x$
+        \STATE $(v_{-2},v_{-1}) \gets \hfinit(x)$
+        \label{line:init1}
+        \FOR{$i=0 ,\ldots, 2^g-1$}
+        \label{line:loop1-1}
+          \STATE $v_i \gets H'(v_{i-1}\sep v_{i-2})$
+          \label{line:loop1-2}
+        \ENDFOR
+        \label{line:init2}
+        \STATE $v \gets \RL(g,v,\gamma)$
+        \label{line:public_input}
+        \STATE $x \gets \FL(v)$
+        \label{line:memory_hard}
+        \STATE \textbf{return} $x$
+      \end{algorithmic}
+      \label{alg:mhf}
+    \end{algorithm}}
+
+\newcommand{\pshinit}{\
+    \begin{algorithm}[H]
+    \caption*{\hfinit}
+      \begin{algorithmic}[1]
+        \REQUIRE $x$
+        \ENSURE $v_{-2},v_{-1}$
+        \STATE $\ell = 2\cdot k/n$
+        \FOR{$i=0,\ldots,\ell-1$}
+        \label{line:init-large-1}
+          \STATE $w_i \gets \hf(i\sep x)$
+          \label{line:hfinit-hf}
+        \ENDFOR
+        \STATE $v_{-2} \gets (w_0\sep\ldots\sep\ w_{\ell/2-1})$
+        \STATE $v_{-1} \gets (w_{\ell/2}\sep\ldots\sep\ w_{\ell-1})$
+        \STATE \textbf{return} $(v_{-2},v_{-1})$
+        \label{line:init-large-2}
+      \end{algorithmic}
+      \label{alg:hfinit}
+    \end{algorithm}}
+
+\newcommand{\psciupdate}{\
+    \begin{algorithm}[H]
+    \caption*{Client-Independent Update}
+      \begin{algorithmic}[1]
+        \REQUIRE $h, g_{high}, \lambda, m, \gamma, {g'}_{high}$
+        \ENSURE $h'$
+        \STATE $h' \gets h$
+        \FOR{$g=g_{high},\ldots,{g'}_{high}$}
+          \STATE $h' \gets flap(g,h' \sep 0^*,\gamma,\lambda)$
+          \STATE $h' \gets H(g\sep h')$
+          \STATE $h' \gets truncate(h',m)$
+        \ENDFOR
+        \STATE \textbf{return} $h'$
+      \end{algorithmic}
+    \end{algorithm}}
+
+\newcommand{\pskg}{\
+    \begin{algorithm}[H]
+    \caption*{\pw-KG}
+      \begin{algorithmic}[1]
+        \REQUIRE $pwd, t', s, g_{low}, g_{high}, \gamma, \ell, \mathcal{I},
+        \lambda$
+        \ENSURE $k$
+        \STATE $x \gets \pw(pwd, t', s, g_{low}, g_{high}, n, \gamma)$
+        \STATE $k \gets \emptyset$
+        \FOR{$i=1,\ldots,\lceil\ell/m\rceil$}
+          \STATE $k \gets k \sep H(i \sep \mathcal{I} \sep \ell \sep x)$
+        \ENDFOR
+        \STATE \textbf{return} $(k, \ell)$
+      \end{algorithmic}
+    \end{algorithm}}
+
+\usepackage{color}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}

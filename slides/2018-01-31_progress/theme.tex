@@ -1,0 +1,48 @@
+\usetheme{CambridgeUS}
+
+
+\definecolor{midnightblue}{rgb}{0,.25,.5}
+\definecolor{darkblue}{rgb} {0.125,0.25, 0.625}
+\definecolor{darkgreen}{rgb}{0.125,0.625,0.25}
+%\definecolor{darkred}{rgb}  {0.625,0.125,0.25}
+\definecolor{darkred}{rgb}  {0.0,0.4,0.59}
+
+\mode<presentation>
+{
+  \useinnertheme{rectangles}
+  \setbeamertemplate{navigation symbols}{}
+}
+
+\setbeamercolor{footlinecolorl}{fg=black,bg=lightgray}
+\setbeamercolor{footlinecolor}{fg=black,bg=gray}
+\setbeamercolor{footlinecolord}{fg=black,bg=darkgray}
+\setbeamercolor{block title}{bg=darkred,fg=white}
+
+\setbeamertemplate{itemize item}{\color{darkred}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{darkred}$\blacktriangleright$}
+\setbeamercolor{item projected}{bg=darkred}
+\setbeamertemplate{enumerate items}[default]
+\setbeamercolor{enumerate item}{fg=darkred}
+\setbeamercolor{enumerate subitem}{fg=darkred}
+\setbeamercolor{enumerate subsubitem}{fg=darkred}
+
+\setbeamertemplate{footline}{%
+\hbox{%
+\begin{beamercolorbox}[wd=.40\paperwidth,ht=4.25ex,left,leftskip=3ex]{author in head/foot}%
+    \vbox to4.25ex{\vfil\hbox{\usebeamerfont{author in head/foot} \insertshortauthor}\vfil}%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.25\paperwidth,ht=4.25ex,center]{title in head/foot}%
+    \vbox to4.25ex{\vfil\hbox{\usebeamerfont{date in
+    head/foot}\insertshorttitle{}}\vfil}%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.05\paperwidth,ht=4.25ex,center]{title in head/foot}%
+    \vbox to4.25ex{\vfil\hbox{\usebeamerfont{title in head/foot}\insertframenumber/\inserttotalframenumber}\vfil}%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.30\paperwidth,ht=4.25ex,right,rightskip=3ex]{date in head/foot}%
+    \vbox to4.25ex{\vfil\hbox{\insertshortdate{}}\vfil}%
+\end{beamercolorbox}}%
+}
+
+%\setbeamertemplate{footline}{
+%  \quad \tiny \insertshortauthor \hfill \insertshorttitle \qquad \hfill \insertshortdate\ \qquad\qquad
+%}

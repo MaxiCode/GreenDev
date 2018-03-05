@@ -384,5 +384,31 @@
 			verticalRulerPreferenceValue="true">
 		</specification>
 	</extension>
+ <extension point="org.eclipse.ui.views">
+       <category
+          id="org.eclipse.ui.article"
+          name="Article">
+       </category>
+    <view
+          class="com.vogella.plugin.markers.testing.PerfItemSelection"
+          id="com.vogella.plugin.markers.view1"
+          name="Performance Overview"
+          category="org.eclipse.ui.article"
+          restorable="true">
+    </view>
+ </extension>
+ 
+ <extension point="org.eclipse.ui.perspectiveExtensions">
+    <perspectiveExtension
+          targetID="org.eclipse.jdt.ui.JavaPerspective">
+       <view
+             id="com.vogella.plugin.markers.view1"
+             minimized="false"
+             ratio="0.95f"
+             relationship="right"
+             relative="org.eclipse.ui.views.ProblemView">
+       </view>
+    </perspectiveExtension>
+ </extension>
 
 </plugin>

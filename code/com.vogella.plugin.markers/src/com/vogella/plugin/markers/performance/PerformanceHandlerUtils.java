@@ -11,21 +11,21 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.e4.core.services.adapter.Adapter;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.PlatformUI;
 
 import com.vogella.plugin.markers.db.DatabaseConnection;
+import com.vogella.plugin.markers.testing.PerfItemSelection;
+import com.vogella.plugin.markers.testing.PerfModel;
 
-@SuppressWarnings("restriction")
 public class PerformanceHandlerUtils {
 
 	/**
@@ -39,8 +39,10 @@ public class PerformanceHandlerUtils {
 	 * mode 5: with all configuration (SENSITIVITY) 
 	 */
 	private int mode = 0;
+	private String projectID = "catena";
 	
 	private static final String JDT_NATURE = "org.eclipse.jdt.core.javanature";
+	private static final String viewID = "com.vogella.plugin.markers.view1";
 	
 	private int configOfInterest = 3;
 	private List<ICompilationUnit> units = new ArrayList<ICompilationUnit>();
@@ -48,53 +50,93 @@ public class PerformanceHandlerUtils {
 	private DatabaseConnection conn;
 	private Map<String, Integer> functionNames;
 	
+	private PerfItemSelection myView;
+	private List<IResource> resources = new ArrayList<IResource>();
+	
+	private List<PerfModel> modelArray;
+	private IWorkspace workspace;
+	
 	public PerformanceHandlerUtils(int mode) {
+		workspace = ResourcesPlugin.getWorkspace();
+		String projectName = "";
+		IProject[] projects = workspace.getRoot().getProjects();
+		for (IProject p : projects) {
+			if (p.getName().contains("catena")) {
+				projectName = "catena";
+			} else if (p.getName().contains("h2")) {
+				projectName = "h2";
+			} else {
+				projectName = "sunflow";
+			}
+		}
 		this.mode = mode;
-	}
-	
-	private List<ICompilationUnit> colorWithAST() {
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-        IWorkspaceRoot root = workspace.getRoot();
-        // Get all projects in the workspace
-        IProject[] projects = root.getProjects();
-        // Loop over all projects
-        for (IProject project : projects) {
-            try {
-                if (project.isNatureEnabled(JDT_NATURE)) {
-                    analyseMethods(project);
-                }
-            } catch (CoreException e) {
-                e.printStackTrace();
-            }
-        }
-        return units;
-	}
-	
-	private void analyseMethods(IProject project) throws JavaModelException {
-        IPackageFragment[] packages = JavaCore.create(project)
-                .getPackageFragments();
-        for (IPackageFragment mypackage : packages) {
-            if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
-                for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
-                	units.add(unit);
-                }
-            }
-        }
-    }
-	
-	public void analyzeSourceCode(IStructuredSelection selection, Adapter adapter) {
+		this.modelArray = new ArrayList<>();
 		
-		Object firstElement = selection.getFirstElement();
-		IResource resource = adapter.adapt(firstElement, IResource.class);
-		
-		units = colorWithAST();
-		if (units.isEmpty()) return;
+		myView = getView(viewID);
 		
 		conn = null;
 		functionNames = null;
-		initDatabase();
+		System.out.println("Init by " + projectName);
+		initDatabase(projectName);
+	}
+	
+	private void getResources() {
+        IWorkspaceRoot root = workspace.getRoot();
+        IProject[] projects = root.getProjects();
+        for (IProject p : projects) {
+        	System.out.println("Project: " + p.getName());
+        	try {
+				if (!p.isNatureEnabled(JDT_NATURE)) {
+					System.out.println("OUT: JDT_NATURE");
+					return;
+				}
+					
+				IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
+				System.out.println("Number Packages: " + packages.length);
+		        for (IPackageFragment mypackage : packages) {
+	        		if (mypackage.getKind() != IPackageFragmentRoot.K_SOURCE) {
+//	        			System.out.println("OUT K_SOURCE");
+//	        			return;
+	        		}
+	                
+	        		for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
+	        			System.out.println("Unit: " + unit.getElementName().toString());
+	                	System.out.println("Resource: " + unit.getResource().toString());
+	        			resources.add(unit.getResource());
+	                	units.add(unit);
+	                }
+	        	}
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+        }
+	}
+	
+	public void analyze() {
+		getResources();
+		if (units.isEmpty()) return;
 		
-		analyze(resource);
+		System.out.println("Number Resources: " + resources.size());
+		for (IResource resource : resources) {
+			analyze(resource);
+		}
+		updateView();
+	}
+	
+	private void updateView() {
+		// update view with colored data:
+		if (myView.viewExist()) {
+			System.out.println("Size of array " + modelArray.size());
+			
+			PerfModel[] array = new PerfModel[modelArray.size()]; 
+			array = modelArray.toArray(array);
+			Arrays.sort(array);
+			
+			// sort it by value
+			myView.updateContent(array);
+		} else {
+			System.out.println("View does not exist");
+		}
 	}
 	
 	private void analyze(IResource resource) {
@@ -110,6 +152,8 @@ public class PerformanceHandlerUtils {
             	continue;
             }
             
+            System.out.println("\nNew unit.");
+            
         	String classString = extractFileIdentifier(unit.getHandleIdentifier());
         	String fullPathOfRecource = resource.getFullPath().toString();
         	fullPathOfRecource = fullPathOfRecource.replace('/', '.');
@@ -124,6 +168,9 @@ public class PerformanceHandlerUtils {
             	String functionIdentifier = classString+":"+method.getName();
             	Integer functionsPrimaryKey = functionNames.get(functionIdentifier);
             	
+            	System.out.println("Methods: " + method.getName());
+            	System.out.println("Visitor size: " + visitor.getMethods().size());
+            	
             	if (functionsPrimaryKey == null) {
             		continue;
             	}
@@ -136,6 +183,8 @@ public class PerformanceHandlerUtils {
             	// -------------------------------------------------------------------------
             	// TODO put this in functions --->
             	
+            	float value;
+            	
             	if (mode == 1) {
             		System.out.println("Do coloring max with one config.");
             		List<Float> fractions = conn.getFraction(functionsPrimaryKey, configOfInterest);
@@ -145,8 +194,7 @@ public class PerformanceHandlerUtils {
                 	for (float el : fractions) {
                 		if (highest<el) highest = el;
                 	}
-                	
-                    MarkerUtils.writeMarkerUnderline(resource, start, end, highest);
+                	value = highest;
                     
             	} else if (mode == 2) {
             		System.out.println("Do max of all confs");
@@ -156,7 +204,7 @@ public class PerformanceHandlerUtils {
                 	for (float el : fractions) {
                 		if (highest<el) highest = el;
                 	}
-                    MarkerUtils.writeMarkerUnderline(resource, start, end, highest);
+                	value = highest;
                     
             	} else if (mode == 3) {
             		System.out.println("Do mean of all confs");
@@ -168,7 +216,7 @@ public class PerformanceHandlerUtils {
                 		number+=1;
                 		sum += el;
                 	}
-                    MarkerUtils.writeMarkerUnderline(resource, start, end, (sum/number));
+                	value = (sum/number);
                     
             	} else if (mode == 4) {
             		System.out.println("Do std dev of all confs");
@@ -180,23 +228,29 @@ public class PerformanceHandlerUtils {
                 	for (float el : timeValues) {
                 		s.update(el);
                 	}
-                    MarkerUtils.writeMarkerUnderline(resource, start, end, (float)s.getStandardDeviation());
+                	value = (float)s.getStandardDeviation();
                     
             	} else if (mode == 5) {
             		System.out.println("Do sensitivity of input");
             		List<Float> fractions = conn.getFraction(functionsPrimaryKey);
             		
-            		float value = calcAbsMeanMedian(fractions);
+            		value = calcAbsMeanMedian(fractions);
             		System.out.println("Sensitivity is: " + value);
-                    MarkerUtils.writeMarkerUnderline(resource, start, end, value);
+            	} else {
+            		value = 0.0f;
             	}
+            	
+            	MarkerUtils.writeMarkerUnderline(resource, start, end, value);
+            	
+            	PerfModel m = new PerfModel(unit, functionIdentifier, value);
+            	modelArray.add(m);
             }
         }
     }
     
-    private void initDatabase() {
+    private void initDatabase(String dbName) {
     	System.out.println("Init Database and read all functions");
-    	conn = new DatabaseConnection();
+    	conn = new DatabaseConnection(dbName);
     	functionNames = conn.getFunctionNames();
     }
 	
@@ -249,6 +303,31 @@ public class PerformanceHandlerUtils {
 
     	return (Math.abs(mean-median)*2);
     	
+    }
+    
+    public static PerfItemSelection getView(String id) {
+		IViewPart view = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(viewID);
+		if (view instanceof PerfItemSelection) {
+			System.out.println("Found view.");
+			return (PerfItemSelection) view;
+		}
+		return null;
+	}
+    
+    public void clearMarker() {
+	    IWorkspaceRoot root = workspace.getRoot();
+	    // Get all projects in the workspace
+	    IProject[] projects = root.getProjects();
+	    // Loop over all projects
+	    for (IProject project : projects) {
+	    	try {
+	    		MarkerUtils.cleanProject(project);
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+	    }
+	    modelArray = new ArrayList<>();
+	    updateView();
     }
     
 }

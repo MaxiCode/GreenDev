@@ -14,7 +14,9 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.services,
  org.eclipse.ui,
  org.eclipse.jdt.core,
- org.eclipse.jdt.ui
+ org.eclipse.jdt.ui,
+ org.eclipse.ui.ide;bundle-version="3.13.1",
+ org.eclipse.ui.editors;bundle-version="3.11.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.2.0"
 Bundle-Classpath: .,external:/home/max/uni/GreenDev/code/jars/sqlite-jdbc-3.21.0.jar

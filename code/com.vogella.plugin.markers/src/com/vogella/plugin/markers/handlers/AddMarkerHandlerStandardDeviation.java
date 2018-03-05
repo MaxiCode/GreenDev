@@ -17,6 +17,6 @@ public class AddMarkerHandlerStandardDeviation {
 
 		int mode = 4;
 		PerformanceHandlerUtils pHandler = new PerformanceHandlerUtils(mode);
-		pHandler.analyzeSourceCode(selection, adapter);		
+		pHandler.analyze();		
     }
 }

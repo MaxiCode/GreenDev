@@ -1,0 +1,109 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% ---------------------------------------------------------------------
+% Preamble
+% ---------------------------------------------------------------------
+
+\input{packages}
+\input{commands}
+
+\input{theme}
+
+% ---------------------------------------------------------------------
+% Title
+% ---------------------------------------------------------------------
+
+\title[Green Development]{GreenDev}
+%\subtitle{Subtitle (project name)}
+\author[M. Weber]{Max Weber}
+\institute[Bauhaus-Universität Weimar]{}
+\date[\today]{\today}
+
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Content
+% ---------------------------------------------------------------------
+
+\maketitle
+
+%\begin{frame}{Outline}
+%\tableofcontents
+%\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Tasks}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Tasks}
+  \begin{itemize}
+    \item h2 database profiling
+    \item sunflow image generation and quality assessment
+    \item whole pipe testing
+    \item linear regression
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Data}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Profiling Subject Systems}
+  \begin{itemize}
+    \item h2 databaste:
+    \begin{itemize}
+      \item selected configuration options from h2's list of database settings [\href{http://www.h2database.com/javadoc/org/h2/engine/DbSettings.html}{h2 - Settings}]
+      \item implemented test cases from provided \href{../../code/subjectSystems/h2database/h2/src/test/org/h2/samples/optimizations.sql}{optimizations class} 
+    \end{itemize}
+    \item sunflow:
+    \begin{itemize}
+      \item generated images for all configurations and workloads
+      \item 1200 images (64x64, 128x128, 256x256, (512 and 1024 still running))
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Image Quality Metrics}
+  \begin{itemize}
+    \item MSE
+    \begin{itemize}
+      \item average of the squared errors
+      \item + and - errors does not compensate
+      \item influence of bigger errors is higher
+    \end{itemize}
+    \item PSNR - Peak signal-to-noise ratio
+    \begin{itemize}
+      \item ratio between maximum possible power of a signal and the power of the noisy signal 
+      \item \( PSNR = 20 * \log_{10} \left( \frac {MAX_I}  {\sqrt{MSE}} \right) \)
+      \item used to pompare image compression technologies
+    \end{itemize}
+    \item VIF
+    \begin{itemize}
+      \item implements two models to characterize natural images
+      \item correlates with human perception
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Neural Nets}
+% ---------------------------------------------------------------------
+
+\begin{frame}{Tutorials}
+  \begin{itemize}
+    \item \href{http://joelgrus.com/2016/05/23/fizz-buzz-in-tensorflow/}{Fizz Buzz tutorial by Joel Grus}
+    \item \href{https://github.com/aymericdamien/TensorFlow-Examples/blob/master/examples/3_NeuralNetworks/neural_network_raw.py}{MNIST 2-Layer Fully Connected}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------
+% Appendix
+% ---------------------------------------------------------------------
+
+\appendix
+\end{document}
