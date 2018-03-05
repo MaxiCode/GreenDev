@@ -198,9 +198,9 @@ def profile(config):
         imgfile = PATH_FOR_PROFILING_PROPERTIES + str(res) + ".png"
         print(imgfile)
 
-        #subprocess.call(['java', '-jar', PROJECT_PATH, str(res), str(thr), str(diff), str(refl), str(refr), str(bSize), str(samples), imgfile], stdout=stdout, stderr=stderr)
+        subprocess.call(['java', '-jar', PROJECT_PATH, str(res), str(thr), str(diff), str(refl), str(refr), str(bSize), str(samples), imgfile], stdout=stdout, stderr=stderr)
         imgfile = ""
-        #subprocess.call(['java', javaagent, Dprofile, '-noverify', '-jar', PROJECT_PATH, str(res), str(thr), str(diff), str(refl), str(refr), str(bSize), str(samples), imgfile], stdout=stdout, stderr=stderr)
+        subprocess.call(['java', javaagent, Dprofile, '-noverify', '-jar', PROJECT_PATH, str(res), str(thr), str(diff), str(refl), str(refr), str(bSize), str(samples), imgfile], stdout=stdout, stderr=stderr)
 
     print("Done: " + PROFILING_OUTPUT_FOLDER_NAME)
         
