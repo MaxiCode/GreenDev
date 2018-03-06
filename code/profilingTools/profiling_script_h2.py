@@ -241,7 +241,7 @@ _IS_NULL-{10}_OR-{11}_TWO_EQUALS-{12}_PAGE_STORE-{13}_RECOMPILE_ALWAYS-{14}_ROWI
         #    str(mntb(D8)), str(mntb(D9)), str(mntb(D10)), str(mntb(D11)), str(mntb(D12)), str(mntb(D13)), str(mntb(D14)), str(mntb(D15)), str(mntb(D16)), str(res)])
 
     print("Done: " + PROFILING_OUTPUT_FOLDER_NAME)
-        
+
 
 
 def main():

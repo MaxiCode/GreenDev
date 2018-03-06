@@ -41,15 +41,6 @@ class Config_Sunflow:
         self.c.append(random.randrange(1,64))
         self.c.append(random.randrange(1,10))
 
-    def mutate(self, n):
-        for i in range(n):
-            dim = random.randrange(0,6)
-            if dim == 0 or dim == 1 or dim == 2 or dim == 3 or dim == 5:
-                self.c[dim] = random.randrange(1,10)
-            elif dim == 4:
-                self.c[dim] = random.randrange(1,64)
-        self.h = self.hash()
-
     def hash(self):
         tmp = str(self.c[0]) + str(self.c[1]) \
             + str(self.c[2]) + str(self.c[3]) \
