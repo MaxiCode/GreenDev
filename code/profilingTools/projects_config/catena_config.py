@@ -52,3 +52,4 @@ class Config_Catena:
 
     def get_rand_state(self):
         return self.fin_rand_state
+

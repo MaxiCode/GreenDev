@@ -53,7 +53,7 @@ file=/home/max/uni/GreenDev/code/profilingTools/output/sunflow.jar/4_9_3_6_59_8/
 # (comma separated)
 # Note: com.mentorgen.tools.profile is always excluded
 #
-exclude=profiling.CatenaProfiler,org.sunflow.Benchmark
+exclude=profiling.CatenaProfiler,org.sunflow.Benchmark,main.profiling.Profiler
 #
 # Track Object Allocation (very expensive)
 # values: on, off

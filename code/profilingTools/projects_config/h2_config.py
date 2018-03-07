@@ -8,7 +8,7 @@ import hashlib
 class Config_H2:
 
     jar_file = "h2.jar"
-    workload = [5000,10000,20000]
+    workload = [1000,20000,40000]
 
     #http://www.h2database.com/javadoc/org/h2/engine/DbSettings.html:
 
@@ -32,6 +32,7 @@ class Config_H2:
 
     #RECOMPILE_ALWAYS [True/False]
     #ROWID [True/False]
+    
     #workload
     
     def __init__(self, rand_state):

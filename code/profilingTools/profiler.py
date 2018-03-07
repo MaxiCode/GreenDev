@@ -63,33 +63,48 @@ class Profiler:
                 stdout = open("stdout.txt","ab")
                 stderr = open("stderr.txt","ab")
 
-                # filally call java jar:
+
+
+                # create java subprocess call with java interactive profiler:
                 javaagent = "-javaagent:"+self.project_root+"/"+self.profile_jar
                 Dprofile  = "-Dprofile.properties="+prof_prop_adapted
 
-                parameter_array = []
-                parameter_array.append("java")
-                parameter_array.append(javaagent)
-                parameter_array.append(Dprofile)
-                parameter_array.append("-noverify")
-                parameter_array.append("-jar")
-                parameter_array.append(self.project_root+"/"+self.jar_path+str(self.project.jar_file))
-                #print(parameter_array)
-                #print(c)
+                parameter_array_jip = []
+                parameter_array_jip.append("java")
+                parameter_array_jip.append(javaagent)
+                parameter_array_jip.append(Dprofile)
+                parameter_array_jip.append("-noverify")
+                parameter_array_jip.append("-jar")
+                parameter_array_jip.append(self.project_root+"/"+self.jar_path+str(self.project.jar_file))
+
+                # create java subprocess call without profiler to measure external impacts:
+                parameter_array_no_jip = []
+                parameter_array_no_jip.append("java")
+                parameter_array_no_jip.append("-jar")
+                parameter_array_no_jip.append(self.project_root+"/"+self.jar_path+str(self.project.jar_file))
+
+
+                # append program parameter to call arrays
                 if isinstance(w,list):
-                    java_parameter = parameter_array+[str(el) for el in c.get_config()]+[str(el) for el in w]
+                    java_parameter = parameter_array_jip+[str(el) for el in c.get_config()]+[str(el) for el in w]
+                    java_parameter_no_prof = parameter_array_no_jip+[str(el) for el in c.get_config()]+[str(el) for el in w]
                 else:
-                    java_parameter = parameter_array+[str(el) for el in c.get_config()]+[str(w)]
+                    java_parameter = parameter_array_jip+[str(el) for el in c.get_config()]+[str(w)]
+                    java_parameter_no_prof = parameter_array_no_jip+[str(el) for el in c.get_config()]+[str(w)]
                 # in case of sunflow, add the path to the image folder
                 if str(self.project.jar_file) == "sunflow.jar":
                     java_parameter = java_parameter+[output_folder]
+                    java_parameter_no_prof = java_parameter_no_prof+[output_folder]
 
-                # std of project execution
-                #print(java_parameter)
-                for _ in range(5):
+                for _ in range(7):
                     #print()
-                    subprocess.call(java_parameter, stdout=stdout, stderr=stderr)
+                    subprocess.call(java_parameter_no_prof, stdout=stdout, stderr=stderr)
                     time.sleep(2)
+
+
+                subprocess.call(java_parameter, stdout=stdout, stderr=stderr)
+                time.sleep(2)
+
             print("Done: " + c_f_name)
 
 

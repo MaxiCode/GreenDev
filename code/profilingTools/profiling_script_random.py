@@ -22,7 +22,12 @@ def init_configurations(config_generator, n):
     for _ in range(n):
         c = config_generator(rand_state)
         rand_state = c.get_rand_state()
-        configurations.append(c)
+        # check if config is already present
+        if any(c.h in tmp_conf.h for tmp_conf in configurations):
+            n += 1
+            print("detect hash collision")
+        else:
+            configurations.append(c)
 
     return configurations
 

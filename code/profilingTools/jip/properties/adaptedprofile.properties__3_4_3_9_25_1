@@ -47,13 +47,13 @@ method.compact.threshold.ms=10
 # What is the default file name for the profile information
 # default=./profile.txt
 #
-file=/home/max/uni/GreenDev/code/profilingTools/output/h2.jar/2600_2484_1_0_0_0_0_1_0_1_1_1_1_1_1_0/
+file=/home/max/uni/GreenDev/code/profilingTools/output/sunflow.jar/3_4_3_9_25_1/
 #
 # What packages are excluded from the display
 # (comma separated)
 # Note: com.mentorgen.tools.profile is always excluded
 #
-#exclude=profile
+exclude=profiling.CatenaProfiler,org.sunflow.Benchmark,main.profiling.Profiler
 #
 # Track Object Allocation (very expensive)
 # values: on, off
