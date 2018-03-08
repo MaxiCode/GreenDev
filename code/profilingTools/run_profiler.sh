@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # clear prev data
-rm -r output/*
+#rm -r output/*
 rm std*
 rm jip/properties/*_*
 
@@ -10,4 +10,4 @@ rm jip/properties/*_*
 # 0 - catena
 # 1 - h2
 # 2 - sunflow
-taskset 0x1 python3 profiling_script_random.py 100 0
+taskset 0x1 python3 profiling_script_random.py 100 100 0

@@ -12,14 +12,16 @@ import random
 
 rand_seed = 3
 
-def init_configurations(config_generator, n):
+def init_configurations(config_generator, n, d):
     # save state of random to reproduce experiments
     random.seed(rand_seed)
     rand_state = random.getstate()
+
+    print("Number of configs to jump over: " + str(d))
     
     configurations = []
-
-    for _ in range(n):
+    iterations = d+n
+    for _ in range(iterations):
         c = config_generator(rand_state)
         rand_state = c.get_rand_state()
         # check if config is already present
@@ -29,7 +31,7 @@ def init_configurations(config_generator, n):
         else:
             configurations.append(c)
 
-    return configurations
+    return configurations[d:]
 
 def init_project(project):
     config_generator = None
@@ -49,6 +51,7 @@ def init_project(project):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("d", help="number of profiling calls already done", type=int)
     parser.add_argument("n", help="number of profiling calls", type=int)
     parser.add_argument("p", help="""specify project to be profiled: 
         0 - catena
@@ -58,12 +61,13 @@ def main():
     
     n = args.n
     proj = args.p
+    d = args.d
 
     print("init project")
     config_generator = init_project(proj)
     #print(config_generator.jar_file)
     print("init configs")
-    configs = init_configurations(config_generator, n)
+    configs = init_configurations(config_generator, n, d)
     print("start profiling")
     p = Profiler(config_generator, configs)
     p.profile()
