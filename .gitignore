@@ -35,3 +35,9 @@ code/profilingTools/JavaInteractiveProfiler/jip-src-1.2/profile/p/*
 
 # ignore all generated profile properties
 code/profilingTools/jip/properties/adaptedprofile.properties_*
+
+# ignoring validation files
+validation/
+
+# ignoring generated databases
+code/profilingOutput/
