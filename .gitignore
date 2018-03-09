@@ -32,3 +32,6 @@ code/runtime-EclipseApplication/*
 
 # generated properties files
 code/profilingTools/JavaInteractiveProfiler/jip-src-1.2/profile/p/*
+
+# ignore all generated profile properties
+code/profilingTools/jip/properties/adaptedprofile.properties_*
