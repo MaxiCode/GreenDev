@@ -8,7 +8,7 @@ import hashlib
 class Config_H2:
 
     jar_file = "h2.jar"
-    workload = [1000,20000,40000]
+    workload = [10000,55000,100000]
 
     #http://www.h2database.com/javadoc/org/h2/engine/DbSettings.html:
 
