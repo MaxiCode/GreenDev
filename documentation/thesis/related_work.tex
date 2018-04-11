@@ -3,17 +3,27 @@
 \label{b_a_rel_work}
 % ---------------------------------------------------------
 
-This chapter provides an overview of the general topics of this thesis. In section \ref{background} an introduction about performance evaluation and energy consumption of configurable software is given and related work is summarized in section \ref{rel_work}.
+This chapter provides an overview of the general topics of this thesis. In section \ref{background} an introduction about variability models, performance assessment and performance prediction is given. Related work and approaches that analyze performance simmilar to our approach is summarized in section \ref{rel_work}.
 
 \section{Background}
 \label{background}
 
-This section provides an introduction about necessary fundamentals. We give an overview about configurable systems in subsection \ref{background_conf_sys}. We define the terms performance \ref{background_perf} and energy consumption \ref{background_en_cons} for this thesis and describe correlation \ref{background_corr}, \todo{other definitions here}.
+This section provides an introduction about necessary fundamentals. We give an overview about variability models of configurable software systems in subsection \ref{background_conf_sys}. We define the term performance \ref{background_perf} for this thesis and describe how performance of software can be measured. Section \ref{background_perf_pred} describes how to learn models to be able to predict performance.
 
-\subsection{Configurable Systems}
+
+\subsection{Configurable Software Systems}
 \label{background_conf_sys}
 
-Nowadays, almost every software system can be configured by numerous options. These configurability provides a lot of flexibility. Databases for example, typically let users configure options like encryption, compression, cash size and many others. While this flexibility helps to make software customizable to the user, it also causes problems. Not only the size of the configuration space which results from the combination of configuration options is hard to grasp by users, but also possible constraints among options make configuring problematic. This may lead users to pick default configurations instead of choose a configuration that let the system perform as desired.
+Configurations to Features - 
+\cite{loughran2004framed}
+However, there are no mechanisms available in current AOP languages to support and realise fine-grained configurability and variability, thus, the potential for aspects to be reused in different contexts is limited.This paper demonstrates framed aspects, an AOP independent meta language which adds the power of parameterisation, construction time constraint checking and conditional compilation to AOP languages.
+
+Variability Model - Feature Model
+model all valid configurations (in graph structure with constraints)
+
+
+
+
 
 To describe configurable systems \fmsit\ were developed. These models describe each configuration option as a \featureit. \textit{Features} are distinct pieces of functionality which can be mandatory or optional. To group \featuresit\ that belong together \textit{or-} and \textit{alternative-groups} can be used. Usually not all combinations of \featuresit\ are valid. For example some might be required whereas others are mutually exclusive. To cope this \fmsit\ provide constraints.
 
@@ -26,14 +36,17 @@ General, performance is the amount of work done per time\cite{tsirogiannis2010an
 \label{def:perf1}
 	Performance=\frac{Completed\;Tasks}{Unit\;of\;Time}
 \end{equation}
-Because we want to analyze performance of software by executing benchmarks, the work done is always the same. So for this thesis we can define performance like \cite{siegmundperformance}:
+Because we want to analyze performance of software by executing benchmarks, the work done is always the same. So for this thesis we can define performance like \cite{siegmund2015performance}:
 \begin{equation}
 \label{def:perf2}
 	Performance=Execution\;Time\;of\;a\;Benchmark
 \end{equation}
 
-\subsection{Correlation}
-\label{background_corr}
+
+\subsection{Lernability of Performance}
+\label{background_perf_pred}
+
+
 
 
 \section{Related Work}

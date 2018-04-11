@@ -1,0 +1,52 @@
+\begin{thebibliography}{1}
+
+\bibitem{amsel2010green}
+Nadine Amsel and Bill Tomlinson.
+\newblock Green tracker: a tool for estimating the energy consumption of
+  software.
+\newblock In {\em CHI'10 Extended Abstracts on Human Factors in Computing
+  Systems}, pages 3337--3342. ACM, 2010.
+
+\bibitem{balsamo2004model}
+Simonetta Balsamo, Antinisca Di~Marco, Paola Inverardi, and Marta Simeoni.
+\newblock Model-based performance prediction in software development: A survey.
+\newblock {\em IEEE Transactions on Software Engineering}, 30(5):295--310,
+  2004.
+
+\bibitem{denaro2004early}
+Giovanni Denaro, Andrea Polini, and Wolfgang Emmerich.
+\newblock Early performance testing of distributed software applications.
+\newblock In {\em ACM SIGSOFT Software Engineering Notes}, volume~29, pages
+  94--103. ACM, 2004.
+
+\bibitem{hahnel2012measuring}
+Marcus H{\"a}hnel, Bj{\"o}rn D{\"o}bel, Marcus V{\"o}lp, and Hermann
+  H{\"a}rtig.
+\newblock Measuring energy consumption for short code paths using rapl.
+\newblock {\em ACM SIGMETRICS Performance Evaluation Review}, 40(3):13--17,
+  2012.
+
+\bibitem{koziolek2010performance}
+Heiko Koziolek.
+\newblock Performance evaluation of component-based software systems: A survey.
+\newblock {\em Performance Evaluation}, 67(8):634--658, 2010.
+
+\bibitem{simunic1999cycle}
+Tajana Simunic, Luca Benini, and Giovanni De~Micheli.
+\newblock Cycle-accurate simulation of energy consumption in embedded systems.
+\newblock In {\em Design Automation Conference, 1999. Proceedings. 36th}, pages
+  867--872. IEEE, 1999.
+
+\bibitem{smith1993software}
+Connie~U Smith.
+\newblock Software performance engineering.
+\newblock In {\em Performance Evaluation of Computer and Communication
+  Systems}, pages 509--536. Springer, 1993.
+
+\bibitem{woodside2007future}
+Murray Woodside, Greg Franks, and Dorina~C Petriu.
+\newblock The future of software performance engineering.
+\newblock In {\em Future of Software Engineering, 2007. FOSE'07}, pages
+  171--187. IEEE, 2007.
+
+\end{thebibliography}

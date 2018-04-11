@@ -3,23 +3,35 @@
 \label{chap:introduction}
 % ---------------------------------------------------------
 
+Since the beginning of software engineering developers try to produce software which performs well. Over the years software has to run more difficult, complex and computing-intensive tasks. Hardware, software and the technology to work with grows and becomes more and more complex. Anytime software has to fulfill different quality properties. This includes aspects like reliability, security, maintainability and \textit{performance}. Each aspect is analyzed and described in many publications. With the analysis of reliability one tries to reduce and prevent application problems that affect users. Also security and maintainability are subjects of research for decades (\cite{liskov1972design,johnstone1978computer,yau1980some}). The aspect efficiency of software systems describes how source code and software architecture perform in run-time scenarios. Since the beginning of software engineering \textit{performance} is one of the most important aspects.\\
+This thesis will analyze \textit{performance} of software. With respect to software and software systems there are different definitions of \textit{performance} in literature. While \textit{performance} from an end users perspective describes the ability that users can perform a certain task without perceivable delay or without irritation \cite{Molyneaux:2009:AAP:1550832}, the developers perspective is explained by so called non-functional properties. This properties provide a way to judge about the quality of software systems. This was already done by other researchers \cite{Molyneaux:2009:AAP:1550832,weber2005key,siegmund2015performance,smith1993software}. The main difference from this work to others is that we analyzed the \textit{performance} of software projects on method level, which cause different challenges (described in chapter \ref{perf_measure}).\\
+Nowadays, almost every software system can be configured by numerous options. These configurability provide the possibility to customize the programs behavior to the users needs. Databases for example, typically let users configure options like encryption, compression, cash size and many others. While this flexibility helps to make software customizable to the user, it also causes an increased effort during testing, maintaining and analyze of \textit{performance}. Not only the size of the configuration space which results from the combination of configuration options is hard to grasp by users. Because programs with more than 265 configuration options provide more different configurations than atoms in the universe, which make testing and analyzing them all unpracticable. But also possible constraints among options make configuring problematic. This may lead users to pick default configurations instead of choosing a configuration that let the system perform as desired. Therefore we will sample configurations to get an subset which describes the whole configuration space for our analysis, so we do not have to analyze them all.
 
-%Abriss des Problems:
-% Energy consumption of ICT (information and communication technology) sector.
-% Is growing the most.
-% Correlation to CO2 emissions
-% Economy tries to save energy of hardware (with energy labels for example) but analysis about consumption of software approaches recently.
-Energy consumption and energy efficiency are big challenges this time. Many areas like economy and politic discuss about it. Countries give themselves thresholds for greenhouse gas output. To achieve these goals they invest in green energy and publish guidelines.
 
-% section to describe the workflow 
-% overview diagram
-% steps to discover
+% roughly describe way to detect performance hot spots on function level
+% specialization of this work
+% ------------GOAL---------------- 
+To achieve our goal, we want to analyzes \textit{performance} of software systems on method level. To understand the influence of configuration options on the \textit{performance} of methods we profile each subject system with an appropriate profiler to extract the runtime of single functions of the running program. As we decided to take JAVA projects fro our subject systems, we also want to analyze the influence of the environment in which the test are running. An visualization of our findings direct in the source code will help future developers identify possible \textit{performance} hot-spots. An overview of the \textit{performance} distribution over all functions in an project gives new perspectives to support \textit{performance} analysis.\\
 
-% Spezialisierung dieser Arbeit
-This work tries to help with the detection of energy critical parts of software.
-Performance analysis of software projects
+% ------------Approach----------------
 
-Development of a Eclipse-Plug-in to visualize performance hot-spots
+To analyze \textit{performance} we follow a five step approach:
+
+\begin{enumerate}
+	\item Identification of whole configuration space and determining different workload levels.
+	\item Profiling the execution of software projects with sampled configurations and different workloads.
+	\item Processing extracted data to assess \textit{performance} on function level and to determine significance of the data.
+	\item Creating \textit{performance} influence models.
+	\item Learning influence of configurations on functions of the software.
+	\item Visualize \textit{performance hot-spots} direct in the source code and create suitable visualizations of performance dependencies.
+\end{enumerate}
+
+
+% ------------Contribution------------
+
+This thesis provides different contributions. First, we provide an detailed analysis of the influence on performance of the environment on which the software runs. We also compare different sampling strategies to evaluate coverage of the configuration space. Then we analyze the learnability of performance on method level influenced by configurations. We also provide a overview-visualization of the influence of configurations on performance. Finally, we developed an Eclipse-Plug-in to visualize performance hot-spots direct in the source code.
+% direct in source code 
+% provide an overview of performance of configurable software systems
 
 % Analyze performance and energy consumption of Software Projects written is JAVA.
 % Analyze performance on function level
