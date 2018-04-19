@@ -21,14 +21,19 @@
 %
 % Suggested Packages
 % ------------------
-\usepackage[numbers,square]{natbib}
+%\usepackage{harvard}
+\usepackage{natbib}
 %\usepackage[round]{natbib}
-%\bibliographystyle{plainnat}
+\bibliographystyle{plainnat}
+%S\setcitestyle{authoryear,open={[},close={]}}
+%\bibliographystyle{plain}
 
 %   Allows citing in different ways (e.g., only the authors if you use the
 %   citation again within a short time).
 %
+\usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{listings}
 %    For tables ``looking the right way''.
 %
 %\usepackage{tabularx}
@@ -49,20 +54,21 @@
 
 \RequirePackage{xcolor}
 \newcommand{\todo}[1]{\colorbox{red}{\color{white}\sffamily TODO: #1}}
-\newcommand{\featureit}[0]{\textit{feature}}
-\newcommand{\featuresit}[0]{\textit{features}}
-\newcommand{\fmit}[0]{\textit{feature model}}
-\newcommand{\fmsit}[0]{\textit{feature models}}
 
 \begin{document}
 \begin{frontmatter}
   \begin{abstract}
-During the past years the information and communication technologies (ICT) sector grew exponentially. It is to be expected that this trend continues in the next years. Currently, the energy needed to supply data centers, servers and every kind of computational device increases with the progress of the ICT sector. This poses economic and environmental complications.\\
-To have energy available it has to be generated, stored and delivered. Storage requires materials for batteries, delivery requires infrastructure and also a big issue in this context is cooling down the hardware. For years, economy tries to save energy consumption of hardware (e.g. European Union energy label). But while hardware primarily consumes energy, it can only be as efficient as the software that operates that hardware.\\
-This master thesis proposes and implements a tool to analyze software regarding their energy consumption. In relation to other research in this area, this thesis tries to answer the following questions. Is it possible to identify energy leaks in software? Does configuration of software affect energy consumption? Is it possible to predict energy consumption of software with unknown configurations? And finally, does visualization of energy hot spots in source code help programmers to rectify them?\\
-To answer this questions we want to analyze performance and energy consumption of software projects written in Java. We want to profile the project on the one hand with different configurations to identify configuration sensitivity and on the other hand with different inputs to identify input sensitive parts. Next, we want to relate performance to the energy consumption. After that we want to investigate up to which level it is possible to predict energy consumption and performance of untested configurations. \\
-Finally, we want to validate our work by showing that our approach can automatically detect and rank energy leaks in software projects for which such leaks are known. To verify that out tool helps software developer to rectify energy hot spots in source code we will conduct a user study with and without help of the tool.\\
-If our results are satisfying we have created a tool which helps software developer to be aware of their of their energy footprint. So there will be more energy efficient programs that will have less energy costs.
+%During the past years the information and communication technologies (ICT) sector grew exponentially. It is to be expected that this trend continues in the next years. Currently, the energy needed to supply data centers, servers and every kind of computational device increases with the progress of the ICT sector. This poses economic and environmental complications.
+
+%To have energy available it has to be generated, stored and delivered. Storage requires materials for batteries, delivery requires infrastructure and also a big issue in this context is cooling down the hardware. For years, economy tries to save energy consumption of hardware (e.g. European Union energy label). But while hardware primarily consumes energy, it can only be as efficient as the software that operates that hardware.
+
+%This master thesis proposes and implements a tool to analyze software regarding their energy consumption. In relation to other research in this area, this thesis tries to answer the following questions. Is it possible to identify energy leaks in software? Does configuration of software affect energy consumption? Is it possible to predict energy consumption of software with unknown configurations? And finally, does visualization of energy hot spots in source code help programmers to rectify them?
+
+%To answer this questions we want to analyze performance and energy consumption of software projects written in Java. We want to profile the project on the one hand with different configurations to identify configuration sensitivity and on the other hand with different inputs to identify input sensitive parts. Next, we want to relate performance to the energy consumption. After that we want to investigate up to which level it is possible to predict energy consumption and performance of untested configurations.
+
+%Finally, we want to validate our work by showing that our approach can automatically detect and rank energy leaks in software projects for which such leaks are known. To verify that out tool helps software developer to rectify energy hot spots in source code we will conduct a user study with and without help of the tool.
+
+%If our results are satisfying we have created a tool which helps software developer to be aware of their of their energy footprint. So there will be more energy efficient programs that will have less energy costs.
   \end{abstract}
 
   \tableofcontents
@@ -98,7 +104,6 @@ If our results are satisfying we have created a tool which helps software develo
 % References and Appendix
 % ---------------------------------------------------------
 
-\bibliographystyle{plain}
 \bibliography{bib}
 \include{acronyms}
 \include{appendix}

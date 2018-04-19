@@ -1,0 +1,140 @@
+% ---------------------------------------------------------
+\chapter{Background and Related Work}
+\label{b_rel_work}
+% ---------------------------------------------------------
+
+This chapter provides an overview of the general topics of this thesis. 
+In section~\ref{background} an introduction about variability models, performance assessment and performance prediction is given. 
+Related work and approaches that analyse performance similar to our approach is summarized in section~\ref{rel_work}.
+
+\section{Background}
+\label{background}
+
+The background section provides an introduction about necessary fundamentals. 
+We give an overview about configurable software systems~(section~\ref{background_conf_sys}) and variability models~(section~\ref{background_variab_models}). 
+We define the term performance~(section~\ref{background_perf}) for this thesis, describe how performance of software can be measured and how to learn models to be able to predict performance.
+
+\subsection{Configurable Software Systems}
+\label{background_conf_sys}
+% Problem Space (Whole space) - Constraints (illegal feature combinations), default settings, optimizations, ... -> Solution Space ()
+% variability models of configurable software systems
+Today, almost every software system provide different options to configure them. 
+Every single combination of configurations results in a \textit{variant} of the program, similar to \acp{SPL}\footnote{``A software product line (SPL) is a set of software-intensive systems that share a common, managed set of features satisfying the specific needs of a particular market segment or mission and that are developed from a common set of core assets in a prescribed way.''~\cite{northrop2010spl}}~\cite{siegmund2012spl}. 
+Each variant comprises the set of activated configuration options also referred to as \textit{features}. 
+The combination of features describe the user desired characteristics of programs~\cite{czarnecki2000generative}. 
+Imagine a database engine. 
+The selection (or rejection) of features like compression, encryption or the use of a specific indexing strategy results in a number of different variants, that fulfil different requirements desired by users. 
+Requirements that describe what a system can do are called functional properties~\cite{siegmund2012spl,guo2013variability}. 
+In addition to the functionality requirements of software, there are also non-functional properties to be met~\cite{siegmund2012spl,guo2013variability,sarkar2015cost,siegmund2015performance}. 
+In literature there exist different definitions of non-functional properties. 
+Glinz surveyed the existing definitions in 2007~\cite{glinz2007non}, e.g. ``The required overall attributes of the system, including portability, reliability, efficiency, human engineering, testability, understandability, and modifiability''~\cite{davis1993software} or ``Requirements which are not specifically concerned with the functionality of a system. 
+They place restrictions on the product being developed and the development process, and they specify external constraints that the product must meet''~\cite{kotonya1998requirements}. 
+There are more definitions of non-functional properties but during this thesis we want to stick to the definition of Robertson and Robertson from 1999 because these definition seems to be wildly used since then~\cite{nuseibeh2000requirements,jackson2001problem,cohn2004user,siegmund2012spl}: ``A property, or quality, that the product must have, such as an appearance, or a speed or accuracy property''~\cite{robertson1999mastering}.
+
+\subsection{Variability Models}
+\label{background_variab_models}
+
+After defining configurable software systems with their functional and non-functional properties we want to show how to model them. 
+\textit{Feature models} define a common way to describe all valid configurations of software systems~\cite{siegmund2015performance,sarkar2015cost,guo2013variability}. 
+They were introduced in 1990 by Kang et al.~\cite{kang1990feature}. 
+They became an important instrument for modelling variability in software product lines. 
+With feature models every configuration option can be expressed as a feature. 
+There are two different representations of feature models: textual notations and graphical representations. 
+Feature models in textual from (like SXFM~\cite{Mendonca2009SSP} and Velvet~\cite{rosenmuller2011multi}) have been developed to construct and maintain models of systems with a huge amount of features which might be presented poorly with a graphical tool. 
+Whereas feature models with a graphical representation (also called feature diagrams~\cite{kang1990feature}) provide the possibility to create and manipulate feature models through a graphical user interface. 
+Furthermore, feature diagrams are widely used in scientific literature to present analysed systems. 
+
+
+Feature diagrams build up a tree-structured graph, as seen in the example diagram shown in figure~\ref{background_variab_models_feature_diagram_example}. 
+With this example diagram we will describe the elements of feature diagrams. 
+The root node of the tree \textsf{Database\_Engine} represent the whole database model. 
+All nodes in this tree represent either \textit{abstract} of \textit{concrete} features. 
+Abstract features like \textsf{Compression} and \textsf{OS} are used to structure the feature model whereas concrete features represent functionality. 
+There are two nodes of the database engine modelled as \textit{mandatory}. 
+This nodes have to be selected in each valid configuration because they might implement some basic functionality which has to be always available. 
+Optional features like \textsf{Indexing} or \textsf{Compression} can be selected to form a valid variant. 
+This database for example need to have an operating system specified and can use compression algorithms. 
+There are two more elements available in feature diagrams: \textit{or}- and \textit{alternative}. 
+The alternative represent the logical XOR, so only one child can be selected at a time. 
+Whereas the or enables the selection of one or more children. 
+If \textsf{Encryption} is selected in this example then either \textsf{AES} or \textsf{RSA} or both must also be selected. 
+In case of the mandatory abstract feature \textsf{OS} which itself only groups available operation systems one has to select either \textsf{Unix} or \textsf{Windows}. 
+The structure of the tree, including the parent-children relationship and the different elements, define a set of constraints for selecting valid configurations. 
+In addition to that there are so called \textit{cross-tree constraints} which can be model through a textual representation. 
+For example if some user want to have zip-compression enabled he also has to stick to Windows. 
+These constraints restrict the amount of valid configurations. 
+In total there are 64 possible configurations which are valid. 
+24 if \textsf{Windows} is initially selected and 40 if the initial selection is \textsf{Unix}. 
+We used FeatureIDE~\cite{kastner2009featureide} to model this example. 
+The textual representation of the feature model is available in the appendix~\ref{app_feature_diagrams}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/example_database}
+  \caption{Example database model (extended form of~\ref{background_conf_sys}).}
+  \label{background_variab_models_feature_diagram_example}
+\end{figure}
+
+\subsection{Performance Assessment}
+\label{background_perf}
+
+The last sections cover the introduction to Configurable Software Systems~(section~\ref{background_conf_sys}) and their representation through models~(section~\ref{background_variab_models}). 
+This section treats with the term performance of configurable software systems. 
+We want to define performance for this thesis~(section~\ref{background_perf}) and show how to assess performance to learn models from tested configurations. 
+After that we present approaches of how these models then can predict performance.
+
+\subsubsection{Performance in General}
+\label{perf_general}
+
+Performance is an important quality of software systems. 
+As scribed in the introduction (\ref{chap:introductiouct lines. 
+With feature models every configuration option can be expressed as a feature. 
+There are two different representations of feature models: textual notations and graphical representations. 
+Feature models in textual from (like SXFM~\cite{Mendonca2009SSP} and Velvet~\cite{rosenmuller2011multi}) have been developed to construct and maintain models of systems with a huge amount of features which might be presented poorly with a graphical tool. 
+Whereas feature models with a graphical representation (also called feature diagrams~\cite{kang1990feature}) provide the possibility to create and manipulate feature models through a graphical user interface. 
+Furthermore, feature diagrams are widely used in scientific literature to present analysed systems. 
+
+
+Feature diagrams build up a tree-structured graph, as seen in the example diagram shown in figure~\ref{background_variab_models_feature_diagram_example}. 
+With this example diagram we will describe the elements of feature diagrams. 
+The root node of the tree \textsf{Database\_Engine} represent the whole database model. 
+All nodes in this tree represent either \textit{abstract} of \textit{concrete} features. 
+Abstract features like \textsf{Compression} and \textsf{OS} are used to structure the feature model whereas concrete features represent functionality. 
+There are two nodes of the database engine modelled as \textit{mandatory}. 
+This nodes have to be selected in each valid configuration because they might implement some basic functionality which has to be always available. 
+Optional features like \textsf{Indexing} or \textsf{Compression} can be selected to form a valid variant. 
+This database for example need to have an operating system specified and can use compression algorithms. 
+There are two more elements available in feature diagrams: \textit{or}- and \textit{alternative}. 
+The alternative represent the logical XOR, so only one child can be selected at a time. 
+Whereas the or enables the selection of one or more children. 
+If \textsf{Encryption} is selected in this example then either \textsf{AES} or \textsf{RSA} or both must also be selected. 
+In case of the mandatory abstract feature \textsf{OS} which itself only groups available operation systems one has to select either \textsf{Unix} or \textsf{Windows}. 
+The structure of the tree, including the parent-children relationship and the different elements, define a set of constraints for selecting valid configurations. 
+In addition to that there are so called \textit{cross-tree constraints} which can be model through a textual representation. 
+For example if some user want to have zip-compression enabled he also has to stick to Windows. 
+These constraints restrict the amount of valid configurations. 
+In total there are 64 possible configurations which are valid. 
+24 if \textsf{Windows} is initially selected and 40 if the initial selection is \textsf{Unix}. 
+We used FeatureIDE~\cite{kastner2009featureide} to model this example. 
+The textual representation of the feature model is available in the appendix~\ref{app_feature_diagrams}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/example_database}
+  \caption{Example database model (extended form of~\ref{background_conf_sys}).}
+  \label{background_variab_models_feature_diagram_example}
+\end{figure}
+
+\subsection{Performance Assessment}
+\label{background_perf}
+
+The last sections cover the introduction to Configurable Software Systems~(section~\ref{background_conf_sys}) and their representation through models~(section~\ref{background_variab_models}). 
+This section treats with the term performance of configurable software systems. 
+We want to define performance for this thesis~(section~\ref{background_perf}) and show how to assess performance to learn models from tested configurations. 
+After that we present approaches of how these models then can predict performance.
+
+\subsubsection{Performance in General}
+\label{perf_general}
+
+Performance is an important quality of software systems. 
+As scribed in the introduction (\ref{chap:introductio

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <featureModel chosenLayoutAlgorithm="1">
+        <struct>
+            <and abstract="true" mandatory="true" name="Database_Engine">
+                <feature mandatory="true" name="Base"/>
+                <feature name="Indexing"/>
+                <or name="Encryption">
+                    <feature mandatory="true" name="AES"/>
+                    <feature mandatory="true" name="RSA"/>
+                </or>
+                <and abstract="true" name="Compression">
+                    <feature name="gzip"/>
+                    <feature name="zip"/>
+                </and>
+                <alt abstract="true" mandatory="true" name="OS">
+                    <feature mandatory="true" name="Unix"/>
+                    <feature mandatory="true" name="Windows"/>
+                </alt>
+            </and>
+        </struct>
+        <constraints>
+            <rule>
+                <imp>
+                    <var>zip</var>
+                    <var>Windows</var>
+                </imp>
+            </rule>
+        </constraints>
+        <calculations Auto="true" Constraints="true" Features="true"
+Redundant="true" Tautology="true"/>
+        <comments/>
+        <featureOrder userDefined="false"/>
+    </featureModel>
