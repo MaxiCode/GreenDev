@@ -2,14 +2,42 @@
 \chapter{Big Picture}
 \label{chap:method}
 % ---------------------------------------------------------
-This chaper 
+This chaper super intro because importantst chapter
+
+
 \section{Process}
 
+Goal: we need software to test the performance 
+
+Defining: of configuration options of the software
+workload of the software
+
+profile software execution \ref{perf_measure}
+choose appropriate sampling strategie
+repeate execution number sample times
+
+because software runs on real hardware measurements might be biased
+extract execution bias (external mesurement impact)
+
+if bias is acceptable use data to learm variability model of software 
+
+if it is acceptable calculate model for each function (WHY?)
+showing influences of configuration options to each function
+
+Visualisation plugin eclipse to mark possible hot-spots direct in IDE
+
+Flame Graph as overview distribution of functions
+
+
+
+Our Workflow:
+
+\includegraphics[width=0.6\textwidth]{images/Workflow}
 
 \section{Case Studies}
 \label{case_studies}
 
-% Eingrenzung auf Java software because, widespread, popular, often used, runs on billions of devices
+Eingrenzung auf Java software because, widespread, popular, often used, runs on billions of devices
 
 % 3 Java projects 
 % 3 different kinds of projects to depict variety
@@ -20,7 +48,7 @@ This chaper
 
 \subsection{Catena}
 
-% Project description
+ Project description
 % Project size in Classes and Functions
 % Project properties (SPL Model)
 % Features explained
@@ -28,7 +56,7 @@ This chaper
 
 \subsection{H2}
 
-% Project description
+Project description
 % Project size in Classes and Functions
 % Project properties (SPL Model)
 % Features explained
@@ -36,7 +64,7 @@ This chaper
 
 \subsection{Sunflow}
 
-% Project description
+Project description
 % Project size in Classes and Functions
 % Project properties (SPL Model)
 % Features explained
@@ -45,10 +73,10 @@ This chaper
 \section{Sampling}
 \label{perf_measure_sampling}
 
-% Why sampling?
-% Configuration space 
-% Course of high dim spaces
-% Random Sampling
+Why sampling?
+Configuration space 
+Course of high dim spaces
+Random Sampling
 
 \subsection{Binary Sampling}
 
@@ -74,5 +102,8 @@ This chaper
 % other strats
 % Distance computation
 
-\section{Monitoring}
-
+\section{Monitoring/Profiling}
+pitfalls
+strategies 
+solutins
+expected outcome
