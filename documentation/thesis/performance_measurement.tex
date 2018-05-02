@@ -1,5 +1,5 @@
 % ---------------------------------------------------------
-\chapter{Performance Measurement and Lernability}
+\chapter{Methodology}
 \label{chap:p_measurement}
 % ---------------------------------------------------------
 
@@ -11,174 +11,149 @@
 % Sampling Strategies
 
 
-\section{Java Performance Mesurement}
+\section{Test Environment}
+\label{test_env}
+
+
+\section{Case Studies}
+\label{case_studies}
+
+Eingrenzung auf Java software because, widespread, popular, often used, runs on billions of devices
+
+% 3 Java projects 
+% 3 different kinds of projects to depict variety
+% Configurable, Workload of projects to manage execution time and to validate results of projects with different workloads
+% different configuration space 
+% different ammount of configuration options
+% 
+% Definition of configuration space for subject systems\cite{Han:2016:ESP:2961111.2962602}:
+% collection of information with studying all artifacts that are publicly available to users including documents (e.g. user manuals and online help pages), configuration files, and source code. -> anoter reason for open sourece projects because else there were only provided configurations available 
+
+% proveded performance tests for the case studies
+% Configuration space definition(\cite{Han:2016:ESP:2961111.2962602}): they also described the configuration space not only by parameter, but also with hidden configuration options and system-specific configurations
+% they also described the configuration space not only by parameter, but also with hidden configuration options and system-specific configurations
+% -> This thesis: system configuration options are restricted to one system to be able to limit the overall configuration options
+% configuration parameter cause 78%-92% of configuration-related performance bugs
+% for this thesis we do not investigate 8%-17% of system-level configuration bugs
+
+\subsection{Catena}
+
+ Project description
+% Project size in Classes and Functions
+% Project properties (SPL Model)
+% Features explained
+% Workload
+
+\subsection{H2}
+
+Project description
+% Project size in Classes and Functions
+% Project properties (SPL Model)
+% Features explained
+% Workload
+
+\subsection{Sunflow}
+
+Project description
+% Project size in Classes and Functions
+% Project properties (SPL Model)
+% Features explained
+% Workload
+
+\section{Overall Process}
+\label{overall_process}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/workflow_overview_0}
+  \caption{Performance Analysis Workflow.}
+  \label{big_picture_perf_anal_workflow}
+\end{figure}
+
+% Overview of the process
+\todo{Some information from the following paragraph might be shifted to chap. \ref{chap:p_measurement}}
+We divided our approach into three parts as seen in Figure~\ref{big_picture_perf_anal_workflow}. First, we extract the performance data from the subject systems we used (see section~\ref{perf_extr}). Therefore, we run them in our test environment, which we describe in section~\ref{test_env}. We execute each of them with different configurations and workloads. We sampled the space of all possible configuration as described in the next section (section~\ref{perf_measure_sampling}) During execution, they were profiled to extract the performance of each method of the projects which was executed (we surveyed available performance monitoring tools in section~\ref{monitoring_tools}). In the second step, which is described more precisely in section~\ref{data_prozessing}, we process the collected data. We also trained a regression model that aims on predicting the performance of each method depending on given configurations. The last step of our approach includes visualizations of performance data (described in section~\ref{visualisation}). We designed an Eclipse plugin to visualize performance hot spots through the \ac{IDE} directly in the source code. Additionally, we used a graph-based visualisation to given an overview of the influence if configuration options on the performance of software systems.
+
+
+\subsection{Performance extraction}
+\label{perf_extr}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/workflow_perf_expanded}
+  \caption{Performance Extraction Worklow.}
+  \label{perf_extr_workflow}
+\end{figure}
+
+
+This section deals with performance extraction from configurable software systems. Figure \ref{perf_extr_workflow} shows our procedure. The orange parts of this diagram represent existing software and tools we used for this thesis, the green parts are results of our work. We choose three Java projects from GitHub as case studies. To be able to run software, it has to be initialize with parameters (configuration) and executed with a task (workload). Depending on the software, there are many different configurations to choose from. Also the number of different workloads depends on the software and the expected output. A general description of the projects, the space of possible configurations, and workloads was explained in section~\ref{case_studies}. Besides a configuration and workload, software needs an environment in which it can be executed. The environment can be defined by hardware, \ac{OS}, software and system settings. In order to measure performance during execution, we used the \ac{JIP} (section~\ref{perf_measure} compares different Java profiler). This profiler is able to measure the run time of each method during execution of the software. However, we have to deal with the influence of non-determinism that affect overall performance. Our measurements run on real hardware (test environment is described in section~\ref{test_env}) in a \ac{JRE} with other processes being executed in parallel. 
+
+%Because software runs on real hardware, the measurements might be influenced by a measurement bias. Hence, we want to find out if and to which degree the environment has an influence on performance. We also trained a regression model that aims on predicting the performance of each method depending on given configurations. An introduction to linear regression and an overview of the tools we used for modelling can be found in section~\ref{lin_reg}. 
+
+\subsubsection{System Influences}
+
+separate machine
+Multithreading
+Only needed software installed
+5 seconds delay between individual measurements
+
+%Java specific performance measurement concerns~\ref{perf_measure}
+
+%\subsection{Monitoring/Profiling}
+%pitfalls
+%strategies 
+%solutions
+%expected outcome
+%A detailed analysis of available profiling tools is provided in section~\ref{perf_measure}. 
+
+
+%Extracting performance of software. 
+%Software is configurable.
+%Identification of configuration options.
+%Profile them with some workload.
+
+%Performance of software is defined as described in~\ref{def:perf2}.
+
+%Sources of non-determinism whole measuring performance.
+%Environment in which software is executed is defined by hardware, \ac{OS}, software and system settings.
+%Processes and threading is also a matter if on multi core machine.
+%Because we want to analyze Java projects we have to take care about \ac{JIT}, \ac{GC} and \ac{JVM}.
+
+\subsubsection{Java Mesurement Influences}
 \label{perf_measure}
 
-Java specific impacts on program execution 
+Java specific impacts on program execution and how to overcome them
 % Related paper 
 % Garbage collector
 % Java Byte code optimization
 
-\subsection{Java Performance Measurement Tools}
 
-Because of the thing that it is importatant to know how well your program performs many different tools arose in the area of performance measurement. Some of them are developt for specific requirements others are restricted in different ways. In the following part of work there will be a summary of all important measurement tools for Java programs.
+\subsection{Data Processing}
+\label{data_prozessing}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/workflow_data_expanded}
+  \caption{Data Processing Worklow.}
+  \label{perf_extr_workflow}
+\end{figure}
 
-\subsubsection{\href{https://profiler.netbeans.org/}{HPROF}}
+\subsubsection{Relative Performance}
 
-%The Java 2 Platform Standard Edition (J2SE) has always provided a simple command line profiling tool called HPROF for heap and cpu profiling. HPROF is actually a JVM native agent library which is dynamically loaded through a command line option, at JVM startup, and becomes part of the JVM process. By supplying HPROF options at startup, users can request various types of heap and/or cpu profiling features from HPROF. The data generated can be in textual or binary format, and can be used to track down and isolate performance problems involving memory usage and inefficient code. The binary format file from HPROF can be used with tools such as jhat to browse the allocated objects in the heap.
+\subsubsection{Measurement Influence}
 
-%In J2SE Version 5.0, HPROF has been implemented on the new Java Virtual Machine Tool Interface. 
 
+\subsection{Data Visualisation}
+\label{visualisation}
 
-\subsubsection{\href{https://profiler.netbeans.org/}{NetBeans Profiler}}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/workflow_visual_expanded}
+  \caption{Visualisation Worklow.}
+  \label{perf_extr_workflow}
+\end{figure}
 
-%NetBeans profiler is a fully featured Java profiling tool integrated into the NetBeans IDE. The features include CPU, memory, threads, locks and SQL queries profiling as well as basic JVM monitoring, allowing developers to be more productive in solving performance and memory issues.
+\subsubsection{Eclipse Plugin Data}
 
+\subsubsection{Flame Graph Data}
 
-\subsubsection{\href{https://www.ej-technologies.com/products/jprofiler/overview.html}{JProfiler}}
-
-%JProfiler is a commercially licensed Java profiling tool developed by ej-technologies GmbH, and is mainly designed for use with Java EE and Java SE applications. It combines CPU, Memory and Thread profiling into one application and is useful for developers as it can be used to analyze performance bottlenecks, memory leaks, CPU loads  and resolve threading issues and supports local profiling (analysis of applications that are running on the same machine on which the JProfiler software is installed) and remote profiling (this is where it allows for the analysis of Java applications which are running on remote machines which JProfiler software is not installed on.).
-
-
-\subsubsection{\href{http://visualvm.github.io/}{VisualVM}}
-
-
-%VisualVM is a tool derived from the NetBeans platform and its architecture is modular in design meaning its easy to extend through the use of plugins.
-
-%Visual VM allows you to get detailed information about your Java applications while they are running on a Java Virtual Machine (JVM). Data generated can be generated and retrieved by the Java Development Kit (JDK) tools and all the data and information on multiple Java Applications can be viewed quickly both local and remote running applications.  It is possible to also save and capture the data about the JVM software and save the data to the local system, and then view the data later or share it with others.
-
-%Visual VM can do CPU Profiling, memory Profiling, run garbage collections, take snapshots and more.
-
-
-\subsubsection{\href{http://patty.sourceforge.net/}{Java Performance Analysis Tool (Patty)}}
-
-%The ``Patty'' project is aimed at providing a profiling tool for the Java 1.5.0 and higher Virtual Machines only (depending on backwards compatibility in JVMTI interface ). The difference with other profilers is this project maintains a very high emphasis on targeted profiling and allows users to switch profiling features on and off at runtime.
-
-
-\subsubsection{\href{http://jiprof.sourceforge.net/}{Java Interactive Profiler}}
-
-%JIP is a code profiling tool. It allows you to turn the profiler on and off while the JVM is running. JIP is pure Java. It takes advantage of the Java5™ feature which allows you to hook the classloader. JIP adds aspects to every method of every class that you want to profile. These aspects allow it to capture performance data. JIP actually tracks the amount of time used to gather performance data and factors that time out of its analysis. Filters by package/class name.
-
-
-\subsubsection{\href{http://profiler4j.sourceforge.net/}{Profiler4J}}
-
-%Profiler4j is a dedicated CPU profiler Java that is user friendly and supports remote profiling and can be configured “on the fly”. Notable features include that its based on dynamic bytecode instrumentation, it as no native library nor requires an executable. Further notable features are that its done 100\% in Java, can provide graphical information with a call graph, call tree, memory monitor, and class list. and supports fine-grained configuration. It is currently released under the Apache License v2.0.
-
-
-\subsubsection{\href{http://jrat.sourceforge.net/}{JRat}}
-
-%The Java Runtime Analysis Toolkit is a low overhead, easy to use, open source performance profiler for the Java platform. JRat monitors an application's execution and persists performance measurements. This data can then be viewed and analyzed using the JRat Desktop, a Swing application.
-
-
-\subsubsection{\href{http://ejp.sourceforge.net/}{Extensible Java Profiler}}
-
-%Extensible Java Profiler (EJP) is an open-source profiling tool for Java with a scalable and extensible architecture, allowing its usage for exotic programming languages that use a Java backend.
-
-%EJP is based on the Java Virtual Machine Profiler Interface (JVMPI). On the contrary of Sun's hprof tool, which generates statistical information, it logs every single method invocation. It can be used to trace the execution of small parts of Java programs and display it in hierarchical trees with some elements hidden or highlighted.
-
-
-\subsubsection{\href{http://www.khelekore.org/jmp/}{JMP - Java Memory Profiler}}
-
-%JMP is a profiler for java that can be used to trace objects usage and method timings. Since jmp use jvmpi it only works with java/1.2 up to java/1.5. Work has started on tijmp, a new profiler that uses the the tools interface (jvmti). JMP normally uses one window to show the classes in memory. Each class has summary information for number of instances and total bytes of used memory for all the instances. JMP can perform heap analysis and has the ability to show which objects own (have references to) all the objects of a specified class. This is a great way to find memory leaks. JMP also shows method timings and calls in another window. Several columns show time taken in the method, number of calls to each method, time taken in methods called. 
-%JMP collects information about which method are called and from where, this information is used to build call graphs. JMP interacts with the normal java threads and also uses one extra thread for GTK+ with a timer to systematically update the stats. JMP is written in C, it is designed for speed. 
-
-
-\subsubsection{\href{http://www.khelekore.org/jmp/tijmp/}{TIJMP - Tools Interface Java Memory Profiler}}
-
-%TIJmp is a memory profiler for java. TIJmp is made for java/6 and later. TIJmp is written to be fast and have a small footprint, both memory- and cpu-wise. This means that the jvm will run at almost full speed, until you use tijmp to find some information. TIJjmp uses C code to talk to the jvm and it uses swing to show the the tables of information. So tijmp is written in C (using jvmti and jni) and Java. TIJmp runs in the same jvm as the program being profiled. This means that it can easily get access to all things jvmti/jni has to offer.
-
-
-\subsubsection{\href{https://sourceforge.net/projects/jmeasurement2/}{JMeasurement}}
-
-%JMeasurement is a free and simple java api for monitoring runtime and usage (count, parallel activation, last activation) of user defined points in java production code. It is simple to use and extended. JMX is supported. Actual version is always in maven central.
-
-
-\subsubsection{\href{http://homepages.mcs.vuw.ac.nz/~djp/djprof/}{DJProf}}
-
-%DJProf is an experimental tool for profiling Java programs which employs AspectJ to insert the necessary instrumentation for profiling rather than, for example, the Java Machine Profiler Interface (JVMPI). DJProf can be used to profile Java programs without modification (i.e. there is no need to recompile them for profiling) and does not require the user to have any knowledge of AspectJ.
-
-
-\subsubsection{\href{https://github.com/joachimhs/Montric}{EurekaJ -> Montric}}
-
-%EurekaJ is an Open Source, Standards based profiler tool for Java applications. EurekaJ integrates with the Java agent BTrace. BTrace has a large feature set that goes hand in hand with features for EurekaJ. Motric 1.0 is the further developed version of EurekaJ.
-
-
-\subsubsection{\href{https://github.com/patric-r/jvmtop}{jvmtop}}
-
-%jvmtop is a lightweight console application to monitor all accessible, running jvms on a machine.
-%In a top-like manner, it displays JVM internal metrics (e.g. memory information) of running java processes.
-%jvmtop does also include a CPU console profiler.
-
-
-\subsubsection{\href{http://www.oracle.com/technetwork/middleware/jrockit/overview/index-090630.html}{Oracle JRockit Mission Control}}
-
-%The JRockit Mission Control tools suite includes tools to monitor, manage, profile, and eliminate memory leaks in your Java application without introducing the performance overhead normally associated with tools of this type.
-
-
-\section{ML Tools}
-
-How to learn to predict -> regression
-
-\subsection{ML Models}
-% Why linear Regression to predict performance?
-Linear regression basics - line fitting through pionts in multi dim space
-
-\subsubsection{LinearRegression}
-\begin{itemize}
-	\item does not take the correlation of configuration options into account
-	\item fits a line through datapoints while reducing residual sum of squares
-\end{itemize}
-\subsubsection{Ridge}
-\begin{itemize}
-	\item uses loss function linear least squares
-\end{itemize}
-\subsubsection{Lasso}
-\begin{itemize}
-	\item prefer solutions with fewer (smaller) parameter values
-	\item reducing the number of variables upon which the given solution is dependent
-\end{itemize}
-\subsubsection{ElasticNet}
-\begin{itemize}
-	\item Combination of Ridge and Lasso
-	\item l1\_ratio describes L1 L2 ratio
-	\item Elastic-net is useful when there are multiple features which are correlated with one another. Lasso is likely to pick one of these at random, while elastic-net is likely to pick both.
-\end{itemize}
-\subsubsection{HuberRegressor}
-\begin{itemize}
-	\item applies linear loss function to outliers
-	\item outliers have an absolute error bigger than a threshold
-\end{itemize}
-\subsubsection{DecisionTreeRegressor}
-\begin{itemize}
-	\item Regression model based on decision trees
-\end{itemize}
-
-
-\subsection{Regression Analysis Metrics}
-
-How to measure accuracy of precicted values?
-Use appropriate metrics to assess goodness of pred.
-
-% MAE
-% MSE
-
-
-R-Squared problems: 
-%http://blog.minitab.com/blog/adventures-in-statistics-2/multiple-regession-analysis-use-adjusted-r-squared-and-predicted-r-squared-to-include-the-correct-number-of-variables
-
-%One major difference between R-squared and the adjusted R-squared is that R-squared supposes that every independent variable in the model explains the variation in the dependent variable. It gives the percentage of explained variation as if all independent variables in the model affect the dependent variable, whereas the adjusted R-squared gives the percentage of variation explained by only those independent variables that in reality affect the dependent variable. R-squared cannot verify whether the coefficient ballpark figure and its predictions are prejudiced. It also does not show if a regression model is satisfactory; it can show an R-squared figure for a good model, or a high R-squared figure for a model that doesn’t fit.
-
-%[R-Squared is often used with linear regressions to help predict stock price movements. But, it's just one of many technical indicators that traders should have in their arsenals. Investopedia's Technical Analysis Course provides a comprehensive overview of technical indicators and chart patterns with over five hours of on-demand video. You will learn all of the most popular techniques and how to use them in real-life markets to maximize risk-adjusted returns.]
-
-%The adjusted R-squared compares the descriptive power of regression models that include diverse numbers of predictors. Every predictor added to a model increases R-squared and never decreases it. Thus, a model with more terms may seem to have a better fit just for the fact that it has more terms, while the adjusted R-squared compensates for the addition of variables and only increases if the new term enhances the model above what would be obtained by probability and decreases when a predictor enhances the model less than what is predicted by chance. In an overfitting condition, an incorrectly high value of R-squared, which leads to a decreased ability to predict, is obtained. This is not the case with the adjusted R-squared.
-
-%The adjusted R-squared is a modified version of R-squared for the number of predictors in a model. The adjusted R-squared can be negative, but isn't always, while an R-squared value is between zero and 100 and shows the linear relationship in the sample of data even when there is no basic relationship. The adjusted R-squared is the best estimate of the degree of relationship in the basic population. To show correlation of models with R-squared, pick the model with the highest limit, but the best and easiest way to compare models is to select one with the smaller adjusted R-squared. Adjusted R-squared is not a typical model for comparing nonlinear models, but multiple linear regressions.
-
-
-
-
-
-\section{Learnability}
-
-How to do this? Maybe with Variability model of whole program?

@@ -3,66 +3,56 @@
 \label{chap:introduction}
 % ---------------------------------------------------------
 
-Since the beginning of software engineering, developers try to produce software which performs good. 
-Over the years, software has to run more difficult, complex and computing-intensive tasks. 
-Used Hardware, software and technology becomes more and more complex.
-Every time software has to fulfil different quality properties depending on the domain or use case. 
-This includes aspects like reliability, security, maintainability and performance. 
-Each aspect is analyzed and described in several publications. 
-The analysis of reliability aims at the reduction and prevention of application problems that effect users.
-Also, security and maintainability have been subjects of research for decades~\cite{liskov1972design,johnstone1978computer,yau1980some}. 
-The efficiency aspect of software systems describes how source code and software architecture perform in run-time scenarios. 
-Performance has always been among the most important aspects.
+Since the beginning of software engineering, developers try to produce software that performs good. 
+Over the years, software has to run more difficult, complex, and computational-intensive tasks. 
+The used hardware, software, and technology becomes more and more complex.
+Specifically, developers have address non-functional requirements like reliability, security, maintainability, and performance. 
+From these properties, performance has always been among the most important aspects, since performance affects user perception, system efficiency, and energy consumption.
 
-In this thesis we analyze performance of software. 
-There exist different definitions of performance regarding software and software systems. 
-While performance from an end user's perspective describes the ability that users can perform a certain task without perceivable delay or without irritation, the developers perspective is explained by so called non-functional properties~\cite{Molyneaux:2009:AAP:1550832}.
-These properties provide a way to judge the quality of software systems. 
-This was already done by other researchers~\cite{Molyneaux:2009:AAP:1550832,weber2005key,siegmund2015performance,smith1993software}. 
-This work differs from others in that we analyze the performance of software projects on method level, which cause different challenges (described in chapter~\ref{perf_measure}). 
-We refer to identification of performance problems on a method level as \textit{performance hot-spots}.
+We can view performance from an end user's perspective describing the ability that users can perform a certain task without perceivable delay or without irritation.
+Moreover, we can view performance also from the developer's perspective as a non-functional property to be optimized~\cite{Molyneaux:2009:AAP:1550832}.
+Taking the developers view, we need to ask the question: How can we optimize performance of a configurable software system? There are multiple ways to answer this question. First, we can try to view the system as a black box that produces an output in a certain time (the response time) for a given workload. Finding an optimal configuration to minimize the response time is the main goal from this perspective. Researchers have shown that this perspective is viable and provide different approaches to obtain a black box performance model~\cite{Molyneaux:2009:AAP:1550832,weber2005key,siegmund2015performance,smith1993software}. However, the black-box perspective has one main drawback: we can not pin point performance hot spots or performance bugs related from the configuration to the actual code position. Such kind of analysis requires a white-box perspective, which we will target in this thesis.
 
+A key property of our work is that we focus on configurable software systems. 
 Nowadays, almost every software system can be configured by numerous options. 
-This configurability provide the possibility to customize program's behaviours for users needs. 
-For example, databases typically let users configure options like encryption, compression, cash size and many others. 
-While this flexibility helps to make software customizable to the user, it also causes an increased effort during testing, maintaining and analysis of performance. 
-Not only the size of the configuration space is hard to grasp by users; but also possible constraints among options make configuring a software systems problematic.
-Because programs with more than 217 simple binary configuration options provide more different configurations possibilities than atoms in the universe~\citep{krueger2006new}, which make testing and analysing them all impracticable. 
-Note that there are software projects with much more options to configure them. 
-This high configurability leads users to pick default configurations instead of configurations which let the system perform as desired. 
-Therefore, we will sample configurations to get an subset which describes the whole configuration space for our analysis, so we do not have to analyze them all.
+This configurability provides the possibility to customize a program's behaviour to user's needs. 
+For example, databases typically let users configure the options encryption, compression, cash size, and so forth. 
+While this flexibility improves customizability, it also causes an increased effort during testing, maintenance, and analysis of performance. 
+Not only the size of the configuration space is hard to grasp by users, but also all possible constraints among options make configuring a software systems problematic.
+For instance, a program with more than 217 binary configuration options provides more configurations than atoms in the universe~\citep{krueger2006new}, which make testing and analyzing them impracticable. 
+When we consider that there are software projects with more than thousands of options, we can easily imagine that finding a good performing configuration is hard.
+Users often pick default configurations or leave optimization potential untouched~\cite{xu2015hey}.
+So, a challenge in our work is not only to develop a white-box performance-analysis method for configurable software systems, but also to provide a generalizable method that requires to analyze only few configurations, but is able to generalize for many unseen configurations.
 
 % roughly describe way to detect performance hot spots on function level
 % specialization of this work
 % ------------GOAL---------------- 
-Our goal is to analyze performance and model the influence of configuration options of software systems. 
-To understand the influence of configuration options, we profile each subject system with an appropriate profiler to extract the runtime of single functions of the running program. 
-We decided to take Java projects for our subject systems, so we also want to analyze the influence of the environment in which the tests are running. 
-A visualization of our results directly in the source code within an \ac{IDE} will help developers identify possible performance hot-spots. 
-An overview of the performance distribution over all functions in a project gives new perspectives to support performance analysis.
+To sum up, our goal is to analyze performance and model the influence of configuration options of software systems on performance. 
+To understand the influence of configuration options, we profile each subject system with an appropriate profiler to extract the runtime of single methods of the running program. 
+We decided to take Java projects for our subject systems, such that we can also analyze the influence of the environment in which the tests are running. 
+To support the analysis of performance hot spots, we provide a visualization of our results directly in the source code within an \ac{IDE} as well as an overview of the performance distribution over all methods in a Java project.
 
 % ------------Approach----------------
 
-To analyze \textit{performance} we follow a five step approach:
+To analyze \textit{performance} of a configurable software system, we follow a five step approach:
 
 \begin{enumerate}
-	\item Identification of whole configuration spaces and determining different workload levels.
-	\item Profiling the execution of software projects with sampled configurations and different workloads.
-	\item Processing extracted data to assess performance on function level and to determine significance of the data.
-	\item Model the influence of configuration options to performance.
-	\item Learning influence of configurations on functions of the software.
-	\item Visualize performance hot-spots directly in the source code and create suitable visualizations of performance dependencies.
+	\item Identification of the whole configuration spaces and determining different workload levels.
+	\item Profiling the execution of the subject system with sampled configurations and different workloads.
+	\item Processing the extracted data to assess performance on method level and to determine the statistical significance of the data.
+	\item Learning a regression model that can predict the performance of each method depending on the given configuration.
+	\item Visualizing performance hot-spots directly in the source code and create suitable visualizations of performance dependencies among the whole code base.
 \end{enumerate}
 
 
 % ------------Contribution------------
 
-Our work has the following contributions.
+This thesis is structured as follows:
 First, we give some background knowledge and provide an overview of related work in chapter~\ref{b_rel_work}.
 In section~\ref{perf_measure}, we provide an analysis of available Java profilers.
 Then, we model the subject systems as feature models to define the space of all valid configurations in section~\ref{case_studies} and in appendix~\ref{feature_diagrams}. 
-Next, we provide a detailed analysis of the influence of performance on the environment on which the software runs in section~\ref{discussion}. 
-We also compare different sampling strategies to evaluate coverage of the configuration space in section~\ref{perf_measure_sampling}. 
+Next, we provide a detailed analysis of the influence of the environment on performance in section~\ref{discussion}. 
+We present different sampling strategies to substantiate the choice of our sampling method in section~\ref{perf_measure_sampling}. 
 %Then we analyze the learnability of performance on method level influenced by configurations in section~\ref{learnability}. 
 Furthermore, we provide an overview visualization of the influence of configurations on performance in section~\ref{flame_graph}. 
 Finally, we developed an Eclipse plug-in to visualize performance hot-spots directly in the \ac{IDE} in section~\ref{eclipse_plugin}.
