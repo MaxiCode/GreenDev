@@ -14,7 +14,7 @@
 \ThesisSetDateOfBirth{04}{05}{1991}
 \ThesisSetPlaceOfBirth{Jena}
 
-\ThesisSetSupervisors{Prof.\ Dr.\ Ing.\ Norbert Siegmund, Junior\ Professor\ Dr.\ Florian\ Echtler}
+\ThesisSetSupervisors{Prof.\ Dr.\ Ing.\ Norbert Siegmund,Junior\ Prof.\ Dr.\ Florian\ Echtler}
 
 \ThesisSetSubmissionDate{22}{5}{2018}
 
@@ -39,6 +39,10 @@
 %\usepackage{tabu}
 \usepackage{rotating}
 \usepackage{enumitem}
+\usepackage{amsmath}
+
+
+
 %    For tables ``looking the right way''.
 %
 %\usepackage{tabularx}
@@ -57,8 +61,24 @@
 % Additional options to the hyperref package can be provided in the braces []
 \usehyperref[backref] % This will add back references in the bibliography
 
+% TODO red colorbox:
 \RequirePackage{xcolor}
 \newcommand{\todo}[1]{\colorbox{red}{\color{white}\sffamily TODO: #1}}
+
+
+% Enables to stricture research questions like: RQ1, RQ1.1
+% Currently depth 2
+% Exampleusage:
+% \begin{researchq}
+%     \item Bla?
+%     \begin{researchq}
+%          \item Blabla?
+%     \end{researchq}
+% \end{researchq}
+\newlist{researchq}{enumerate}{2}
+\setlist[researchq, 1]{label = RQ~\textsubscript{\arabic*}}
+\setlist[researchq, 2]{label* = \textsubscript{.\arabic*}}
+
 
 \begin{document}
 \begin{frontmatter}
@@ -100,7 +120,7 @@
 \include{introduction}
 \include{related_work}
 \include{big_picture}
-\include{performance_measurement}
+%\include{performance_measurement}
 \include{evaluation}
 \include{conclusion}
 

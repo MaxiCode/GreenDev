@@ -1,0 +1,27 @@
++----------------------------------------------------------------------
+|  File: ./0_0_1_0_1_23_250_178_Butterfly-Full-adapted_6789ab/20180315-003731.txt
+|  Date: 2018.03.15 00:37:31 AM
++----------------------------------------------------------------------
+
+            Time       Percent    
+         ----------   ----------
+ Count   Total  Net   Total  Net   Location
+ =====   =====  ===   =====  ===   =========
+     1    62.1  0.1   100.0        +--Catena:catena	(main.java)
+     1     9.6  0.0    15.4        | +--Catena:compTweak	(main.java)
+     2     0.0  0.0     0.0        | | +--Helper:intToByteArray	(main.java)
+...
+
++--------------------------------------
+| Most expensive methods (by net time)
+| Frame Count Limit: Unlimited
++--------------------------------------
+
+               Net
+          ------------
+ Count     Time    Pct  Location
+ =====     ====    ===  ========
+  4416     35.7   55.8  main.java.components.hash.algorithms.Blake2b:G
+     2      3.9    6.1  main.java.components.hash.algorithms.Blake2b:init
+   384      2.7    4.2  main.java.components.hash.algorithms.Blake2b:rotr64
+...
