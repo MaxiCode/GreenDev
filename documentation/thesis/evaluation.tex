@@ -705,45 +705,75 @@ To be able to understand possible performance hot spots of software systems, we 
 \subsection{Eclipse Marker Plugin}
 \label{eclipse_plugin}
 
-The first tool we want to present is an Eclipse plugin for showing results of the performance analysis approach. 
+The first tool we want to present is an Eclipse plugin for showing results of the performance analysis approach. The plugin provides the possibility to color each method of the open project. Therefore we assign each method a value between 0 and 1, which mappes then to a color range of nine different colors (from red to green). Our plugin provides different modi which performance metric to show from the project. We provide:
+\begin{itemize}
+	\item The relative performance of each method of one defined configuration. All methods are mapped relative to method with the highest runtime, which gets the value of 1 (red).
+	\item The mean value of each method over all configurations (see Figure~\ref{plugin_2}). Provides an overview of the mean performance.
+	\item Maximum value of all Configurations (see Figure~\ref{plugin_1}). Here, each method gets its color according to its worst performance in all measured configurations.
+	\item Configuration sensitivity of all methods. Is provided by the standard deviation of the performance of each individual method.
+\end{itemize}
 
-%structure and functionality (maybe example use case - what is better with this tool in comparison to others)
-%discussion of usage scenarios
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/eclipse2}
+  \caption{Eclipse Marker Plugin -- Mean over all Configurations.}
+  \label{plugin_2}
+\end{figure}
+
+
+The plugin integrated itself into the IDE if the Java perspective is active. It provides a menu for seleting the different modi and an overview area of all colored methodes in the bottom right area of the IDE. In the overview, the methods are sorted in descending order by the performance value. Each line consists of the performance value and the fully qualified name of the method. By double-clicking on a line the corresponding class opens in the main window and scrolls to the clicked method. 
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/eclipse1}
+  \caption{Eclipse Marker Plugin -- Maximum Value over all Configurations.}
+  \label{plugin_1}
+\end{figure}
+
+
+Together with a developer of Catena we investigated its performance hot-spots. He confirmed, that there the graphs as well as the flap-method are known as the parts of Catena which consumes most of the performance. 
+There are some things still to develop to use this plugin efficiently. Currently it only reads preprocessed data from a database. In the future it would be helpful to automate the process of identifying performance hot-spots with our approach and saving the results such that the plugin can use the information directly. This process needs some manual steps till now.
+
+
+% structure and functionality (maybe example use case - what is better with this tool in comparison to others)
+% discussion of usage scenarios
 
 \subsection{Flame Graphs}
 \label{flame_graph}
 
-Flame graph overview / idea, intention, usage scenario
-discussion of usage scenarios
+The second analyse tool we used to present performance of configurable software systems. We used the D3.js plugin\footnote{Available at GitHub: \url{https://github.com/spiermar/d3-flame-graph}.} developed by a Netflix performance engineer. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{images/flame_1}
+  \caption{Flame Graph -- Catena Performance Visualisation.}
+  \label{flame_1}
+\end{figure}
+
+In Figure~\ref{flame_1} we show the performance distribution of the methods of one configuration. This example shows the performance of each method of its mean execution time. In this example, we clicked on the DoubleButterflyGraph to zoom in and present the methods performance with the whole width of the visualisation. So we can see, that with this specific configuration the most execution time of Catena is consumed by the DoubleButterflyGraph, but also a lot of performance by the compression() and the doFinal() method of Blake2b\_1. With this visualisation, we have the possibility to investigate all methods in relation the their performance of other methods. 
+
+%Flame graph overview / idea, intention, usage scenario
+%discussion of usage scenarios
 
 
 
 
-\section{Threads on Validity}
+\section{Threads to Validity}
 \label{validity}
 
-
-How meaningful are our Results
-
-
+In this section we discuss the relevant threads to validity of our approach.
 
 
 \subsection{Internal Validity}
 
-Which methodes and analyse metrics
-Probably other profiler (more precise)
-
-R squares - models reichen nicht aus
-
-sampling strategie anpassen
-
-external impact gut (gc impact image)
+%Which methodes and analyse metrics
 
 
+For identifying variants of our subject systems, we used only random sampling in each dimension. Other sampling strategies, specialize to binary or numerical features, lead to another set of samples. It might be that with such strategies, we were able to detect other pattern in the performance data. There are methods in our set of measurements that are biased by more than 20\% by external influences. These methods might introduce a learning bias into our model. In the future, we should analyze the reason for that measurement bias and probably exclude them from our further analysis. The \ac{JIP} measures the execution time of methods with millisecond accuracy. There are profiler like Kieker and SPASSmether that measure within microseconds. This would refine our measurement accuracy by factor 1000. Another thread might be that we only consider pairwise interactions. There are research which proves that there is a number of interactions among three features that influences performance. It might be that this finding also applies on method level. To model different use cases of software, we varied the workloads of our subject systems. But analyzing a databases workload in a real scenario, requires more different workloads and other test scenarios like stress tests or in a client server scenario, other non-functional properties.
 
 
 \subsection{External Validity}
 
-Which environment and wich subject systems
-
-
+To achieve a reasonable external validity we used configurable software systems of different application areas (hashing, raytracing, and database) which uses different configuration mechanisms. But to generalize or findings, software systems from other application areas (like flow simulation or even server software) should be analyzed as well. Furthermore, we only used Java-based software systems. It may be that or results are not generalizable to projects that are written in other languages or to commercial software. 
