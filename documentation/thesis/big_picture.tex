@@ -79,9 +79,6 @@ With an increasing number of dimensions, also the volume of the space increases 
 Furthermore, each individual dimension could represent a different type of data~(\cite{stevens1946theory}). There are four measurement scales: nominal, ordinal, interval, and ratio. Nominal data are used for labeling data. Usually nominal data is mutually exclusive and none of them have any numerical significance. A special type of nominal scale is binary data (e.g., on/off, true/false). With ordinal data, we can order the values, but the difference between them is not known (e.g., good, OK, bad). Whereas with interval scales, the ordering as well as the exact difference between the values is known (e.g., temperature scale). Moreover, ratio scales define the ordering, the distance, and also the absolute zero of the values (e.g., height or weight). In the context of configurable software systems, we have to be able to sample each of these dimensions to get a configuration. This is one reason why different sampling strategies were developed. Usually there are two types of data which are used for configuration: binary and numerical values. There are strategies for each of this two types of data, as presented in section~\ref{rel_perf_pred}.
 
 We choose \textit{Random Sampling} as our sampling strategy, because with it we do not need to know the type of data which we want to sample. Random sampling is only possible because our subject systems does not have any constraints among configuration options. With random sampling we pick one value equally distributed from the values we could choose from. So for each dimension we have to know the start and end value and the step size in between. One drawback of this approach is that the range of each dimension has the same size, even two values in one dimension and thousands of values in another. 
-\todo{Maybe extend database example and print:}
-\todo{Example Sampling of 10 bin and 5 numeric}
-\todo{Construction of Configurations}
 
 
 %Random Sampling
@@ -116,17 +113,17 @@ Measuring performance of software is an important aspect of \ac{SPE}. Many monit
 	%\centering % Center table
     \begin{tabular}{*{9}{c}}
     	\toprule
-        Tool & Performance Type & Resolution & Realization & Version & Filter & Output & Overhead \\
+        Tool & Performance Type & Resolution & Realization & Version & Filter & Output & \makecell{Overhead \\ (Mean)} \\
         \midrule
         NetBeans Prof. & \makecell{runtime, heap, \\ SQL queries, \\ threads} & \makecell{Windows 10 ms \\ Linux 10 ms \\ Solaris 1 ms} & aspect & J2SE 5.0 & yes & NetBeans GUI & --- \\
         \midrule
         VisualVM & \makecell{runtime, heap, \\ threads, GC} & snapshot & aspect & J2SE 5.0 & yes & VisualVM GUI & --- \\
         \midrule
-        HPROF & runtime, heap & 1 ms & JVMTI & J2SE 5.0+ & yes & txt & 0.0\% \\
+        HPROF & runtime, heap & 1 ms & JVMTI & J2SE 5.0 & yes & txt & +5268 \% \\
         \midrule
         Patty & \makecell{runtime, heap, \\ threads, GC} & 1 ms & JVMTI & J2SE 5.0 & yes & GUI, txt & --- \\
         \midrule
-        JIP & runtime & 1 ms & aspect & J2SE 5.0+ & yes & txt & 0.0\% \\
+        JIP & runtime & 1 ms & aspect & J2SE 5.0 & yes & txt & +420 \% \\
         \midrule
         Profiler4J & \makecell{runtime, heap, \\ threads} & --- & JVMTI & J2SE 5.0 & yes & GUI & --- \\
         \midrule
@@ -138,9 +135,9 @@ Measuring performance of software is an important aspect of \ac{SPE}. Many monit
         \midrule
         DJProf & runtime, heap & 5 ms & aspect & J2SE 5.0 & no & txt & --- \\
         \midrule
-        Kieker & runtime, heap & 1 ms & aspect & Java SE 7 & no & txt & 0.0\% \\
+        Kieker & runtime, heap & 1 ms & aspect & Java SE 7 & no & txt & +250 \% \\
         \midrule
-        SPASSmeter & runtime, heap & 1 ms & aspect & Java SE 7 & no & txt & 0.0\% \\
+        SPASSmeter & runtime, heap & 1 ms & aspect & Java SE 7 & no & txt & +235 \% \\
 
         %JRMC & B & C & D & B & C & D \\
         %\midrule
@@ -161,7 +158,8 @@ Table \ref{java_monitoring_tools} provides an overview of selected Java monitori
 	\item [Realization] states with which technical implementation the data extraction is realized.
 	\item [Version] shows the Java version which is documented with the tool.
 	\item [Filter] indicates whether with this tool there is the possibility for defining packages or classes from which the data should or should not be collected.
-	\item [Output] what kind of data can we get from the tool. 
+	\item [Output] shows what kind of data can we get from the tool.
+    \item [Overhead Factor] presents the mean time overhead while using the monitoring tool.
 \end{description}
 
 
@@ -179,10 +177,16 @@ Four out of ten tool present their data only in a \ac{GUI}. Graphical representa
 
 %Profiling overhead.
 %Accuracy of extracted data.
-\todo{results}
-Finally, we analyzed the Java monitoring tools. That is, we measure the overhead of HPROF, Kieker, SPASS-meter and JIP. To this end, an experiment, in which we randomly selected 100 configurations from each subject system and repeated measurements five times with and without monitoring. Based on this comparison, we calculated the introduced relative overhead and show it in the last column of Table x.
-We can see that the tools X, Y, and Z introduce a substantial overhead such that these tools cannot give us reliable performance values. Only tools X,Y have low overhead so that we decided for tool X as it has all features that we need for our scenario.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/porfiling_tools_overhead_only_Prof}
+  \caption{Monitoring Overhead.}
+  \label{fig:prof_tools_analysis}
+\end{figure}
+
+Finally, we analyzed the Java monitoring tools. That is, we measure the overhead and of JIP, HPROF, Kieker, and SPASS-meter. To this end, an experiment, in which we randomly selected 100 configurations from each subject system and repeated measurements five times with and without monitoring. Based on this comparison, we calculated the introduced relative overhead (cf. Figure~\ref{fig:prof_tools_analysis}) and list the mean in the last column of Table~\ref{java_monitoring_tools}.
+We can see that the tool HPROF introduce a substantial overhead such that these tool cannot give us reliable performance values. Only tools JIP, Kieker and SPASSmeter have low overhead so that we decided for tool JIP (even if the mean execution overhead is higher), because it provides all features that we need for our scenario (including a data-flow graph).
 
 \subsection{Data Processing}
 \label{data_prozessing}
@@ -216,9 +220,9 @@ First, we try to reduce the influence of the system on our measurement. Therefor
 
 %paper: \ref{georges2007statistically}
 
-Profiling of software that is executed in a runtime environment, such as the \ac{JVM}, is affected by additional factors that influence performance. With Java, the source code first need to be compiled into platform-independent Java byte code. It interprets the Java byte code inside the \ac{JVM} to execute instructions. If parts of the byte code are frequently used, then they are compiled and optimized. This process is called \ac{JIT} compilation. As a consequence, parts of the program may speed up during execution. Another source of measurement bias is the \ac{GC}, which attempts to reclaim memory occupied by objects that are no longer in use by the program. Depending on the Java version, there are different strategies how and when the \ac{GC} releases memory. However, we do not turn off \ac{JIT} or the \ac{GC}, because in real-world scenarios both are also active and we want to investigate performance as close as possible to software running in practice. Furthermore, \ref{georges2007statistically} surveyed, that several researchers also not exclude \ac{JIT} and \ac{GC} overhead in their measurements.
+Profiling of software that is executed in a runtime environment, such as the \ac{JVM}, is affected by additional factors that influence performance. With Java, the source code first need to be compiled into platform-independent Java byte code. It interprets the Java byte code inside the \ac{JVM} to execute instructions. If parts of the byte code are frequently used, then they are compiled and optimized. This process is called \ac{JIT} compilation. As a consequence, parts of the program may speed up during execution. Another source of measurement bias is the \ac{GC}, which attempts to reclaim memory occupied by objects that are no longer in use by the program. Depending on the Java version, there are different strategies how and when the \ac{GC} releases memory. However, we do not turn off \ac{JIT} or the \ac{GC}, because in real-world scenarios both are also active and we want to investigate performance as close as possible to software running in practice. Furthermore, \cite{georges2007statistically2} surveyed, that several researchers also not exclude \ac{JIT} and \ac{GC} overhead in their measurements.
 
-But, we analyze the impact of the measurement influences. Therefore, we run the execution of each configuration and workload several times (each time with a five second delay). Afterwards, we are able to calculate the difference of the execution times of these measurements per configuration and workload. We present our results in section~\ref{gc_analysis}.
+But, we analyze the impact of the measurement influences. Therefore, we run the execution of each configuration and workload several times (each time with a five second delay). Afterwards, we are able to calculate the difference of the execution times of these measurements per configuration and workload.
 
 
 \subsubsection{Relative Performance}
@@ -328,7 +332,7 @@ describes the average distance between observed (measured) values $y$ and predic
     MAE=\frac{1}{n}\sum_{i=1}^n|y_i-f_i|
 \end{equation}
 
-\paragraph{Mean Squared Error} 
+\paragraph{\ac{MSE}} 
 describes the squared average between observed values $y$ and predicted value $f$. The squaring causes that errors $>1$ have a bigger influence on the overall error. Because of the squaring, we are able to sum um the values because they are always positive.
 
 \begin{equation}
@@ -337,11 +341,11 @@ describes the squared average between observed values $y$ and predicted value $f
 \end{equation}
 
 \paragraph{R squared} 
-is a goodness-of-fit measure for regression models. It represents the fraction of predicted values that is explained by the model. The higher the R-squared value, the better the model fits the data. Total sum of squares (TSS) is defined as the sum over all measurements of the squared distance from the measured value to the mean of all measurements.
+is a goodness-of-fit measure for regression models. It represents the fraction of predicted values that is explained by the model. The higher the R-squared value, the better the model fits the data. Total sum of squares (TSS) is defined as the sum over the squared distances from the measured values to the mean of all measurements.
 
 \begin{equation}
     \begin{aligned}
-        \label{def:RSS:ElNet}
+        \label{def:RSqu}
         TSS=\sum_{i=1}^n(y_i-y)^2
         \\
         R^2=1-\frac{MSE}{TSS}
@@ -352,21 +356,20 @@ is a goodness-of-fit measure for regression models. It represents the fraction o
 \subsection{Data Visualisation}
 \label{visualisation}
 
-\begin{figure}
+The last step of our overall approach consists of novel visualisations presenting performance of configurable software systems. We wanted to support developers with tools that help identifying performance hot-spots of configurable software systems. Therefore we introduce two independent visualisation tools (overview of the tools in Figure~\ref{data_vis_workflow}), which we will present in the following.
+
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.7\textwidth]{images/workflow_visual_expanded}
   \caption{Visualisation Worklow.}
   \label{data_vis_workflow}
 \end{figure}
 
-The last step of our overall approach consists of novel visualisations presenting performance of configurable software systems. We wanted to support developers with tools that help identifying performance hot-spots of configurable software systems. Therefore we introduce two independent visualisation tools (overview of the tools in Figure~\ref{data_vis_workflow}), which we will present in the following.
-
 %The last step of our approach includes visualizations of performance data (described in section~\ref{visualisation}). We designed an Eclipse plugin to visualize performance hot spots through the \ac{IDE} directly in the source code. Additionally, we used a graph-based visualisation to given an overview of the influence if configuration options on the performance of software systems.  
 
 \subsubsection{Eclipse Marker Plugin}
 
-The Eclipse IDE is a platform for developing in different programming languages. It is an \ac{OSS}-framework which provides mechanisms to extend it with plugins. We developed an Eclipse marker plugin which is able to highlight lines of source code inside of the eclipse workbench. The main purpose of our plugin is to highlight regions of source code to identify performance hot spots. There are different modes for highlighting implemented. First, it is able to color methods of selected configuration according to their relative performance. This might be useful if developers want to analyze default configurations of their software. The next modes color the source code according to mean and median relative performance over all configurations. These modes identify performance distribution over all sampled configurations. We are also able to color the method's configuration sensitivity. Therefore, the differences of the methods relative performance values over all configurations is calculated (we used their standard deviation). We are also able to present the workload sensitivity. This is done by calculating the standard deviation over all workloads of configurations. These different modi are selectable to a drop down menu, which is integrated in the eclipse menu-bar. To increase comprehensibility while working with this plugin we created an overview area for all modes, containing a list of all marked methods sorted by descending performance. 
-
+The Eclipse IDE is a platform for developing in different programming languages. It is an \ac{OSS}-framework which provides mechanisms to extend it with plugins. We developed an Eclipse marker plugin which is able to highlight lines of source code inside of the eclipse workbench. The main purpose of our plugin is to highlight regions of source code to identify performance hot spots. There are different modes for highlighting implemented. First, it is able to color methods of selected configuration according to their relative performance. This might be useful if developers want to analyze default configurations of their software. The next modes color the source code according to mean and median relative performance over all configurations. These modes identify performance distribution over all sampled configurations. We are also able to color the method's configuration sensitivity. Therefore, the differences of the methods relative performance values over all configurations is calculated (we used their standard deviation). These different modi are selectable to a drop down menu, which is integrated in the eclipse menu-bar. To increase comprehensibility while working with this plugin we created an overview area for all modes, containing a list of all marked methods sorted by descending performance. 
 
 %- method level visualisation
 %- different modi
@@ -376,13 +379,13 @@ The Eclipse IDE is a platform for developing in different programming languages.
 
 \subsubsection{Flame Graphs}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.7\textwidth]{images/Exampleflamegraph}
   \caption{Example Flame Graph.}
   \label{ex_flame_graph}
 \end{figure}
 
-Flame graphs are designed to visualize different non-functional properties (e.g., runtime, heap) of software systems~\cite{Gregg:2016:FG:2927299.2927301}. Flame graphs are usually presented with warm colors, because these visualisation should explain why CPUs were \textit{hot} (busy). Also the flame-like shape support this naming. Initially, they were designed to visualize the sampled stack traces\footnote{A stack trace is a list of method calls represented in a graph structure.} (which can be extracted through Linux perf\_events and DTrace). We adapted the idea of stack-trace-based flame graphs to encode the runtime of methods in flame graphs. Figure~\ref{ex_flame_graph} shows an example flame graph. The y axis encodes the call stack depth and the x axis shows the the time of methods. Each rectangle represents a stack frame (a method), where the width shows the runtime of the method in the profile. The right-to-left ordering is alphabetical. The bottom to top ordering decodes the call flow of the program. For example, function \textit{a()} from Figure~\ref{ex_flame_graph} has called the functions \textit{b()} and \textit{f()}. The top edge (black bar) of the top rectangles shows how much CPU time each has spent. That means, even if the width of \textit{b()} is bigger than the width of \textit{f()}, the latter has spent more time on CPU. With the help of these visualisations we are able to understand a whole profile in one diagram. \todo{our contribution in this field}
+Flame graphs are designed to visualize different non-functional properties (e.g., runtime, heap) of software systems~\cite{Gregg:2016:FG:2927299.2927301}. Flame graphs are usually presented with warm colors, because these visualisation should explain why CPUs were \textit{hot} (busy). Also the flame-like shape support this naming. Initially, they were designed to visualize the sampled stack traces\footnote{A stack trace is a list of method calls represented in a graph structure.} (which can be extracted through Linux perf\_events and DTrace). We adapted the idea of stack-trace-based flame graphs to encode the runtime of methods in flame graphs. Figure~\ref{ex_flame_graph} shows an example flame graph. The y axis encodes the call stack depth and the x axis shows the the time of methods. Each rectangle represents a stack frame (a method), where the width shows the runtime of the method in the profile. The right-to-left ordering is alphabetical. The bottom to top ordering decodes the call flow of the program. For example, function \textit{a()} from Figure~\ref{ex_flame_graph} has called the functions \textit{b()} and \textit{f()}. The top edge (black bar) of the top rectangles shows how much CPU time each has spent. That means, even if the width of \textit{b()} is bigger than the width of \textit{f()}, the latter has spent more time on CPU. With the help of these visualisations we are able to understand a whole profile in one diagram.
 
 % control-flow graph represenation

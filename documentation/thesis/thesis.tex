@@ -6,7 +6,7 @@
 %
 % Values
 % ------
-\ThesisSetTitle{Supporting the Discovery of Performance Hot-Spots}
+\ThesisSetTitle{Supporting the Discovery of Performance Hot-Spots of Configurable Software Systems}
 \ThesisSetKeywords{Performance, Configurable Software Systems} % only for PDF meta attributes
 
 \ThesisSetAuthor{Max Weber}
@@ -41,6 +41,7 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 
+\usepackage{booktabs,adjustbox}
 \usepackage{subcaption}
 \newcommand{\rqparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
@@ -68,6 +69,21 @@
 \RequirePackage{xcolor}
 \newcommand{\todo}[1]{\colorbox{red}{\color{white}\sffamily TODO: #1}}
 
+\definecolor{new_green}{HTML}{008700}
+
+\lstset{showspaces=false,
+  showtabs=false,
+  tabsize=4,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{new_green},
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  basicstyle=\ttfamily,
+  moredelim=[il][\textcolor{grey}]{$$},
+  moredelim=[is][\textcolor{grey}]{\%\%}{\%\%}
+}
 
 % Enables to stricture research questions like: RQ1, RQ1.1
 % Currently depth 2

@@ -11,8 +11,53 @@
 
 \lstinputlisting[basicstyle=\scriptsize\ttfamily, captionpos=b, language=xml, caption={Textual representation of example database model.}, label={app_feature_diagrams}]{images/example_database.xml}
 
-\subsection{Case Studies}
+\section{Results}
 
+\subsection{Configuration Sensitivity}
+\label{app:conf:sens:catena}
+Catenas 23 methods without standard deviation:
+\begin{itemize}
+\item main.java.Catena:<init>
+\item main.java.Catena:erasePwd
+\item main.java.Catena:gamma
+\item main.java.Catena:init
+\item main.java.Catena:setD
+\item main.java.components.graph.algorithms.GenericGraph:<init>
+\item main.java.components.phi.algorithms.CatenaPhi:<init>
+\item main.java.components.phi.algorithms.CatenaPhi:setH
+\item main.java.components.phi.algorithms.CatenaPhi:setHPrime
+\item main.java.components.phi.algorithms.IdentityPhi:<init>
+\item main.java.components.gamma.algorithms.IdentityGamma:<init>
+\item main.java.components.graph.algorithms.index.IndexDBG:<init>
+\item main.java.components.hash.algorithms.Blake2b\_1:<init>
+\item main.java.components.gamma.algorithms.IdentityGamma:setH
+\item main.java.components.gamma.algorithms.SaltMix:<init>
+\item main.java.components.gamma.algorithms.SaltMix:bytes2long
+\item main.java.components.gamma.algorithms.SaltMix:transformBytesToLong
+\item main.java.components.graph.algorithms.DoubleButterflyGraph:<init>
+\item main.java.components.graph.algorithms.index.IndexGRG:<init>
+\item main.java.components.hash.algorithms.Blake2b:<init>
+\item main.java.components.phi.algorithms.index.LSBIndex:<init>
+\item main.java.Helper:intToByteArrayLittleEndian
+\item main.java.Helper:string2Bytes
+\end{itemize}
+
+Catenas 5 methods with standard deviation over 1:
+\begin{itemize}
+\item main.java.Catena:flap
+\item main.java.components.graph.algorithms.GenericGraph:graph
+\item main.java.components.phi.algorithms.CatenaPhi:phi
+\item main.java.components.gamma.algorithms.SaltMix:gamma
+\item main.java.components.graph.algorithms.DoubleButterflyGraph:graph
+\end{itemize}
+
+
+\subsection{Worst Methods Catena}
+
+\lstinputlisting[basicstyle=\scriptsize\ttfamily, captionpos=b, language=Java, caption={Catena -- Double Butterfly Graph.}, label={app_c_dbg}]{images/DoubleButterflyGrapg_graph.java}
+\lstinputlisting[basicstyle=\scriptsize\ttfamily, captionpos=b, language=Java, caption={Catena -- Phi.}, label={app_c_phi}]{images/Catena_phi.java}
+\lstinputlisting[basicstyle=\scriptsize\ttfamily, captionpos=b, language=Java, caption={Catena -- Flap.}, label={app_c_flap}]{images/Catena_flap.java}
+\lstinputlisting[basicstyle=\scriptsize\ttfamily, captionpos=b, language=Java, caption={Catena -- Salt Mix.}, label={app_c_salt}]{images/Catena_saltmix.java}
 
 \section{Scripts}
 

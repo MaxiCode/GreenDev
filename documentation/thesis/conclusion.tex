@@ -1,6 +1,69 @@
 \chapter{Conclusion}
 \label{chap:conlusion}
 
+\centerline{\emph{Can we identify performance hot-spots in configurable software systems?}}
+
+This is the main question of this thesis. We wanted to discover performance hot-spots in configurable software systems to push the classical \ac{SPE} approach to configurability-aware performance analysis at method level.
+
 \section{Concluding Remarks}
 
+
+
+Approach afgestellt
+
+profiler verglichen
+
+
+
+
+was haben wir erreicht:
+1. Reduce measurement time of profiling by excluding at least 94 \% of the methods. Profiling need at least triples the time so we can achieve at least triple measuring speed.
+
+If we do the dataflow analysis apart from the profiling process we can again speed up the measurement process by using Kieker or SPASSmeter. 2 times faster than.
+
+Was hab ich also erreicht:
+Visualisations:
+Createing of proper visualisations
+
+
+performance on method level mehr verstanden als vorher
+
 \section{Outlook and Future Work}
+
+Was könnte passieren damit?
+
+
+nico fragen :)
+
+
+
+
+
+Wa muss man dafür tun?
+
+Focus on important parts (methods)
+Use sampling
+use other systems
+
+
+
+
+
+
+GC.
+gc analysis -> analysie sttdev if one methos (catena dbg) several times. with same settings. -> look at gc behaviour -> extract function and test function with differerent workloads (and if method is configuration dependent, try to trace conf option until method and contigure it ?)
+
+but if he does always the same, we might not notice the problem
+
+or mitloggen
+
+
+2. higher order interactions. 
+we only used pairs of interactions, so (course of high dim -> catena von 8 auf 55 options [calc the fuck 3 times thing])
+
+also possible reason. we have higher order interactions. In depth knowledge about Catena from developer: Garlic is the main reason for time changes but example table \ref{tbl:unlearnable_methods_catena} shows the problem. Garlic increases, but performance of method goes down.
+
+3. too less data. 4 graphs in catena ... only one is active. so 1000/4 = 250 measurements in which the graph is 
+
+
+because catena is the smallest of the 3 subject systems we will focus our discussion to that. H2 and Sunflow does have roughly the same fraction of methods. 
