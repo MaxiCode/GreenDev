@@ -5,7 +5,7 @@
 
 This chapter provides fundamental concepts required to follow this thesis. 
 In section~\ref{background} we give an introduction about variability models, performance assessment and performance prediction. 
-We summarized related work and approaches that analyse performance similar to our approach in section~\ref{rel_work}.
+We summarize related work and approaches that analyse performance similar to our approach in section~\ref{rel_work}.
 
 \section{Background}
 \label{background}
@@ -24,7 +24,9 @@ The combination of features describes the user desired characteristics of the pr
 For example, a database management system provides features such as compression, encryption, or the use of a specific indexing strategy.
 Requirements that describe what a system can do are called functional properties~\cite{chung1995using}. 
 In addition to the functionality properties of software, there are also non-functional properties to be met, such as performance and energy limitations.
-In literature, there exist different definitions of non-functional properties as surveyed by~\cite{glinz2007non}. \cite{davis1993software} defined non-functions properties as all required attributes of the system like portability, reliability, efficiency, human engineering, testability, understandability, and modifiability. Whereas \cite{kotonya1998requirements} defined non-functional properties as all requirements which are not directly related to the functionality of the system. Such requirements set restriction to the development process and specify constraints that the software must met.
+In literature, there exist different definitions of non-functional properties as surveyed by~\cite{glinz2007non}. \cite{davis1993software} defined non-functions properties as all required attributes of the system like portability, reliability, efficiency, human engineering, testability, understandability, and modifiability. 
+Whereas \cite{kotonya1998requirements} defined non-functional properties as all requirements which are not directly related to the functionality of the system. 
+Such requirements set restrictions to the development process and specify constraints that the software must meet.
 
 In this thesis, we use the definition of~\cite{robertson1999mastering} because these definition is general and has been widely used by others:~\cite{nuseibeh2000requirements,jackson2001problem,cohn2004user,siegmund2012spl}. ``A property, or quality, that the product must have, such as an appearance, or a speed or an accuracy property''.
 
@@ -39,11 +41,11 @@ Whereas feature models with a graphical representation (also called feature diag
 Furthermore, feature diagrams are widely used in scientific literature to present analyzed systems. 
 
 
-Feature diagrams build up a tree-structured graph, as can be seen in the example diagram shown in Figure~\ref{background_variab_models_feature_diagram_example}. 
+Feature diagrams are made of a tree-structured graph, as can be seen in the example diagram shown in Figure~\ref{background_variab_models_feature_diagram_example}. 
 With this example diagram, we will describe the elements of feature diagrams. 
 The root node of the tree \textsf{Database\_Engine} represents the whole database model. 
 All nodes in this tree represent either \textit{abstract} or \textit{concrete} features. 
-Abstract features such as \textsf{Compression} and \textsf{OS} are used to structure the feature model, whereas concrete features represent functionality that maps to implementation units. 
+Abstract features such as \textsf{Compression} and \textsf{OS} are used to structure the feature model, while concrete features represent functionality that maps to implementation units. 
 Two nodes of the database engine are modelled as \textit{mandatory}. 
 These nodes have to be selected in each valid configuration because they might implement some basic functionality which has to be always available. 
 Optional features such as \textsf{Indexing} or \textsf{Compression} can be selected to create a valid variant with additional functionality.
@@ -71,13 +73,13 @@ The textual representation of the feature model is available in the appendix~\re
 \subsection{Performance Assessment}
 \label{background_perf}
 
-Next, we define performance for this thesis and show how to assess performance to learn models from measured configurations. 
+Next, we define the term performance for this thesis and show how to assess performance to learn models from measured configurations. 
 Afterwards, we present different approaches of how these models can predict performance.
 
 \subsubsection{Performance in Software Engineering}
 \label{perf_general}
 
-Performance is an important quality of software systems. 
+Performance is an key aspect of software systems. 
 As described in the introduction, definitions of performance differ depending on the perspective. 
 The most used way is to explain performance of software systems as a non-functional property (\cite{Molyneaux:2009:AAP:1550832,liggesmeyer2002software}). 
 Here, performance is a mean for describing how a system provides its functionality. 
@@ -88,10 +90,10 @@ Each type of a software system has different metrics which can be analysed.
 For example, a Web server can be analyzed through the following metrics:
 
 \begin{description}[style=multiline,leftmargin=10em]
-	\item [Hit Rate] is the total number of requests arriving at a server in a defined time frame.
-	\item [Latency] describes the time that has passed from the start of a request message until the response message starts being received.
-	\item [Response Time] describes the time that has passed from the start of a request message until the whole response message is received.
-	\item [Availability] describes the time that the software is available to the user.
+	\item [Hit Rate] Total number of requests arriving at a server in a defined time frame.
+	\item [Latency] Time that has passed from the start of a request message until the response message starts being received.
+	\item [Response Time] Time that has passed from the start of a request message until the whole response message is received.
+	\item [Availability] Time that the software is available to the user.
 \end{description}
 
 With client-server applications, communication takes place through networks, whereas with offline applications, the focus during the analysis of performance metrics lies on the intrinsic properties.
@@ -99,14 +101,14 @@ Offline applications usually run on a single device and do not need to communica
 The following are some performance metrics of offline applications:
 
 \begin{description}[style=multiline,leftmargin=10em]
-	\item [Resource Utilization] describes the fraction to which a system uses its resources\footnote{A resource is a system element that offers some service to other system elements that require them. Resources can be categorized into hardware components (CPU, bus, storage), logical elements (buffers, locks, semaphores) and processing resources (processes, threads)~\cite{woodside2007future}.}.
-	\item [Response Time] describes the time that is needed to complete an operation.
-	\item [Throughput] is the amount of work done in a defined time.
-	\item [Availability] describes the time that the software is available to the user.
-	\item [Scalability] describes the ability to grow and perform an increasing amount of work. 
+	\item [Resource Utilization] Fraction to which degree a software system uses its resources\footnote{A resource is a system element that offers some service to other system elements that require them. Resources can be categorized into hardware components (CPU, bus, storage), logical elements (buffers, locks, semaphores) and processing resources (processes, threads)~\cite{woodside2007future}.}.
+	\item [Response Time] Time that is needed to complete an operation.
+	\item [Throughput] Amount of work done in a defined time.
+	\item [Availability] Time that the software is available to the user.
+	\item [Scalability] Ability to grow and perform an increasing amount of work. 
 \end{description}
 
-For this thesis, we will focus on offline systems because we do not want to cope with the measurement inaccuracy which might accompany with the hardware and software of networks resources. 
+For this thesis, we will focus on offline systems because we do not want to cope with the measurement inaccuracy which might accompany with the hardware and software of networks resources.
 Furthermore, we want to define performance as the amount of work done per unit of time like~\cite{tsirogiannis2010analyzing}. 
 So, we define performance as:
 \begin{equation}
@@ -126,7 +128,7 @@ Thereby, we are able to compare the different variants and since the \textsf{Wor
 
 To identify performance hot-spots, we also measure the run time of each method that is executed.
 We are interested in the time spent in each method (net-time).
-We explain the concrete approach we follow in this thesis in section~\ref{perf_measure}. 
+We explain the concrete approach we follow in Section~\ref{perf_extr}. 
 
 
 \subsubsection{\ac{SPE}}
@@ -147,7 +149,7 @@ This includes specifying the environment in which the software runs.
 For the sake of reproducibility, the environment should be defined carefully.  
 To select specific tasks, there are many different benchmarks available (\href{https://bapco.com/}{BAPCo}, \href{https://www.eembc.org/}{EEMBC}, \href{http://www.spec.org/}{SPEC}). 
 These and other benchmarks provide the possibility to compare one software variant to another with a set of standardized tests and workloads. 
-Another possibility is to use benchmarks which are provided by the software vendor itself (a concrete example is provided in section~\ref{case_studies}). 
+Another possibility is to use benchmarks which are provided by the software vendor itself (a concrete example is provided in Section~\ref{subject_systems}). 
 This may enable analysis of the whole functionality of a the software system.
 The third activity is to design models that can predict performance from detailed design, architecture, and usage scenarios. 
 These models describe how systems use resources and how resource contention affects operation. 

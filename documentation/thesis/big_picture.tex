@@ -51,21 +51,25 @@ Currently, there are neither white-box tools for performance-bug detection nor w
 \end{figure}
 
 % Overview of the process
-We divided our approach into three parts as shown in Figure~\ref{big_picture_perf_anal_workflow}. First, we extract the performance data from our subject systems (see Section~\ref{perf_extr})by executing each system in different configurations using different workloads in our test environment, which we describe in section~\ref{test_env}. To obtain a list of configurations, we use different sampling techniques as described in Section~\ref{perf_measure_sampling}). During execution, we profile the execution of the Java program of the corresponding configuration and obtain a fine-granular output describing the execution times of each method. For profiling, we compared different monitoring tools, as described in Section~\ref{monitoring_tools}, and decided for the tool \ac{JIP}. In the second step we process the collected data. An important part is the training of a regression model per method that allows us to predict a method's execution time for unseen configurations. The last step of our approach focuses on analyzing the performance hot spots via visualizations of the collected performance data (described in section~\ref{visualisation}). To this end, we designed an Eclipse plugin to visualize performance hot spots through the \ac{IDE} directly in the source code. Additionally, we developed a graph-based visualisation to give an overview of the influence of configuration options and their interactions on the performance of the subject systems.
+We divide our approach into three parts as shown in Figure~\ref{big_picture_perf_anal_workflow}. First, we extract the performance data from our subject systems (see Section~\ref{perf_extr}) by executing each system in different configurations using different workloads in our test environment, which we describe in Section~\ref{test_env}. To obtain a list of configurations, we use different sampling techniques as described in Section~\ref{perf_measure_sampling}. During execution, we profile the execution of the Java program of the corresponding configuration and obtain a fine-granular output describing the execution times of each method. For profiling, we compared different monitoring tools, as described in Section~\ref{monitoring_tools}, and decided for the tool \ac{JIP}. 
+
+In the second step we process the collected data. An important part is the training of a regression model per method that allows us to predict a method's execution time for unseen configurations. 
+
+The last step of our approach focuses on analyzing the performance hot spots via visualizations of the collected performance data (described in Section~\ref{visualisation}). To this end, we designed an Eclipse plugin to visualize performance hot spots through the \ac{IDE} directly in the source code. Additionally, we developed a graph-based visualisation to give an overview of the influence of configuration options and their interactions on the performance of the subject systems.
 
 
 \subsection{Performance extraction}
 \label{perf_extr}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.7\textwidth]{images/workflow_perf_expanded}
-  \caption{Performance Extraction Worklow.}
+  \caption{Performance Extraction Workflow.}
   \label{perf_extr_workflow}
 \end{figure}
 
 
-Next, we explain how we extract the performance data from configurable software systems; Figure~\ref{perf_extr_workflow} provides an overview. The orange parts of this diagram represent existing tools we used for this thesis and the green parts are results of our implementation. For the evaluation, we have chosen three Java projects from GitHub as case studies, which we describe in Section~\ref{case_studies} in more detail. The main tasks that we have addressed here are: selecting which configurations to measure, seelecting a suitable benchmark as a representative workload for executing a variant (i.e., the program that corresponds to a specific configuration), and preparing the environment for reliable measurement. In order to measure performance during execution, we used the \ac{JIP}. This profiler is able to measure the runtime of each method during execution of the software. However, we have to deal with the influence of non-determinism that affect overall performance. Our measurements run on real hardware in a \ac{JRE} with other processes being executed in parallel. 
+Next, we explain how we extract the performance data from configurable software systems; Figure~\ref{perf_extr_workflow} provides an overview. The orange parts of this diagram represent existing tools we used for this thesis and the green parts are results of our implementation. For the evaluation, we choose three Java projects from GitHub as case studies, which we describe in Section~\ref{subject_systems} in more detail. The main tasks that we have addressed here are sampling which configurations to measure, selecting a suitable benchmark as a representative workload for executing a variant (i.e., the program that corresponds to a specific configuration), and preparing the environment for reliable measurement. In order to measure performance during execution, we used the \ac{JIP}. This profiler is able to measure the runtime of each method during execution of the software. However, we have to deal with the influence of non-determinism that affect overall performance. Our measurements run on real hardware in a \ac{JRE} with other processes being executed in parallel. 
 
 %Because software runs on real hardware, the measurements might be influenced by a measurement bias. Hence, we want to find out if and to which degree the environment has an influence on performance. We also trained a regression model that aims on predicting the performance of each method depending on given configurations. An introduction to linear regression and an overview of the tools we used for modelling can be found in section~\ref{lin_reg}. 
 
@@ -76,9 +80,9 @@ Sampling is the selection of a subset of individuals to estimate characteristics
 
 With an increasing number of dimensions, also the volume of the space increases and the sampled data becomes sparse. This sparsity is problematic for any method that requires statistical significance. In order to obtain a statistically sound and reliable result, the additional amount of data needed to support the result often grows exponentially with the dimensionality. This phenomena is called \textit{Course of Dimensionality}~(\cite{donoho2000high}).
 
-Furthermore, each individual dimension could represent a different type of data~(\cite{stevens1946theory}). There are four measurement scales: nominal, ordinal, interval, and ratio. Nominal data are used for labeling data. Usually nominal data is mutually exclusive and none of them have any numerical significance. A special type of nominal scale is binary data (e.g., on/off, true/false). With ordinal data, we can order the values, but the difference between them is not known (e.g., good, OK, bad). Whereas with interval scales, the ordering as well as the exact difference between the values is known (e.g., temperature scale). Moreover, ratio scales define the ordering, the distance, and also the absolute zero of the values (e.g., height or weight). In the context of configurable software systems, we have to be able to sample each of these dimensions to get a configuration. This is one reason why different sampling strategies were developed. Usually there are two types of data which are used for configuration: binary and numerical values. There are strategies for each of this two types of data, as presented in section~\ref{rel_perf_pred}.
+Furthermore, each individual dimension could represent a different type of data~(\cite{stevens1946theory}). There are four measurement scales: nominal, ordinal, interval, and ratio. Nominal data are used for labeling data. Usually nominal data is mutually exclusive and none of them have any numerical significance. A special type of nominal scale is binary data (e.g., on/off, true/false). With ordinal data, we can order the values, but the difference between them is not known (e.g., good, okay, bad). Whereas with interval scales, the ordering as well as the exact difference between the values is known (e.g., temperature scale). Moreover, ratio scales define the ordering, the distance, and also the absolute zero of the values (e.g., height or weight). In the context of configurable software systems, we have to be able to sample each of these dimensions to get a configuration. This is one reason why different sampling strategies were developed. Usually there are two types of data which are used for configuration: binary and numerical values. There are strategies for each of this two types of data, as presented in section~\ref{rel_perf_pred}.
 
-We choose \textit{Random Sampling} as our sampling strategy, because with it we do not need to know the type of data which we want to sample. Random sampling is only possible because our subject systems does not have any constraints among configuration options. With random sampling we pick one value equally distributed from the values we could choose from. So for each dimension we have to know the start and end value and the step size in between. One drawback of this approach is that the range of each dimension has the same size, even two values in one dimension and thousands of values in another. 
+We choose \textit{Random Sampling} as our sampling strategy, because with it we do not need to know the type of data which we want to sample. Random sampling is only possible because our subject systems do not have any constraints among configuration options. With random sampling we pick one value equally distributed from the values we could choose from, so for each dimension we have to know the start and end value and the step size in between. One drawback of using this approach is that the range of each dimension has the same size.
 
 
 %Random Sampling
@@ -113,31 +117,31 @@ Measuring performance of software is an important aspect of \ac{SPE}. Many monit
 	%\centering % Center table
     \begin{tabular}{*{9}{c}}
     	\toprule
-        Tool & Performance Type & Resolution & Realization & Version & Filter & Output & \makecell{Overhead \\ (Mean)} \\
+        Tool & Performance Type & Resolution & Realization & Filter & Output & \makecell{Overhead \\ (Mean)} \\
         \midrule
-        NetBeans Prof. & \makecell{runtime, heap, \\ SQL queries, \\ threads} & \makecell{Windows 10 ms \\ Linux 10 ms \\ Solaris 1 ms} & aspect & J2SE 5.0 & yes & NetBeans GUI & --- \\
+        NetBeans Prof. & \makecell{runtime, heap, \\ SQL queries, \\ threads} & \makecell{Windows 10 ms \\ Linux 10 ms \\ Solaris 1 ms} & aspect & yes & NetBeans GUI & --- \\
         \midrule
-        VisualVM & \makecell{runtime, heap, \\ threads, GC} & snapshot & aspect & J2SE 5.0 & yes & VisualVM GUI & --- \\
+        VisualVM & \makecell{runtime, heap, \\ threads, GC} & snapshot & aspect & yes & VisualVM GUI & --- \\
         \midrule
-        HPROF & runtime, heap & 1 ms & JVMTI & J2SE 5.0 & yes & txt & +5268 \% \\
+        HPROF & runtime, heap & 1 ms & JVMTI & yes & txt & +5268 \% \\
         \midrule
-        Patty & \makecell{runtime, heap, \\ threads, GC} & 1 ms & JVMTI & J2SE 5.0 & yes & GUI, txt & --- \\
+        Patty & \makecell{runtime, heap, \\ threads, GC} & 1 ms & JVMTI & yes & GUI, txt & --- \\
         \midrule
-        JIP & runtime & 1 ms & aspect & J2SE 5.0 & yes & txt & +420 \% \\
+        JIP & runtime & 1 ms & aspect & yes & txt & +420 \% \\
         \midrule
-        Profiler4J & \makecell{runtime, heap, \\ threads} & --- & JVMTI & J2SE 5.0 & yes & GUI & --- \\
+        Profiler4J & \makecell{runtime, heap, \\ threads} & --- & JVMTI & yes & GUI & --- \\
         \midrule
-        JRat & runtime & 1 ms & JVMTI & J2SE 5.0 & yes & GUI & --- \\
+        JRat & runtime & 1 ms & JVMTI & yes & GUI & --- \\
         \midrule
-        EJP & runtime & --- & JVMPI & J2SE 1.4.2 & no & GUI & --- \\
+        EJP & runtime & --- & JVMPI & no & GUI & --- \\
         \midrule
-        JMeasurement & runtime & 1 ms & source code & J2SE 5.0 & yes & txt, csv & --- \\
+        JMeasurement & runtime & 1 ms & source code & yes & txt, csv & --- \\
         \midrule
-        DJProf & runtime, heap & 5 ms & aspect & J2SE 5.0 & no & txt & --- \\
+        DJProf & runtime, heap & 5 ms & aspect & no & txt & --- \\
         \midrule
-        Kieker & runtime, heap & 1 ms & aspect & Java SE 7 & no & txt & +250 \% \\
+        Kieker & runtime, heap & 1 $\mu$s & aspect & no & txt & +250 \% \\
         \midrule
-        SPASSmeter & runtime, heap & 1 ms & aspect & Java SE 7 & no & txt & +235 \% \\
+        SPASSmeter & runtime, heap & 1 $\mu$s & aspect & no & txt & +235 \% \\
 
         %JRMC & B & C & D & B & C & D \\
         %\midrule
@@ -150,30 +154,27 @@ Measuring performance of software is an important aspect of \ac{SPE}. Many monit
     \label{java_monitoring_tools}
 \end{sidewaystable}
 
-Table \ref{java_monitoring_tools} provides an overview of selected Java monitoring tools. We examined only \ac{OSS} tools, because these tools are free to use for all. We also searched explicitly for tool which work on terminal level when executing a Java program, because we want to automate the process of performance extraction. The following describes the six properties we used for comparison:
+Table \ref{java_monitoring_tools} provides an overview of selected Java monitoring tools. We examine only \ac{OSS} tools, because these tools are free to use for all. We also search explicitly for tools which have a command-line interface, because we want to automate the process of performance extraction. The following describes the six properties we used for comparison:
 \begin{description}[style=multiline,leftmargin=8em]
-	\item [Tool] is the name of the monitoring tool.
-	\item [Performance Type] summarizes the performance data types that could be extracted with the tool.
-	\item [Resolution] identifies the possible sampling rate of the tool.
-	\item [Realization] states with which technical implementation the data extraction is realized.
-	\item [Version] shows the Java version which is documented with the tool.
-	\item [Filter] indicates whether with this tool there is the possibility for defining packages or classes from which the data should or should not be collected.
-	\item [Output] shows what kind of data can we get from the tool.
-    \item [Overhead Factor] presents the mean time overhead while using the monitoring tool.
+	\item [Tool] The name of the monitoring tool.
+	\item [Performance Type] Summarizes the performance data types that could be extracted with the tool.
+	\item [Resolution] Identifies the maximum sampling rate of the tool.
+	\item [Realization] Technical Implementation with witch the data extraction is realized.
+	\item [Filter] Indicates whether with this tool there is the possibility for defining packages or classes from which the data should or should not be collected.
+	\item [Output] Shows what kind of data can we get from the tool.
+    \item [Overhead Factor] Presents the mean time overhead while using the monitoring tool.
 \end{description}
 
 
-We searched for performance monitoring tools, that are able to extract the runtime of a method. In total, we have found twelve tools as shown in Table~\ref{java_monitoring_tools}. Some tools are able to extract also other types of performance data, but for this thesis, we are interested only in runtime. 
+We search for performance monitoring tools, that are able to extract the runtime of a method. In total, we have found twelve tools as shown in Table~\ref{java_monitoring_tools}. Some of those tools are able to extract also other types of performance data, but for this thesis we are interested only in runtime. 
 
-\textit{Resolution} (sampling rate) is the first property on which the tools differ. Most of the tools have a resolution of 1 ms. Exceptions are VisualVM which samples only snapshots initiated by the user, DJProf, which has a resolution of 5 ms, and NetBeans Profiler, which is ten times slower than the others on Windows and Linux. Both monitoring tools are too inaccurate for our purposes. 
+\textit{Resolution} (sampling rate) is the first property on which the tools differ. Most of the tools have a resolution of 1 ms. Exceptions are VisualVM which samples only snapshots initiated by the user, DJProf, which has a resolution of 5 ms, and NetBeans Profiler, which is ten times slower than the others on Windows and Linux. All three monitoring tools are too inaccurate for our purposes. Kieker and SPASS-meter however, provide the highest sampling rate. 
 
-The realization of the measurement is important in our context, because we want to automate the process of performance extraction. Four tools use \ac{AOP} to insert functionality for profiling. Five tools use an interface provided by to \ac{JVM}. The JVMPI interface is since J2SE version 1.5 the predecessor of the JVMTI interface. Both are used to inspect the state and to control the execution of applications running in the \ac{JVM}. But JVMPI was always labeled as a native experimental profiling interface and is deprecated since JVMTI was released, hence, EJP does not work any more with todays Java versions.
-
-The column \textit{Version} repeats the version which is written in the documentation of these tools. This information aligns the tools with the development progress of the Java language.
+The realization of the measurement is important in our context, because we want to automate the process of performance extraction. Six tools use \ac{AOP} to insert functionality for profiling. Five tools use an interface provided by to \ac{JVM}. The JVMPI interface exists since J2SE version 1.5 the predecessor of the JVMTI interface. Both are used to inspect the state and to control the execution of applications running in the \ac{JVM}. JVMPI was always labeled as a native experimental profiling interface and is deprecated since JVMTI was released, hence, EJP does not work any more with todays Java versions.
 
 A possible effect on the monitory accuracy represents our extensions that we made to the subject systems in order to input different configurations. Ideally, we want to exclude this extension from profiling to measure only the performance of the software itself. So, the tool we use has to have the possibility to filter specific classes, hence EJP and DJProf are excluded.
 
-Four out of ten tool present their data only in a \ac{GUI}. Graphical representations might be helpful if there are information needed at once. But, we want to analyze a large number of configurations, so we have to automate the analysis process. Therefore, we want to have the results in a textual representation (e.g., txt, csv), which excludes NetBeans Profiler, VisualVM, JRat, Profiler4J, and EJP. 
+Four out of ten tool present their data only in a \ac{GUI}. Graphical representations might be helpful in some cases. However, we want to analyze a large number of configurations, so we have to automate the analysis process. Therefore, we want to have the results in a textual representation (e.g., txt, csv, JSON), which excludes NetBeans Profiler, VisualVM, JRat, Profiler4J, and EJP. However, JIP provides a representation of the data-flow which is a great benefit.
 
 %Profiling overhead.
 %Accuracy of extracted data.
@@ -181,17 +182,17 @@ Four out of ten tool present their data only in a \ac{GUI}. Graphical representa
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.7\textwidth]{images/porfiling_tools_overhead_only_Prof}
-  \caption{Monitoring Overhead.}
+  \caption{Overhead of Performance Monitoring Tools.}
   \label{fig:prof_tools_analysis}
 \end{figure}
 
-Finally, we analyzed the Java monitoring tools. That is, we measure the overhead and of JIP, HPROF, Kieker, and SPASS-meter. To this end, an experiment, in which we randomly selected 100 configurations from each subject system and repeated measurements five times with and without monitoring. Based on this comparison, we calculated the introduced relative overhead (cf. Figure~\ref{fig:prof_tools_analysis}) and list the mean in the last column of Table~\ref{java_monitoring_tools}.
-We can see that the tool HPROF introduce a substantial overhead such that these tool cannot give us reliable performance values. Only tools JIP, Kieker and SPASSmeter have low overhead so that we decided for tool JIP (even if the mean execution overhead is higher), because it provides all features that we need for our scenario (including a data-flow graph).
+Finally, we analyzed the Java monitoring tools. That is, we assess the measurement overhead of JIP, HPROF, Kieker, and SPASS-meter. To this end, an experiment, in which we randomly selected 100 configurations from each subject system and repeated measurements five times with and without monitoring. Based on this comparison we calculated the introduced relative overhead (cf. Figure~\ref{fig:prof_tools_analysis}) and list the mean in the last column of Table~\ref{java_monitoring_tools}.
+We can see that the tool HPROF introduce a substantial overhead such that this tool cannot give us reliable performance values. Only tools JIP, Kieker and SPASSmeter have low overhead so that we decided for tool JIP (even if the mean execution overhead is higher), because it provides all features that we need for our scenario (including a data-flow graph).
 
 \subsection{Data Processing}
 \label{data_prozessing}
 
-Next, we describe how we process the obtained data, as summarized in Figure~\ref{data_processing_workflow}. After monitoring each of the subject system, we have several Performance log fines containing execution times for each method. We obtain one log file for each subject system, each configuration, and each applied workload (a simplified log file can be found in appendix~\ref{example_log_file}). Each log file is divided into three sections with different information. The head of the file shows the time stamp of the file as well as the path to the file itself. We decoded the used configuration and workload in the path. The second area shows an inter-procedural control-flow graph\footnote{Inter-procedural control-flow graphs are tree structured graphs representing the control flow of a program.} which represents calling relationships between the individual methods of the subject systems. Each line is made up of the number of calls, the time spent in the method, and the method name with the fully qualified class name. The last section contains a list of all methods which are sorted by their net time\footnote{Net time is the amount of time that was actually spent executing this method. Here, the time taken by calling other methods is factored out.}. Based on these log files, the data processing is divided into three steps: analyzing the measurement influence, calculating relative performance of methods, and creating performance-influence models.
+After monitoring each of the subject systems, we obtain several performance log files containing execution times for each method. We obtain one log file for each subject system, each configuration, and each applied workload (a simplified log file can be found in Appendix~\ref{example_log_file}). Each log file is divided into three sections with different kinds of information. The head of the file shows the time stamp as well as the path to the file itself. We encoded the used configuration and workload in the path. The second area shows an inter-procedural control-flow graph\footnote{Inter-procedural control-flow graphs are tree-structured graphs representing the control flow of a program.} which represents calling relationships between the individual methods of the subject systems. Each line is composed of the number of calls, the time spent in the method, and the method name with the fully qualified class name. The last section contains a list of all methods which are sorted by their net time\footnote{Net time is the amount of time that was actually spent executing this method. Here, the time taken by calling other methods is factored out.}. Based on these log files, the data processing is divided into three steps: analyzing the measurement influence, calculating relative performance of methods, and creating performance-influence models.
 
 
 \begin{figure}
@@ -204,12 +205,12 @@ Next, we describe how we process the obtained data, as summarized in Figure~\ref
 
 \subsubsection{External Measurement Influences}
 
-Extracting actual performance values from configurable software systems requires executing the system under a specific configuration, workload, and environment. The execution environment is defined by the used hardware setup, an \ac{OS}, installed software, and several system settings. To enable reproducibility, we will delimit the measurement setup in Section~\ref{test_env}. Every part of the environment might have an influence on our measurements. This might be a source of non-determinism, which influences the whole process of performance analysis. Therefore, we try to minimize this influence in an two-step approach: Reduce system influence and analyze Java-related influences.
+Extracting actual performance values from configurable software systems requires executing the system under a specific configuration, workload, and environment. The execution environment is defined by the used hardware setup, the \ac{OS}, installed software, and several system settings. To enable reproducibility, we will delimit the measurement setup in Section~\ref{test_env}. Every part of the environment might have an influence on our measurements. This might be a source of non-determinism, which influences the whole process of performance analysis. Therefore, we try to minimize this influence in an two-step approach: Reduce system influence and analyze Java-related influences.
 
 \paragraph{System Influences.}
 \label{perf_measure_system}
 
-First, we try to reduce the influence of the system on our measurement. Therefore, we use separate machines dedicated to measure all test cases of an individual subject systems. Further, we ensured that there is only software installed which we need for the measurements. We restrict the execution of the measurements to one dedicated CPU core, because the hyper-threading feature of modern CPUs tries to balance the work between all available CPU cores, with the drawback that assigning a process to a specific core consumes additional, non-deterministic time. Another property of current CPUs is their ability to overclock. This allows the CPU to temporarily increase their clock frequency for different parts of the software execution. Again, this overclocking features results in non-deterministic performance behaviour and so we turned it off in our experiments.
+First, we try to reduce the influence of the system on our measurement. Therefore, we use separate machines dedicated to measure all test cases of an individual subject systems. Further, we ensured that there is only software installed which we need for the measurements. Hyper-threading of modern CPUs tries to balance the work between all available CPU cores. With the drawback that assigning a process to a specific core consumes additional, non-deterministic time. Therefore, we restrict the execution of the measurements to one dedicated CPU core. Another property of current CPUs is their ability to overclock. This allows the CPU to temporarily increase their clock frequency for different parts of the software execution. Again, this overclocking features results in non-deterministic performance behaviour and hence, we turned it off in our experiments.
 
 %Sources of non-determinism whole measuring performance.
 %Environment in which software is executed is defined by hardware, \ac{OS}, software and system settings.
@@ -220,22 +221,22 @@ First, we try to reduce the influence of the system on our measurement. Therefor
 
 %paper: \ref{georges2007statistically}
 
-Profiling of software that is executed in a runtime environment, such as the \ac{JVM}, is affected by additional factors that influence performance. With Java, the source code first need to be compiled into platform-independent Java byte code. It interprets the Java byte code inside the \ac{JVM} to execute instructions. If parts of the byte code are frequently used, then they are compiled and optimized. This process is called \ac{JIT} compilation. As a consequence, parts of the program may speed up during execution. Another source of measurement bias is the \ac{GC}, which attempts to reclaim memory occupied by objects that are no longer in use by the program. Depending on the Java version, there are different strategies how and when the \ac{GC} releases memory. However, we do not turn off \ac{JIT} or the \ac{GC}, because in real-world scenarios both are also active and we want to investigate performance as close as possible to software running in practice. Furthermore, \cite{georges2007statistically2} surveyed, that several researchers also not exclude \ac{JIT} and \ac{GC} overhead in their measurements.
+Profiling of software that is executed in a runtime environment, such as the \ac{JVM}, is affected by additional factors that influence performance. With Java, the source code first needs to be compiled into platform-independent Java bytecode. The Java bytecode gets interpreted inside the \ac{JVM} to execute instructions. If parts of the bytecode are frequently used, then these parts were optimized. This process is called \ac{JIT} compilation. As a consequence, parts of the program may speed up during execution. Another source of measurement bias is the \ac{GC}, which attempts to reclaim memory occupied by objects that are no longer in use by the program. Depending on the Java version, there are different strategies how and when the \ac{GC} releases memory. However, we do not turn off \ac{JIT} or the \ac{GC}, because in real-world scenarios both are also active and we want to investigate performance as close as possible to software running in practice. Furthermore, \cite{georges2007statistically2} surveyed that several researchers also not exclude \ac{JIT} and \ac{GC} overhead in their measurements.
 
-But, we analyze the impact of the measurement influences. Therefore, we run the execution of each configuration and workload several times (each time with a five second delay). Afterwards, we are able to calculate the difference of the execution times of these measurements per configuration and workload.
+However, we analyze the impact of the measurement influences. Therefore, we run the execution of each configuration and workload several times (each time with a five second delay). Afterwards, we are able to calculate the difference of the execution times of these measurements per configuration and workload.
 
 
 \subsubsection{Relative Performance}
 
-After monitoring the execution of the subject systems, we calculated the relative performance of each configuration and workload individually. Therefore, we searched for the method with the highest execution time and set the relative performance to one. The execution time of all other methods are scaled thereafter to the method with the highest execution time. So, we get relative performance values between zero and one for all executed methods. With this approach, we are able to know which methods we first have to investigate to find performance hot spots and to improve overall performance of our subject systems. Furthermore, we can compare the relative performance of each method of different configurations (with the same workload) to calculate their configuration sensitivity and assessing their workload sensitivity by comparing the workloads (for one configuration) of each method.
+After monitoring the execution of the subject systems, we calculated the relative performance of each configuration and workload individually. Therefore, we identified the method with the highest execution time and set the relative performance to $1$. The execution time of all other methods are scaled thereafter relative to the method with the highest execution time. Hence, we get relative performance values between $0$ and $1$ for all executed methods. With this approach, we are able to know which methods we first have to investigate to find performance hot spots and to improve overall performance of our subject systems. Furthermore, we can compare the relative performance of each method of different configurations (with the same workload) to calculate their configuration sensitivity and assessing their workload sensitivity by comparing the workloads (for one configuration) of each method.
 
 
 \subsubsection{Performance-Influence Models}
 \label{lin_reg}
 
-To model the influence of configuration options to performance, we have to create performance-influence models (as described in Section~\ref{rel_perf_pred}). The general, idea behind these models is to learn the influence of individual configuration options, or combination of options on performance. Therefore, we use a regression approach, which tries to relate dependent variables ($y$, in our case performance) to independent variables ($X$, in our case the configuration). A regression equation is linear when it is linear in the number of its parameter $n$, so that we can describe $y$ by a function $y(X) = \omega_0 + \sum_{j=1}^n \omega_j \cdot x_j$. $X = (x_0, x_1, ..., x_n)$ is a vector containing all configuration options and $\omega = (\omega_0, \omega_1, ..., \omega_n)$ are the unknown parameter. Fitting the model is done by estimating $\omega$. The modes we use differ in the way how they estimate the values for $\omega$.
+To model the influence of configuration options to performance, we have to create performance-influence models (as described in Section~\ref{rel_perf_pred}). The general, idea behind these models is to learn the influence of individual configuration options, or combinations of options on performance. Therefore, we use a regression approach, which tries to relate dependent variables $y$ (in our case performance) to independent variables $X$ (in our case the configuration). A regression equation is linear when it is linear in the number of its parameter $n$, so that we can describe $y$ by a function $y(X) = \omega_0 + \sum_{j=1}^n \omega_j \cdot x_j$. $X = (x_0, x_1, ..., x_n)$ is a vector containing all configuration options and $\omega = (\omega_0, \omega_1, ..., \omega_n)$ are the unknown parameters. Fitting the model is done by estimating $\omega$. The regression techniques we use differ in the way how they estimate the values for $\omega$.
 
-In the following example we assume, that we have $n$ measurements of one independent variable $x$ yielding one value for $y$. Then we can calculate the line $\hat{y}$ (which is an estimation of the original $y$) with the following equations~\cite{hahn1967statistical}:
+In the following example, we assume that we have $n$ measurements of one independent variable $x$ yielding one value for $y$. Then we can calculate the line $\hat{y}$, which is an estimation of the original $y$, with the equations provided by~\cite{hahn1967statistical} (presented in~\ref{def:LinReg:equation}).
 
 \begin{equation}
     \label{def:LinReg:equation}
@@ -248,7 +249,7 @@ In the following example we assume, that we have $n$ measurements of one indepen
     \end{aligned}
 \end{equation}
 
-The fitted value $\hat y_i$ for a input value $x_i$ may have a difference to the corresponding measured value $y_i$. Each difference $e_i=y_i-\hat y_i$ are the errors (or residuals). The sum of all differences is the error of the model: $E(Y)=\sum_{i=1}^ne_i$. This example shows how to calculate models with one independent variable. 
+The fitted value $\hat y_i$ for a input value $x_i$ may have a difference to the corresponding measured value $y_i$. The differences $e_i=y_i-\hat y_i$ are the errors (or residuals). The sum of all differences is the error of the model: $E(Y)=\sum_{i=1}^ne_i$. This example shows how to calculate models with one independent variable. 
 
 
 \paragraph{Linear Regression.}
@@ -264,7 +265,7 @@ One known drawback of this method is that linear regression becomes highly sensi
 \paragraph{Ridge}
 
 Ridge regression also uses \ac{RSS}, but additionally includes a penalty on the size of coefficients ($l2$-norm). 
-Here, $\alpha \geq 0$ is the complexity parameter that controls the amount of shrinkage. This means, the larger the value of $\alpha$ is, the greater the amount of shrinkage becomes and thus the values of $\omega$ gets more robust to outliers.
+Here, $\alpha \geq 0$ is the complexity parameter that controls the amount of shrinkage. This means, the larger the value of $\alpha$ is, the greater the amount of shrinkage becomes and thus the values of $\omega$ become more robust to outliers.
 
 \begin{equation}
     \label{def:RSS:Ridge}
@@ -274,7 +275,7 @@ Here, $\alpha \geq 0$ is the complexity parameter that controls the amount of sh
 
 \paragraph{Lasso}
 
-Lasso is a similar linear model like ridge, which estimates sparse coefficients ($l_1$-norm). The difference is its tendency to prefer $\omega$ with fewer parameter values. So, it effectively reduces the number of variables upon which the solution is dependent. A possible drawback might occur if there is a group of highly correlated variables, then the lasso tends to select one variable out of this group, and ignores the others.
+Lasso is a similar linear model like ridge, which estimates sparse coefficients ($l_1$-norm). The difference is its tendency to prefer $\omega$ with more parameters set to $0$. Hence, it effectively reduces the number of variables upon which the solution is dependent. A possible drawback might occur if there is a group of highly correlated variables; then the lasso tends to select one variable out of this group, and ignores the others.
 
 \begin{equation}
     \label{def:RSS:Lasso}
@@ -294,7 +295,7 @@ The elastic net regression model includes the lasso and ridge regression methodo
 
 \paragraph{Huber}
 
-We also want to use huber regression for learning a performance-influence model. Huber regression can be used when the dataset contains some strong outliers. The influence of outliers which are far away is greatly reduced. The parameter $\epsilon$ regulates the outlier sensibility and $\alpha$ again regulates strength of penalizing the size of coefficients. 
+Huber regression is another promising technique for learning a performance-influence model. It is used when the dataset contains some strong outliers. The influence of outliers which are far away is greatly reduced. The parameter $\epsilon$ regulates the outlier sensibility and $\alpha$ again regulates strength of penalizing the size of coefficients. 
 
 \begin{equation}
     \label{def:RSS:Huber}
@@ -311,7 +312,7 @@ We also want to use huber regression for learning a performance-influence model.
 
 \paragraph{Decision Tree}
 
-Decision trees are another possibility to model performance of configurable software systems. They split the input features (configuration options) in several regions and assign a prediction value to each region. Every split is chosen in order to produce the prediction which best fits the input data. Choosing the best fit means that they try to minimize the distance from the observations to the prediction. Decision trees can handle complex relationships (not only linear) by applying a cascade of rules. The depth of the tree usually describes how fine grained we can learn. If the depth is too high, we are likely to overfit (learn also noise of the input data), but if the depth is too small, we might underfit (we are not able represent our data at all). With decision tree regression, we are able to predict performance values from whole configurations, but they do not provide the possibility to explain which configuration option influences the performance value to what extend.
+Decision trees are another possibility to model performance of configurable software systems. They split the input features (configuration options) into several regions and assign a prediction value to each region. Every split is chosen according to the highest reduction of impurity. Choosing the best fit means that they try to minimize the distance from the observations to the prediction. Decision trees can handle complex relationships (not only linear) by applying a cascade of rules. The depth of the tree usually describes how fine grained we can learn. If the depth is too high, we are likely to overfit (learn also noise of the input data), but if the depth is too small, we might underfit (we are not able represent our data at all). With decision tree regression, we are able to predict performance values from whole configurations.
 
 
 \subsubsection{Performance-Influence Models Accuracy}
@@ -319,7 +320,7 @@ Decision trees are another possibility to model performance of configurable soft
 %- splitting available measurements into learning set and test set
 %- learn the model with learning set and try to predict performance with values from test set
 %- difference between predicted values and measured values from test set defines accuracy
-After learning performance-influence models from configurations, we want to know how accurate the models learned from the available data. Therefore, we use the models to predict performance values of configurations that we have not used for learning. After that, we can measure the performance values and compare the predicted performance values with the measured values. The distance between these values describes the accuracy with which the model can predict and so the accuracy of the model. In order to have test data available, we randomly divided the set of available measurements into learning set (90\%) and test set (10\%). The following models present the metrics we used for assessing the accuracy of the models. 
+As part of the evaluation of our previous work, the trained models need to be determine their accuracy by predicting performance values of configurations that we have not used for learning. After that, we can compare the predicted performance values with the measured values. The distance between these values describes the accuracy with which the model can predict and so the accuracy of the model. In order to have test data available, we randomly divide the set of available measurements into a learning set (90\%) and a test set (10\%). The following models present the metrics we used for assessing the accuracy of the models. 
 
 %- Use appropriate metrics to assess goodness of pred.
 % MAE
@@ -333,7 +334,7 @@ describes the average distance between observed (measured) values $y$ and predic
 \end{equation}
 
 \paragraph{\ac{MSE}} 
-describes the squared average between observed values $y$ and predicted value $f$. The squaring causes that errors $>1$ have a bigger influence on the overall error. Because of the squaring, we are able to sum um the values because they are always positive.
+describes the squared average between observed values $y$ and predicted value $f$. The squaring causes that errors $>1$ have a bigger influence on the overall error. Because of the squaring, we are able to sum the values because they are always positive.
 
 \begin{equation}
     \label{def:mse}
@@ -341,7 +342,7 @@ describes the squared average between observed values $y$ and predicted value $f
 \end{equation}
 
 \paragraph{R squared} 
-is a goodness-of-fit measure for regression models. It represents the fraction of predicted values that is explained by the model. The higher the R-squared value, the better the model fits the data. Total sum of squares (TSS) is defined as the sum over the squared distances from the measured values to the mean of all measurements.
+represents the fraction of predicted values that is explained by the model. The higher the R-squared value, the better the model fits the data. Total sum of squares (TSS) is defined as the sum over the squared distances from the measured values to the mean of all measurements.
 
 \begin{equation}
     \begin{aligned}
@@ -356,12 +357,12 @@ is a goodness-of-fit measure for regression models. It represents the fraction o
 \subsection{Data Visualisation}
 \label{visualisation}
 
-The last step of our overall approach consists of novel visualisations presenting performance of configurable software systems. We wanted to support developers with tools that help identifying performance hot-spots of configurable software systems. Therefore we introduce two independent visualisation tools (overview of the tools in Figure~\ref{data_vis_workflow}), which we will present in the following.
+The last step of our overall approach consists of novel visualisations presenting performance of configurable software systems. The goal of this thesis includes to provide support for developers with tools that help understanding performance hot-spots of configurable software systems. Therefore we introduce two independent visualisation tools (overview of the tools in Figure~\ref{data_vis_workflow}), which we will present in the following.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.7\textwidth]{images/workflow_visual_expanded}
-  \caption{Visualisation Worklow.}
+  \caption{Visualisation Workflow.}
   \label{data_vis_workflow}
 \end{figure}
 
@@ -369,7 +370,7 @@ The last step of our overall approach consists of novel visualisations presentin
 
 \subsubsection{Eclipse Marker Plugin}
 
-The Eclipse IDE is a platform for developing in different programming languages. It is an \ac{OSS}-framework which provides mechanisms to extend it with plugins. We developed an Eclipse marker plugin which is able to highlight lines of source code inside of the eclipse workbench. The main purpose of our plugin is to highlight regions of source code to identify performance hot spots. There are different modes for highlighting implemented. First, it is able to color methods of selected configuration according to their relative performance. This might be useful if developers want to analyze default configurations of their software. The next modes color the source code according to mean and median relative performance over all configurations. These modes identify performance distribution over all sampled configurations. We are also able to color the method's configuration sensitivity. Therefore, the differences of the methods relative performance values over all configurations is calculated (we used their standard deviation). These different modi are selectable to a drop down menu, which is integrated in the eclipse menu-bar. To increase comprehensibility while working with this plugin we created an overview area for all modes, containing a list of all marked methods sorted by descending performance. 
+The Eclipse IDE is a platform for developing in different programming languages. It is an \ac{OSS} framework which provides mechanisms to extend it with plugins. We developed an Eclipse marker plugin which is able to highlight lines of source code inside of the Eclipse workbench. The main purpose of our plugin is to highlight regions of source code to identify performance hot-spots. There are different modes for highlighting implemented. First, it is able to color methods of selected configurations according to their relative performance. This might be useful if developers want to analyze default configurations of their software. The next modes color the source code according to mean and median relative performance over all configurations. These modes identify performance distribution over all sampled configurations. We are also able to color the method's configuration sensitivity. Therefore, the differences of the methods relative performance values over all configurations is calculated by their standard deviation. These different modes are selectable via a drop down menu, which is integrated in the menu bar. To increase comprehensibility while working with this plugin we created an overview area for all modes, containing a list of all marked methods sorted by descending performance. 
 
 %- method level visualisation
 %- different modi
@@ -381,11 +382,11 @@ The Eclipse IDE is a platform for developing in different programming languages.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\textwidth]{images/Exampleflamegraph}
+  \includegraphics[width=0.6\textwidth]{images/Exampleflamegraph}
   \caption{Example Flame Graph.}
   \label{ex_flame_graph}
 \end{figure}
 
-Flame graphs are designed to visualize different non-functional properties (e.g., runtime, heap) of software systems~\cite{Gregg:2016:FG:2927299.2927301}. Flame graphs are usually presented with warm colors, because these visualisation should explain why CPUs were \textit{hot} (busy). Also the flame-like shape support this naming. Initially, they were designed to visualize the sampled stack traces\footnote{A stack trace is a list of method calls represented in a graph structure.} (which can be extracted through Linux perf\_events and DTrace). We adapted the idea of stack-trace-based flame graphs to encode the runtime of methods in flame graphs. Figure~\ref{ex_flame_graph} shows an example flame graph. The y axis encodes the call stack depth and the x axis shows the the time of methods. Each rectangle represents a stack frame (a method), where the width shows the runtime of the method in the profile. The right-to-left ordering is alphabetical. The bottom to top ordering decodes the call flow of the program. For example, function \textit{a()} from Figure~\ref{ex_flame_graph} has called the functions \textit{b()} and \textit{f()}. The top edge (black bar) of the top rectangles shows how much CPU time each has spent. That means, even if the width of \textit{b()} is bigger than the width of \textit{f()}, the latter has spent more time on CPU. With the help of these visualisations we are able to understand a whole profile in one diagram.
+Flame graphs are designed to visualize different non-functional properties (e.g., runtime, heap) of software systems~\cite{Gregg:2016:FG:2927299.2927301}. They are usually presented with warm colors, because these visualisation should explain why CPUs were \textit{hot} (busy). The flame-like shape also supports this naming. Initially, they were designed to visualize the sampled stack traces\footnote{A stack trace is a list of method calls represented in a graph structure.} (which can be extracted through Linux perf\_events and DTrace). We adapted the idea of stack-trace-based flame graphs to encode the runtime of methods in flame graphs. Figure~\ref{ex_flame_graph} shows an example flame graph. The y-axis encodes the call stack depth and the x-axis shows the the time of methods. Each rectangle represents a stack frame (a method), where the width shows the runtime of the method in the profile. The right-to-left ordering is alphabetical. The bottom to top ordering decodes the call flow of the program. For example, function \textit{a()} from Figure~\ref{ex_flame_graph} has called the functions \textit{b()} and \textit{f()}. The top edge (black bar) of the top rectangles shows how much CPU time each has spent. That means, even if the width of \textit{b()} is bigger than the width of \textit{f()}, the latter has spent more time on CPU. With the help of these visualisations we are able to understand a whole profile in one diagram.
 
 % control-flow graph represenation

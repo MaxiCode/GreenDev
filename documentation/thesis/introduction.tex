@@ -6,12 +6,22 @@
 Since the beginning of software engineering, developers try to produce software that performs good. 
 Over the years, software has to run more difficult, complex, and computational-intensive tasks. 
 The used hardware, software, and technology becomes more and more complex.
-Specifically, developers have address non-functional requirements like reliability, security, maintainability, and performance. 
+Specifically, developers have to address non-functional requirements like reliability, security, maintainability, and performance. 
 From these properties, performance has always been among the most important aspects, since performance affects user perception, system efficiency, and energy consumption.
 
-We can view performance from an end user's perspective describing the ability that users can perform a certain task without perceivable delay or without irritation.
-Moreover, we can view performance also from the developer's perspective as a non-functional property to be optimized~\cite{Molyneaux:2009:AAP:1550832}.
-Taking the developers view, we need to ask the question: How can we optimize performance of a configurable software system? There are multiple ways to answer this question. First, we can try to view the system as a black box that produces an output in a certain time (the response time) for a given workload. Finding an optimal configuration to minimize the response time is the main goal from this perspective. Researchers have shown that this perspective is viable and provide different approaches to obtain a black box performance model~\cite{Molyneaux:2009:AAP:1550832,weber2005key,siegmund2015performance,smith1993software}. However, the black-box perspective has one main drawback: we can not pin point performance hot spots or performance bugs related from the configuration to the actual code position. Such kind of analysis requires a white-box perspective, which we will target in this thesis.
+We can view performance from an end user's perspective by describing the ability that users can perform a certain task without perceivable delay or without irritation.
+Moreover, we can view performance also from the developer's perspective as a non-functional property to be optimized (see~\cite{Molyneaux:2009:AAP:1550832}).
+Taking the developers view, we need to ask the question: How can we optimize performance of a configurable software system? There are multiple ways to answer this question. First, we can try to view the system as a black box that produces an output in a certain time (the response time) for a given workload. Finding an optimal configuration to minimize the response time is the main goal from this perspective. Researchers have shown that this perspective is viable and provide different approaches to obtain a black box performance model (see~\cite{Molyneaux:2009:AAP:1550832,weber2005key,siegmund2015performance,smith1993software}). However, the black-box perspective has one main drawback: We can not pin point performance hot-spots or performance bugs related from the configuration to the actual code position. Such kind of analysis requires a white-box perspective, which we will target in this thesis.
+
+
+% A hot spot in computer science is most usually defined as 
+
+% a region of a computer program where a high proportion of executed instructions occur or 
+% where most time is spent during the program's execution 
+
+% (not necessarily the same thing since some instructions are faster than others).
+% are an area of intense activity
+
 
 A key property of our work is that we focus on configurable software systems. 
 Nowadays, almost every software system can be configured by numerous options. 
@@ -19,9 +29,9 @@ This configurability provides the possibility to customize a program's behaviour
 For example, databases typically let users configure the options encryption, compression, cash size, and so forth. 
 While this flexibility improves customizability, it also causes an increased effort during testing, maintenance, and analysis of performance. 
 Not only the size of the configuration space is hard to grasp by users, but also all possible constraints among options make configuring a software systems problematic.
-For instance, a program with more than 217 binary configuration options provides more configurations than atoms in the universe~\citep{krueger2006new}, which make testing and analyzing them impracticable. 
+For instance, a program with more than 217 binary configuration options provides more configurations than atoms in the universe (see~\cite{krueger2006new}), which make testing and analyzing them impracticable. 
 When we consider that there are software projects with more than thousands of options, we can easily imagine that finding a good performing configuration is hard.
-Users often pick default configurations or leave optimization potential untouched~\cite{xu2015hey}.
+Users often pick default configurations or leave optimization potential untouched (see~\cite{xu2015hey}).
 So, a challenge in our work is not only to develop a white-box performance-analysis method for configurable software systems, but also to provide a generalizable method that requires to analyze only few configurations, but is able to generalize for many unseen configurations.
 
 % roughly describe way to detect performance hot spots on function level
@@ -34,28 +44,25 @@ To support the analysis of performance hot spots, we provide a visualization of 
 
 % ------------Approach----------------
 
-To analyze \textit{performance} of a configurable software system, we follow a five step approach:
+To analyze \textit{performance} of a configurable software system, we follow a three step approach:
 
 \begin{enumerate}
-	\item Identification of the whole configuration spaces and determining different workload levels.
 	\item Profiling the execution of the subject system with sampled configurations and different workloads.
-	\item Processing the extracted data to assess performance on method level and to determine the statistical significance of the data.
-	\item Learning a regression model that can predict the performance of each method depending on the given configuration.
+	\item Processing the extracted data to assess performance on method level and learning models that can predict the performance of each method depending on the given configuration.
 	\item Visualizing performance hot-spots directly in the source code and create suitable visualizations of performance dependencies among the whole code base.
 \end{enumerate}
 
 
 % ------------Contribution------------
 
-This thesis is structured as follows:
-First, we give some background knowledge and provide an overview of related work in chapter~\ref{b_rel_work}.
-In section~\ref{perf_measure}, we provide an analysis of available Java profilers.
-Then, we model the subject systems as feature models to define the space of all valid configurations in section~\ref{case_studies} and in appendix~\ref{feature_diagrams}. 
-Next, we provide a detailed analysis of the influence of the environment on performance in section~\ref{discussion}. 
-We present different sampling strategies to substantiate the choice of our sampling method in section~\ref{perf_measure_sampling}. 
-%Then we analyze the learnability of performance on method level influenced by configurations in section~\ref{learnability}. 
-Furthermore, we provide an overview visualization of the influence of configurations on performance in section~\ref{flame_graph}. 
-Finally, we developed an Eclipse plug-in to visualize performance hot-spots directly in the \ac{IDE} in section~\ref{eclipse_plugin}.
+First, we give some background knowledge and provide an overview of related work in Chapter~\ref{b_rel_work}.
+In Chapter~\ref{chap:method}, we present our approach on discovering performance hot-spots, including an analysis of available Java monitoring tools.
+Next, we present our subject systems and define the measurement setup in Chapter~\ref{chap:analysis}. 
+We analyze the learnability of performance at method level influenced by configurations in Section~\ref{results}.
+We discuss the measurement bias that influences the performance analysis in Section~\ref{discussion}. 
+%Then  
+Furthermore, we developed an Eclipse plug-in to visualize performance hot-spots directly in the \ac{IDE} in Section~\ref{eclipse_plugin}.
+Finally, we provide an interactive overview visualization of the performance of methods in Section~\ref{flame_graph}. 
 % direct in source code 
 % provide an overview of performance of configurable software systems
 

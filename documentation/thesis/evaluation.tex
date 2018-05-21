@@ -44,7 +44,7 @@ The main question of this chapter and of this thesis is the following: \emph{Can
 
 
 
-This chapter is organized as follows. Section~\ref{test_env} defines the test environment we used to run our experiments. In section~\ref{subject_systems} we present our subject systems. This includes a general description of each system motivating the selection of these three systems. After that, we present the  results in Section~\ref{results} and answer the research questions in Section~\ref{discussion}. Next, we analyze the sources of measurement bias and discuss how to support a developer in finding performance hot-spots using tailor-made visualizations.
+This chapter is organized as follows: Section~\ref{test_env} defines the test environment we used to run our experiments. In Section~\ref{subject_systems} we present our subject systems. This includes a general description of each system motivating the selection of these three systems. After that, we present the  results in Section~\ref{results} and answer the research questions in Section~\ref{discussion}. Finally, we analyze the sources of measurement bias and discuss how to support a developer in finding performance hot-spots using tailor-made visualizations.
 
 
 \section{Measurement Setup}
@@ -52,7 +52,7 @@ This chapter is organized as follows. Section~\ref{test_env} defines the test en
 
 All experiments were conducted on three dedicated computers, each with an Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz, 32GB DDR4 RAM, and 500 GB SSD. We run Ubuntu 16.04.3 LTS 64 bit with Python 3.5.2 and Java OpenJDK Runtime Environment version 1.8.0\_171. Except from Python and Java, there is no additional software installed which could influence the measurements. 
 
-As already mentioned in Section~\ref{perf_measure_system}, we configured each experiment execution to use one physical CPU core without overclocking. Before the measurements, we execute the \emph{turbo\_boost.sh} script (the script is presented in the appendix~\ref{script_overclocking}). This script searches for all available CPU cores and disables or enables the turbo boost functionality of Intel CPUs with help of the \emph{wrmsr} tool. Each measurement refers to the execution of a single subject system with one specific configuration and one workload. We automated the measurements and data collection using python. An example execution is: \emph{taskset 0x1 python3 profiling\_script\_random.py} which forces the Linux scheduler to keep the called process on the defined CPU. After this, other processes will be assigned to the remaining cores.
+As already mentioned in Section~\ref{perf_measure_system}, we configured each experiment execution to use one physical CPU core without overclocking. Before the measurements, we execute the \texttt{turbo\_boost.sh} script (the script is presented in the Appendix~\ref{script_overclocking}). This script searches for all available CPU cores and disables or enables the turbo boost functionality of Intel CPUs with help of the \texttt{wrmsr} tool. Each measurement refers to the execution of a single subject system with one specific configuration and one workload. We automated the measurements and data collection using python. An example execution is: \texttt{taskset 0x1 python3 profiling\_script\_random.py} which forces the Linux scheduler to keep the called process on the defined CPU. After this, other processes will be assigned to the remaining cores.
 
 %3 times:
 %Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz, 3512 MHz
@@ -72,7 +72,7 @@ As already mentioned in Section~\ref{perf_measure_system}, we configured each ex
 \section{Subject Systems}
 \label{subject_systems}
 
-In the following, we present the subject systems we use in our evaluation. We selected three representative Java projects in order to analyze their performance behaviour and to subsequently find performance hot spots. The subject systems are: \textit{Catena}, password hashing framework; \textit{H2}, SQL database; and \textit{Sunflow}, rendering system for photo-realistic image synthesis. All three systems are \ac{OSS} written in Java. Each of them is a configurable software system with the possibility to customize its workload. 
+In the following, we present the subject systems we use in our evaluation. We selected three representative Java projects in order to analyze their performance behaviour and to subsequently find performance hot spots. These subsystems are the password-hashing framework Catena, the SQL database H2 and Sunflow, a rendering system for photo-realistic image synthesis. All three systems are \ac{OSS} written in Java. Each of them is a configurable software system with the possibility to customize its workload. 
 
 To seek out the configuration space of the subject systems, we followed the guideline provided by \cite{Han:2016:ESP:2961111.2962602}. Because each software system can be implemented and documented in different ways, we had to study all artifacts that are publicly available to users including documentations (e.g., readme files, user manuals, and online help pages), configuration files (e.g., default configuration examples, user manuals), and the source code itself. The ability to search the source code and test files, is another advantage of using \ac{OSS}. After identifying all configuration options, we created the corresponding feature models. We use these feature models to calculate the whole configuration space and to sample a set of configurations for the experiments. Besides the identification of the configuration options, the possible workload of each system must be identified for building a proper benchmark. In the following, we explain each subject system in detail.
 
@@ -103,10 +103,10 @@ To seek out the configuration space of the subject systems, we followed the guid
 \subsection{Catena}
 
 %intro
-Catena is a flexible and provable secure password hashing framework. As a finalist of the \textit{Password Hashing Competition}\footnote{Password Hashing Competition ran from 2013 to 2015 as an open competition to establish a standard in hashing passwords to be secure against attackers (\cite{phc2015}).}, Catena has convinced because of its internal graph-based structure, which brings a huge time-memory tradeoff. With different configuration options, users can tune Catena to consume more time and/or memory to hash passwords. This property prevents that hashes can be massively computed in parallel on clusters of graphics cards, which might be a possible attack scenario. 
+Catena is a flexible and provable secure password-hashing framework. As a finalist of the \textit{Password Hashing Competition}\footnote{Password Hashing Competition ran from 2013 to 2015 as an open competition to establish a standard in hashing passwords to be secure against attackers (\cite{phc2015}).}, Catena has convinced because of its flexibility of the internal graph-based structure (brings a huge time-memory tradeoff). With different configuration options, users can tune Catena to consume more time and/or memory to hash passwords. This property prevents hashes from being computed massively in parallel on clusters of graphics cards, which is a common attack scenario. 
 
 % feature extraction
-The Catena project provides nine versions of the documentation (provided by \cite{catena2014medsec}) as well as with the implementation itself (available on \url{https://github.com/medsec/catena-java}) which contains the implementation of Catena and some default variants. We derive the set of configuration options by searching the documentation files and by analyzing the source code. The result of our analysis represents the feature model in Figure~\ref{fm_catena}.
+The Catena project provides different versions of the documentation (provided by \cite{catena2014medsec}) as well as with the implementation itself (available on \url{https://github.com/medsec/catena-java}) which contains the implementation of Catena and some default variants. We derive the set of configuration options by searching the documentation files and by analyzing the source code. The result of our analysis represents the feature model in Figure~\ref{fm_catena}.
 
 \begin{figure}
   \centering
@@ -115,7 +115,7 @@ The Catena project provides nine versions of the documentation (provided by \cit
   \label{fm_catena}
 \end{figure}
 
-The Catena password hashing framework has eight features, three binary and 5 numerical (numerical features are represented by their name, min value and max value; separated with underscores). This results in a configuration space of \textbf{3,145,728,000} different possibilities (variants) to configure Catenas password hashing mode. We extracted the following features:
+The Catena password-hashing framework has eight features, three binary and 5 numerical (numerical features are represented by their name, min value and max value; separated with underscores) ones. This results in a configuration space of \textbf{3,145,728,000} different possibilities (variants) to configure Catenas password hashing mode. We extracted the following features:
 
 %Project size in Classes and Functions
 %Project properties (SPL Model)
@@ -125,17 +125,17 @@ The Catena password hashing framework has eight features, three binary and 5 num
 %Whole configuration space: 3,145,728,000
 
 \begin{description}[style=multiline,leftmargin=7em]
-	\item [Hash] is a boolean parameter defining the used hash function.
-	\item [Gamma] is a boolean parameter enabling the selection of a salt-dependent memory accesses layer to be resistant against attacks on dedicated hardware (e.g., ASICs\footnote{ASICs are hardware implementations of functions which are specialized to perform exactly a specific task.}).
-	\item [Phi] is a boolean parameter enabling additional security properties\footnote{If Phi is enabled, Catena is resistant against parallel computations of hashes. But Phi has the drawback that Catena becomes vulnerable against other attacks \cite{10.1007/978-3-319-29938-9_7}.}.
-	\item [Graph] defines one out of four different graph structures, which, in turn, defines the amount of necessary memory and time to compute the final hash.
-	\item [Garlic] defines time and memory requirements in a range from 1 to 15.
-	\item [Lambda] defines the depth of the graph in a range from 1 to one 100.
-	\item [VID] decodes the unique version of Catena in a range from 0 to 255.
-	\item [D] is an numerical parameter that is hashed together with other parameters to make up the tweak (increasing the additional computational effort for an adversary) in a range from 0 to two 255.
+	\item [Hash] Boolean parameter defining the used hash function.
+	\item [Gamma] Boolean parameter enabling the selection of a salt-dependent memory accesses layer to be resistant against attacks on dedicated hardware (e.g., ASICs\footnote{ASICs are hardware implementations of functions which are specialized to perform exactly a specific task.}).
+	\item [Phi] Boolean parameter enabling additional security properties\footnote{If Phi is enabled, Catena is resistant against parallel computations of hashes. But Phi has the drawback that Catena becomes vulnerable against other attacks (\cite{10.1007/978-3-319-29938-9_7}).}.
+	\item [Graph] Defines one out of four different graph structures, which, in turn, defines the amount of necessary memory and time to compute the final hash.
+	\item [Garlic] defines time and memory requirements in a range from 0 to 255. We restricted the range from 1 to 15 to have a reasonable execution time.
+	\item [Lambda] Defines the depth of the graph in a range from 1 to one 100.
+	\item [VID] Encodes the unique version of Catena in a range from 0 to 255.
+	\item [D] Numerical parameter that is hashed together with other parameters to make up the tweak (increasing the additional computational effort for an adversary) in a range from 0 to 255.
 \end{description}
 
-To execute Catena, we have to pick a configuration and we have to define a workload. A workload for Catena consists of three parameter: the password to be hashed, an user-defined salt, and the output length of the hash. Table~\ref{wl_catena} presents the three workloads we used. The first workload consists of an empty password string, an empty salt string, and an output length of one. With this workload we tried to minimize the amount of computations Catena has to perform. The second workload is exactly the half in each parameter and the last workload is an example workload we have taken from the Catena test vectors repository\footnote{The Catena test vactore are available on \url{https://github.com/medsec/catena-test-vectors}.}.
+To execute Catena, we have to pick a configuration and we have to define a workload. A workload for Catena consists of three parameters: the password to be hashed, an user-defined salt, and the output length of the hash. Table~\ref{wl_catena} presents the three workloads we used. The first workload consists of an empty password string, an empty salt string, and an output length of one. With this workload we tried to minimize the amount of computations Catena has to perform. The second workload is exactly the half in each parameter and the last workload is an example workload we have taken from the Catena test vectors repository\footnote{The Catena test vectors are available on \url{https://github.com/medsec/catena-test-vectors}.}.
 
 \begin{table}[h]
 % Include Profiling Overhead and Accuracy to table
@@ -180,25 +180,25 @@ The H2 project provides a detailed online documentation\footnote{Documentation o
   \label{fm_h2}
 \end{figure}
 
-We excluded some options, because they does not influence the performance behaviour of the database (e.g., \textit{databaseToUpper} writes database names always in uppercase or \textit{defaultEscape} defines the default escape character) or produce exceptions during execution of the performance tests (e.g., changing the default value of \textit{maxQueryTimeout} causes some queries to not be executed). We extracted the following configuration options:
+We excluded some options, because they do not influence the performance behaviour of the database (e.g., \textit{databaseToUpper} writes database names always in uppercase or \textit{defaultEscape} defines the default escape character) or produce exceptions during execution of the performance tests (e.g., changing the default value of \textit{maxQueryTimeout} causes some queries to not be executed). We extracted the following configuration options:
 
 \begin{description}[style=multiline,leftmargin=11em]
-	\item [Compression] compresses data when stored.
-	\item [EarlyFilter] allows table implementations to apply filter conditions early on.
-	\item [MultiThreaded] enables multi threading.
-	\item [MvStore] enables the use of the MVStore storage engine.
-	\item [OptimizeEvalSubqueries] optimizes subqueries that are independent of the outer query.
-	\item [OptimizeInList] optimizes the \textit{IN(...)} and \textit{IN(SELECT ...)} operations.
-	\item [OptimizeInSelect] optimizes the \textit{IN(SELECT ...)} operation.
-	\item [OptimizeInsertFromSelect] enables insertion into tables from queries directly by passing temporary disc storage.
-	\item [OptimizeIsNull] enables the use of indexing with \textit{IS NULL} checks.
-	\item [OptimizeOr] optimizes the \textit{OR} operation.
-	\item [OptimizeTwoEquals] enables the optimization of the equality check.
-	\item [PageStoreInternalCount] enables updating the internal row counts.
-	\item [RecompileAlways] enables that prepared statements always gets recompiled.
-	\item [RowID] adds the pseudo-column \textit{\_ROWID\_} to each table.
-	\item [AnalyzeAuto] is a number which defines the necessary number of changes of rows in a table before the table gets analyzed.
-	\item [AnalyzeSample] is a number which defines how many samples of a table gets analyzed.
+	\item [Compression] Compresses data when stored.
+	\item [EarlyFilter] Allows table implementations to apply filter conditions early on.
+	\item [MultiThreaded] Enables multi threading.
+	\item [MvStore] Enables the use of the MVStore storage engine.
+	\item [OptimizeEvalSubqueries] Optimizes subqueries that are independent of the outer query.
+	\item [OptimizeInList] Optimizes the \textit{IN(...)} and \textit{IN(SELECT ...)} operations.
+	\item [OptimizeInSelect] Optimizes the \textit{IN(SELECT ...)} operation.
+	\item [OptimizeInsertFromSelect] Enables insertion into tables from queries directly by passing temporary disc storage.
+	\item [OptimizeIsNull] Enables the use of indexing with \textit{IS NULL} checks.
+	\item [OptimizeOr] Optimizes the \textit{OR} operation.
+	\item [OptimizeTwoEquals] Enables the optimization of the equality check.
+	\item [PageStoreInternalCount] Enables updating the internal row counts.
+	\item [RecompileAlways] Enables that prepared statements always gets recompiled.
+	\item [RowID] Adds the pseudo-column \textit{\_ROWID\_} to each table.
+	\item [AnalyzeAuto] Number which defines the necessary number of changes of rows in a table before the table gets analyzed.
+	\item [AnalyzeSample] Number which defines how many samples of a table gets analyzed.
 \end{description}
 
 % workload is the size of the database [10,000; 55,000; 100,000]
@@ -207,9 +207,9 @@ To create a meaningful workload, we vary the size of the data stored in the data
 
 \subsection{Sunflow}
 
-The third subject system is the rendering engine Sunflow. It is an \ac{OSS} written in Java. Sunflow is built around a ray tracing core to create photo-realistic images with the help of many different features such as camera motion blurring, lightmap generation, texture mapping, normal mapping, and other features. 
+The third subject system is the rendering engine Sunflow. It is built around a ray tracing core to create photo-realistic images with the help of many different features such as camera motion blurring, lightmap generation, texture mapping, normal mapping, and other features. 
 
-We analyze the performance of the process of rendering an image. Therefore, Sunflow already provides a benchmark which analyzes the resulting image (by time and by image quality) while modifying different parameters. We extracted all parameter that configure (\textit{DiffuseDepth},\textit{ReflectionDepth}, and \textit{RefractionDepth}) to create the feature model of Sonflow. Moreover, we identified three more parameters (\textit{Threads},\textit{BucketSize}, and \textit{Samples}) that were hard-coded in the source code of the benchmark. Although Sunflow provides additional configuration options for different use cases, we wanted to stick to the process of generating one image by using the standard scene (the cornell box with two tea pods and two glass balls).
+We analyze the performance of the process of rendering an image. Therefore, Sunflow already provides a benchmark which analyzes the resulting image (by time and by image quality) while modifying different parameters. We extracted all parameter that configure (\textit{DiffuseDepth}, \textit{ReflectionDepth}, and \textit{RefractionDepth}) to create the feature model of Sunflow. Moreover, we identified three more parameters (\textit{Threads}, \textit{BucketSize}, and \textit{Samples}) that were hard-coded in the source code of the benchmark. Although Sunflow provides additional configuration options for different use cases, we wanted to stick to the process of generating one image by using the standard scene (the Cornell box with two tea pods and two glass balls).
 
 \begin{figure}
   \centering
@@ -229,25 +229,25 @@ In total, we have a configuration space of 6,400,000 variants. In the following,
 %Whole configuration space: 6,400,000
 
 \begin{description}[style=multiline,leftmargin=11em]
-	\item [DiffuseDepth] controls the maximum depth of diffuse light paths in the scene. 
-	\item [ReflectionDepth] controls the maximum number of reflections a ray can do in the scene.
-	\item [RefractionDepth] controls the maximum number of refractions a ray can do in the scene.
-	\item [Threads] number of threads used for calculating the image in parallel.
-	\item [BucketSize] defines the size of a moving window.
-	\item [Samples] specifies the number of times the scene gets rendered.
+	\item [DiffuseDepth] Controls the maximum depth of diffuse light paths in the scene. 
+	\item [ReflectionDepth] Controls the maximum number of reflections a ray can do in the scene.
+	\item [RefractionDepth] Controls the maximum number of refractions a ray can do in the scene.
+	\item [Threads] Number of threads used for calculating the image in parallel.
+	\item [BucketSize] Defines the size of a moving window.
+	\item [Samples] Specifies the number of times the scene gets rendered.
 \end{description}
 
-As the different levels of workload, we vary the resolution of the generated image (64x64 pixel, 128x128 pixel, and 256x256 pixel).
+As the different levels of workload, we vary the resolution of the generated image (64$\times$64 pixel, 128$\times$128 pixel, and 256$\times$256 pixel).
 
 
-In total we performed 21.000 measurements with each subject system. That is made up of 1000 random sampled configurations, 3 different workloads, and 7 repetitions of the measurement. We parallelepiped the measurements of the three subject systems, but at the end, we measured a total of 21 days for each subject system in parallel. During this time, we collected 100 GB of profiling data. 
+In total we performed 21.000 measurements with each subject system. That is made up of 1000 random sampled configurations, 3 different workloads, and 7 repetitions of the measurement. We parallelize the measurements of the three subject systems, but at the end, we measured a total of 21 days for each subject system in parallel. During this time, we collected 100 GB of profiling data. 
 
 
 \section{Results}
 \label{results}
 % Present raw results and answer RQs
 
-In the following we present the results of this thesis. %We show how much of the performance we were able to describe with our approach. %Subsequently, we analyze the the results with respect their significance.
+%In the following we present the results of this thesis. %We show how much of the performance we were able to describe with our approach. %Subsequently, we analyze the the results with respect their significance.
 
 %Catena wl 
 %0: 50
@@ -286,20 +286,20 @@ In the following we present the results of this thesis. %We show how much of the
 \subsection{Performance-influence Models at Method Level}
 \label{perf_infl_models_m_lvl}
 
-To learn the influence of the individual configuration options on performance, we applied the regression models presented in section~\ref{lin_reg}. Before we start training the model, we check if we have enough data to train and test the model. We learn out models only for methods if we have at least 11 measurements. 
+To learn the influence of the individual configuration options on performance, we applied the regression models presented in Section~\ref{lin_reg}. Before we start training the model, we check if we have enough data to train and test the model. We learn our models only for methods if we have at least 11 measurements. 
 
 \begin{table}[h]
 	\centering % Center table
     \begin{tabular}{*{9}{l}}
 
-        Input (Features + Interactions) & Output (Performance) \\
-        \toprule
+        %Input (Features + Interactions) & Output (Performance) \\
+        
 
-        < $f_1, f_2, f_3, f_4, f_5, f_6, f_7, f_8, f_{1,2}, f_{1,3}, ...$> & perforamcne \\
-       
-        < 0, 0, 1, 0, 10, 36, 144, 48, 0, 0, ... > & 345.75 \\
-		< 0, 0, 1, 0, 11, 1, 144, 35, 0, 0, ... > & 30.1 \\
-		< 0, 0, 1, 0, 12, 25, 213, 200, 0, 0, ... > & 1129.5 \\
+        < $f_1, f_2, ..., f_8, interaction_{f1, f2}, ...$> & performance (ms) \\
+       \toprule
+        < 0, 0, 1, 0, 10, 36, 144, 48, 0, ... > & 345.75 \\
+		< 0, 0, 1, 0, 11, 1, 144, 35, 0, ... > & 30.1 \\
+		< 0, 0, 1, 0, 12, 25, 213, 200, 0, ... > & 1129.5 \\
 		... & ...\\
 
     \end{tabular}
@@ -307,7 +307,7 @@ To learn the influence of the individual configuration options on performance, w
     \label{table:example:inp_outp}
 \end{table}
 
-An example set of input--output vectors is shown in Figure~\ref{table:example:inp_outp}. To build the input vector for our regression models, we encoded the configuration as input, extended this input vector by all pair-wise interactions of the configuration options, and learned the corresponding performance value of the method.
+An example set of input-output vectors is shown in Figure~\ref{table:example:inp_outp}. To build the input vector for our regression models, we encoded the configuration as input ($f_1$ corresponds to configuration option 1), extended this input vector by all pair-wise interactions of the configuration options, and learned the corresponding performance value of the method.
 
 
 \begin{table}[h]
@@ -323,11 +323,11 @@ An example set of input--output vectors is shown in Figure~\ref{table:example:in
         Sunflow & \includegraphics[width=.15\linewidth]{images/resSunflow} & \includegraphics[width=.15\linewidth]{images/resSunflow} & \includegraphics[width=.15\linewidth]{images/resSunflow} \\
 
     \end{tabular}
-    \captionof{table}{Proportion of Learned Performance of \# Methods.}
+    \captionof{table}{Proportion of Learned Performance (\# is the Number of Methods).}
     \label{table:res:learning}
 \end{table}
 
-We trained each method with all regression techniques and assessed their individual prediction accuracy by predicting all configurations in our test set. The result of the training process is shown in Table~\ref{table:res:learning}. This table visualizes the proportion of performance that we have learned (green) with our model, in contrast to the performance that we could not learn (yellow). Each field consists of the number of methods (\#) that together make up the portion of performance. It is noticeable, that we are able to predict half of the performance of each system with each workload even if we can assess the performance of about 95\% of the methods. 
+We train each method with all regression techniques and assessed their individual prediction accuracy by predicting all configurations in our test set. The result of the training process is shown in Table~\ref{table:res:learning}. This table visualizes the proportion of performance that we have learned (green) with our model, in contrast to the performance that we could not learn (yellow). Each field consists of the number of methods (\#) that together make up the portion of performance. It is noticeable, that we are able to predict half of the performance of each system with each workload even if we can assess the performance of about 95\% of the methods. 
 
 \begin{figure}[h]
 	\centering
@@ -356,10 +356,10 @@ We trained each method with all regression techniques and assessed their individ
 	\label{fig:regression_model_error_comparison}
 \end{figure}
 
-An overview of the regression models is presented in Figure~\ref{fig:regression_model_error_comparison}. Here, each boxplot comprises the error of all methods that we tried to learn with the individual regression models. We can see, that the median error of all models over all subject systems is close to zero. We also see that Linear Regression and Ridge Regression as well as Lasso and Elasic Net perform almost equally. But Huber Regression is always better than former regression models. With decision trees, we achieve the best results of prediction performance by configuration. But it is not possible to get the influence of the individual features or interactions with decision trees.
+An overview of the regression models is presented in Figure~\ref{fig:regression_model_error_comparison}. Each boxplot comprises the error of all methods that we tried to learn with the individual regression models. We can see, that the median error of all models over all subject systems is close to zero. We also see that Linear Regression and Ridge Regression as well as Lasso and Elasic Net perform almost equally. However, Huber Regression is always better than former regression models. With decision trees, we achieve the best results of prediction performance by configuration. Nevertheless, it is not possible to get the influence of the individual features or interactions with decision trees.
 
 
-Next, we analyze the errors of the regression techniques that predict the performance of a method. Therefore, we assessed the \acp{MSE} between the predicted and the actual performance values of each method using the test set. We utilized the technique with the smallest error, to have always the best for further evaluation. To provide a better illustrate the error distribution, we split the figures by 10\% prediction error.
+Next, we analyze the errors of the regression techniques that predict the performance of a method. Therefore, we assessed the \acp{MSE} between the predicted and the actual performance values of each method using the test set. We utilized the technique with the smallest error, to have always the best for further evaluation. We split the figures by 10\% prediction error to provide a better illustration of the error distribution.
 
 \begin{figure}[h]
 	\centering
@@ -379,7 +379,7 @@ Next, we analyze the errors of the regression techniques that predict the perfor
 	\label{fig:c_lernability_all_methods}
 \end{figure}
 
-For Catena we had in total 82 methods available for learning. We had to exclude 10 of them from our learning approach, because they got less than 11 times executed under different configurations. The results of learning the influence of the remaining 72 methods are shown in Figure~\ref{fig:c_lernability_all_methods}. In Figure~\ref{fig:catena_model_mse_lern}, we show the 68 methods that we are able to learn with an \ac{MSE} of less than 10\%. Also the 23 methods which are not influenced by any configuration option (presented in Section~\ref{conf_sens} and in Appendix~\ref{app:conf:sens:catena}) belong to those methods. Nevertheless, we were not able to predict the performance of 4 methods, that makes 5.5\% out of all methods available for learning. These methods are presented in Figure~\ref{fig:catena_model_mse_unlern} aligned with an logarithmic \ac{MSE}. Later (in Section~\ref{discussion}), we discuss possible reasons why we could not learn these methods.
+For Catena we had in total 82 methods available for learning. We had to exclude 10 of them from our learning approach, because they were less than 11 times executed under different configurations. The results of learning the influence of the remaining 72 methods are shown in Figure~\ref{fig:c_lernability_all_methods}. In Figure~\ref{fig:catena_model_mse_lern}, we show the 68 methods that we are able to learn with an \ac{MSE} of less than 10\%. Also the 23 methods which are not influenced by any configuration option (presented in Section~\ref{conf_sens} and in Appendix~\ref{app:conf:sens:catena}) belong to those methods. Nevertheless, we were not able to predict the performance of 4 methods, that makes 5.5\% out of all methods available for learning. These methods are presented in Figure~\ref{fig:catena_model_mse_unlern} aligned with an logarithmic \ac{MSE}. Later (in Section~\ref{discussion}), we discuss possible reasons why we could not learn these methods.
 %Catena 10 methods with too less data -> 72
 %67 learnable
 %5 not learned 6.9% of all
@@ -402,7 +402,7 @@ For Catena we had in total 82 methods available for learning. We had to exclude 
 	\label{fig:h_lernability_all_methods}
 \end{figure}
 
-Figure~\ref{fig:h_lernability_all_methods} shows the results of the learning the influence of configuration options of H2. In total, we had 1865 methods available from which we excluded 15 methods because of the lack of data. We were able to predict the performance of 1794 methods, but just like with Catena, we are not able to predict 3.8\% (71) of the methods with an \ac{MSE} of less than 10\%. Figure~\ref{fig:h2_model_mse_unlern} also show that the error of 5 methods increases very strong. 
+Figure~\ref{fig:h_lernability_all_methods} shows the results of the learning the influence of configuration options of H2. In total, we had 1865 methods available from which we excluded 15 methods because of the lack of data. We were able to predict the performance of 1794 methods, but just like with Catena, we are not able to predict 3.8\% (71) of the methods with an \ac{MSE} of less than 10\%. Figure~\ref{fig:h2_model_mse_unlern} also show that the error of 5 methods increases very strongly. 
 
 %H2:
 %- 1865 methods in total
@@ -427,7 +427,7 @@ Figure~\ref{fig:h_lernability_all_methods} shows the results of the learning the
 	\label{fig:s_lernability_all_methods}
 \end{figure}
 
-The results of learning the influence of Sunflow are shown in Figure~\ref{fig:s_lernability_all_methods}. We tried to learn 496 methods (we had to exclude 10 methods) from which we are able to predict 480. Again, we were not able to predict the performance of 26 methods (which are 5.1\%). But in contract to the unlearned methods of Catena and H2, the \ac{MSE} increases nearly linear.
+The results of learning the influence of Sunflow are shown in Figure~\ref{fig:s_lernability_all_methods}. We tried to learn 496 methods (we had to exclude 10 methods) from which we are able to predict 480. Again, we were not able to predict the performance of 26 methods (which are 5.1\%). But in contrast to the unlearned methods of Catena and H2, the \ac{MSE} increases nearly linearly.
 
 %Sunflow:
 %- 506 methods in total
@@ -458,14 +458,14 @@ The results of learning the influence of Sunflow are shown in Figure~\ref{fig:s_
 	\label{fig:c_lernability_all_methods}
 \end{figure}
 
-To evaluate how much of the variance in the data we can explain with out models, we assessed the R squared coefficient of each model for the methods of the subject systems. Figure~\ref{fig:c_lernability_all_methods} shows proportion of the variance in the performance values that is predictable from the configurations. We can see, that the R squared score of the methods of each subject system goes beyond zero. This indicates that, especially with the methods whose score is beyond zero, all regression techniques of our model are not able to explain the performance based on the configuration. Hence, we are not able to predict the performance values of the affected methods. That coincides with our observations of the sum of squared errors (also called: sum of squared residuals) in Figures~\ref{fig:s_lernability_all_methods}, \ref{fig:h_lernability_all_methods}, and \ref{fig:c_lernability_all_methods}.
+To evaluate how much of the variance in the data we can explain with our models, we assessed the R squared coefficient of each model for the methods of the subject systems. Figure~\ref{fig:c_lernability_all_methods} shows proportion of the variance in the performance values that is predictable from the configurations. We can see that the R squared score of the methods of each subject system goes beyond zero. This indicates that, especially with the methods whose score is beyond zero, all regression techniques of our model are not able to explain the performance based on the configuration. Hence, we are not able to predict the performance values of the affected methods. That coincides with our observations of the sum of squared errors in Figures~\ref{fig:s_lernability_all_methods}, \ref{fig:h_lernability_all_methods}, and \ref{fig:c_lernability_all_methods}.
 
 
 
 \subsection{Configuration Sensitivity}
 \label{conf_sens}
 
-To assess the sensitivity of each individual method regarding the chosen configuration of the respective configurable software system, we calculated the difference in the performance values of the methods over each configuration. To this end, we calculated the standard deviation of the performance values to get the amount of variation of the performance of each method depending on the configurations. Then, we divided the standard deviation by the mean to calculate the \ac{CV}\footnote{\ac{CV} is also known as the relative standard deviation, which describes the ration of standard deviation to the mean. Values above 1 does have a high variance, which describes in our case a high configuration sensitivity}.
+To assess the sensitivity of each individual method regarding the chosen configuration of the respective configurable software system, we calculated the difference in the performance values of the methods over each configuration. To this end, we calculate the standard deviation of the performance values to get the amount of variation of the performance of each method depending on the configurations. Then, we divide the standard deviation by the mean to calculate the \ac{CV}\footnote{\ac{CV} is also known as the relative standard deviation, which describes the ration of standard deviation to the mean. Values above 1 have a high variance, which describes in our case a high configuration sensitivity}.
 
 \begin{figure}[h]
 	\centering
@@ -481,14 +481,12 @@ To assess the sensitivity of each individual method regarding the chosen configu
 	  \caption{Whole Distribution}
 	  \label{fig:c_conf_sens_on_method:sub2}
 	\end{subfigure}
-	\caption{Catena - Coefficient of Variation in Configuration Sensitivity of Methods (\#82).}
+	\caption{Catena - Coefficient of Variation in Configuration Sensitivity of Methods (82).}
 	\label{fig:c_conf_sens_on_method}
 \end{figure}
 
 
-Distribution of the relative standard deviations for each configuration of a specific workload.
-
-We summarize the configuration sensitivity of the methods of Catena in Figure~\ref{fig:c_conf_sens_on_method}. The Subfigure~\ref{fig:c_conf_sens_on_method:sub1} shows the distribution of the \ac{CV}-values of all methods as a box plot with outliers. Subfigure~\ref{fig:c_conf_sens_on_method:sub2} marks the \ac{CV}-value of 1 (the green line). This value divides all methods into a configuration insensitive (below) area and configuration sensitive (above) area. We can see that there is a great difference in the configuration sensitivity of the different methods. Most methods are weak sensitive, but there are some methods which are heavily sensitive to different configuration options. That is, we observe that more than half of the methods' performance changes depending on the chosen configuration. 
+We summarize the configuration sensitivity of the methods of Catena in Figure~\ref{fig:c_conf_sens_on_method}. The Subfigure~\ref{fig:c_conf_sens_on_method:sub1} shows the distribution of the \ac{CV}-values of all methods as a box plot with outliers. Subfigure~\ref{fig:c_conf_sens_on_method:sub2} marks the \ac{CV}-value of 1 (the green line). This value divides all methods into a configuration insensitive (below) area and configuration sensitive (above) area. We can see that there is a great difference in the configuration sensitivity of the different methods. Most methods are weakly sensitive, but there are some methods which are heavily sensitive to different configuration options. That is, we observe that more than half of the methods' performance changes depending on the chosen configuration. 
 
 \begin{figure}[h]
 	\centering
@@ -504,11 +502,11 @@ We summarize the configuration sensitivity of the methods of Catena in Figure~\r
 	  \caption{Whole Distribution}
 	  \label{fig:h_conf_sens_on_method:sub2}
 	\end{subfigure}
-	\caption{H2 -- Coefficient of Variation in Configuration Sensitivity of Methods (\#1865).}
+	\caption{H2 -- Coefficient of Variation in Configuration Sensitivity of Methods (1865).}
 	\label{fig:h_conf_sens_on_method}
 \end{figure}
 
-The Figures~\ref{fig:h_conf_sens_on_method:sub1} and~\ref{fig:h_conf_sens_on_method:sub2} show the configuration sensitivity of the H2 database engine. We investigated the 1850 methods that are executed during the test cases. We observe, that about half of the methods are weak sensitive to different configurations, which is shown by the height of the mean in the box plot and the \ac{CV}-marker line. For the remaining methods, the sensitivity increases rapidly until they plateau, where around 250 methods does have the same sensitivity. 
+Figure~\ref{fig:h_conf_sens_on_method} show the configuration sensitivity of the H2 database engine. We investigated the 1850 methods that are executed during the test cases. We observe that about half of the methods are weakly sensitive to different configurations, which is shown by the height of the mean in the box plot and the \ac{CV}-marker line. For the remaining methods, the sensitivity increases rapidly until they plateau, where around 250 methods have the same sensitivity. 
 
 \begin{figure}[h]
 	\centering
@@ -524,18 +522,18 @@ The Figures~\ref{fig:h_conf_sens_on_method:sub1} and~\ref{fig:h_conf_sens_on_met
 	  \caption{Whole Distribution}
 	  \label{fig:s_conf_sens_on_method:sub2}
 	\end{subfigure}
-	\caption{Sunflow -- Coefficient of Variation in Configuration Sensitivity of Methods (\#506).}
+	\caption{Sunflow -- Coefficient of Variation in Configuration Sensitivity of Methods (506).}
 	\label{fig:s_conf_sens_on_method}
 \end{figure}
 
-The configuration sensitivity of the methods of the rendering engine Sunflow is shown in the Figures~\ref{fig:s_conf_sens_on_method:sub1} and~\ref{fig:s_conf_sens_on_method:sub2}. Again, half of the methods are insensitive to the chosen configuration. Furthermore, the sensitivity increases rapidly until a plateau with the highest sensitivity. The difference to H2 is that there are less methods with no sensitivity, but more methods that are weak sensitive.
+The configuration sensitivity of the methods of the rendering engine Sunflow is shown in Figure~\ref{fig:s_conf_sens_on_method}. Again, half of the methods are insensitive to the chosen configuration. Furthermore, the sensitivity increases rapidly until a plateau with the highest sensitivity. The difference to H2 is that there are less methods with no sensitivity, but more methods that are weak sensitive.
 
 
 
 \subsection{External Measurement Influence}
 \label{ext_measurement_infl}
 
-External influences such as the garbage collector or operating-system processes can substantially influence the reliability of our fine-grained performance measurements. Remember that we measure at method level with a resolution within milliseconds. For example, a context switch in the operating system can lead to severe measurement bias. Hence, we restricted possible sources of non-determinism to reduce their influence (fixed the hardware setup and minimal amount of installed software. To further quantify the remaining influence of measurement bias, we repeated each test case 7 times.
+External influences such as the garbage collector or operating-system processes can substantially influence the reliability of our fine-grained performance measurements. Remember that we measure at method level with a resolution within milliseconds. For example, a context switch in the operating system can lead to severe measurement bias. Hence, we restricted possible sources of non-determinism to reduce their influence (fixed the hardware setup and minimal amount of installed software). To further quantify the remaining influence of measurement bias, we repeated each test case 7 times.
 
 \begin{figure}[h]
   \centering
@@ -553,7 +551,7 @@ Figure~\ref{box_measure_infl_catena} shows the standard deviation of Catena for 
   \label{box_measure_infl_h2}
 \end{figure}
 
-For H2, the picture changes. Figure~\ref{box_measure_infl_h2} shows that there is a difference in the variance of the standard deviations depending on the used workload. The variance of the standard deviations is the biggest with the fist workload, the lowest with the second workload. We believe that with increasing runtime the relative influence of measurement bias decreases. For example, JIT compilation should have the highest influence at the start of the program and the longer the program runs, the smaller is the relative influence on the overall runtime.
+For H2, the picture changes. Figure~\ref{box_measure_infl_h2} shows that there is a difference in the variance of the standard deviations depending on the used workload. The variance of the standard deviations is the biggest with the first workload, the lowest with the second workload. We believe that with increasing runtime the relative influence of measurement bias decreases. For example, JIT compilation should have the highest influence at the start of the program and the longer the program runs, the smaller is the relative influence on the overall runtime.
 
 \begin{figure}[h]
   \centering
@@ -586,14 +584,14 @@ Analyzing the measurement bias shows that there is a proportion of non-determini
 \rqparagraph{\ref{rq:perf_infl_model} \textit{How accurate are performance-influence models at method level learned by different techniques?}}
 
 % fraction of learned performance? what have we learned?
-In order to answer \ref{rq:perf_infl_model} we learned the influence of configuration options of three software systems for each of their methods. Therefore, we created a dataset, which combines each configuration option and each pair-wise combination of these options as independent variables and the performance of each method as dependent variable. We utilize different regression techniques to model the performance of each method. By picking the best regression technique per method, we are able to learn the performance of about 95\% of the methods. For about 5\% of the methods (Catena: 5.5\%, H2: 3.8\%, and Sunflow: 5.1\%), our model was not able to predict within an acceptable precision. 
+In order to answer \ref{rq:perf_infl_model} we learned the influence of configuration options of three software systems for each of their methods. We created a dataset, which combines each configuration option and each pair-wise combination of these options as independent variables and the performance of each method as dependent variable. We utilize different regression techniques to model the performance of each method. By picking the best regression technique per method, we are able to learn the performance of about 95\% of the methods. For about 5\% of the methods (Catena: 5.5\%, H2: 3.8\%, and Sunflow: 5.1\%), our model was not able to predict within an acceptable precision. 
 But it is noticeable that, while successfully learning the performance-influence models of 95\% of the methods, we are only able to explain half of the performance of each system. To this end, we identified the performance hot-spots of the three subject systems: These 5\% of methods that we could not learn with our model are also those, which together unite half of the performance. 
 
 
 % reconciliation - überleitung
 \rqparagraph{\ref{rq:learning influence} \textit{What influences the learning of performance-influence models?}}
 
-For each subject system, we were not able to learn the performance of about 5\% of the methods. \ref{rq:learning influence} will explain possible sources that influence the learning process. Therefore, we investigate the methods of Catena (overview in Table~\ref{tbl:unlearnable_methods_catena}) which we are unable to learn. 
+For each subject system, we were not able to learn the performance of about 5\% of the methods. \ref{rq:learning influence} will explain possible sources that influence the learning process. Therefore, we investigate the methods of Catena which we are unable to learn. 
 
 Table~\ref{tbl:unlearnable_methods_catena} presents the five methods which are above our error threshold (also presented in Figure~\ref{fig:catena_model_mse_unlern}). We investigate those methods because 
 
@@ -620,9 +618,9 @@ Table~\ref{tbl:unlearnable_methods_catena} presents the five methods which are a
 We suspect three different reasons:
 
 \begin{enumerate}
-	\item The \ac{GC} activity might be the first source of non-deterministic behaviour. During our measurements, we did not log the \ac{GC} activity during the measurements, but while examining the problematic methods of Catena (presented in the Appendix~\ref{app_c_dbg} -- \ref{app_c_salt}), we found out that in three out of the four methods the command \texttt{System.arraycopy(...);} which frees in each iteration of the surrounding loop a bunch of memory. In case of the DoubleButterflyGraph this command is nested in two loops which might be a reason for the high prediction error. 
-	\item The next reason might be that our model is too weak for those methods. We utilized only individual features and their pair-wise interactions. Those methods might be affected by higher-order interactions. Another possibility is that the model have not learned that some features deactivate the execution of some methods. But at least the decision tree regression should be able to identify this behaviour. However, this leads us to the third possible reason.
-	\item The third reason might be that we have too few data. The Graph feature for example decides between 4 different graphs, that are implemented by default in Catena. The DoubleButterflyGraph is one of them and the GenericGraph represents with its three different indexing mechanisms the other three graphs. Therefore, we have only about 250 configurations (1000 random sampled configurations divided by 4 different graphs) in which the DoubleButterflyGraph is selected. This might be not enough.
+	\item The \ac{GC} activity might be the first source of non-deterministic behaviour. During our measurements, we did not log the \ac{GC} activity during the measurements, but while examining the problematic methods of Catena (presented in the Appendix~\ref{app_c_dbg} -- \ref{app_c_salt}), we found out that in three out of the four methods the command \texttt{System.arraycopy(...);} is involved. It frees in each iteration of the surrounding loop a bunch of memory. In case of the DoubleButterflyGraph this command is nested in two loops which might be a reason for the high prediction error. 
+	\item The next reason might be that our model is too weak for those methods. We utilized only individual features and their pair-wise interactions. Those methods might be affected by higher-order interactions. Another possibility is that the models have not learned that some features deactivate the execution of some methods. But at least the decision tree regression should be able to identify this behaviour. However, this leads us to the third possible reason.
+	\item The third reason might be that we have too few data. The Graph feature for example decides between 4 different graphs, that are implemented by default in Catena. The DoubleButterflyGraph is one of them and the GenericGraph represents the other three graphs with its three different indexing mechanisms. Therefore, we have only about 250 configurations (1000 randomly sampled configurations divided by 4 different graphs) in which the DoubleButterflyGraph is selected. This might be not enough.
 \end{enumerate}
 
 %\ref{app_c_salt}
@@ -658,11 +656,11 @@ We suspect three different reasons:
 
 \rqparagraph{\ref{rq:sensitivity} \textit{To which degree is the performance of individual methods sensitive to the used configuration?}}
 
-To answer this question, we considered each subject system individually. Catena has 82 methods in total, 23 (28\%) of them (listed in Appendix~\ref{app:conf:sens:catena}) are not influenced by any configuration option. That may come from the accuracy (1 ms) during measuring the performance of the systems. But even if we had used another monitoring tool with a higher precision, the influence would remain very low. Furthermore, we identified 5 (6\%) methods (listed in Appendix~\ref{app:conf:sens:catena}) with the highest relative standard deviation. These methods are strongly influenced by the choice of configuration options. Also, the methods of the subject systems H2 and Sunflow differ in their sensitivity to configurations. With H2, we analyzed 1865 methods in total, 673 (37\%) of them are not influenced, about 296 (15\%) are weak influenced but the remaining 896 (48\%) methods are highly influenced by configuration options. A similar distribution also applies to Sunflow. Here, 82 (16\%) out of 506 methods are not influenced by any configuration options and 165 (32\%) methods are weak influenced, which corresponds to 48\% of all methods. The other methods (52\%) are strong influenced. Finally, we can conclude that about half of the methods are not related to configuration options with respect to a relevant performance behaviour and that those methods, which are most sensitive to configurations are also the same which we could not learn with our performance influence model -- the performance hot-spots. 
+To answer this question, we considered each subject system individually. Catena has 82 methods in total, 23 (28\%) of them (listed in Appendix~\ref{app:conf:sens:catena}) are not influenced by any configuration option. This may come from the accuracy (1 ms) during measuring the performance of the systems. But even if we had used another monitoring tool with a higher precision, the influence would remain very low. Furthermore, we identified 5 (6\%) methods (listed in Appendix~\ref{app:conf:sens:catena}) with the highest relative standard deviation. These methods are strongly influenced by the choice of configuration options. Also, the methods of the subject systems H2 and Sunflow differ in their sensitivity to configurations. With H2, we analyzed 1865 methods in total, 673 (37\%) of them are not influenced, about 296 (15\%) are weakly influenced but the remaining 896 (48\%) methods are highly influenced by configuration options. A similar distribution also applies to Sunflow. Here, 82 (16\%) out of 506 methods are not influenced by any configuration options and 165 (32\%) methods are weakly influenced, which corresponds to 48\% of all methods. The other methods (52\%) are strongly influenced. Finally, we can conclude that about half of the methods are not related to configuration options with respect to a relevant performance behaviour and that those methods, which are most sensitive to configurations are also the same which we could not learn with our performance influence model -- the performance hot-spots. 
 
 \todo{Kreisdiagramme hier hin - prozente abbilden}
 
-The analysis of the configuration sensitivity of methods helps identifying relevant methods that are influenced by configuration options. To this end, in future analysis, we can concentrate our approach to this methods that are strong influenced. Methods that are not influenced by any option can be measured once, to know their performance, so we can reduce measurement effort explicitly. With the coefficient of variation as estimator for configuration sensitivity we know also how sensitive the methods to configurations are. When the mean value is close to zero, the coefficient of variation will approach infinity and is therefore sensitive to small changes in the mean.
+The analysis of the configuration sensitivity of methods helps identifying relevant methods that are influenced by configuration options. To this end, in future analysis, we can concentrate our approach to this methods that are strong influenced. Methods that are not influenced by any option can be measured once, to know their performance, so we can reduce measurement effort explicitly. With the coefficient of variation as estimator for configuration sensitivity we also know how sensitive the methods to configurations are. When the mean value is close to zero, the coefficient of variation will approach infinity and is therefore sensitive to small changes in the mean.
 
 %Because of random sampling, we know that the higher the coefficient gets, the lower hast to be the mean and the higher the standard deviation. That means, that less configuration options must have an influence on this method, so, also less interactions are .
 
@@ -671,19 +669,19 @@ The analysis of the configuration sensitivity of methods helps identifying relev
 \rqparagraph{\ref{rq:external_influence} \textit{How severe are external influences on performance measurements for identifying hot-spots in the source code?}}
 The mean external influence on our measurements is below five percent for all subject systems and workloads except for the H2 database engine. This high variance in the measurements of H2 with workload 1 might lead to difficulties when learning an performance-influence model. Sunflow as well as Catena reached a mean variance of 2.4\% (Catena with increased \textit{Garlic} even 1.7\%) for their measurements with the third workload.
 
-The variance of the input sensitivity of Catena does not change significantly, because we defined the workload as the length of the input that is to be hashed. Since Cantena's hash function has a standard output length, the workload inside Catena is always the same. With Sunflow, the variation of the measured performance decreases with increasing workload, which means that the measurement of performance stabilizes with increasing runtime. So Sunflow and H2 are both sensitive to different workloads (with our definition of workloads).
+The variance of the input sensitivity of Catena does not change, because we defined the workload as the length of the input that is to be hashed. Since Cantena's hash function has a standard output length, the workload inside Catena is always the same. With Sunflow, the variation of the measured performance decreases with increasing workload, which means that the measurement of performance stabilizes with increasing runtime. So Sunflow and H2 are both sensitive to different workloads.
 
 \rqparagraph{\ref{rq:what_influences} \textit{What external influences exist that bias our measurements?}}
 
-The list of external influences includes all possible sources of non-determinism that bias our measurements. During our measurements we fixed the test setup to exclude the hardware that we used. We also fixed the hyper treading and the over clocking of the CPU. A part of the measurement influence might come from the \ac{OS} and other installed software because it runs simultaneously with our measurements. The load balancing module of the Intel processor forces concurrent processes to run on the other CPUs, but all processes still use the same memory. 
-We think, that a big portion of the influence is Java specific. The \ac{JIT} does have an influence on short running experiments. The \ac{GC} however, is called by the \ac{JVM} and stops the program execution to free memory. 
+The list of external influences includes all possible sources of non-determinism that bias our measurements. During our measurements we fixed the test setup to exclude the hardware that we used. We also fixed the hyper-treading and the over clocking of the CPU. A part of the measurement influence might come from the \ac{OS} and other installed software because it runs simultaneously with our measurements. The load balancing module of the Intel processor forces concurrent processes to run on the other CPUs, but all processes still use the same memory. 
+We think that a big portion of the influence is Java-specific. The \ac{JIT} does have an influence on short running experiments. The \ac{GC} however, is called by the \ac{JVM} and stops the program execution to free memory. 
 %In theory, we can log the \ac{GC} activity 
 
 
 
-\rqparagraph{\ref{rq:ext_inf_sensitivity} \textit{Are the external influences workload sensitive?}}
+\rqparagraph{\ref{rq:ext_inf_sensitivity} \textit{Are the external influences workload-sensitive?}}
 
-As we showed in Section~\ref{ext_measurement_infl}, the portion of the measurement bias tends to decrease with increasing runtime. The workload usually controls overall runtime. If the runtime increases, the measurement bias seems to reduce. However, with the database engine H2, the measurement bias increases again with the third workload, which indicates, that the measurement bias does behave differently for different software systems.
+As we showed in Section~\ref{ext_measurement_infl}, the portion of the measurement bias tends to decrease with increasing runtime. The workload usually controls overall runtime. If the runtime increases, the measurement bias seems to reduce. However, with the database engine H2, the measurement bias increases again with the third workload, which indicates that the measurement bias does behave differently for different software systems.
 But to sum up we can confirm that the external influences are sensitive to changing workloads.
 
 
@@ -705,36 +703,37 @@ To be able to understand possible performance hot spots of software systems, we 
 \subsection{Eclipse Marker Plugin}
 \label{eclipse_plugin}
 
-The first tool we want to present is an Eclipse plugin for showing results of the performance analysis approach. The plugin provides the possibility to color each method of the open project. Therefore we assign each method a value between 0 and 1, which mappes then to a color range of nine different colors (from red to green). Our plugin provides different modi which performance metric to show from the project. We provide:
+The first tool we want to present is an Eclipse plugin for showing results of the performance analysis approach. The plugin provides the possibility to color each method of the open project. Therefore we assign each method a value between 0 and 1, which maps then to a color range (from red to green). Our plugin provides different modes which performance metric to show from the project. We provide:
 \begin{itemize}
-	\item The relative performance of each method of one defined configuration. All methods are mapped relative to method with the highest runtime, which gets the value of 1 (red).
+	\item The relative performance of each method of one defined configuration. All methods are mapped relative to the method with the highest runtime, which gets the value of 1 (red).
 	\item The mean value of each method over all configurations (see Figure~\ref{plugin_2}). Provides an overview of the mean performance.
-	\item Maximum value of all Configurations (see Figure~\ref{plugin_1}). Here, each method gets its color according to its worst performance in all measured configurations.
-	\item Configuration sensitivity of all methods. Is provided by the standard deviation of the performance of each individual method.
+	\item Maximum value of all configurations (see Figure~\ref{plugin_1}). Here, each method gets its color according to its worst performance in all measured configurations.
+	\item Configuration sensitivity of all methods is provided by the standard deviation of the performance of each individual method.
 \end{itemize}
 
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{images/eclipse2}
-  \caption{Eclipse Marker Plugin -- Mean over all Configurations.}
+  \caption{Eclipse Marker Plugin -- Mean Over all Configurations.}
   \label{plugin_2}
 \end{figure}
 
 
-The plugin integrated itself into the IDE if the Java perspective is active. It provides a menu for seleting the different modi and an overview area of all colored methodes in the bottom right area of the IDE. In the overview, the methods are sorted in descending order by the performance value. Each line consists of the performance value and the fully qualified name of the method. By double-clicking on a line the corresponding class opens in the main window and scrolls to the clicked method. 
+The plugin integrates itself into the IDE if the Java perspective is active. It provides a menu for seleting the different modes and an overview area of all colored methodes in the bottom right area of the IDE. In the overview, the methods are sorted in descending order by the performance value. Each line consists of the performance value and the fully qualified name of the method. By double-clicking on a line the corresponding class opens in the main window and scrolls to the clicked method. 
 
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{images/eclipse1}
-  \caption{Eclipse Marker Plugin -- Maximum Value over all Configurations.}
+  \caption{Eclipse Marker Plugin -- Maximum value Over all Configurations.}
   \label{plugin_1}
 \end{figure}
 
 
-Together with a developer of Catena we investigated its performance hot-spots. He confirmed, that there the graphs as well as the flap-method are known as the parts of Catena which consumes most of the performance. 
-There are some things still to develop to use this plugin efficiently. Currently it only reads preprocessed data from a database. In the future it would be helpful to automate the process of identifying performance hot-spots with our approach and saving the results such that the plugin can use the information directly. This process needs some manual steps till now.
+Together with a developer of Catena we investigated its performance hot-spots. He confirmed that the graphs as well as the flap-method are known as the parts of Catena which are performance critical. 
+
+There are some things still to develop to use this plugin efficiently. Currently it only reads preprocessed data from a database. In the future it would be helpful to automate the process of identifying performance hot-spots with our approach and saving the results such that the plugin can use the information directly.
 
 
 % structure and functionality (maybe example use case - what is better with this tool in comparison to others)
@@ -743,7 +742,7 @@ There are some things still to develop to use this plugin efficiently. Currently
 \subsection{Flame Graphs}
 \label{flame_graph}
 
-The second analyse tool we used to present performance of configurable software systems. We used the D3.js plugin\footnote{Available at GitHub: \url{https://github.com/spiermar/d3-flame-graph}.} developed by a Netflix performance engineer. 
+Flame Graphs are the second analysis tool we used to present performance of configurable software systems. We used the D3.js plugin\footnote{Available at GitHub: \url{https://github.com/spiermar/d3-flame-graph}.} developed by a Netflix performance engineer. 
 
 \begin{figure}[h]
   \centering
@@ -752,7 +751,7 @@ The second analyse tool we used to present performance of configurable software 
   \label{flame_1}
 \end{figure}
 
-In Figure~\ref{flame_1} we show the performance distribution of the methods of one configuration. This example shows the performance of each method of its mean execution time. In this example, we clicked on the DoubleButterflyGraph to zoom in and present the methods performance with the whole width of the visualisation. So we can see, that with this specific configuration the most execution time of Catena is consumed by the DoubleButterflyGraph, but also a lot of performance by the compression() and the doFinal() method of Blake2b\_1. With this visualisation, we have the possibility to investigate all methods in relation the their performance of other methods. 
+In Figure~\ref{flame_1} we show the performance distribution of the methods of one configuration. This example shows the performance of each method of its mean execution time. In this example, we clicked on the DoubleButterflyGraph to zoom in and present the methods performance with the whole width of the visualisation. Thus, we can see that with this specific configuration the most execution time of Catena is consumed by the DoubleButterflyGraph, but also a lot of performance by the \texttt{compression()} and the \texttt{doFinal()} method of Blake2b\_1. With this visualisation, we have the possibility to investigate all methods in relation the their performance of other methods. 
 
 %Flame graph overview / idea, intention, usage scenario
 %discussion of usage scenarios
@@ -763,17 +762,15 @@ In Figure~\ref{flame_1} we show the performance distribution of the methods of o
 \section{Threads to Validity}
 \label{validity}
 
-In this section we discuss the relevant threads to validity of our approach.
-
 
 \subsection{Internal Validity}
 
 %Which methodes and analyse metrics
 
 
-For identifying variants of our subject systems, we used only random sampling in each dimension. Other sampling strategies, specialize to binary or numerical features, lead to another set of samples. It might be that with such strategies, we were able to detect other pattern in the performance data. There are methods in our set of measurements that are biased by more than 20\% by external influences. These methods might introduce a learning bias into our model. In the future, we should analyze the reason for that measurement bias and probably exclude them from our further analysis. The \ac{JIP} measures the execution time of methods with millisecond accuracy. There are profiler like Kieker and SPASSmether that measure within microseconds. This would refine our measurement accuracy by factor 1000. Another thread might be that we only consider pairwise interactions. There are research which proves that there is a number of interactions among three features that influences performance. It might be that this finding also applies on method level. To model different use cases of software, we varied the workloads of our subject systems. But analyzing a databases workload in a real scenario, requires more different workloads and other test scenarios like stress tests or in a client server scenario, other non-functional properties.
+For identifying variants of our subject systems, we used only random sampling in each dimension. There are other sampling strategies that are specialized to sample binary or numerical features. It might be that with such strategies, we were able to detect other pattern in the performance data. There are methods in our set of measurements that are biased by more than 20\% by external influences. These methods might introduce a learning bias into our model. In the future, we should analyze the reason for that measurement bias and probably exclude them from our further analysis. The \ac{JIP} measures the execution time of methods with millisecond accuracy. There are profilers like Kieker and SPASSmeter that measure within microseconds. This would refine our measurement accuracy by factor 1000. Another issue might be that we only consider pairwise interactions. \cite{siegmund2012predicting} proves that there might be a number of interactions among three features that could improve performance. It might be that this finding also applies on method level. To model different use cases of software, we varied the workloads of our subject systems. But analyzing a databases workload in a real scenario, requires more different workloads and other test scenarios like stress tests or in a client server scenario, other non-functional properties.
 
 
 \subsection{External Validity}
 
-To achieve a reasonable external validity we used configurable software systems of different application areas (hashing, raytracing, and database) which uses different configuration mechanisms. But to generalize or findings, software systems from other application areas (like flow simulation or even server software) should be analyzed as well. Furthermore, we only used Java-based software systems. It may be that or results are not generalizable to projects that are written in other languages or to commercial software. 
+To achieve a reasonable external validity we used configurable software systems of different application areas (hashing, raytracing, and database) which uses different configuration mechanisms. But to generalize our findings, software systems from other application areas (like flow simulation or even server software) should be analyzed as well. Furthermore, we only used Java-based software systems. It may be that or results are not generalizable to projects that are written in other languages. 
